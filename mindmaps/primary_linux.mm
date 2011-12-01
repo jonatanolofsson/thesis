@@ -1,0 +1,21 @@
+<map version="0.9.0">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1321825990341" ID="ID_1803379041" MODIFIED="1321826006506" TEXT="Primary linux platform">
+<node CREATED="1321826009736" ID="ID_382968572" MODIFIED="1321826015666" POSITION="right" TEXT="Control">
+<node CREATED="1321826097865" ID="ID_365248910" MODIFIED="1321826107672" TEXT="Dynamic or scheduled LQ"/>
+<node CREATED="1321834142972" ID="ID_1803218103" MODIFIED="1321834151003" TEXT="Reference selection and generation">
+<node CREATED="1321834891346" ID="ID_340985634" MODIFIED="1321834891752" TEXT="Operation modes">
+<node CREATED="1321834171992" ID="ID_332882149" MODIFIED="1321834204286" TEXT="Conditions for transition"/>
+</node>
+</node>
+</node>
+<node CREATED="1321826018140" ID="ID_1865044356" MODIFIED="1321826022645" POSITION="left" TEXT="Sensor fusion">
+<node CREATED="1321826023643" ID="ID_1780476107" MODIFIED="1321826025160" TEXT="UKF">
+<node CREATED="1321826028461" ID="ID_63681816" MODIFIED="1321826032613" TEXT="Dynamic model">
+<node CREATED="1321826036911" ID="ID_781399858" MODIFIED="1321826094428" TEXT="Moment of inertia tensor"/>
+</node>
+</node>
+</node>
+<node CREATED="1321826139742" ID="ID_34304641" MODIFIED="1321834895860" POSITION="right" TEXT="Network communication"/>
+</node>
+</map>

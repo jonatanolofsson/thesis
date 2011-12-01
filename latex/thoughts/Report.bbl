@@ -1,0 +1,118 @@
+\begin{thebibliography}{10}
+
+\bibitem{DM:MS:10}
+D.~Mellinger, M.~Shomin, and V.~Kumar.
+\newblock Control of quadrotors for robust perching and landing.
+\newblock In {\em Proceedings of the International Powered Lift Conference},
+  Oct 2010.
+
+\bibitem{brockers:803111}
+Roland Brockers, Patrick Bouffard, Jeremy Ma, Larry Matthies, and Claire
+  Tomlin.
+\newblock Autonomous landing and ingress of micro-air-vehicles in urban
+  environments based on monocular vision.
+\newblock volume 8031, page 803111. SPIE, 2011.
+
+\bibitem{DBLP:conf/icra/BloschWSS10}
+Michael Bl{\"o}sch, Stephan Weiss, Davide Scaramuzza, and Roland Siegwart.
+\newblock Vision based mav navigation in unknown and unstructured environments.
+\newblock In {\em ICRA\/} \cite{DBLP:conf/icra/2010}, pages 21--28.
+
+\bibitem{weiss11monocular}
+S~Weiss, D~Scaramuzza, and R~Siegwart.
+\newblock Monocular-slam–based navigation for autonomous micro helicopters in
+  gps-denied environments.
+\newblock {\em Journal of Field Robotics}, 28(6):854--874, 2011.
+
+\bibitem{klein07parallel}
+Georg Klein and David Murray.
+\newblock Parallel tracking and mapping for small {AR} workspaces.
+\newblock In {\em Proc. Sixth {IEEE} and {ACM} International Symposium on Mixed
+  and Augmented Reality {(ISMAR'07)}}, Nara, Japan, November 2007.
+
+\bibitem{Karlsson05thevslam}
+Niklas Karlsson, Enrico~Di Bernardo, Jim Ostrowski, Luis Goncalves, Paolo
+  Pirjanian, and Mario~E. Munich.
+\newblock The vslam algorithm for robust localization and mapping.
+\newblock In {\em In Proc. of Int. Conf. on Robotics and Automation (ICRA},
+  pages 24--29, 2005.
+
+\bibitem{vandermerwe:upf}
+Rudolph van~der Merwe, Arnaud Doucet, Nando de~Freitas, and Eric~A. Wan.
+\newblock The unscented particle filter.
+\newblock In {\em NIPS'00}, pages 584--590, 2000.
+
+\bibitem{Montemerlo+al:AAAI02}
+M.~Montemerlo, S.~Thrun, D.~Koller, and B.~Wegbreit.
+\newblock Fastslam: A factored solution to the simultaneous localization and
+  mapping problem.
+\newblock In {\em Proceedings of the 18th National Conference on Artificial
+  Intelligence (AAAI)}, pages 593--598, July 2002.
+
+\bibitem{Montemerlo_2003_4434}
+Michael Montemerlo.
+\newblock {\em FastSLAM: A Factored Solution to the Simultaneous Localization
+  and Mapping Problem with Unknown Data Association}.
+\newblock PhD thesis, Robotics Institute, Carnegie Mellon University,
+  Pittsburgh, PA, July 2003.
+
+\bibitem{Merwe04sigma-pointkalman}
+Rudolph Van~Der Merwe and Eric Wan.
+\newblock Sigma-point kalman filters for integrated navigation, 2004.
+
+\bibitem{rosvslam}
+Helen Oleynikova.
+\newblock {ROS vSLAM}, September 2011.
+\newblock [online] \url{http://www.ros.org/wiki/vslam}.
+
+\bibitem{Davison:2007:MRS:1263144.1263479}
+Andrew~J. Davison, Ian~D. Reid, Nicholas~D. Molton, and Olivier Stasse.
+\newblock Monoslam: Real-time single camera slam.
+\newblock {\em IEEE Trans. Pattern Anal. Mach. Intell.}, 29:1052--1067, June
+  2007.
+
+\bibitem{DBLP:conf/icra/StrasdatMD10}
+Hauke Strasdat, J.~M.~M. Montiel, and Andrew~J. Davison.
+\newblock Real-time monocular slam: Why filter?
+\newblock In {\em ICRA\/} \cite{DBLP:conf/icra/2010}, pages 2657--2664.
+
+\bibitem{sba}
+Manolis Lourakis.
+\newblock {SBA}, August 2010.
+\newblock [online] \url{http://www.ics.forth.gr/~lourakis/sba/}.
+
+\bibitem{lour09}
+M.I.~A. Lourakis and A.A. Argyros.
+\newblock {SBA: A Software Package for Generic Sparse Bundle Adjustment}.
+\newblock {\em ACM Trans. Math. Software}, 36(1):1--30, 2009.
+
+\bibitem{Julier95anewapproach}
+Jeffrey K | Durrant-Whyte Hugh~F Julier, Simon J |~Uhlmann.
+\newblock A new approach for filtering nonlinear systems.
+\newblock In {\em 1995 American Control Conference, 14th, Seattle, WA; UNITED
+  STATES; 21-23 June 1995}, pages 1628--1632, 1995.
+
+\bibitem{Julier97anew}
+Simon~J. Julier and Jeffrey~K. Uhlmann.
+\newblock A new extension of the kalman filter to nonlinear systems.
+\newblock pages 182--193, 1997.
+
+\bibitem{bayesclasses}
+Michael Stevens.
+\newblock {Bayesclasses}, August 2010.
+\newblock [online] \url{http://bayesclasses.sourceforge.net}.
+
+\bibitem{DBLP:journals/ras/Ude99}
+Ales Ude.
+\newblock Filtering in a unit quaternion space for model-based object tracking.
+\newblock {\em Robotics and Autonomous Systems}, 28(2-3):163--172, 1999.
+
+\bibitem{Barac11}
+Daniel Barac.
+\newblock Localization algorithms for indoor uavs, 2011.
+
+\bibitem{DBLP:conf/icra/2010}
+{\em IEEE International Conference on Robotics and Automation, ICRA 2010,
+  Anchorage, Alaska, USA, 3-7 May 2010}. IEEE, 2010.
+
+\end{thebibliography}

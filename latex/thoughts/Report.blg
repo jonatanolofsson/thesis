@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Report.aux
+The style file: unsrt.bst
+Database file #1: bibl.bib
+Repeated entry---line 191 of file bibl.bib
+ : @proceedings{DBLP:conf/icra/2010
+ :                                 ,
+I'm skipping whatever remains of this entry
+Warning--empty booktitle in brockers:803111
+Warning--can't use both volume and number fields in brockers:803111
+Too many commas in name 1 of "Julier, Simon J | Uhlmann, Jeffrey K | Durrant-Whyte, Hugh F" for entry Julier95anewapproach
+while executing---line 944 of file unsrt.bst
+Warning--empty booktitle in Julier97anew
+You've used 21 entries,
+            1791 wiz_defined-function locations,
+            579 strings with 7372 characters,
+and the built_in function-call counts, 5111 in all, are:
+= -- 460
+> -- 187
+< -- 9
++ -- 72
+- -- 51
+* -- 289
+:= -- 721
+add.period$ -- 61
+call.type$ -- 21
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 24
+duplicate$ -- 259
+empty$ -- 530
+format.name$ -- 51
+if$ -- 1217
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 14
+newline$ -- 104
+num.names$ -- 20
+pop$ -- 99
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 173
+stack$ -- 0
+substring$ -- 309
+swap$ -- 102
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 44
+width$ -- 23
+write$ -- 218
+(There were 2 error messages)

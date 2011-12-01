@@ -1,0 +1,6 @@
+\select@language {swedish}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {swedish}
+\select@language {english}

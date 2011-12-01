@@ -1,0 +1,80 @@
+% Main file for collecting the chapters of the report
+%
+% Author: Jonatan Olofsson, jonatan.olofsson@gmail.com
+%
+
+%% Specify document type
+\documentclass[ida, 10pt, english, crop, info, print]{liuthesis}
+
+
+%% Include helper files
+\input{include/uses.inc}
+%~ \input{include/pdf.inc}
+%~ \input{include/pheader.inc}
+\input{include/functions.inc}
+\input{include/tikz.inc}
+\input{include/style.inc}
+
+%% Specify report metadata
+\author{John Doe}
+\title{Svensk titel}{English Title}
+\date{}
+
+\thesisDate{9}{19}{YYYY}
+\thesisNo{LiTH-ISY-EX{-}{-}YY/XXXX{-}{-}SE}
+
+\thesisDivision{Department of Computer and Information Science}
+\URL[http://www.ida.liu.se/divisions/aiics/]{http://www.ep.liu.se}
+
+\subject{Automated Landing with UAV's}
+\keywords{automated landing, slam, opencv, control, uav}
+
+\examiner{
+  Patrick Doherty \AT \textsc{ida}, Linköpings universitet
+}
+
+\supervisor{
+  Thomas Schön \AT \textsc{isy}, Linköpings universitet \AND
+  Piotr Rudol \AT \textsc{ida}, Linköpings universitet \AND
+  Mariusz Wzorek \AT \textsc{ida}, Linköpings universitet
+}
+
+\abstract[Svenskt abstract kan man placera här.]{Abstract goes here.
+
+  And it can consist of
+
+  several paragraphs.}
+
+\acknowledgements{I would like to thank a lot of people\dots}
+
+
+
+
+
+%% Begin bringing the document together
+\begin{document}
+
+%% Display titlepage
+\makeFrontMatter
+
+%% Display a table of contents.
+% Note that the document has to be built twice after updating
+% the content, for this table to be updated.
+\newpage
+
+\tableofcontents
+
+%%::chapters::%%
+
+
+\bibliographystyle{plain}
+\bibliography{bibl}
+
+\backmatter
+
+%% Include all appendices
+\appendix
+
+%%::appendices::%%
+
+\end{document}
