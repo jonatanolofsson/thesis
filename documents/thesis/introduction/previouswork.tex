@@ -1,0 +1,51 @@
+\section{Previous work}
+\label{sec:previouswork}
+    Here, previous known similar work is referenced and discussed.
+    Previous work can be used for both reference implemetations, but also to
+    recognize limitations and restrictions posed on the systems studied.
+
+    The problem of positioning an unmanned quadrotor using
+    visual feedback is a problem which was only fairly recently solved
+    \citep{DBLP:conf/icra/BloschWSS10,weiss11monocular}.
+    Few have attempted to use on-board sensors only, but have relied on
+    external setups to track the motions of the quadrotors - admittedly with high precision.
+    Fewer still have succeeded using strictly real-time algorithms
+    running on the limited processing power that standard
+    UAV's of the size of the LinkQuad generally are equipped with.
+    The LinkQuad is, with its distributed processing power, well suited
+    for a full implementation and solution to the problem.
+
+    \subsection{Autonomous landing}
+    The problem of landing a quadrocopter can to a large extent be boiled
+    down to achieving good pose estimates using available information.
+    This problem is studied in e.g. \citep{DM:MS:10,brockers:803111},
+    but the most interesting results are obtained in \citep{DBLP:conf/icra/BloschWSS10,weiss11monocular},
+    where the ideas from \citep{klein07parallel} of using monocular SLAM
+    are implemented on a UAV platform and excellent results are obtained.
+
+    \citep{brockers:803111} implements a landing control reference scheme
+    which is summarized in \ref{sec:logic:landingscheme}.
+
+    \subsection{vSLAM}
+    A first take on a vSLAM algorithm is presented in \citep{Karlsson05thevslam}, resting on the
+    foundation of a Rao-Blackwellized particle filter with Kalman filter banks.
+    The algorithm presented in \citep{Karlsson05thevslam} also extends to
+    the case of multiple cameras, which could be interesting in a longer perspective.
+    An implementation has been made in a ROS project\citep{rosvslam}, which may be used for
+    reference.
+
+    \citep{klein07parallel} uses an alternative approach and splits the tracking problem of SLAM from the mapping problem.
+    This means that the mapping can run more advanced algorithms at a slower
+    pace than required by the tracking.
+
+    The algorithm proposed in \citep{klein07parallel} uses selected keyframes
+    from which offsets are calculated continously in the tracking thread, while
+    the mapping problem is addressed separately as fast as possible using information only
+    from these keyframes. This opposed to the traditional vSLAM filtering
+    solution where each frame has to be used for continuous filter updates.
+
+    By for instance not considering uncertainties in either camera pose or feature location,
+    the complexity of the algorithm is reduced and the number of studied points
+    can be increased to achieve better robustness and
+    performance\citep{DBLP:conf/icra/StrasdatMD10} than when a filtering solution is used.
+    Again, this is the method on which \citep{weiss11monocular} bases its implementation.

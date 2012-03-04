@@ -242,7 +242,6 @@
 @inbook{Doherty_Rudol_2007,
 	author = "Doherty, Patrick and Rudol, Piotr",
 	booktitle = "{20th Australian Joint Conference on Artificial Intelligence AI2007}",
-	publisher = "Springer Berlin / Heidelberg",
 	title = "{A UAV Search and Rescue Scenario with Human Body Detection and Geolocalization}",
 	url = "http://portal.acm.org/citation.cfm?id=1781240",
 	year = "2007"

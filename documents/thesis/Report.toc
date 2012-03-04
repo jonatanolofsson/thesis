@@ -7,15 +7,30 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Unmanned Aerial Vehicles}{1}
 \contentsline {section}{\numberline {1.2}The Platform}{2}
-\contentsline {section}{\numberline {1.3}Previous Work}{2}
-\contentsline {section}{\numberline {1.4}Objectives}{2}
+\contentsline {section}{\numberline {1.3}Previous work}{2}
+\contentsline {subsection}{\numberline {1.3.1}Autonomous landing}{3}
+\contentsline {subsection}{\numberline {1.3.2}vSLAM}{3}
+\contentsline {section}{\numberline {1.4}Objectives}{3}
 \contentsline {section}{\numberline {1.5}Contributions}{3}
 \contentsline {section}{\numberline {1.6}Thesis Outline}{3}
 \contentsline {chapter}{\numberline {2}State Estimation}{5}
 \contentsline {section}{\numberline {2.1}The Filtering Problem}{5}
 \contentsline {section}{\numberline {2.2}The Unscented Kalman Filter}{7}
-\contentsline {chapter}{\numberline {3}Controller}{11}
-\contentsline {chapter}{\numberline {4}Logic}{13}
-\contentsline {chapter}{\numberline {5}Video}{15}
-\contentsline {chapter}{\numberline {6}Conclusions}{17}
-\contentsline {section}{\numberline {6.1}Further work}{17}
+\contentsline {section}{\numberline {2.3}Motion Model}{9}
+\contentsline {subsection}{\numberline {2.3.1}Reference frames}{9}
+\contentsline {paragraph}{Notation:}{10}
+\contentsline {subsection}{\numberline {2.3.2}Kinematics}{10}
+\contentsline {subsection}{\numberline {2.3.3}Dynamics}{10}
+\contentsline {subsubsection}{Rotor thrust}{11}
+\contentsline {subsubsection}{Wind}{12}
+\contentsline {section}{\numberline {2.4}Sensor Models}{12}
+\contentsline {chapter}{\numberline {3}Controller}{15}
+\contentsline {section}{\numberline {3.1}The Linear Quadratic Controller}{15}
+\contentsline {section}{\numberline {3.2}LQ Gain-Scheduling}{16}
+\contentsline {section}{\numberline {3.3}Control Model}{17}
+\contentsline {chapter}{\numberline {4}Video}{19}
+\contentsline {chapter}{\numberline {5}Logic}{21}
+\contentsline {chapter}{\numberline {6}Discussion}{23}
+\contentsline {section}{\numberline {6.1}Flapping}{23}
+\contentsline {chapter}{\numberline {7}Conclusions}{25}
+\contentsline {section}{\numberline {7.1}Further work}{25}

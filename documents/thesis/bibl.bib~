@@ -300,3 +300,12 @@
 	year = "2002"
 }
 
+@book{glad2003reglerteori,
+	author = "Glad, T. and Ljung, L.",
+	isbn = "9789144030036",
+	publisher = "Studentlitteratur",
+	title = "{Reglerteori: flervariabla och olinj{\"a}ra metoder}",
+	url = "http://books.google.se/books?id=3sTsMAAACAAJ",
+	year = "2003"
+}
+

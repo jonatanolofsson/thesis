@@ -6,10 +6,24 @@ Michael Bl{\"o}sch, Stephan Weiss, Davide Scaramuzza, and Roland Siegwart.
   environments}.
 \newblock In {\em {ICRA}}, pages 21--28, 2010.
 
+\bibitem{brockers:803111}
+Roland Brockers, Patrick Bouffard, Jeremy Ma, Larry Matthies, and Claire
+  Tomlin.
+\newblock {Autonomous landing and ingress of micro-air-vehicles in urban
+  environments based on monocular vision}.
+\newblock In Thomas George, M.~Saif Islam, and Achyut~K. Dutta, editors, {\em
+  {Micro- and Nanotechnology Sensors, Systems, and Applications III}}, volume
+  8031, page 803111. SPIE, 2011.
+
 \bibitem{Doherty_Rudol_2007}
 Patrick Doherty and Piotr Rudol.
 \newblock {A UAV Search and Rescue Scenario with Human Body Detection and
   Geolocalization}, 2007.
+
+\bibitem{glad2003reglerteori}
+T.~Glad and L.~Ljung.
+\newblock {\em {Reglerteori: flervariabla och olinj{\"a}ra metoder}}.
+\newblock Studentlitteratur, 2003.
 
 \bibitem{gustafsson2010statistical}
 F.~Gustafsson.
@@ -27,6 +41,19 @@ Simon J | Uhlmann Jeffrey K | Durrant-Whyte Hugh~F Julier.
 \newblock In {\em {1995 American Control Conference, 14th, Seattle, WA; UNITED
   STATES; 21-23 June 1995}}, pages 1628--1632, 1995.
 
+\bibitem{Karlsson05thevslam}
+Niklas Karlsson, Enrico~Di Bernardo, Jim Ostrowski, Luis Goncalves, Paolo
+  Pirjanian, and Mario~E. Munich.
+\newblock {The vSLAM algorithm for robust localization and mapping}.
+\newblock In {\em {In Proc. of Int. Conf. on Robotics and Automation (ICRA}},
+  pages 24--29, 2005.
+
+\bibitem{klein07parallel}
+Georg Klein and David Murray.
+\newblock {Parallel Tracking and Mapping for Small {AR} Workspaces}.
+\newblock In {\em {Proc. Sixth {IEEE} and {ACM} International Symposium on
+  Mixed and Augmented Reality {(ISMAR'07)}}}, Nara, Japan, November 2007.
+
 \bibitem{kuipers2002quaternions}
 J.B. Kuipers.
 \newblock {\em {Quaternions and rotation sequences: a primer with applications
@@ -38,10 +65,21 @@ J.G. Leishman.
 \newblock {\em {Principles of helicopter aerodynamics}}.
 \newblock {Cambridge aerospace series}. Cambridge University Press, 2002.
 
+\bibitem{DM:MS:10}
+D.~Mellinger, M.~Shomin, and V.~Kumar.
+\newblock {Control of Quadrotors for Robust Perching and Landing}.
+\newblock In {\em {Proceedings of the International Powered Lift Conference}},
+  Oct 2010.
+
 \bibitem{united2010u}
 United States. Dept. of Defense. Office of the~Secretary of~Defense.
 \newblock {\em {U.S. Army Roadmap for unmanned aircraft systems, 2010-2035}}.
 \newblock U. S. Army UAS Center of Excellence, 2010.
+
+\bibitem{rosvslam}
+Helen Oleynikova.
+\newblock {ROS vSLAM}, September 2011.
+\newblock [online] \url{http://www.ros.org/wiki/vslam}.
 
 \bibitem{Pounds_modellingand}
 Paul Pounds, Robert Mahony, and Peter Corke.
@@ -51,6 +89,15 @@ Paul Pounds, Robert Mahony, and Peter Corke.
 R.W. Prouty.
 \newblock {\em {Helicopter performance, stability, and control}}.
 \newblock Krieger Pub., 1995.
+
+\bibitem{Rantzer99piecewiselinear}
+A.~Rantzer and M.~Johansson.
+\newblock {Piecewise Linear Quadratic Optimal Control}, 1999.
+
+\bibitem{DBLP:conf/icra/StrasdatMD10}
+Hauke Strasdat, J.~M.~M. Montiel, and Andrew~J. Davison.
+\newblock {Real-time monocular SLAM: Why filter?}
+\newblock In {\em {ICRA}}, pages 2657--2664, 2010.
 
 \bibitem{valavanis2007advances}
 K.~Valavanis.

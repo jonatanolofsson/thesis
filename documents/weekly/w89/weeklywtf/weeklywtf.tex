@@ -1,0 +1,36 @@
+\section{Summary}
+The last two weeks since the last ''weekly'' report, have seen a very interesting
+development of the thesis work. While debugging the physical model, I decided
+that a visualization of the simulation was not only desirable, but could also
+serve as an invaluable tool in the later work of the thesis, providing visual
+feedback on the actions of the control system.
+I thus made a quick 3D visualization tool in OpenGL, which will do for a great demonstration
+as soon the modelling is fully debugged.
+
+The visualization tool is made as a stand-alone program intended to be running
+on a laptop. The communication with the control system is made via a serial port,
+implying that the control system could just as well run on the gumstix as locally on the laptop.
+
+While implementing the communication for the visualization, I also added
+control input from a 3D mouse, which is sent to the control system on the serial port.
+
+\section{Problem of the week}
+There are still problems with the physical model of the system, but I now
+have new tools for debugging. I will probably need input on the report's
+modelling sections while working with this, but preliminary results are
+going in the right direction.
+
+I still don't have access to the camera with which we will do the visual feedback.
+This should be available very soon however, and I have still been able to
+work with preparatory work for this.
+
+\section{Successes of the week}
+A list of some of the recent accomplishments;
+\begin{itemize}
+    \item A new visualization tool has been developed,
+    \item Simulation model is beeing implemented (currently debugged),
+    \item Serial communication allows for control input,
+    \item All libraries that PTAM use have been compiled (not tested) for the gumstix,
+    \item Thesis draft sent in for review.
+\end{itemize}
+\fig{visualization}{Sample from the visulization interface, running against the real control system. The bunny is flying, obviously.}{fig:visualization}

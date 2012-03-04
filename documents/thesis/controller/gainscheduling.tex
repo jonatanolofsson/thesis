@@ -1,0 +1,81 @@
+\section{LQ Gain-Scheduling}
+\label{sec:controller:gainscheduling}
+    Even though any system could be described at any point by its linearization,
+    the linear nature of the LQ control poses a limitation in that
+    a general system such as the one studied in this thesis - the LinkQuad - will
+    sooner or later leave the vicinity of the linearization point and no
+    longer adhere to the physical circumstances of the linearization point.
+
+    This will lead to sub-optimal control and possibly even to system failure.
+    A common approach is to switch between pre-calculated control gains
+    which has been calculated for selected linearization points.
+
+    The approach used in this thesis is closely related to gain scheduling,
+    but instead of using pre-calculated gains, the linearization is done
+    in-flight at each time instant from the analytical expression of
+    the system's Jacobian.
+
+    \begin{equation}
+        \dot{x} = f(x,u) \approx f(x_{0},u_{0})
+            + \underbrace{\left. \frac{\partial f}{\partial x} \right|_{
+                \begin{array}{l}
+                    x=x_{0} \\
+                    u=u_{0}
+                \end{array}
+            }}_{A}
+                \underbrace{\left( x-x_{0} \right)}_{\Delta x}
+            + \underbrace{\left. \frac{\partial f}{\partial u} \right|_{
+                \begin{array}{l}
+                    x=x_{0} \\
+                    u=u_{0}
+                \end{array}
+            }}_{B}
+                \underbrace{\left( u-u_{0} \right)}_{\Delta u}
+    \end{equation}
+
+    In the standard formulation of LQ, the linearization is made
+    around a stationary point $(x_{0},u_{0})$, where $f(x_{0},u_{0}) = 0$.
+    In a more general formulation, it is possible to lift this constraint
+    using homogenous equations \citep{Rantzer99piecewiselinear};
+    \begin{equation}
+    \label{eq:controller:affinelq}
+        \dot{X} = \left[
+        \begin{array}{c}
+            \dot{x} \\
+            \ast
+        \end{array}\right] =
+        \underbrace{\left[
+        \begin{array}{cc}
+            A & f(x_{0},u_{0}) \\
+            0 & 0
+        \end{array}\right]}_{\bar{A}}
+        \underbrace{\left[
+        \begin{array}{c}
+            \Delta x \\
+            1
+        \end{array}\right]}_{\bar{X}}
+        +
+        \underbrace{\left[
+        \begin{array}{c}
+            B \\
+            0
+        \end{array}\right]}_{\bar{B}}
+        \Delta u.
+    \end{equation}
+    Equation \ref{eq:controller:affinelq} is a linear system for which
+    the ordinary LQ problem can be solved, using eq.
+    \eqref{eq:controller:u}-\eqref{eq:controller:Lr}.
+
+    Generally the linearized output signal, $\Delta u$, would be added
+    to $u_{0}$ to form the controller outout, as per
+    \begin{equation*}
+        u = u_{0} + \Delta u = u_{0} -L\Delta x + L_{r}\Delta r.
+    \end{equation*}
+    However, the approach to re-linearize the system continously
+    leads to the property that, since the controller will always work
+    at its linearization point, and we can note that $\Delta x$ will
+    thus always be zero, giving the following expression for the
+    calculation of the control output;
+    \begin{equation}
+        u_{t+1} = u_{t} + \Delta u = u_{0} + L_{r}(r-x).
+    \end{equation}

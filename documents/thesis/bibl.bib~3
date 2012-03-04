@@ -207,7 +207,7 @@
 
 @misc{Barac11,
 	author = "Barac, Daniel",
-	institution = "Link{\~A}{\^A}¶ping University, Automatic Control, UASTECH - Autonomous Unmanned Aircraft Systems Technologies",
+	institution = "Link{\~A}{\^A}{\^A}¶ping University, Automatic Control, UASTECH - Autonomous Unmanned Aircraft Systems Technologies",
 	pages = "54",
 	title = "{Localization algorithms for indoor UAVs}",
 	year = "2011"
@@ -270,5 +270,22 @@
 	title = "{Helicopter performance, stability, and control}",
 	url = "http://books.google.se/books?id=GntGAAAAYAAJ",
 	year = "1995"
+}
+
+@book{gustafsson2010statistical,
+	author = "Gustafsson, F.",
+	isbn = "9789144054896",
+	publisher = "Utbildningshuset/Studentlitteratur",
+	title = "{Statistical Sensor Fusion}",
+	url = "http://books.google.se/books?id=yd%5C_2SAAACAAJ",
+	year = "2010"
+}
+
+@inproceedings{Julier02thescaled,
+	author = "Julier, Simon J. and Industries, Idak",
+	booktitle = "{in Proc. IEEE Amer. Control Conf}",
+	pages = "4555--4559",
+	title = "{The scaled unscented transformation}",
+	year = "2002"
 }
 

@@ -289,3 +289,14 @@
 	year = "2002"
 }
 
+@book{kuipers2002quaternions,
+	author = "Kuipers, J.B.",
+	isbn = "9780691102986",
+	lccn = "98035389",
+	publisher = "Princeton University Press",
+	series = "{Princeton paperbacks}",
+	title = "{Quaternions and rotation sequences: a primer with applications to orbits, aerospace, and virtual reality}",
+	url = "http://books.google.se/books?id=%5C_2sS4mC0p-EC",
+	year = "2002"
+}
+

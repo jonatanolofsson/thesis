@@ -1,0 +1,45 @@
+\section{The Linear Quadratic Controller}
+\label{sec:controller:lq}
+    The basic LQ controller, described in e.g. \citep{glad2003reglerteori},
+    uses a linear state-space system model and weights on the states ($Q$) and control
+    signals ($R$) respectively to calculate the control signals that would
+    minimize the integral
+    \begin{equation}
+    \label{eq:controller:lq:j}
+        \mathcal{J} = \int_{0}^{\infty} e^{T}(t)Qe(t) + u^{T}(t)Ru(t) dt.
+    \end{equation}
+
+    Thus, by varying the elements of the cost matrices $Q$ and $R$
+    respectively, the solution to the optimization will yield control
+    signals that will steer the system in a fashion that the amplitude
+    of the control signals and the errors are balanced.
+    By e.g. increasing the costs of the control signals, the system
+    LQ controller will issue smaller control signals, protecting the
+    engines but slowing the system down.
+
+    In the linear case, \eqref{eq:controller:lq:j} can be solved analytically,
+    resulting in a linear feedback
+    \begin{equation}
+    \label{eq:controller:u}
+        u_{t} = -L\hat{x}_{t} + L_{r}r_{t}
+    \end{equation}
+    \begin{equation}
+    \label{eq:controller:L}
+        L = R^{-1}B^{T}S,
+    \end{equation}
+    where $S$ is the Positively Semi-Definite (PSD) solution to the
+    Continuous Algebraic Riccati Equation (CARE)\citep{glad2003reglerteori},
+    \begin{equation}
+        A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0.
+    \end{equation}
+
+    To improve the reference following abilities of the controller,
+    the reference is brought into the control signal by a scaling
+    matrix $L_{r}$, which is chosen so that the static gain of the
+    system is equal to identity \citep{glad2003reglerteori}.
+    In the case of equal number of control signals as controlled
+    states, the following result is obtained;
+    \begin{equation}
+    \label{eq:controller:Lr}
+        L_{r} = \left[M(BL - A)^{-1}B\right]^{-1}.
+    \end{equation}
