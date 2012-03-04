@@ -1,0 +1,135 @@
+\section{Motion Model}
+\label{sec:observer:motionmodel}
+    As the system studied in the filtering problem progresses through time,
+    the state estimate can be significantly improved by if a prediction
+    is made on what measurements can be expected, and evaluating the plausibility
+    of each measurement after how well they correspond to the prediction.
+    With assumed Gaussian white noise distributions, this evaluation
+    can be done in the probabilistic Kalman framework as presented in Sections
+    \ref{sec:observer:filtering}-\ref{sec:observer:ukf}, where the
+    probablity estimate of the sensors' measurements are based on the motion
+    model's prediction. In this section, a motion model is derived and evaluated.
+
+    \subsection{Reference frames}
+        In the model of the quadrotor, there are several frames of reference.
+        \begin{description}
+            \item[North-East-Down Earth Fixed (NEDEF)] This frame is fixed at
+            a given origin in the earth and is considered an inertial frame.
+            All states are expressed in this frame of reference unless explicitly stated otherwise.
+
+            \item[North-East-Down (NED)]
+            The NED-frame is fixed at the center of gravity of the quadrotor.
+            The NED system's $\hat{z}$-axis is aligned with the gravitational axis and
+            the $\hat{x}$-axis along the northern axis.
+            The $\hat{y}$-axis is chosen to point east to form a right-hand system.
+
+            \item[Body-fixed] The body-fixed coordinate system is fixed in the
+            quadrotor with $\hat{x}$-axis in the forward direction and the $z$-axis in the downward
+            direction - as depicted in Figure \ref{fig:observer:referenceframes}.
+
+            \item[Propeller fixed] Each of the propellers are associated
+            with their own frame of reference, $P_{i}$, which tracks the
+            virtual tilting of the thrust vector due to flapping,
+            discussed in Section \ref{ssec:observer:thrust}.
+
+            \item[Camera frame] This is the frame which describes the
+            location of the camera.
+
+            \item[IMU frame] This is the body-fixed frame in which the IMU measurements are said
+            to be done. The origin is thus fixed close to the interial sensors.
+        \end{description}
+
+        The conversion between the reference frames are characterized by a
+        transformation including translation and a three-dimensional rotation.
+        Both the origin of the body-centered reference frames
+        - the quadrotor's position - and the rotation of the body-fixed
+        system are stored as system states.
+
+        The centers of each of the propeller fixed coordinate systems
+        are parametrized on the height $h$ and distance $d$ from the center of
+        gravity as follows
+        \begin{align}
+            D_{0} &= (d, 0, h)^{BF} \\
+            D_{1} &= (0, -d, h)^{BF} \\
+            D_{2} &= (-d, 0, h)^{BF} \\
+            D_{3} &= (0, d, h)^{BF}
+        \end{align}
+
+        \paragraph{Notation:}
+        In the following sections, vectors and points in e.g. the NED
+        coordinate systems are denoted $x^{NED}$.
+        Rotation described by unit quaternions are denoted $R(q)$ for
+        the quaternion $q$, corresponding to the matrix rotation \citep{kuipers2002quaternions} given by
+        \begin{equation}
+            \left(
+            \begin{array}{cccc}
+                q_{1}^{2} + q_{i}^{2} - q_{j}^{2} - q_{k}^{2}   & 2q_{i}q_{j}+2q_{1}q_{k}                       & 2q_{i}q_{k} - 2q_{1}q_{j} \\
+                2q_{i}q_{j} - 2q_{1}q_{k}                       & q_{1}^{2} - q_{i}^{2} + q_{j}^{2} - q_{k}^{2} & 2q_{j}q_{k} + 2q_{1}q_{i} \\
+                2q_{i}q_{k} + 2q_{1}q_{j}                       & 2q_{j}q_{k} - 2q_{1}q_{i}                     & q_{1}^{2} - q_{i}^{2} - q_{j}^{2} + q_{k}^{2}
+            \end{array}
+            \right)
+        \end{equation}
+    \subsection{Kinematics}
+        The motions of the quadrotor are described by the following relations \citep{Pounds_modellingand}: % more citations needed
+        \begin{subequations}
+            \label{eq:observer:kinematicsc}
+            \begin{equation}
+                \label{eq:observer:position}
+                \dot{\xi} = R(q^{c})V
+            \end{equation}
+            \begin{equation}
+                \label{eq:observer:quaternionsc}
+                \left(\begin{array}{c}
+                    \dot{q}_{1}^{c} \\
+                    \dot{q}_{i}^{c} \\
+                    \dot{q}_{j}^{c} \\
+                    \dot{q}_{k}^{c}
+                \end{array}\right) = -\frac{1}{2}\left(\begin{array}{cccc}
+                0 & -\omega_{x} & -\omega_{y} & -\omega_{z} \\
+                \omega_{x} & 0 & -\omega_{z} & \omega_{y} \\
+                \omega_{y} & \omega_{z} & 0 & -\omega_{x} \\
+                \omega_{z} & -\omega_{y} & \omega_{x} & 0
+                \end{array}\right)\left(\begin{array}{c}
+                q_{1}^{c} \\
+                q_{i}^{c} \\
+                q_{j}^{c} \\
+                q_{k}^{c}
+                \end{array}\right)
+            \end{equation}
+        \end{subequations}
+
+        In practice, a normalization step also has to be added to account for
+        the unit length constraint on rotation quaternions.
+
+
+    \subsection{Dynamics}
+        The motions of the quadrotor can be fully mathematically explained by the
+        forces and moments acting on the vehicle. Using the rigid-body assumtion,
+        Eulers' extension of Newton's laws of motion for the
+        quadrotor's center of gravity, $\mathcal{G}$, yields
+        \begin{subequations}
+            \begin{equation}
+                \dot{V} = a_{\mathcal{G}} = \frac{1}{m}\sum F
+            \end{equation}
+            \begin{equation}
+                \dot{\omega} = I_{\mathcal{G}}^{-1}\sum M_{\mathcal{G}}
+            \end{equation}
+        \end{subequations}
+
+        The main forces acting upon the quadrotor are the effects of three different components
+        \begin{itemize}
+            \item[$\sum_{i=0}^{3}F_{ri}$] Rotor thrust,
+            \item[$F_{g}$] Gravity,
+            \item[$F_{wind}$] Wind.
+        \end{itemize}
+
+        Of these, the gravity is trivially described as
+        \begin{equation}
+            F_{g} = mg\cdot e_{3}^{NED}
+        \end{equation}
+
+        The following sections will describe the rotor thrust and wind forces
+        respectively.
+
+        \input{\currentchapter/thrust}
+        \input{\currentchapter/wind}

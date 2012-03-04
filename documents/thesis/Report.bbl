@@ -1,0 +1,78 @@
+\begin{thebibliography}{10}
+
+\bibitem{DBLP:conf/icra/BloschWSS10}
+Michael Bl{\"o}sch, Stephan Weiss, Davide Scaramuzza, and Roland Siegwart.
+\newblock {Vision based MAV navigation in unknown and unstructured
+  environments}.
+\newblock In {\em {ICRA}}, pages 21--28, 2010.
+
+\bibitem{Doherty_Rudol_2007}
+Patrick Doherty and Piotr Rudol.
+\newblock {A UAV Search and Rescue Scenario with Human Body Detection and
+  Geolocalization}, 2007.
+
+\bibitem{gustafsson2010statistical}
+F.~Gustafsson.
+\newblock {\em {Statistical Sensor Fusion}}.
+\newblock Utbildningshuset/Studentlitteratur, 2010.
+
+\bibitem{Julier02thescaled}
+Simon~J. Julier and Idak Industries.
+\newblock {The scaled unscented transformation}.
+\newblock In {\em {in Proc. IEEE Amer. Control Conf}}, pages 4555--4559, 2002.
+
+\bibitem{Julier95anewapproach}
+Simon J | Uhlmann Jeffrey K | Durrant-Whyte Hugh~F Julier.
+\newblock {A new approach for filtering nonlinear systems}.
+\newblock In {\em {1995 American Control Conference, 14th, Seattle, WA; UNITED
+  STATES; 21-23 June 1995}}, pages 1628--1632, 1995.
+
+\bibitem{kuipers2002quaternions}
+J.B. Kuipers.
+\newblock {\em {Quaternions and rotation sequences: a primer with applications
+  to orbits, aerospace, and virtual reality}}.
+\newblock {Princeton paperbacks}. Princeton University Press, 2002.
+
+\bibitem{leishman2002principles}
+J.G. Leishman.
+\newblock {\em {Principles of helicopter aerodynamics}}.
+\newblock {Cambridge aerospace series}. Cambridge University Press, 2002.
+
+\bibitem{united2010u}
+United States. Dept. of Defense. Office of the~Secretary of~Defense.
+\newblock {\em {U.S. Army Roadmap for unmanned aircraft systems, 2010-2035}}.
+\newblock U. S. Army UAS Center of Excellence, 2010.
+
+\bibitem{Pounds_modellingand}
+Paul Pounds, Robert Mahony, and Peter Corke.
+\newblock {Modelling and Control of a Quad-Rotor Robot}.
+
+\bibitem{prouty1995helicopter}
+R.W. Prouty.
+\newblock {\em {Helicopter performance, stability, and control}}.
+\newblock Krieger Pub., 1995.
+
+\bibitem{valavanis2007advances}
+K.~Valavanis.
+\newblock {\em {Advances in unmanned aerial vehicles: state of the art and the
+  road to autonomy}}.
+\newblock {International series on intelligent systems, control, and
+  automation}. Springer, 2007.
+
+\bibitem{vandermerwe:upf}
+Rudolph van~der Merwe, Arnaud Doucet, Nando de~Freitas, and Eric~A. Wan.
+\newblock {The Unscented Particle Filter.}
+\newblock In {\em {NIPS'00}}, pages 584--590, 2000.
+
+\bibitem{weiss11monocular}
+S~Weiss, D~Scaramuzza, and R~Siegwart.
+\newblock {Monocular-SLAM based navigation for autonomous micro helicopters in
+  GPS-denied environments}.
+\newblock {\em Journal of Field Robotics}, 28(6):854--874, 2011.
+
+\bibitem{Wong_Bil_2006}
+K~C Wong and C~Bil.
+\newblock {UAVs OVER AUSTRALIA - Market And Capabilities}.
+\newblock {\em Flight International}, pages 1--16, 2006.
+
+\end{thebibliography}

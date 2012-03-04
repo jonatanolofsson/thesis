@@ -1,0 +1,12 @@
+---
+group:  MscThesis
+documents:
+    -   name:       TimePlan
+        directory:  timeplan
+        version:    "0.1"
+        date:       2012-01-11
+
+    #~ -   name:       Report
+        #~ directory:  report
+        #~ version:    "0.1"
+        #~ date:       2012-01-11

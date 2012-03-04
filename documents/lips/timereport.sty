@@ -1,0 +1,106 @@
+\RequirePackage[usenames]{color}
+\RequirePackage{array}
+\RequirePackage{colortbl}
+\RequirePackage{forloop}
+\RequirePackage{supertabular}
+\RequirePackage{xparse}
+\RequirePackage{fullpage}
+
+\newcounter{summaryreportweek}
+\newcounter{summaryreportweekcounter}
+\newcounter{summaryreportweeks}
+\newcounter{summaryreportactivities}
+\newcounter{summaryreportrows}
+\newcounter{summaryreportloop}
+\newcounter{summaryreportcolumns}
+\newcounter{summaryreportcolumnstwo}
+\newcommand{\bgcolor}{Goldenrod}
+\newenvironment{summaryreport}[9]
+{
+    \setcounter{summaryreportweek}{#2}
+    \setcounter{summaryreportweeks}{#3}
+    \setcounter{summaryreportactivities}{0}
+    \setcounter{summaryreportrows}{0}
+    \setcounter{summaryreportcolumnstwo}{5}
+    \addtocounter{summaryreportcolumnstwo}{#3}
+    \tablefirsthead{\hline\rowcolor{\bgcolor}
+        \multicolumn{\value{summaryreportcolumnstwo}}{|>{\columncolor{\bgcolor}}c|}{\cellcolor{\bgcolor} \Huge #1}\\\hline\rowcolor{\bgcolor}
+        \multicolumn{3}{|l}{\cellcolor{\bgcolor}
+            \tabular{ll}
+                \textbf{Project group:} & #4 \\
+                \textbf{Customer:} & #5 \\
+                \textbf{Course:} & #6 \\
+            \endtabular
+        }&\multicolumn{9}{|l}{\cellcolor{\bgcolor}
+            \tabular{ll}
+                \textbf{Date:} & \today \\
+                \textbf{Version:} & #7 \\
+                \textbf{Author:} & #8
+            \endtabular
+        }%
+        \setcounter{summaryreportcolumns}{-7}% x: 3 + 9 + x + n = n + 5
+        \addtocounter{summaryreportcolumns}{\value{summaryreportweeks}}%
+        &\multicolumn{\value{summaryreportcolumns}}{|>{\columncolor{\bgcolor}}l|}{\cellcolor{\bgcolor}
+            \textbf{Reviewed:} \; #9
+        }\\\hline \rowcolor{\bgcolor}
+        \multicolumn{2}{|c|}{\cellcolor{\bgcolor}\textbf{Activities}} & \textbf{Time} & \textbf{Who}
+
+        \setcounter{summaryreportcolumns}{1}
+        \addtocounter{summaryreportcolumns}{\value{summaryreportweeks}}
+        &\multicolumn{\value{summaryreportcolumns}}{c|}{\cellcolor{\bgcolor}\textbf{Time plan}} \\ \hline\rowcolor{\bgcolor}
+        \setcounter{summaryreportweekcounter}{\value{summaryreportweek}}
+        No. & Description & Hours & Initials &
+        \forloop[-1]{summaryreportloop}{\value{summaryreportweeks}}{\value{summaryreportloop} > 0}
+            { \arabic{summaryreportweekcounter} \stepcounter{summaryreportweekcounter} & }
+        \\ \hline
+    }
+    \tablehead{\hline\rowcolor{\bgcolor}
+        \setcounter{summaryreportweekcounter}{\value{summaryreportweek}}
+        No. & Description & Hours & Initials &
+        \forloop[-1]{summaryreportloop}{\value{summaryreportweeks}}{\value{summaryreportloop} > 0}
+            { \arabic{summaryreportweekcounter} \stepcounter{summaryreportweekcounter} & }
+        $\Sigma $\\ \hline
+    }
+    \tabletail{\hline}
+    \tablelasttail{\\\hline}
+
+    \setcounter{summaryreportcolumns}{5}
+    \addtocounter{summaryreportcolumns}{#3}
+    \begin{supertabular}{|>{\columncolor{\bgcolor}}m{5mm}|p{7.5cm}|r|l||*{\value{summaryreportweeks}}{m{5mm}|}>{\columncolor{\bgcolor}}m{5mm}|}
+}
+{
+    \end{supertabular}
+}
+
+\newcommand{\summaryreportsummary}{
+    \rowcolor{\bgcolor} $\Sigma$
+    &\multicolumn{1}{>{\columncolor{\bgcolor}}r|}{Total number of hours:}&
+}
+
+
+\newcommand{\tpscategory}[1]
+{
+        \stepcounter{summaryreportrows}
+
+        \setcounter{summaryreportcolumns}{4}
+        \addtocounter{summaryreportcolumns}{\value{summaryreportweeks}}
+        &\multicolumn{\value{summaryreportcolumns}}{l|}{}\\
+        &\multicolumn{\value{summaryreportcolumns}}{l|}{\textbf{#1}}\\ \hline
+}
+
+\newenvironment{tpsinactivity}[3]
+{
+        \stepcounter{summaryreportrows} & #1 & #2 & #3 &
+}
+{
+        \\ \hline
+}
+\newenvironment{tpsactivity}[3]
+{
+        \stepcounter{summaryreportrows}
+        \stepcounter{summaryreportactivities}
+        \arabic{summaryreportactivities} & #1 & #2 & #3 &
+}
+{
+        \\ \hline
+}

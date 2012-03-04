@@ -1,0 +1,73 @@
+\section{Previous work}
+\label{sec:previouswork}
+    Here, previous known similar work is referenced and discussed.
+    Previous work can be used for both reference implemetations, but also to
+    recognize limitations and restrictions posed on the systems studied.
+
+    It turns out that the problem of navigating and landing an UAV using visual
+    feedback has been, albeit sparsely,solved.
+    Even fewer have however succeeded using strictly on-board sensors and
+    real-time algorithms running on the limited processing power that standard
+    UAV's of the size of the LinkQuad generally are equipped with.
+    The LinkQuad may, with its distributed processing
+    power, be well suited for a full implementation and solution to the problem.
+
+    \subsection{Autonomous landing}
+    The problem of landing a quadrocopter can to a large extent be boiled
+    down to achieving good pose estimates using available information.
+    This problem is studied e.g. in \citep{DM:MS:10,brockers:803111},
+    but the most interesting results are obtained in \citep{DBLP:conf/icra/BloschWSS10,weiss11monocular},
+    where the ideas from \citep{klein07parallel} are implemented on a UAV platform
+    and excellent results are obtained.
+
+    \citep{brockers:803111} implements a landing control reference scheme
+    which is summarized in \ref{ssec:waypointgeneration}.
+
+    \subsection{vSLAM}
+    A first take on a vSLAM algorithm is presented in \citep{Karlsson05thevslam}, resting on the
+    foundation of a Rao-Blackwellized particle filter with Kalman filter banks.
+    It might possibly be of gain to use the theory studied in \citep{vandermerwe:upf},
+    which extends the work in \citep{Montemerlo+al:AAAI02,Montemerlo_2003_4434} to use a prior distribution
+    which can be tuned for heavier tailed distributions than the standard gaussian\citep{Merwe04sigma-pointkalman}, since
+    it is explicitly noted in \citep{Karlsson05thevslam} that the measurement errors seem to
+    be drawn from such a distribution.
+
+    The algorithm presented in \citep{Karlsson05thevslam} also extends to
+    the case of multiple cameras, which could be interesting in a longer perspective.
+    An implementation has been made in a ROS project\citep{rosvslam}, which may be used for
+    reference.
+
+    Another source which could prove interesting in the area of SLAM is \citep{Davison:2007:MRS:1263144.1263479}, where
+    the MonoSLAM algorithm is introduced and real-time code samples are referenced.
+
+    \citep{klein07parallel} uses an alternative approach and splits the tracking problem of SLAM from the mapping problem.
+    This means that the mapping can run more advanced algorithms at a slower
+    pace than required by the tracking.
+
+    The algorithm proposed in \citep{klein07parallel} uses selected keyframes
+    from which offsets are calculated continously in the tracking thread, while
+    the mapping problem is addressed separately as fast as possible using information only
+    from these keyframes. This opposed to the traditional vSLAM filtering
+    solution where each frame has to be used for continuous filter updates.
+
+    By for instance not considering uncertainties in either camera pose or feature location,
+    the complexity of the algorithm is reduced and the number of studied points
+    can be increased to achieve better robustness and performance than
+    when a filtering solution is used \citep{DBLP:conf/icra/StrasdatMD10}.
+
+    The mapping implementation in \citep{DBLP:conf/icra/StrasdatMD10} uses the SBA libary \citep{sba,lour09}
+    to compute the Bundle Adjustment step in the mapping algorithm.
+    Again, this is the method on which \citep{weiss11monocular} bases its implementation.
+
+
+    \subsection{Filtering}
+    Using the work presented e.g. in \citep{Julier95anewapproach,Julier97anew,vandermerwe:upf}
+    along with the implementation in \citep{bayesclasses}, a fairly
+    efficient implemetation of the filter exists today from previous projects by
+    the author of this document.
+    The same code could also, with little effort, be used in the vSLAM algorithm.
+
+    In a 3D-environment, it is desirable to select an appropriate representation
+    of the orientation, e.g. the quaternion representation.
+    To cope with the restrictions in such a representation, \citep{DBLP:journals/ras/Ude99}
+    could be studied, for instance.

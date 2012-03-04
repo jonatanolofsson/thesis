@@ -1,0 +1,143 @@
+\begin{thebibliography}{20}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Mellinger et~al.(2010)Mellinger, Shomin, and Kumar]{DM:MS:10}
+D.~Mellinger, M.~Shomin, and V.~Kumar.
+\newblock {Control of Quadrotors for Robust Perching and Landing}.
+\newblock In \emph{{Proceedings of the International Powered Lift Conference}},
+  Oct 2010.
+
+\bibitem[Brockers et~al.(2011)Brockers, Bouffard, Ma, Matthies, and
+  Tomlin]{brockers:803111}
+Roland Brockers, Patrick Bouffard, Jeremy Ma, Larry Matthies, and Claire
+  Tomlin.
+\newblock {Autonomous landing and ingress of micro-air-vehicles in urban
+  environments based on monocular vision}.
+\newblock In Thomas George, M.~Saif Islam, and Achyut~K. Dutta, editors,
+  \emph{{Micro- and Nanotechnology Sensors, Systems, and Applications III}},
+  volume 8031, page 803111. SPIE, 2011.
+\newblock \doi{10.1117/12.884449}.
+\newblock URL \url{http://link.aip.org/link/?PSI/8031/803111/1}.
+
+\bibitem[Bl{\"o}sch et~al.(2010)Bl{\"o}sch, Weiss, Scaramuzza, and
+  Siegwart]{DBLP:conf/icra/BloschWSS10}
+Michael Bl{\"o}sch, Stephan Weiss, Davide Scaramuzza, and Roland Siegwart.
+\newblock {Vision based MAV navigation in unknown and unstructured
+  environments}.
+\newblock In \emph{{ICRA}}, pages 21--28, 2010.
+\newblock URL \url{http://dx.doi.org/10.1109/ROBOT.2010.5509920}.
+
+\bibitem[Weiss et~al.(2011)Weiss, Scaramuzza, and Siegwart]{weiss11monocular}
+S~Weiss, D~Scaramuzza, and R~Siegwart.
+\newblock {Monocular-SLAM based navigation for autonomous micro helicopters in
+  GPS-denied environments}.
+\newblock \emph{Journal of Field Robotics}, 28\penalty0 (6):\penalty0 854--874,
+  2011.
+
+\bibitem[Klein and Murray(2007)]{klein07parallel}
+Georg Klein and David Murray.
+\newblock {Parallel Tracking and Mapping for Small {AR} Workspaces}.
+\newblock In \emph{{Proc. Sixth {IEEE} and {ACM} International Symposium on
+  Mixed and Augmented Reality {(ISMAR'07)}}}, Nara, Japan, November 2007.
+
+\bibitem[Karlsson et~al.(2005)Karlsson, Bernardo, Ostrowski, Goncalves,
+  Pirjanian, and Munich]{Karlsson05thevslam}
+Niklas Karlsson, Enrico~Di Bernardo, Jim Ostrowski, Luis Goncalves, Paolo
+  Pirjanian, and Mario~E. Munich.
+\newblock {The vSLAM algorithm for robust localization and mapping}.
+\newblock In \emph{{In Proc. of Int. Conf. on Robotics and Automation (ICRA}},
+  pages 24--29, 2005.
+
+\bibitem[van~der Merwe et~al.(2000)van~der Merwe, Doucet, de~Freitas, and
+  Wan]{vandermerwe:upf}
+Rudolph van~der Merwe, Arnaud Doucet, Nando de~Freitas, and Eric~A. Wan.
+\newblock {The Unscented Particle Filter.}
+\newblock In \emph{{NIPS'00}}, pages 584--590, 2000.
+
+\bibitem[Montemerlo et~al.(2002)Montemerlo, Thrun, Koller, and
+  Wegbreit]{Montemerlo+al:AAAI02}
+M.~Montemerlo, S.~Thrun, D.~Koller, and B.~Wegbreit.
+\newblock {FastSLAM: A Factored Solution to the Simultaneous Localization and
+  Mapping Problem}.
+\newblock In \emph{{Proceedings of the 18th National Conference on Artificial
+  Intelligence (AAAI)}}, pages 593--598, July 2002.
+
+\bibitem[Montemerlo(2003)]{Montemerlo_2003_4434}
+Michael Montemerlo.
+\newblock \emph{{FastSLAM: A Factored Solution to the Simultaneous Localization
+  and Mapping Problem with Unknown Data Association}}.
+\newblock PhD thesis, Robotics Institute, Carnegie Mellon University,
+  Pittsburgh, PA, July 2003.
+
+\bibitem[Merwe and Wan(2004)]{Merwe04sigma-pointkalman}
+Rudolph Van~Der Merwe and Eric Wan.
+\newblock {Sigma-Point Kalman Filters For Integrated Navigation}, 2004.
+
+\bibitem[Oleynikova(2011)]{rosvslam}
+Helen Oleynikova.
+\newblock {ROS vSLAM}, September 2011.
+\newblock URL \url{http://www.ros.org/wiki/vslam}.
+\newblock [online] \url{http://www.ros.org/wiki/vslam}.
+
+\bibitem[Davison et~al.(2007)Davison, Reid, Molton, and
+  Stasse]{Davison:2007:MRS:1263144.1263479}
+Andrew~J. Davison, Ian~D. Reid, Nicholas~D. Molton, and Olivier Stasse.
+\newblock {MonoSLAM: Real-Time Single Camera SLAM}.
+\newblock \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, 29:\penalty0
+  1052--1067, June 2007.
+\newblock ISSN 0162-8828.
+\newblock \doi{10.1109/TPAMI.2007.1049}.
+\newblock URL \url{http://dx.doi.org/10.1109/TPAMI.2007.1049}.
+
+\bibitem[Strasdat et~al.(2010)Strasdat, Montiel, and
+  Davison]{DBLP:conf/icra/StrasdatMD10}
+Hauke Strasdat, J.~M.~M. Montiel, and Andrew~J. Davison.
+\newblock {Real-time monocular SLAM: Why filter?}
+\newblock In \emph{{ICRA}}, pages 2657--2664, 2010.
+
+\bibitem[Lourakis(2010)]{sba}
+Manolis Lourakis.
+\newblock {SBA}, August 2010.
+\newblock URL \url{http://www.ics.forth.gr/~lourakis/sba}.
+\newblock [online] \url{http://www.ics.forth.gr/~lourakis/sba/}.
+
+\bibitem[Lourakis and Argyros(2009)]{lour09}
+M.I.~A. Lourakis and A.A. Argyros.
+\newblock {SBA: A Software Package for Generic Sparse Bundle Adjustment}.
+\newblock \emph{ACM Trans. Math. Software}, 36\penalty0 (1):\penalty0 1--30,
+  2009.
+\newblock \doi{10.1145/1486525.1486527}.
+
+\bibitem[Julier(1995)]{Julier95anewapproach}
+Simon J | Uhlmann Jeffrey K | Durrant-Whyte Hugh~F Julier.
+\newblock {A new approach for filtering nonlinear systems}.
+\newblock In \emph{{1995 American Control Conference, 14th, Seattle, WA; UNITED
+  STATES; 21-23 June 1995}}, pages 1628--1632, 1995.
+
+\bibitem[Julier and Uhlmann(1997)]{Julier97anew}
+Simon~J. Julier and Jeffrey~K. Uhlmann.
+\newblock {A New Extension of the Kalman Filter to Nonlinear Systems}.
+\newblock In \emph{{}}, pages 182--193, 1997.
+
+\bibitem[Stevens(2010)]{bayesclasses}
+Michael Stevens.
+\newblock {Bayesclasses}, August 2010.
+\newblock URL \url{http://bayesclasses.sourceforge.net}.
+\newblock [online] \url{http://bayesclasses.sourceforge.net}.
+
+\bibitem[Ude(1999)]{DBLP:journals/ras/Ude99}
+Ales Ude.
+\newblock {Filtering in a unit quaternion space for model-based object
+  tracking}.
+\newblock \emph{Robotics and Autonomous Systems}, 28\penalty0 (2-3):\penalty0
+  163--172, 1999.
+
+\bibitem[Barac(2011)]{Barac11}
+Daniel Barac.
+\newblock {Localization algorithms for indoor UAVs}, 2011.
+
+\end{thebibliography}

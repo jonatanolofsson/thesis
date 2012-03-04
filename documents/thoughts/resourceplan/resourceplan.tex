@@ -1,0 +1,91 @@
+\section{Resource plan}
+\label{sec:resourceplan}
+This section describes the initial plan on how to use the processing
+power available on the LinkQuad.
+    \subsection{Available resources}
+        Each LinkQuad is equipped with a LinkBoard.
+        A LinkBoard is in turn equipped with
+        \begin{itemize}
+            \item Sensor MCU,
+            \item Control MCU,
+            \item two Gumstix\textsuperscript{\textregistered} modules running Linux.
+        \end{itemize}
+
+    \subsection{Resource usage}
+        \paragraph{Sensor MCU: } The sensor MCU will be used to sample
+        and compile sensor data from accelerometers, gyroscopes and pressure sensor.
+        If possible, the MCU will oversample the measurements, and at
+        a fixed rate of e.g. 100 Hz send the data to the observer, implemented on
+        one of the Gumstix\textsuperscript{\textregistered} modules.
+        The module should also be able to send filtered measurements to the
+        backup control MCU.
+    
+        %~ \begin{figure}[h]
+            %~ \noindent\makebox[\textwidth]{%
+                %~ \begin{tikzpicture}[node distance = 3cm]
+                    %~ % Place nodes
+                    %~ \node [block] (init) {initialize};
+                    %~ \node [block, right of=init] (sample) {sample sensors};
+                    %~ \node [block, right of=sample] (send) {send sensor data};
+%~ 
+%~ 
+                    %~ \path [->]
+                        %~ (init) edge (sample)
+                        %~ (sample) edge (send)
+                        %~ (send) edge [out=-90, in=-90] (sample)
+                    %~ ;
+                %~ \end{tikzpicture}
+            %~ }
+            %~ \caption{Rough outline of the Sensor MCU structure}
+            %~ \label{fig:sensorMcuFlow}
+        %~ \end{figure}
+
+
+        \paragraph{Control MCU: } The control MCU is important in the aspect
+        that it acts as a watchdog, should a failure occur with the primary
+        controller on one of the Gumstix\textsuperscript{\textregistered} modules.
+        On failure, it reverts control to the lower level stabilizing PID loop,
+        which can then be used to safely manually land the LinkQuad.
+        The control MCU is also used to actuate the higher-level controls 
+        given by the controller on the Gumstix\textsuperscript{\textregistered} module.
+        
+    
+        %~ \begin{figure}[h]
+            %~ \noindent\makebox[\textwidth]{%
+                %~ \begin{tikzpicture}[node distance = 3cm]
+                    %~ % Place nodes
+                    %~ \node [block] (init) {initialize};
+                    %~ \node [decision, right of=init] (timeout) {timeout};
+                    %~ \node [block, right of=timeout] (stabilize) {stabilize};
+                    %~ \node [block, right of=stabilize] (actuate) {actuate};
+                    %~ \node [block, below of=stabilize] (command) {command};
+%~ 
+%~ 
+                    %~ \path [->]
+                        %~ (init) edge (timeout)
+                        %~ (timeout) edge[in=180,out=0] node[near start] {yes} (stabilize)
+                        %~ (timeout) edge[in=180,out=-90] node[near start] {no} (command)
+                        %~ (stabilize) edge (actuate)
+                        %~ (command) edge [out=0,in=-90] (actuate)
+                        %~ (actuate) edge [out=90, in=90] (timeout)
+                    %~ ;
+                %~ \end{tikzpicture}
+            %~ }
+            %~ \caption{Rough outline of the Control MCU structure}
+            %~ \label{fig:controlMcuFlow}
+        %~ \end{figure}
+
+        \paragraph{Controller and observer Gumstix\textsuperscript{\textregistered} module: }
+        One of the Gumstix\textsuperscript{\textregistered} modules will be primarily
+        used for logic, state observation - i.e. run the UKF algorithm - and
+        controller. All modules measuring some kind of sensory percept
+        should report this to the observer which will fuse the information
+        to a single best estimate of the full state. The state can then
+        be immediately used by the controller to stabilize the LinkQuad
+        and follow the reference.
+
+        \paragraph{Video processing Gumstix\textsuperscript{\textregistered} module: }
+        The second Gumstix\textsuperscript{\textregistered} module will be dedicated
+        to the evaluation of the video feed in terms of running the vSLAM
+        algorithm and keeping track of the map.
+        This will require intimate two-way communication with the observer.

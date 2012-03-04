@@ -1,0 +1,26 @@
+\chapter{State Estimation}
+\label{cha:observer}
+    A central part of automatic control is to know the state of the device you are
+    controlling. The system studied in this thesis - the LinkQuad - is in constant
+    motion, so determining the up-to-date position if of vital importance to the performance
+    of the control.
+    This chapter deals with the estimation of the states relevant for positioning
+    and controlling the LinkQuad.
+    Filter theory and notation is established in Section \ref{sec:observer:filtering}.
+
+    In this thesis, an Unscented Kalman Filter (UKF) is used, which extends the
+    linear Kalman filter theory to a non-linear model in an appealing black-box way.
+    The theory of the UKF is treated in Section \ref{sec:observer:ukf}.
+
+    The motion model of the system is derived and discussed in Section \ref{sec:observer:motionmodel}.
+
+    The motions of the system is also captured by the on-board sensors.
+    A measurement $z$ is related to the motion model by the sensor model $h$;
+    \begin{equation}
+        z(t) = h(x(t),u(t),t)
+    \end{equation}
+    The models for the sensors used on the LinkQuad are discussed in
+    Section \ref{sec:observer:sensormodels}.
+
+    \input{\currentchapter/filtering}
+    \input{\currentchapter/ukf}

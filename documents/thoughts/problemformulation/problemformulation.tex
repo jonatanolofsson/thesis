@@ -1,0 +1,97 @@
+\section{Problem formulation}
+\label{sec:problemformulation}
+    In this section, the thesis subject is introduced and the problem
+    formulation is presented. After the main goal of the thesis is presented, 
+    the section continues with a proposed means of implementation.
+
+    Selected for having a large potential and expected payoff in terms of
+    both performance and from an educational standpoint, it is proposed
+    that a vSLAM algorithm is implemented for estimation of absolute
+    generalized pose (position and orientation).
+    This approach have a long-term advantage over the optical flow
+    algorithm previously discussed for the LinkQuad system, and may also possibly benefit from
+    previous work done by on the LinkQuad by \citep{Barac11}.
+    
+    \subsection{Main goal}
+        The main goal of the thesis work is to develop and implement
+        an autonomous landing mode for the LinkQuad quadrocopter.
+        The following sensors are available onboard as of today:
+        \begin{itemize}
+            \item Accelerometers (3DOF acceleration),
+            \item Gyroscopes (3DOF angular velocity),
+            \item Pressure sensor (height above ground, HOG),
+            %~ \item Magnetometer (3DOF angular orientation)
+            \item Camera.
+        \end{itemize}
+
+        Sensors of optical flow have been discussed in the forming of the
+        thesis but since optical flow can be computed from the camera feed,
+        this source will be investigated foremost in the event that optical flow
+        i used in the state estimation. Other sensors have been discussed
+        as well and may be added if possible and if needed.
+
+        The problem of landing autonomously can be divided into three main
+        subproblems that all need to be solved for full online autonomous landing:
+        \begin{enumerate}
+            \item State estimation,
+            \item Landing site designation / waypoint generation,
+            \item Control.
+        \end{enumerate}
+
+        With access to the VICON-lab at IDA, it is possible to perform
+        work on the latter two subproblems without the need for fully
+        functional state estimation, thus allowing progress on multiple
+        frontiers at once.
+
+        The subsystems should also be made pluggable, so that
+        for instance the landing site designation could initially be
+        implemented in a simple manner, later
+        to be replaced by a more advanced algorithm for finding a suitable
+        landing site.
+
+    \subsection{State estimation}
+        The problem of estimating the full state of the controlled LinkQuad
+        will be tackled by implementing an unscented Kalman filter 
+        (\citep{Julier95anewapproach,Julier97anew,vandermerwe:upf,Merwe04sigma-pointkalman}) 
+        and fusing all available sensor data.
+        The first three of the above mentioned onboard sensors are
+        straightforward to implement, while the camera will require more
+        work and will play a significant role in the thesis.
+        
+        As the algorithm for the vSLAM, it is proposed that a keyframe solution
+        similar to that of \citep{weiss11monocular} is pursued, as it seems to yield
+        good results to a tractable computational cost.
+
+    \subsection{Landing site designation / waypoint generation}
+        \label{ssec:waypointgeneration}
+        The problem of finding a suitable landing site for the LinkQuad
+        can, with a control logic suitably interfaced, easily be scaled.
+        Examples of designation schemes are
+        \begin{itemize}
+            \item Descend-where-you-are,
+            \item Visual marker,
+            \item Virtual marker,
+            \item Surface finding within specified area.
+        \end{itemize}
+
+        For the landing, following the example of for instance \citep{brockers:803111,DM:MS:10}, it
+        may be suitable to implement a strategy as follows:
+        \begin{enumerate}
+            \item Landing site detection
+            \item Estimate refinement
+            \item Approach
+            \item Descend
+            \item (Recovery)
+        \end{enumerate}
+        where the last step brings the helicopter back to a stable hovering state
+        in case the landing failed (e.g. if it falls of the landing platform).
+
+        Each of these steps can be implemented as modes in a general
+        mode-selected controller framework where mode transition conditions
+        can be generally implemented.
+
+    \subsection{Control}
+        The outer loop controller will be implemented as a, possibly scheduled,
+        LQG controller using a linearized dynamic model of the quadrocopter.
+        The controller will be used to follow a trajectory reference as computed
+        given a set of waypoints.

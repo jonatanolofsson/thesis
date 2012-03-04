@@ -1,0 +1,52 @@
+\section{Summary}
+This is the first report that I intend to try to write each friday to report
+of the progress in the work of my master thesis.
+
+This week's progress have been somewhat dampened by some problems regarding
+the move to the gumstix. Due to this, the milestones that were due today
+will have to be moved and hopefully completed in the middle of next week.
+
+Until the internal communication has been properly set up on a LinkBoard,
+I regard the work to be in a ''setup'' phase of sorts, in which it is
+difficult to diverge from the main line of work - since everything is more
+or less dependent on getting the fundamental framework to work.
+
+The turning in of an outline of the report structure has been deliberately
+moved to next week, when I will meet with Thomas to discuss a few details
+regarding this.
+
+Apart from these relatively minor setbacks this week, the thesis work
+has started out well.
+
+\section{Problem of the week}
+There are two main reasons of this weeks delay in progress.
+The first was that I together with my tutors decided that it would benefit
+the LinkQuad as a project - and thereby my thesis - to develop a new C++-library for the
+serial port communication. The (yet untested) library is very promising and
+will contribute as expected, but was still an unplanned effort that I thought was
+more or less done in the previous implentation.
+
+The second, less appealing delay was that the requirement of running LAPACK/BLAS
+on the gumstix, which turned out to be previously untested, or at least undocumented,
+on the internet and the gumstix user mailing list. Failing to compile BLAS natively,
+I sat out on a detour to try to cross-compile it, until finally succeeding using
+the most basic (and inefficient) implementations of BLAS.
+
+Having failed to set up a working cross-compilation environment, this
+time could of course in retrospect have been better spent, but I gave it an
+effort. Successfully, it would have provided a useful tool later, but
+i feel I can't spend more time on it now.
+
+\section{Successes of the week}
+Apart from creating a templated serial port communication library worthy of attention,
+I have finalized the work on implementing an UKF filter and an LQ-controller as well
+as connecting those in the ROS-alike framework I have created for the internal communication.
+Figure~\ref{fig:observer} contains a simulated control to bring a one-dimensional
+position to the origin, controlling the velocity and measuring the velocity as
+a normally distributed random variable.
+
+\fig{observer}{UKF-observed, LQ-controlled, 2-dimensional linear model. The velocity is measured as random noise $v\sim\mathcal{N}(0, 1)$}{fig:observer}
+
+The system developed and described above is, after this weeks effort, now compiling and running
+on the gumstix. The model is also easily extended with more sensors and more advanced models.
+This is indeed promising, and is the base for the continued thesis work.

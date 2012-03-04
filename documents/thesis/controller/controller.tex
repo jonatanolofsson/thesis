@@ -1,0 +1,85 @@
+\chapter{Controller}
+\label{cha:controller}
+    To control the quadrotor's movements, a controller is applied to the
+    physical system, using a model of the system to calculate the best
+    (in a sense well defined in this chapter) signals of control to each
+    of the engines driving the propellers.
+
+    The approach chosen in this thesis is based on the Linear Quadratic (LQ)
+    controller, the theory of which is presented in Section \ref{sec:controller:lq}.
+    The physical model of the system was derived in \ref{sec:observer:motionmodel},
+    and in Section \ref{sec:controller:model}, this is further developed
+    and adapted for compatibility as a model for the controller.
+
+    The linear system model used in this chapter is notationed
+    \begin{subequations}
+        \begin{equation}
+            x_{t+1} = Ax_{t} + Bu_{t}
+        \end{equation}
+        \begin{equation}
+            z_{t} = Mx_{t}
+        \end{equation}
+    \end{subequations}
+    where $z_{t}$ is the vector of controlled states.
+
+    \section{The Linear Quadratic Controller}
+        The basic LQ controller, described in e.g. \citep{glad2003reglerteori},
+        uses a linear state-space system model and weights on the states ($Q$) and control
+        signals ($R$) respectively to calculate the control signals that would
+        minimize the integral
+        \begin{equation}
+        \label{eq:controller:lq:j}
+            \mathcal{J} = \int_{0}^{\infty} e^{T}(t)Qe(t) + u^{T}(t)Ru(t) dt.
+        \end{equation}
+
+        Thus, by varying the elements of the cost matrices $Q$ and $R$
+        respectively, the solution to the optimization will yield control
+        signals that will steer the system in a fashion that the amplitude
+        of the control signals and the errors are balanced.
+        By e.g. increasing the costs of the control signals, the system
+        LQ controller will issue smaller control signals, protecting the
+        engines but slowing the system down.
+
+        In the linear case, \eqref{eq:controller:lq:j} can be solved analytically,
+        resulting in a linear feedback
+        \begin{equation}
+            u_{t} = -L\hat{x}_{t} + L_{r}r_{t}
+        \end{equation}
+        \begin{equation}
+            L = R^{-1}B^{T}S,
+        \end{equation}
+        where $S$ is the Positively Semi-Definite (PSD) solution to the
+        Continuous Algebraic Riccati Equation (CARE)\citep{glad2003reglerteori},
+        \begin{equation}
+            A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0.
+        \end{equation}
+
+        To improve the reference following abilities of the controller,
+        the reference is brought into the control signal by a scaling
+        matrix $L_{r}$, which is chosen so that the static gain of the
+        system is equal to identity \citep{glad2003reglerteori}.
+        In the case with the same number of control signals as controlled
+        states, the following result is obtained;
+        \begin{equation}
+            L_{r} = \left[M(I + BL - A)^{-1}B\right]^{-1}.
+        \end{equation}
+
+    \section{LQ Gain-Scheduling}
+        Even though any system could be described at any point by its linearization,
+        the linear nature of the LQ control poses a limitation in that
+        a general system such as the one studied in this thesis - the LinkQuad - will
+        sooner or later leave the vicinity of the linearization point and no
+        longer adhere to the physical circumstances of the linearization point.
+
+        This will lead to sub-optimal control and possibly even to system failure.
+        A common approach is to switch between pre-calculated control gains
+        which has been calculated for selected linearization points.
+
+        The approach used in this thesis is closely related to gain scheduling,
+        but instead of using pre-calculated gains, the linearization is done
+        in-flight from the analytical expression of the system's Jacobian.
+
+        This approach leads to the property that, since the LQ control
+        always is calculated with the linearization around the current control signal,
+        the resulting optimal control is in fact the delta from the previous control signal,
+        and the new control can simply be expressed as

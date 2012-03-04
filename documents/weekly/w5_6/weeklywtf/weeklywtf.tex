@@ -1,0 +1,43 @@
+\section{Summary}
+Week 5-6 have been unfortunately clamped by some private commitments and
+travels. Therefore I have chosen to combine the reports for these weeks
+to this single report.
+Despite the lack of available time, I have nonetheless begun to put together the introductory
+parts of the thesis report. I have been in contact with both Thomas and
+also Gianpaolo Conte (who unfortunately is currently in Italy),
+and have with their help begun to look at developing a non-linear dynamical model
+for the observer, emanating from and congruent with the existing linear model.
+
+The practical work initially progressed fast, then to face some problems
+with the serial communication lingering from the previous week.
+This is now working however, and I can now sample, send, receive and plot
+data from the real sensors.
+
+A state machine engine has successfully been developed and run on the gumstix
+computer. It is hierarchichal and dynamical by structure, and provide a simple
+interface for the programmer. It will provide an extremely lightweight and
+synoptical logic module for the LinkQuad.
+
+\section{Problem of the week}
+The progress have been somewhat slower than intended on getting started
+with the modelling, so that have had to fall behind somewhat.
+Also, there was a minor misunderstanding in my new implementation of the
+serial communication that took a while to figure out.
+This is now what has the highest priority, and might require some discussions
+in the start of next week.
+
+The intention was to interface my code with the existing simulator this week.
+With Gianpaolo in Italy, however, that is unsuitable, so focus have been
+put to getting started with the writing of the report instead.
+It might be suitable to postpone the ROS/simulator integration until the
+system is closer to a working state, to see what work is really nescessary there.
+
+\section{Successes of the week}
+The sensor readings seem to be working well now. The new serial implementation
+used for this provides a cleaner interface when programming, which I personally value.
+
+The state machine is also working fine as it seems, and should scale
+well with the task I'm focusing on in my thesis.
+
+\fig{acceleration}{Sampled and scaled raw accelerometer data}{fig:acceleration}
+\fig{gyro}{Sampled and scaled gyro data. One of the gyros is defect on the development board.}{fig:gyro}

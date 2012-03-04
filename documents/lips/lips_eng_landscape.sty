@@ -1,0 +1,196 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%
+% Author: Henrik Ohlsson
+% E-mail: henoh509@student.liu.se
+% Date: 060127
+% Version 1.0
+% Minor updates by Per Jonsson, perjo542@student.liu.se
+% 2006-02-13, 2006-02-24
+%
+% The style is based on a style written by Jonas Biteus and
+%  Per Andersson, 020412.
+%
+% Purpose: English style for writing Lips document.
+%
+% Function           -- Description
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%
+% \maketitle         -- Make the title page.
+% \makeprojectid     -- Make the project identification tabular.
+% \makestaff         -- Make list of the project members.
+% \makeindexandmore  -- Make the index page.
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lips_eng}[2006/02/24 Lipseng]
+
+%% Packages
+%~ \RequirePackage[latin1]{inputenc}
+\RequirePackage[english]{babel}
+\RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
+\RequirePackage[a4paper,landscape,hscale=0.65,vscale=0.75,foot=4\baselineskip,head=4\baselineskip]{geometry}
+\RequirePackage{kvoptions}
+
+%~ \RequirePackage{supertabular}
+%~ \RequirePackage{ifthen}
+\SetupKeyvalOptions{
+    family=LIPS,
+    prefix=LIPS@
+}
+
+\DeclareStringOption{lipsdir}
+\ProcessKeyvalOptions*
+
+
+%% Setting
+\bibstyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex}
+
+%% Define Variables
+\def\projektnamn#1{\gdef\@projektnamn{#1}}
+\def\longprojektnamn#1{\gdef\@longprojektnamn{#1}}
+\def\kursnamn#1{\gdef\@kursnamn{#1}}
+\def\kurskod#1{\gdef\@kurskod{#1}}
+\def\projektgrupp#1{\gdef\@projektgrupp{#1}}
+\def\gruppepost#1{\gdef\@gruppepost{#1}}
+\def\authorepost#1{\gdef\@authorepost{#1}}
+\def\dokument#1{\gdef\@dokument{#1}}
+\def\version#1{\gdef\@version{#1}}
+\def\instution#1{\gdef\@instution{#1}}
+\def\avdelning#1{\gdef\@avdelning{#1}}
+\def\yearterm#1{\gdef\@yearterm{#1}}
+\def\projektnummer#1{\gdef\@projektnummer{#1}}
+\def\granskad#1#2{\gdef\@granskad{#1}\gdef\@granskaddatum{#2}}
+\def\godkand#1#2{\gdef\@godkand{#1}\gdef\@godkanddatum{#2}}
+
+
+%-------------------Some given variables--------------------------
+\projektnamn{Control and Coordination of \linebreak Terrain Vehicles}
+\longprojektnamn{Control and Coordination of Terrain Vehicles}\projektnummer{}  \kursnamn{CDIO Project in Automatic Control} \kurskod{TSRT10}
+\projektgrupp{Terrain Vehicle group} \instution{ISY} \avdelning{Division of Automatic Control} \yearterm{HT-2011}
+\gruppepost{tsrt10-2011-terrain@googlegroups.com}
+
+%------------------ Files ----------------------------------------%
+\input{\lipsdir files}
+
+%-----------Make definitions----------------------------------
+%% Make title defenition
+\renewcommand{\maketitle}{%
+\pagenumbering{Roman}
+\vspace*{4cm}
+\begin{center}
+\vspace*{3mm}
+{
+    \Huge \@title \\ \LARGE \@longprojektnamn{}
+}\\
+\vspace*{1cm}
+{\large Version \@version}\\
+\vspace*{3mm} {\large Author: \@author\\ Date: \@date}
+\vspace*{2cm}
+\end{center}
+%~ \begin{figure}[htbp]
+  %~ \centering
+ %~ \includegraphics[width=0.5\textwidth]{\LIPS@lipsdir logo_big.eps}
+%~ \end{figure}
+%~ \vspace*{1cm}
+%~ \subsection*{Status}
+%~ \begin{tabularx}{\textwidth}{|l|X|p{5cm}|}\hline
+    %~ Reviewed & \@granskad & \@granskaddatum\\ \hline
+    %~ Approved & \@godkand & \@godkanddatum \\ \hline
+%~ \end{tabularx}
+\thispagestyle{plain}
+\clearpage
+\thispagestyle{empty}
+\cleardoublepage
+}
+
+%% Make projectid defenition
+\newcommand{\makeprojectid}{%
+\subsection*{Project Identity}
+\begin{tabular}{ll}
+  \textbf{Group E-mail:} & \@gruppepost \\
+  \textbf{Homepage:}        & \url{http://www.isy.liu.se/edu/projekt/tsrt10/2011/terrain} \\
+  \textbf{Client:}     & Karl Granström, Linköping University\\
+  &\mbox{\textbf{Phone:} +46 (0)13 - 28 13 33}, \mbox{\textbf{E-mail:} karl@isy.liu.se}\\
+  \textbf{Customer:}  & Magnus Gens, Combitech AB \\
+  &\mbox{\textbf{Phone:}  +46 (0)8 580 864 09}, \mbox{\textbf{E-mail:} magnus.gens@combitech.se}\\
+  \textbf{Course Responsible:}   & David Törnqvist, Linköping University\\
+  &\mbox{\textbf{Phone:} +46 (0)13-281 882}, \mbox{\textbf{E-mail:} tornqvist@isy.liu.se}\\
+  \textbf{Project Manager:}  & Stefan Thorstensson \\
+  &\mbox{\textbf{Phone:} +46 (0)73-701 32 97}, \mbox{\textbf{E-mail:} stefan.thorstenson@gmail.com}\\
+  \textbf{Tutor:} & Tohid Ardeshiri, Linköping University\\
+   &\mbox{\textbf{Phone:} +46 (0)13-28 13 04}, \mbox{\textbf{E-mail:} tohid.ardeshiri@isy.liu.se}
+\end{tabular}
+}
+
+%% Make staff list defentition
+\newcommand{\makestafflist}{%
+    \subsection*{Group Members}
+    \begin{tabular}{|p{3.5cm}|p{4cm}|p{3cm}|p{2.4cm}|} \hline
+        \textbf{Name} & \textbf{Responsibility} & \textbf{Phone} & \textbf{E-mail}\\
+        &                &       &  \scriptsize (@student.liu.se) \\ \hline
+
+        Stefan Thorstensson & Project leader & 073-701 32 97 & steth114\\ \hline\hline
+        \multicolumn{4}{|l|}{\rule[-0.5em]{0em}{2em}\textbf{Operator Interface} \scriptsize subgroup} \\ \hline
+            Joakim Gebart & Head of Design & 073-065 13 83 & joage546\\ \hline
+            Robert Hallberg &  & 070-336 92 12 & robha864\\ \hline\hline
+
+        \multicolumn{4}{|l|}{\rule[-0.5em]{0em}{2em}\textbf{Coordination and planning server} \scriptsize subgroup} \\ \hline
+            Fredrik Hjelmare &  & 070-926 10 94 & frehj294\\ \hline
+            Jonatan Olofsson & Document manager & 076-321 91 05 & jonol402\\ \hline\hline
+
+        \multicolumn{4}{|l|}{\rule[-0.5em]{0em}{2em}\normalsize\textbf{Vehicle control} \scriptsize subgroup} \\ \hline
+            Daniel Johansson & Test responsible & 070-320 53 88 & danjo572\\ \hline
+            David Gillsjö &  & 073-022 02 82 & davgi579\\ \hline
+
+    \end{tabular}
+    \thispagestyle{empty} \cleardoublepage \thispagestyle{plain}
+}
+
+%%make index and more defenition
+\newcommand{\makeindexandmore}{%
+\clearpage \thispagestyle{empty} \cleardoublepage
+\pagestyle{plain} \footnotesize{\tableofcontents} \clearpage
+\pagestyle{fancyplain} \normalsize\pagenumbering{arabic} }
+
+
+%----------------------Header and footer----------------------------
+\pagestyle{fancyplain}
+\newcommand{\mkfooter}{%
+  {\footnotesize
+  \begin{tabular}{ll@{\hspace{3ex}}ll}
+    Course name: & \@kursnamn & E-mail: & \@gruppepost\\
+    Project group: & \@projektgrupp &  Document responsible: & \@author\\
+    Course code: & \@kurskod & Author's E-mail: & \@authorepost \\
+    Project: & \@projektnamn  &     Document name: & \@dokument
+  \end{tabular}}}
+\fancyhf{}
+
+\lfoot{\fancyplain{\mkfooter}{\mkfooter}}
+\rhead[\fancyplain{}{\includegraphics[width=0.1\textwidth]{\LIPS@lipsdir logo_small.eps}}]{\fancyplain{}{\thepage}}
+\chead{\fancyplain{}{\@projektnamn}}
+\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\includegraphics[width=0.1\textwidth]{\LIPS@lipsdir logo_small.eps}}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\plainheadrulewidth}{0.0pt}
+\renewcommand{\plainfootrulewidth}{0.4pt}
+
+
+% ----------------- Some useful macros ---------------------------
+\newcounter{requirementsCounter}
+\setcounter{requirementsCounter}{0}
+\newcounter{subrequirementsCounter}[requirementsCounter]
+\setcounter{subrequirementsCounter}{0}
+\newenvironment{requirements}{
+    \tabularx{\textwidth}{|c|l|X|c|} \hline \rowcolor[gray]{0.9}
+        \textbf{\#} & \textbf{Comment} & \textbf{Requirement} & \textbf{Level} \\ \hline
+}
+{\endtabularx\vspace{1cm}}
+\newcommand{\requirement}[3]{\addtocounter{requirementsCounter}{1}\arabic{requirementsCounter} & #3 & #2 & #1 \\ \hline}
+\newcommand{\subrequirement}[3]{\addtocounter{subrequirementsCounter}{1}\arabic{requirementsCounter}\alph{subrequirementsCounter} & #3 & #2 & #1 \\ \hline}
+
+\makeindex

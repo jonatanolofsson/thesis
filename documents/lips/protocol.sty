@@ -1,0 +1,120 @@
+\RequirePackage{supertabular}
+\newenvironment{meeting}
+{
+    \tablefirsthead{\hline}
+    \tablehead{\hline}
+    \tabletail{\hline}
+    \tablelasttail{\hline}
+    \begin{supertabular}{|>{\columncolor[gray]{0.9}}p{4cm}|p{9cm}|}
+}
+{
+    \end{supertabular}
+}
+
+\newcounter{matterCounter}
+\setcounter{matterCounter}{0}
+\newcounter{submatterCounter}[matterCounter]
+\setcounter{submatterCounter}{0}
+\newenvironment{mattergroup}[1]
+{
+    \vspace{-1.75em}
+    \flushleft\addtocounter{matterCounter}{1}\arabic{matterCounter}. #1 & \\
+}
+{
+    \hline
+}
+
+\newcommand{\generalmatter}[4]{
+    #1 \linebreak \begin{scriptsize} #2 \end{scriptsize} & #3
+    \ifthenelse{\isempty{#4}}
+    {}
+    {
+        \paragraph{Conclusions}
+        \itemize
+            \renewcommand{\labelitemi}{\textit{to}}
+            #4
+        \enditemize
+    }
+    \\
+}
+\newcommand{\matter}[4]{
+    \vspace{-1.5em}
+    \flushleft
+    \addtocounter{matterCounter}{1}
+    \arabic{matterCounter}.
+    \generalmatter{#1}{#2}{#3}{#4} \hline
+}
+\newcommand{\submatter}[4]{
+    \vspace{-1.75em}
+    \flushright
+    \addtocounter{submatterCounter}{1}
+    \alph{submatterCounter}.
+    \generalmatter{#1}{#2}{#3}{#4} \cline{2-2}
+}
+\newcommand{\conclusion}[1]{\item #1}
+
+\newcommand{\verification}{
+    \vspace*{50pt}
+    \section*{Verification}
+    \vspace*{50pt}
+    \begin{centering}
+        \begin{tabular}{p{5.6cm} p{1cm} p{5.6cm}}
+        & & \\ \cline{1-1} \cline{3-3}
+        \chairman & & \secretary \\
+        && \\
+        && \\
+        && \\ \cline{1-1}
+        \gauger &
+        \end{tabular}
+    \end{centering}
+}
+
+\newcommand{\statusreport}[2]{
+    \paragraph{#1:}
+    #2
+}
+
+\newenvironment{activities}
+{
+    \section*{Ongoing activities}
+    \tabularx{\textwidth}{|l|X|l|l|} \hline \rowcolor[gray]{0.9}
+    \textbf{Activity} & \textbf{Description} & \textbf{Responsibility} & \textbf{Status} \\ \hline
+}
+{
+    \endtabularx
+}
+
+\newcommand{\activity}[4]{
+    #1 & #2 & #3 & #4 \\ \hline
+}
+
+
+
+%% Make title defenition
+\newcommand{\makeminutetitle}{%
+\pagenumbering{Roman}
+\vspace*{4cm}
+\begin{center}
+\vspace*{3mm}
+{\Huge \@title \\ \LARGE \@longprojektnamn}\\
+\vspace*{1cm}
+{\large Version \@version}\\
+\vspace*{3mm} {\large Author: \@author \\ Date: \@date}
+\vspace*{2cm}
+\end{center}
+
+\subsection*{Attending}
+    \attending
+\vspace*{1cm}
+\subsection*{Status}
+\begin{tabularx}{\textwidth}{|l|X|p{5cm}|}\hline
+    Reviewed & \@granskad & \@granskaddatum\\ \hline
+    Approved & \@godkand & \@godkanddatum \\ \hline
+\end{tabularx}
+\thispagestyle{plain}
+\newpage
+\pagestyle{fancyplain} \normalsize\pagenumbering{arabic}
+%~ \clearpage
+%~ \thispagestyle{empty}
+%~ \cleardoublepage{}
+}

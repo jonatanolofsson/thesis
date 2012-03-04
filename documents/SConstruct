@@ -1,0 +1,9 @@
+import yaml
+SConscript(dirs=['lips'])
+
+with open('lips/files.yaml') as f:
+    files = yaml.load(f)
+
+for document in files['documents']:
+    name = '{group}_{name}_v{version}_{date}'.format(lcname=document['name'].lower(), name=document['name'], group=files['group'], date=document['date'], version=document['version'])
+    SConscript(dirs=[document['directory']], exports=['name'])

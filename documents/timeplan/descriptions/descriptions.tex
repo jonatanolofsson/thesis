@@ -1,0 +1,188 @@
+\section{Primary Linux Computer}
+    The primary Gumstix module will be central to the state estimation
+    and control of the LinkQuad. A lot of the work has been done previously
+    that can be used on this computer, and a lot of the work is therefore
+    focused on assembling existing parts and get it to work together.
+    Also, the time for tuning the parameters should not be underestimated.
+
+    \subsection{Kalman Filter}
+        \subsubsection{Implementation}
+            There exists today an implementation in C++ of a
+            non-linear Unscented Kalman Filter that will be used.
+            There is some implementation details to get it running on the
+            Gumstix module, as well as a few minor theoretical questions
+            in the implementation that I would like to adress.
+
+        \subsubsection{Tuning}
+            The tuning of filter covariances can be both cumbersome and
+            time-consuming. The work is eased with the availability of
+            the VICON-lab, where a ground truth can be obtained to
+            enable an off-line tuning loop.
+
+    \subsection{Controller}
+        A study have to be performed here to decide upon control type,
+        control variables and control model.
+        \subsubsection{Implementation}
+            After the type of controller has been decided upon, the work
+            with implementing it is quite easy work.
+
+        \subsubsection{Modelling}
+            The controlled system should be modelled in some way.
+            In case LQ control is used, a simple state-space model should
+            be devised. If a PID controller is used, using an IMC tuning model
+            is beneficial and a model should thus be constructed in either case.
+
+        \subsubsection{Parameter Tuning}
+            Here the use of a simulation environment is much beneficial.
+            It might be of interest to introduce a disturbance model in the
+            simulator to be able to test more realistic flight cases.
+
+    \subsection{Communication}
+        \subsubsection{Internal Communication}
+            The internal communication on the Gumstix module will be
+            made using a simple signaling framework.
+            There should not be much work here except compiling it on the
+            Gumstix.
+
+        \subsubsection{Serial MCU Communication}
+            The serial communication on the Gumstix should be implemented
+            already through the existing LinkBoard communication library.
+
+        \subsubsection{Ground Ctation Communication}
+            Communication with the ground station should be implemented
+            already through the existing LinkBoard communication library.
+
+        \subsubsection{Gumstix Communication}
+            Communication with the secondary Gumstix should be implemented
+            already through the existing LinkBoard communication library.
+
+    \subsection{Logic}
+        \subsubsection{State Machine Implementation}
+            The behaviour of an UAV can generally be described as actions
+            performed in one of several states. A general state machine
+            should therefore be constructed with easily defined actions
+            and transition rules. This will be beneficial as one can
+            focus on implenting each given action independently and
+            let the rules define when each action should be selected.
+
+        \subsubsection{Hover Mode}
+            When the LinkQuad is in hover mode, is only control goal
+            is to stand still in the air. This is the first mode to be
+            implemented, and acts as a test case for further development
+            of more advanced flight modes.
+
+        \subsubsection{Milestone: Stable Hovering}
+            Here, stable hovering with the LinkQuad should be demonstrated.
+            Optionally, reference hovering positions may be changed to
+            demonstrate movement.
+
+        \subsubsection{Landing mode}
+            \paragraph{State Identification \newline}
+                When performing a full landing, there are several substeps
+                that need to be identified.
+
+            \paragraph{State Transition Rules \newline}
+                Each substep of the landing have to be defined with its
+                own set of transition rules that define which control
+                state should be activated.
+                This work also includes the detection of a completed landing.
+
+            \paragraph{Reference Generation \newline}
+                A lot of the work after implementing reference following
+                for the LinkQuad will be spent on creating viable route
+                references that should be followed.
+
+            \paragraph{Milestone: Autonomous landing \newline}
+                Here, an autonomous landing should be demonstrated.
+
+            \paragraph{Milestone: Repeated Autonomous Landing \newline}
+                A short while after the previous milestone, repeated landing
+                should be performed where time has been available to fix
+                issues that arised during the first demonstration.
+                This should allow for repeated successful landings of the LinkQuad.
+
+    \subsection{Gumstix Integration}
+        Since the Gumstix is a full-fledged Linux computer,
+        compiling existing code is not expected to be a big issue.
+
+\section{Secondary Linux Computer}
+    The second Gumstix will be running the video processing algorithms
+    and communicate results to the primary Gumstix.
+
+    \subsection{PTAM Integration}
+        PTAM is a library for monocular SLAM developed at the University of Oxford.
+        Is is in a very experimental state, but is what was used in e.g.
+        \citep{klein07parallel,weiss11monocular}.
+        Since getting it to run seems non-trivial, a lot of time has been assigned
+        to getting it integrated.
+
+    \subsection{Gumstix Integration}
+        Since PTAM may be severely platform-dependent, the implementation
+        will be done directly on the Gumstix.
+
+\section{Sensory MCU}
+    \subsection{Sensor Interfacing}
+        This should be mostly implemented already with code from IDA
+
+    \subsection{Milestone: Plotted Sensordata}
+        This milestone is a confirmation that the sensor interfacing is working.
+        Live sensordata should be plotted - filterer or unfiltered.
+
+\section{Control MCU}
+    \subsection{Control Servos}
+        This should be mostly implemented already with code from IDA
+    \subsection{Milestone: Moving Servos}
+        This milestone should display the availability of control over servos from the Gumstix
+        computer.
+
+\section{Ground Station}
+    \subsection{Interfacing the LinkQuad}
+        Some kind of interface is needed with the LinkQuad to be able to communicate
+        commands to the logic on the primary Gumstix module.
+        This may be fairly easy to implement, thanks to IDA code, but should
+        nonetheless be well thought through.
+
+\section{Peripheral}
+    \subsection{Simulation Environment Integration}
+        The LinkQuad has recently been extended with a ROS based simulator.
+        It would be of much value to interface the new developments with
+        this simulator for control parameter tuning etc. This may be non-trivial however
+        and has, as it is deemed an important task, been assigned quite some time.
+
+\section{Report}
+    \subsection{Unspecified Work}
+        Half the work on the thesis have been assigned to this ''unspecified work'' on the
+        report. Hopefully, this will give enough time for a good report and not
+        least, time is assigned to this task from the very beginning of the project.
+
+    \subsection{Environment Setup}
+        Starting a report of this size requires some setup-time
+        where a formal LaTeX directory structure, figure generation tools
+        and document generation scripts are setup to work together.
+
+    \subsection{Milestone: Chapter Outline}
+        On this milestone, a preliminary outline of the report's table of
+        contents should be presented.
+
+    \subsection{Milestone: Filtering and Control Chapters}
+        Ready for critique.
+
+    \subsection{Milestone: Video Processing Chapters}
+        Ready for critique.
+
+    \subsection{Milestone: Hover State Evaluation Chapter}
+        Ready for critique.
+
+    \subsection{Milestone: All Chapters Ready for Critique}
+        The aim is that the report will be largely finished by the
+        time of this milestone. Some fine-tuning will remain, but the
+        report should be finished to be critiqued.
+
+\section{Administration}
+    Some time in the thesis project should be devoted to administration
+
+\section{Opposition}
+    This activity contains the preparation time for opposing a fellow student's thesis.
+
+\section{Presentation}
+    This activity is dedicated to the preparation of the final presentation of the thesis work.

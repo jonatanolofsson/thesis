@@ -1,0 +1,29 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2011.8.15)  15 SEP 2011 10:19
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**protocol.sty
+(./protocol.sty
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, bu
+lgarian, russian, ukrainian, swedish, ukenglish, loaded.
+\c@matterCounter=\count79
+\c@submatterCounter=\count80
+)
+*
+! Emergency stop.
+<*> protocol.sty
+                
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 45 strings out of 494798
+ 557 string characters out of 3175976
+ 47757 words of memory out of 3000000
+ 3335 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 206 hyphenation exceptions out of 8191
+ 9i,0n,12p,113b,8s stack positions out of 5000i,500n,10000p,200000b,50000s
+No pages of output.

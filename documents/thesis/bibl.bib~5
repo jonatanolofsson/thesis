@@ -1,0 +1,276 @@
+@comment{x-kbibtex-personnameformatting=<%l><, %f>}
+
+@inproceedings{DBLP:conf/icra/BloschWSS10,
+	author = "Bl{\"o}sch, Michael and Weiss, Stephan and Scaramuzza, Davide and Siegwart, Roland",
+	bibsource = "DBLP, http://dblp.uni-trier.de",
+	booktitle = "{ICRA}",
+	pages = "21--28",
+	title = "{Vision based MAV navigation in unknown and unstructured environments}",
+	url = "http://dx.doi.org/10.1109/ROBOT.2010.5509920",
+	year = "2010"
+}
+
+@inproceedings{DBLP:conf/icra/StrasdatMD10,
+	author = "Strasdat, Hauke and Montiel, J. M. M. and Davison, Andrew J.",
+	bibsource = "DBLP, http://dblp.uni-trier.de",
+	booktitle = "{ICRA}",
+	ee = "http://dx.doi.org/10.1109/ROBOT.2010.5509636",
+	pages = "2657--2664",
+	title = "{Real-time monocular SLAM: Why filter?}",
+	year = "2010"
+}
+
+@article{weiss11monocular,
+	author = "Weiss, S and Scaramuzza, D and Siegwart, R",
+	journal = "Journal of Field Robotics",
+	number = "6",
+	pages = "854--874",
+	title = "{Monocular-SLAM based navigation for autonomous micro helicopters in GPS-denied environments}",
+	volume = "28",
+	year = "2011"
+}
+
+@inproceedings{brockers:803111,
+	author = "Brockers, Roland and Bouffard, Patrick and Ma, Jeremy and Matthies, Larry and Tomlin, Claire",
+	booktitle = "{Micro- and Nanotechnology Sensors, Systems, and Applications III}",
+	collaboration = "",
+	doi = "10.1117/12.884449",
+	editor = "George, Thomas and Islam, M. Saif and Dutta, Achyut K.",
+	eid = "803111",
+	journal = "Micro- and Nanotechnology Sensors, Systems, and Applications III",
+	location = "Orlando, Florida, USA",
+	numpages = "12",
+	pages = "803111",
+	publisher = "SPIE",
+	title = "{Autonomous landing and ingress of micro-air-vehicles in urban environments based on monocular vision}",
+	url = "http://link.aip.org/link/?PSI/8031/803111/1",
+	volume = "8031",
+	year = "2011"
+}
+
+@inproceedings{DM:MS:10,
+	author = "Mellinger, D. and Shomin, M. and Kumar, V.",
+	booktitle = "{Proceedings of the International Powered Lift Conference}",
+	month = "Oct",
+	title = "{Control of Quadrotors for Robust Perching and Landing}",
+	year = "2010"
+}
+
+@inproceedings{Karlsson05thevslam,
+	author = "Karlsson, Niklas and Bernardo, Enrico Di and Ostrowski, Jim and Goncalves, Luis and Pirjanian, Paolo and Munich, Mario E.",
+	booktitle = "{In Proc. of Int. Conf. on Robotics and Automation (ICRA}",
+	pages = "24--29",
+	title = "{The vSLAM algorithm for robust localization and mapping}",
+	year = "2005"
+}
+
+@inproceedings{Montemerlo+al:AAAI02,
+	author = "Montemerlo, M. and Thrun, S. and Koller, D. and Wegbreit, B.",
+	booktitle = "{Proceedings of the 18th National Conference on Artificial Intelligence (AAAI)}",
+	month = "July",
+	pages = "593--598",
+	title = "{FastSLAM: A Factored Solution to the Simultaneous Localization and Mapping Problem}",
+	year = 2002
+}
+
+@phdthesis{Montemerlo_2003_4434,
+	address = "Pittsburgh, PA",
+	author = "Montemerlo, Michael",
+	month = "July",
+	number = "CMU-RI-TR-03-28",
+	school = "Robotics Institute, Carnegie Mellon University",
+	title = "{FastSLAM: A Factored Solution to the Simultaneous Localization and Mapping Problem with Unknown Data Association}",
+	year = "2003"
+}
+
+@inproceedings{vandermerwe:upf,
+	author = "van der Merwe, Rudolph and Doucet, Arnaud and de Freitas, Nando and Wan, Eric A.",
+	booktitle = "{NIPS'00}",
+	pages = "584--590",
+	title = "{The Unscented Particle Filter.}",
+	year = "2000"
+}
+
+@inproceedings{Julier97anew,
+	author = "Julier, Simon J. and Uhlmann, Jeffrey K.",
+	booktitle = "{}",
+	pages = "182--193",
+	title = "{A New Extension of the Kalman Filter to Nonlinear Systems}",
+	year = "1997"
+}
+
+@inproceedings{Julier95anewapproach,
+	author = "Julier, Simon J | Uhlmann Jeffrey K | Durrant-Whyte Hugh F",
+	booktitle = "{1995 American Control Conference, 14th, Seattle, WA; UNITED STATES; 21-23 June 1995}",
+	pages = "1628--1632",
+	title = "{A new approach for filtering nonlinear systems}",
+	year = "1995"
+}
+
+@misc{Merwe04sigma-pointkalman,
+	author = "Merwe, Rudolph Van Der and Wan, Eric",
+	title = "{Sigma-Point Kalman Filters For Integrated Navigation}",
+	year = "2004"
+}
+
+@article{DBLP:journals/ras/Ude99,
+	author = "Ude, Ales",
+	bibsource = "DBLP, http://dblp.uni-trier.de",
+	ee = "http://dx.doi.org/10.1016/S0921-8890(99)00014-7",
+	journal = "Robotics and Autonomous Systems",
+	number = "2-3",
+	pages = "163--172",
+	title = "{Filtering in a unit quaternion space for model-based object tracking}",
+	volume = "28",
+	year = "1999"
+}
+
+@misc{rosvslam,
+	author = "Oleynikova, Helen",
+	day = 02,
+	howpublished = "",
+	institution = "",
+	key = "rosvslam",
+	month = "September",
+	note = "[online] \url{http://www.ros.org/wiki/vslam}",
+	title = "{ROS vSLAM}",
+	url = "http://www.ros.org/wiki/vslam",
+	year = 2011
+}
+
+@misc{bayesclasses,
+	author = "Stevens, Michael",
+	day = 16,
+	howpublished = "",
+	institution = "",
+	key = "bayesclasses",
+	month = "August",
+	note = "[online] \url{http://bayesclasses.sourceforge.net}",
+	title = "{Bayesclasses}",
+	url = "http://bayesclasses.sourceforge.net",
+	year = 2010
+}
+
+@misc{sba,
+	author = "Lourakis, Manolis",
+	day = 16,
+	howpublished = "",
+	institution = "",
+	key = "sba",
+	month = "August",
+	note = "[online] \url{http://www.ics.forth.gr/~lourakis/sba/}",
+	title = "{SBA}",
+	url = "http://www.ics.forth.gr/~lourakis/sba",
+	year = 2010
+}
+
+@article{lour09,
+	address = "New York, NY, USA",
+	author = "Lourakis, M.I. A. and Argyros, A.A.",
+	doi = "10.1145/1486525.1486527",
+	journal = "ACM Trans. Math. Software",
+	number = "1",
+	pages = "1--30",
+	publisher = "ACM",
+	title = "{SBA: A Software Package for Generic Sparse Bundle Adjustment}",
+	volume = "36",
+	year = "2009"
+}
+
+@inproceedings{klein07parallel,
+	address = "Nara, Japan",
+	author = "Klein, Georg and Murray, David",
+	booktitle = "{Proc. Sixth {IEEE} and {ACM} International Symposium on Mixed and Augmented Reality {(ISMAR'07)}}",
+	month = "November",
+	title = "{Parallel Tracking and Mapping for Small {AR} Workspaces}",
+	year = 2007
+}
+
+@article{Davison:2007:MRS:1263144.1263479,
+	acmid = "1263479",
+	address = "Washington, DC, USA",
+	author = "Davison, Andrew J. and Reid, Ian D. and Molton, Nicholas D. and Stasse, Olivier",
+	doi = "10.1109/TPAMI.2007.1049",
+	issn = "0162-8828",
+	issue = "6",
+	journal = "IEEE Trans. Pattern Anal. Mach. Intell.",
+	keywords = "Autonomous vehicles; 3D/stereo scene analysis; tracking.",
+	month = "June",
+	numpages = "16",
+	pages = "1052--1067",
+	publisher = "IEEE Computer Society",
+	title = "{MonoSLAM: Real-Time Single Camera SLAM}",
+	url = "http://dx.doi.org/10.1109/TPAMI.2007.1049",
+	volume = "29",
+	year = "2007"
+}
+
+@misc{Barac11,
+	author = "Barac, Daniel",
+	institution = "Link{\~A}{\^A}¶ping University, Automatic Control, UASTECH - Autonomous Unmanned Aircraft Systems Technologies",
+	pages = "54",
+	title = "{Localization algorithms for indoor UAVs}",
+	year = "2011"
+}
+
+@book{valavanis2007advances,
+	author = "Valavanis, K.",
+	isbn = "9781402061134",
+	publisher = "Springer",
+	series = "{International series on intelligent systems, control, and automation}",
+	title = "{Advances in unmanned aerial vehicles: state of the art and the road to autonomy}",
+	url = "http://books.google.se/books?id=EsjPyblwMdQC",
+	year = "2007"
+}
+
+@article{Wong_Bil_2006,
+	author = "Wong, K C and Bil, C",
+	journal = "Flight International",
+	pages = "1--16",
+	title = "{UAVs OVER AUSTRALIA - Market And Capabilities}",
+	year = "2006"
+}
+
+@book{united2010u,
+	author = "of Defense, United States. Dept. of Defense. Office of the Secretary",
+	publisher = "U. S. Army UAS Center of Excellence",
+	title = "{U.S. Army Roadmap for unmanned aircraft systems, 2010-2035}",
+	url = "http://books.google.se/books?id=ZUiNYgEACAAJ",
+	year = "2010"
+}
+
+@inbook{Doherty_Rudol_2007,
+	author = "Doherty, Patrick and Rudol, Piotr",
+	booktitle = "{20th Australian Joint Conference on Artificial Intelligence AI2007}",
+	publisher = "Springer Berlin / Heidelberg",
+	title = "{A UAV Search and Rescue Scenario with Human Body Detection and Geolocalization}",
+	url = "http://portal.acm.org/citation.cfm?id=1781240",
+	year = "2007"
+}
+
+@misc{Pounds_modellingand,
+	author = "Pounds, Paul and Mahony, Robert and Corke, Peter",
+	title = "{Modelling and Control of a Quad-Rotor Robot}",
+	year = ""
+}
+
+@book{leishman2002principles,
+	author = "Leishman, J.G.",
+	isbn = "9780521523967",
+	lccn = "99038291",
+	publisher = "Cambridge University Press",
+	series = "{Cambridge aerospace series}",
+	title = "{Principles of helicopter aerodynamics}",
+	url = "http://books.google.se/books?id=-PnV2JuLZi4C",
+	year = "2002"
+}
+
+@book{prouty1995helicopter,
+	author = "Prouty, R.W.",
+	isbn = "9780894649295",
+	publisher = "Krieger Pub.",
+	title = "{Helicopter performance, stability, and control}",
+	url = "http://books.google.se/books?id=GntGAAAAYAAJ",
+	year = "1995"
+}
+

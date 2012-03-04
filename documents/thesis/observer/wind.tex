@@ -1,0 +1,48 @@
+\subsubsection{Wind}
+    For describing the wind's impact on the quadrotor motion,
+    a simple wind model is applied where the wind is modelled with
+    a static velocity that imposes forces and moments on the quadrotor.
+    The wind velocity vector is estimated by the UKF and may thus still vary
+    in its estimation trough the measurement update.
+    The wind velocities in the filter is given in the NED reference frame.
+
+    The wind drag force is calculated using equation \eqref{eq:observer:wind:dragforce},
+    whereas the moments are given by equations \eqref{eq:observer:wind:moments}.
+    In this thesis, the moments acting on the quadrotor body (as opposed to the rotors)
+    are neglected or described by moments imposed by the wind acting on the rotors.
+
+    \begin{subequations}
+        \begin{equation}
+            F_{wind} = F_{wind,body} + \sum_{i=0}^{3} F_{wind,ri}
+        \end{equation}
+        \begin{equation}
+            F_{wind,body} = -\frac{1}{2} C_{D} \rho A V_{rel} ||V_{rel}||
+        \end{equation}
+        \begin{equation}
+            F^{BF}_{wind,ri} = -\frac{1}{2} \rho C_{D,r} \sigma A_{r} (V_{ri} \cdot e_{P_{ri}3}^{BF}) ||V_{ri} \cdot e_{P_{ri}3}^{BF}|| e_{P_{ri}3}^{BF}
+        \end{equation}
+    \end{subequations}
+
+    \begin{subequations}
+        \begin{equation}
+            M_{wind} = M_{wind,body} + \sum_{i=0}^{3}M_{wind,ri}
+        \end{equation}
+        \begin{equation}
+            M_{wind,body} \approx 0 % Could perhaps be better approximated by constant*\sum_{i=0}^{3}M_{wind,ri}, for small constant, modelling the wind's effect on the four arms
+        \end{equation}
+        \begin{equation}
+            M_{wind,ri} = D_{ri}^{BF} \times F^{BF}_{wind,ri}
+        \end{equation}
+    \end{subequations}
+
+
+    \begin{table}
+        \begin{tabularx}{\tablewidth}{|c|c|X|}\hline
+            \textbf{Symbol} & \textbf{Expression} & \textbf{Description} \\\hline
+            $A$ & - & 3x3 matrix describing the area of the quadrotor, excluding the rotors. \\\hline
+            $C_{D}$ & - & 3x3 matrix describing the drag coefficients of the quadrotor. \\\hline
+            $C_{Dr}$ & - & Propeller's coefficient of drag. \\\hline
+        \end{tabularx}
+        \label{tbl:observer:wind:symbols}
+        \caption{Table of symbols used in the wind equations}
+    \end{table}

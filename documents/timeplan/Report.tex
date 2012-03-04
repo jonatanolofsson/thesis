@@ -1,0 +1,56 @@
+
+% Main file for collecting the chapters of the report
+%
+% Author: Jonatan Olofsson, jonatan.olofsson@gmail.com
+%
+
+%% Specify document type
+\documentclass[10pt,a4paper]{article}
+
+%% Specify report metadata
+\title{Master Thesis Timeplan}
+\date{\today}
+\author{Jonatan Olofsson [jonol402]}
+\newcommand{\lang}{english}
+\newcommand{\pdfauthor}{Jonatan Olofsson}
+\newcommand{\pdftitle}{Master Thesis Timeplan}
+\newcommand{\pdfsubject}{}
+\newcommand{\pdfkeywords}{}
+
+
+%% Include helper files
+\input{include/uses.inc}
+\input{include/pdf.inc}
+%~ \input{include/pheader.inc}
+\input{include/functions.inc}
+\input{include/tikz.inc}
+\input{include/style.inc}
+
+
+%% Begin bringing the document together
+\begin{document}
+
+%% Display titlepage
+\maketitle
+\thispagestyle{empty}
+
+%% Display a table of contents.
+% Note that the document has to be built twice after updating
+% the content, for this table to be updated.
+\newpage
+%~ \tableofcontents
+
+\newchapter{introduction}
+\newchapter{descriptions}
+
+%%::chapters::%%
+\bibliographystyle{unsrtnat} %% Andra varianter: plain, alpha, abbrv
+\bibliography{bibl} %% Syftar på bib-filens namn
+\thispagestyle{empty}
+
+%% Include all appendices
+\appendix
+
+%%::appendices::%%
+
+\end{document}
