@@ -1,39 +1,45 @@
 \chapter{Introduction}
 \label{cha:introduction}
-    The goal for this thesis is to develop and implement an autonomous landing mode
-    for the quadrotor developed by the AIICS team at Linköping University, the LinkQuad.
+    The goal for this thesis was to develop and implement a high-level control system
+    for the quadrotor developed by the AIICS\footnote{\url{http://www.ida.liu.se/divisions/aiics/}} team at Linköping University, the LinkQuad.
+    The system was to demonstrate autonomous landing, and while this goal
+    could not be reached within the time-frame of one Master's thesis, the control
+    system developed in this thesis shows good promise.
+
+    Although the LinkQuad quadrotor was used as development platform for this thesis,
+    the results are general and portable to other quadrotors and, by extension, other UAV's.
+    The LinkQuad is considered a SUAV, a Small Unmanned Aerial Vehicle - A UAV small enough to be carried by man~\citep{wiki:suav}.
 
     The size of the system poses limitations on the payload and processing power
     available in-flight. This means that the implementations has to be done
     in an efficient manner on the small computers that are available on the LinkQuad.
 
-    The limitations, however, do not stop us from utilizing advanced estimation
+    These limitations, however, does not nescessarily limit us from utilizing advanced estimation
     and control techniques, and it turns out that the LinkQuad design is in fact
-    very suitable for the camera-based pose estimation.
-    This estimation can be efficiently detached from the core control
-    and modularized as an independent sensor, which will be exploited in the
+    very suitable for the camera-based pose estimation due to its dual onboard computers.
+    The video-based estimation can effectively be detached from the core control and state estimation
+    and modularized as an independent virtual sensor, which is exploited in the
     thesis.
 
 \section{Unmanned Aerial Vehicles}
-    As noted in \citep{valavanis2007advances}, Unmanned Aerial Vehicles (UAV's)
-    have been imagined and constructed for millennia, starting in ancient Greece and China.
+    Unmanned Aerial Vehicles (UAV's) have been imagined and constructed for millennia, starting in ancient Greece and China\citep{valavanis2007advances}.
     The modern concept of UAV's was introduced in the first world war, which
     illuminates the dominant role that the military has played in the field over the
     last century. A commonly cited alliteration is that UAV's are intended to replace
     human presence in missions that are ''Dull, Dirty and Dangerous''.
 
-    While the military\citep{united2010u} continue to lead the development in the field, recent years
-    have seen a great increase in domestic and civilian applications\citep{Wong_Bil_2006}.
+    While the military continues to lead the development in the field~\citep{united2010u}, recent years
+    have seen a great increase in domestic and civilian applications~\citep{Wong_Bil_2006}.
     These applications range from pesticide dispersing and crop monitoring to
-    traffic control, border watch and rescue scenarios\citep{Doherty_Rudol_2007}.
+    traffic control, border watch and rescue scenarios~\citep{Doherty_Rudol_2007}.
 
     The type of UAV that is used in the implementation of this thesis
-    falls under the category of Small Unmanned Aerial Vehicles (SUAV's).
+    falls under the category of Small Unmanned Aerial Vehicles (SUAV's)~\citep{valavanis2007advances}.
     SUAV's are designed to be man-portable in weight and size and is thus
     limited in payload and availabe processing power.
-    This limitation, in combination with the unavailability of indoor GPS positioning,
+    This limitation, in combination with the unavailability of indoor positioning (e.g. GPS),
     has led to extensive use of off-board positioning and control in recent research.
-    Systems developed by for instance Vicon\footnote{\url{http://www.vicon.com/}} and
+    Systems developed for instance by Vicon\footnote{\url{http://www.vicon.com/}} and
     Qualisys\footnote{\url{http://www.qualisys.com/}} yield positioning with
     remarkable precision, but they also limit the application to a confined
     environment with an expensive setup.
@@ -50,11 +56,68 @@
 
 
 
-\section{Objectives}
-    The main objective for the thesis is to perform autonomous landing
-    with the LinkQuad. To achieve this,
+\section{Objectives and Limitations}
+    The main objective for this thesis was to create a high-level control and state-estimation
+    system and to demonstrate this by performing autonomous landing with the LinkQuad.
+    To achieve this, the main work was put into achieving theoretically solid positioning and control.
+    Having control over the vehicle, landing is then a matter of generating
+    a suitable trajectory and detecting the completion of the landing.
+
+    Although time restricted the final demonstration of landing, the nescessary tools
+    were implemented, albeit lacking the tuning nescessary for real flight.
+
+    This thesis does not cover the detection of suitable landing sites,
+    nor any advanced flight control in limited space or with collision detection.
+    The quadrotor modelling is extensive, but is mostly limited to a study
+    of litterature on the subject.
 
 \section{Contributions}
-    None
+    During the thesis work, several tools for future development have been
+    designed and developed. The \crap framework collects tools that are usable in future
+    projects and theses, both on the LinkQuad and otherwise.
+    The modules developed for the \crap framework include, but is far from limited to;
+    \begin{itemize}
+        \item General non-linear filtering, using EKF or UKF,
+        \item General non-linear control, implemented as affine quadratic control,
+        \item Extendable scheduling and reasoning through state-machines,
+        \item Real-time plotting,
+        \item Communication API for internal and external communication.
+    \end{itemize}
+
+    Furthermore, a general physical model of a quadrotor has been assembled.
+    The model extends and clarifies the many sources of physical modelling
+    available, and is presented in a scalable, general manner.
+
+    The state-estimation proposed in this thesis uses the full physical model
+    derived in Chapter \ref{cha:observer}. While the model still needs
+    tuning, it does show promising results, and a physically modelled
+    quadrotor could potentially improve in-flight performance.
+
+    In Chapter \ref{cha:observer}, a general method for retaining
+    the world-to-PTAM transform is proposed.
+    This method could prove useful for extending the utility of the PTAM
+    camera positioning library to more than its intended use in Augmented Reality.
+    The utility for this has already been proven in e.g. \citep{weiss11monocular},
+    and providing the theory and implementation for this, as well as a proposed
+    initialization routine, could be of great use in future work.
+    The PTAM library has also been extended to full autonomousity with the
+    proposition of an automated initialization procedure as well as providing
+    full detachment from the graphical interface.
+
+    All tools developed during the thesis are released under the GPL license
+    and are available at \url{https://github.com/jonatanolofsson/}.
 
 \section{Thesis Outline}
+    Following the introductory Chapter \ref{cha:introduction}, four chapters
+    are devoted to presenting the theory and the equations used in the implementation, in order;
+    \begin{description}
+        \item[$\bullet$ State Estimation] State estimation theory and physical modelling of a quadrotor,
+        \item[$\bullet$ Non-linear Control]  Non-linear control theory and its implementation,
+        \item[$\bullet$ Monocular SLAM] Video-based SLAM and its applications.
+    \end{description}
+
+    The following two chapters of the thesis, Chapters \ref{cha:results} and \ref{cha:discussion}, present the
+    numerical evaluation of the result and the following discussion respectively.
+    Concluding remarks and suggestions for further work are then presented in Chapter \ref{cha:conclusions}.
+
+    A detailed description of the \crap framework is appended to the thesis.

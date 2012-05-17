@@ -1,21 +1,33 @@
-\section{LQ Gain-Scheduling}
+\section{State-Dependent Riccati Equations and LQ Gain Scheduling}
 \label{sec:controller:gainscheduling}
     Even though any system could be described at any point by its linearization,
     the linear nature of the LQ control poses a limitation in that
-    a general system such as the one studied in this thesis - the LinkQuad - will
+    a general system such as the one studied in this thesis - a quadrotor - will
     sooner or later leave the vicinity of the linearization point and no
-    longer adhere to the physical circumstances of the linearization point.
+    longer adhere to the physical circumstances valid there.
 
     This will lead to sub-optimal control and possibly even to system failure.
-    A common approach is to switch between pre-calculated control gains
-    which has been calculated for selected linearization points.
+    A common approach in non-linear control is to switch between pre-calculated
+    control gains which has been calculated for selected linearization points.
 
     The approach used in this thesis is closely related to gain scheduling,
     but instead of using pre-calculated gains, the linearization is done
-    in-flight at each time instant from the analytical expression of
-    the system's Jacobian.
+    in-flight.
+
+    The problem of solving of the Riccati equation  on-line is treated under
+    the subject of \textit{State-Dependent Riccati Equations}, SDRE's.
+    The basic formulation of the problem is covered in e.g. \citep{Rantzer99piecewiselinear},
+    and an extensive survery is presented in \citep{Tayfun08sdresurvey}.
+    Implementation details are detailed and evaluated in e.g \citep{Erdem_analysisand,Benner98acceleratingnewton's,10.1109/MED.2006.328740}.
+
+    The LQ theory is extended to the non-linear case using the Taylor
+    expansion of a general motion model is exploited to form the general
+    result of Equation \eqref{eq:controller:affinelq}.
+    The linearization of the motion model is presented in
+    Equation \eqref{eq:controller:gainscheduling:xdot}.
 
     \begin{equation}
+        \label{eq:controller:gainscheduling:xdot}
         \dot{x} = f(x,u) \approx f(x_{0},u_{0})
             + \underbrace{\left. \frac{\partial f}{\partial x} \right|_{
                 \begin{array}{l}
@@ -36,46 +48,81 @@
     In the standard formulation of LQ, the linearization is made
     around a stationary point $(x_{0},u_{0})$, where $f(x_{0},u_{0}) = 0$.
     In a more general formulation, it is possible to lift this constraint
-    using homogenous equations \citep{Rantzer99piecewiselinear};
+    using a homogenous state \citep{Rantzer99piecewiselinear};
     \begin{equation}
     \label{eq:controller:affinelq}
         \dot{X} = \left[
         \begin{array}{c}
             \dot{x} \\
-            \ast
+            0
         \end{array}\right] =
-        \underbrace{\left[
+        \left[
         \begin{array}{cc}
-            A & f(x_{0},u_{0}) \\
+            A & f(x_{0},u_{0})-Ax_{0} \\
             0 & 0
-        \end{array}\right]}_{\bar{A}}
+        \end{array}\right]
         \underbrace{\left[
         \begin{array}{c}
-            \Delta x \\
+            x \\
             1
-        \end{array}\right]}_{\bar{X}}
+        \end{array}\right]}_{X}
         +
-        \underbrace{\left[
+        \left[
         \begin{array}{c}
             B \\
             0
-        \end{array}\right]}_{\bar{B}}
+        \end{array}\right]
         \Delta u.
     \end{equation}
     Equation \ref{eq:controller:affinelq} is a linear system for which
     the ordinary LQ problem can be solved, using eq.
     \eqref{eq:controller:u}-\eqref{eq:controller:Lr}.
 
-    Generally the linearized output signal, $\Delta u$, would be added
-    to $u_{0}$ to form the controller outout, as per
-    \begin{equation*}
-        u = u_{0} + \Delta u = u_{0} -L\Delta x + L_{r}\Delta r.
-    \end{equation*}
-    However, the approach to re-linearize the system continously
-    leads to the property that, since the controller will always work
-    at its linearization point, and we can note that $\Delta x$ will
-    thus always be zero, giving the following expression for the
-    calculation of the control output;
+    The linearized output signal, $\Delta u$, is then added
+    to $u_{0}$ to form the controller output, as in Equation \eqref{eq:controller:u}.
     \begin{equation}
-        u_{t+1} = u_{t} + \Delta u = u_{0} + L_{r}(r-x).
+    \label{eq:controller:u}
+        u = u_{0} + \Delta u = u_{0} - L\bar{X} + L_{r}r
+    \end{equation}
+
+    However, the linearizing extension of the affine controller in \eqref{eq:controller:affinelq}
+    introduces a non-controllable constant state, with
+    an associated eigenvalue inherently located in the
+    origin.
+    This poses a problem to the traditional solvers of the Riccati equation, which
+    expects negative eigenvalues to solve the problem numerically, even though
+    the weights of \eqref{eq:controller:lq:j} theoretically could be chosen to
+    attain a well defined bounded integral.
+
+    The problem is circumvented by adding slow dynamics to the theoretically
+    constant state, effectively nudging the eigenvalue to the left of the
+    imaginary axis to retain stability.
+    This guarantees that \eqref{eq:controller:lq:j} tends to zero.
+
+    Equation \eqref{eq:controller:affinelq} is thus really implemented as in \eqref{eq:controller:affinelqimplementation}.
+
+    \begin{equation}
+    \label{eq:controller:affinelqimplementation}
+        \dot{X} = \left[
+        \begin{array}{c}
+            \dot{x} \\
+            0
+        \end{array}\right] =
+        \left[
+        \begin{array}{cc}
+            A & f(x_{0},u_{0})-Ax_{0} \\
+            0 & \mathbf{-10^{-9}}
+        \end{array}\right]
+        \underbrace{\left[
+        \begin{array}{c}
+            x \\
+            1
+        \end{array}\right]}_{X}
+        +
+        \left[
+        \begin{array}{c}
+            B \\
+            0
+        \end{array}\right]
+        \Delta u.
     \end{equation}

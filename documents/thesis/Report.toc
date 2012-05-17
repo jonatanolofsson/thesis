@@ -7,30 +7,72 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Unmanned Aerial Vehicles}{1}
 \contentsline {section}{\numberline {1.2}The Platform}{2}
-\contentsline {section}{\numberline {1.3}Previous work}{2}
-\contentsline {subsection}{\numberline {1.3.1}Autonomous landing}{3}
-\contentsline {subsection}{\numberline {1.3.2}vSLAM}{3}
-\contentsline {section}{\numberline {1.4}Objectives}{3}
-\contentsline {section}{\numberline {1.5}Contributions}{3}
-\contentsline {section}{\numberline {1.6}Thesis Outline}{3}
-\contentsline {chapter}{\numberline {2}State Estimation}{5}
-\contentsline {section}{\numberline {2.1}The Filtering Problem}{5}
-\contentsline {section}{\numberline {2.2}The Unscented Kalman Filter}{7}
-\contentsline {section}{\numberline {2.3}Motion Model}{9}
-\contentsline {subsection}{\numberline {2.3.1}Reference frames}{9}
-\contentsline {paragraph}{Notation:}{10}
-\contentsline {subsection}{\numberline {2.3.2}Kinematics}{10}
-\contentsline {subsection}{\numberline {2.3.3}Dynamics}{10}
-\contentsline {subsubsection}{Rotor thrust}{11}
-\contentsline {subsubsection}{Wind}{12}
-\contentsline {section}{\numberline {2.4}Sensor Models}{12}
-\contentsline {chapter}{\numberline {3}Controller}{15}
-\contentsline {section}{\numberline {3.1}The Linear Quadratic Controller}{15}
-\contentsline {section}{\numberline {3.2}LQ Gain-Scheduling}{16}
-\contentsline {section}{\numberline {3.3}Control Model}{17}
-\contentsline {chapter}{\numberline {4}Video}{19}
-\contentsline {chapter}{\numberline {5}Logic}{21}
-\contentsline {chapter}{\numberline {6}Discussion}{23}
-\contentsline {section}{\numberline {6.1}Flapping}{23}
-\contentsline {chapter}{\numberline {7}Conclusions}{25}
-\contentsline {section}{\numberline {7.1}Further work}{25}
+\contentsline {section}{\numberline {1.3}Previous work}{3}
+\contentsline {subsection}{\numberline {1.3.1}Autonomous Landing and Control}{3}
+\contentsline {subsection}{\numberline {1.3.2}Visual SLAM}{4}
+\contentsline {section}{\numberline {1.4}Objectives and Limitations}{4}
+\contentsline {section}{\numberline {1.5}Contributions}{5}
+\contentsline {section}{\numberline {1.6}Thesis Outline}{5}
+\contentsline {chapter}{\numberline {2}State Estimation}{7}
+\contentsline {section}{\numberline {2.1}The Filtering Problem}{7}
+\contentsline {section}{\numberline {2.2}The Unscented Kalman Filter}{10}
+\contentsline {section}{\numberline {2.3}Motion Model}{12}
+\contentsline {subsection}{\numberline {2.3.1}Coordinate Frames}{12}
+\contentsline {subsection}{\numberline {2.3.2}Kinematics}{15}
+\contentsline {subsection}{\numberline {2.3.3}Dynamics}{15}
+\contentsline {subsubsection}{Rotor thrust}{16}
+\contentsline {subsubsection}{Wind}{17}
+\contentsline {subsubsection}{Additional Forces and Moments}{19}
+\contentsline {paragraph}{Hub Force}{19}
+\contentsline {paragraph}{Rolling Moment}{19}
+\contentsline {paragraph}{Ground Effect}{19}
+\contentsline {paragraph}{Gyro Effects and Counter-Torque}{20}
+\contentsline {section}{\numberline {2.4}Sensor Models}{20}
+\contentsline {subsection}{\numberline {2.4.1}Accelerometers}{20}
+\contentsline {subsection}{\numberline {2.4.2}Gyroscopes}{20}
+\contentsline {subsection}{\numberline {2.4.3}Magnetometers}{20}
+\contentsline {subsection}{\numberline {2.4.4}Pressure Sensor}{21}
+\contentsline {subsection}{\numberline {2.4.5}Camera}{21}
+\contentsline {subsubsection}{Initialization}{22}
+\contentsline {subsubsection}{Continuous Refinement}{23}
+\contentsline {subsubsection}{Teleportation}{23}
+\contentsline {chapter}{\numberline {3}Non-linear Control}{25}
+\contentsline {section}{\numberline {3.1}The Linear Quadratic Controller}{25}
+\contentsline {section}{\numberline {3.2}State-Dependent Riccati Equations and LQ Gain Scheduling}{26}
+\contentsline {section}{\numberline {3.3}Control Model}{27}
+\contentsline {paragraph}{Notation}{28}
+\contentsline {chapter}{\numberline {4}Monocular SLAM}{29}
+\contentsline {section}{\numberline {4.1}Filtering Based Solutions}{29}
+\contentsline {section}{\numberline {4.2}Keyframe-based SLAM}{30}
+\contentsline {section}{\numberline {4.3}The PTAM Library}{30}
+\contentsline {subsection}{\numberline {4.3.1}Operation}{31}
+\contentsline {subsection}{\numberline {4.3.2}Modifications to the Library}{31}
+\contentsline {subsection}{\numberline {4.3.3}Practical Use}{32}
+\contentsline {chapter}{\numberline {5}Finite State-Machines}{33}
+\contentsline {section}{\numberline {5.1}Implemented Modes}{33}
+\contentsline {subsection}{\numberline {5.1.1}Hovering}{33}
+\contentsline {subsection}{\numberline {5.1.2}PTAM initialization}{34}
+\contentsline {subsection}{\numberline {5.1.3}Free Flight}{34}
+\contentsline {subsection}{\numberline {5.1.4}Landing}{34}
+\contentsline {subsubsection}{Landing Detection}{35}
+\contentsline {chapter}{\numberline {6}Results}{37}
+\contentsline {section}{\numberline {6.1}Experiment Setup}{37}
+\contentsline {section}{\numberline {6.2}Modelling}{38}
+\contentsline {subsection}{\numberline {6.2.1}Accelerometers}{38}
+\contentsline {subsection}{\numberline {6.2.2}Gyroscopes}{40}
+\contentsline {subsection}{\numberline {6.2.3}Pressure Sensor}{41}
+\contentsline {subsection}{\numberline {6.2.4}Camera}{43}
+\contentsline {section}{\numberline {6.3}Filtering}{45}
+\contentsline {paragraph}{Positioning}{45}
+\contentsline {paragraph}{Velocities}{46}
+\contentsline {paragraph}{Orientation, Rotational Velocity and Gyroscope Offset}{48}
+\contentsline {paragraph}{Wind force}{53}
+\contentsline {paragraph}{Propeller Velocity}{54}
+\contentsline {section}{\numberline {6.4}Control}{56}
+\contentsline {chapter}{\numberline {7}Discussion}{57}
+\contentsline {section}{\numberline {7.1}Flapping}{57}
+\contentsline {chapter}{\numberline {8}Concluding Remarks}{59}
+\contentsline {section}{\numberline {8.1}Conclusions}{59}
+\contentsline {section}{\numberline {8.2}Further work}{59}
+\contentsline {chapter}{\numberline {A}CRAP}{65}
+\contentsline {section}{\numberline {A.1}}{65}

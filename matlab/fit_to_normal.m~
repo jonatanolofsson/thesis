@@ -1,0 +1,9 @@
+function fit_to_normal(data)
+[mu, sd] = normfit(data);
+ix = (-3*sd:1e-3:3*sd) + mu; %covers more than 99% of the curve
+iy = pdf('norm', ix, mu, sd);
+plot(ix,iy);
+hold all;
+[h,hx] = hist(data, length(ix));
+bar(hx,h/length(ix))
+text(min(ix))

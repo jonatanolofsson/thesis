@@ -1,0 +1,71 @@
+\section{Filtering}
+\paragraph{Positioning}
+    While the altitude positioning, plotted in Figure \ref{fig:results:filtering:z},
+    exhibit disturbances correlated with pressure sensor noise,
+    the positioning exhibit very good performance. The position state
+    is observed in the state-estimation more or less directly by the camera
+    and the stability of the camera positioning is thus of course reflected here.
+    \fig{\plotwidth}{X}{}{fig:results:filtering:x}
+    \fig{\plotwidth}{Y}{}{fig:results:filtering:y}
+    \fig{\plotwidth}{Z}{}{fig:results:filtering:z}
+
+\paragraph{Velocities}
+    The velocities, beeing closely coupled with the camera observed position,
+    also exhibit good performance in Figures \ref{fig:results:filtering:velx}-\ref{fig:results:filtering:velz}.
+    There are shortcomings to the estimation's horizontal precision, although
+    this could probably be significantly improved with further filter tuning.
+    \fig{\plotwidth}{velX}{}{fig:results:filtering:velx}
+    \fig{\plotwidth}{velY}{}{fig:results:filtering:vely}
+    \fig{\plotwidth}{velZ}{}{fig:results:filtering:velz}
+
+\paragraph{Orientation, Rotational Velocity and Gyroscope Offset}
+    Along with the position, the orientation is estimated from the camera,
+    yielding notable precision, as seen in Figures
+    \ref{fig:results:filtering:qwb0}-\ref{fig:results:filtering:qwbk}.
+
+    The bias of the gyroscopes is removed during the initialization process.
+    Since the time-frame of the tests were far less than the time expeted to
+    detect a change in the bias, these should thus be estimated to zero.
+    As depicted in Figures \ref{fig:results:filtering:driftroll}-\ref{fig:results:filtering:driftyaw}, they are.
+
+    As noted in Section \ref{ssec:results:modelling:gyroscopes}, the
+    filtering of the rotational velocities of the quadrotor body,
+    exhibited with its associated covariance in Figures \ref{fig:results:filtering:wroll}-\ref{fig:results:filtering:wyaw},
+    correlates very well to the measured results.
+    \fig{\plotwidth}{qwb0}{}{fig:results:filtering:qwb0}
+    \fig{\plotwidth}{qwbi}{}{fig:results:filtering:qwbi}
+    \fig{\plotwidth}{qwbj}{}{fig:results:filtering:qwbj}
+    \fig{\plotwidth}{qwbk}{}{fig:results:filtering:qwbk}
+
+    \fig{\plotwidth}{wRoll}{}{fig:results:filtering:wroll}
+    \fig{\plotwidth}{wPitch}{}{fig:results:filtering:wpitch}
+    \fig{\plotwidth}{wYaw}{}{fig:results:filtering:wyaw}
+
+    \fig{\plotwidth}{driftRoll}{}{fig:results:filtering:driftroll}
+    \fig{\plotwidth}{driftPitch}{}{fig:results:filtering:driftpitch}
+    \fig{\plotwidth}{driftYaw}{}{fig:results:filtering:driftyaw}
+
+\paragraph{Wind force}
+    As the tests were performed inside, the filter was tuned to basically keep the
+    wind constant. Thus, it is difficult to come to any conclusions regarding the
+    wind impact on the model. They are however, as seen in Figures \ref{fig:results:filtering:windx}-\ref{fig:results:filtering:windy},
+    correctly estimated to zero.
+    \fig{\plotwidth}{windX}{}{fig:results:filtering:windx}
+    \fig{\plotwidth}{windY}{}{fig:results:filtering:windy}
+    \fig{\plotwidth}{windZ}{}{fig:results:filtering:windz}
+
+\paragraph{Propeller Velocity}
+    As the filter evaluation was performed without the use of the controller,
+    the control signal is unavailable. Thus, Eq. \ref{eq:observer:wri2} was used as
+    motion model, effectively leaving the estimation of the propeller velocities
+    to the measurement update. It is evident, in Figures \ref{fig:results:filtering:wr1}-\ref{fig:results:filtering:wr4}
+    that the estimation is active, however it is impossible to validate.
+    Ideally, the velocities of the propellers should be measured in flight.
+    However, that data is currently unavailable in the development system used for evaluation.
+    The estimated velocities are, notably, in a reasonable range,
+    increasing the plausability for correctness of Eq. \ref{eq:observer:thrust}, which is
+    otherwise hard to verify using the available data.
+    \fig{\plotwidth}{wr1}{}{fig:results:filtering:wr1}
+    \fig{\plotwidth}{wr2}{}{fig:results:filtering:wr2}
+    \fig{\plotwidth}{wr3}{}{fig:results:filtering:wr3}
+    \fig{\plotwidth}{wr4}{}{fig:results:filtering:wr4}

@@ -1,7 +1,7 @@
 \section{Motion Model}
 \label{sec:observer:motionmodel}
     As the system studied in the filtering problem progresses through time,
-    the state estimate can be significantly improved by if a prediction
+    the state estimate can be significantly improved if a prediction
     is made on what measurements can be expected, and evaluating the plausibility
     of each measurement after how well they correspond to the prediction.
     With assumed Gaussian white noise distributions, this evaluation
@@ -9,21 +9,27 @@
     \ref{sec:observer:filtering}-\ref{sec:observer:ukf}, where the
     probablity estimate of the sensors' measurements are based on the motion
     model's prediction. In this section, a motion model is derived and evaluated.
+    The model is presented in its continuous form, since the discretization
+    is made numerically on-line.
 
-    \subsection{Reference frames}
+    \subsection{Coordinate Frames}
         In the model of the quadrotor, there are several frames of reference.
         \begin{description}
-            \item[North-East-Down Earth Fixed (NEDEF)] This frame is fixed at
-            a given origin in the earth and is considered an inertial frame.
-            All states are expressed in this frame of reference unless explicitly stated otherwise.
-
             \item[North-East-Down (NED)]
             The NED-frame is fixed at the center of gravity of the quadrotor.
             The NED system's $\hat{z}$-axis is aligned with the gravitational axis and
             the $\hat{x}$-axis along the northern axis.
             The $\hat{y}$-axis is chosen to point east to form a right-hand system.
 
-            \item[Body-fixed] The body-fixed coordinate system is fixed in the
+            \item[North-East-Down Earth Fixed (NEDEF)] This frame is fixed at
+            a given origin in the earth (such as the take-off point) and is
+            considered an inertial frame, but is in all
+            other aspects equivalent to the NED frame.
+            All states are expressed in this frame of reference unless explicitly stated otherwise.
+            This frame is often referred to as the ``world'' coordinate system,
+            or ``$w$'' for short in equations in disambiguation from the NED system.
+
+            \item[Body-fixed (BF)] The body-fixed coordinate system is fixed in the
             quadrotor with $\hat{x}$-axis in the forward direction and the $z$-axis in the downward
             direction - as depicted in Figure \ref{fig:observer:referenceframes}.
 
@@ -35,9 +41,15 @@
             \item[Camera frame] This is the frame which describes the
             location of the camera.
 
+            \item[PTAM frame] This is the frame of reference used by the PTAM video SLAM library.
+            This frame is initially unknown, and its recovery is discussed in Section \ref{ssec:observer:sensormodels:camera}.
+
             \item[IMU frame] This is the body-fixed frame in which the IMU measurements are said
-            to be done. The origin is thus fixed close to the interial sensors.
+            to be done. The origin is thus fixed close to the inertial sensors.
         \end{description}
+        The coordinate frames are visualized in Figures \ref{fig:observer:motionmodel:worldcoordframes}-\ref{fig:observer:motionmodel:quadrotorcoordframes}.
+        \fig{0.8}{worldcoordframes}{}{fig:observer:motionmodel:worldcoordframes}
+        \fig{0.8}{quadrotorcoordframes}{}{fig:observer:motionmodel:quadrotorcoordframes}
 
         The conversion between the reference frames are characterized by a
         transformation including translation and a three-dimensional rotation.
@@ -55,45 +67,60 @@
             D_{3} &= (0, d, h)^{BF}
         \end{align}
 
-        \paragraph{Notation:}
         In the following sections, vectors and points in e.g. the NED
         coordinate systems are denoted $x^{NED}$.
         Rotation described by unit quaternions are denoted $R(q)$ for
-        the quaternion $q$, corresponding to the matrix rotation \citep{kuipers2002quaternions} given by
+        the quaternion $q$, corresponding to the matrix rotation
+        \citep{kuipers2002quaternions}\footnote{\citep{kuipers2002quaternions} uses a negated convention of signs compared to what is used here.}
+        given by
+%~ FIXME
+%~ From http://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToMatrix/index.htm
+%~ and the Eigen src/Geometry/Quaternion.h. Note the equivalence given the unit length constraint on the rotation quaternion
+%~ 1 - 2*qy2 - 2*qz2    2*qx*qy - 2*qz*qw   2*qx*qz + 2*qy*qw
+%~ 2*qx*qy + 2*qz*qw    1 - 2*qx2 - 2*qz2   2*qy*qz - 2*qx*qw
+%~ 2*qx*qz - 2*qy*qw    2*qy*qz + 2*qx*qw   1 - 2*qx2 - 2*qy2
         \begin{equation}
             \left(
             \begin{array}{cccc}
-                q_{1}^{2} + q_{i}^{2} - q_{j}^{2} - q_{k}^{2}   & 2q_{i}q_{j}+2q_{1}q_{k}                       & 2q_{i}q_{k} - 2q_{1}q_{j} \\
-                2q_{i}q_{j} - 2q_{1}q_{k}                       & q_{1}^{2} - q_{i}^{2} + q_{j}^{2} - q_{k}^{2} & 2q_{j}q_{k} + 2q_{1}q_{i} \\
-                2q_{i}q_{k} + 2q_{1}q_{j}                       & 2q_{j}q_{k} - 2q_{1}q_{i}                     & q_{1}^{2} - q_{i}^{2} - q_{j}^{2} + q_{k}^{2}
+                q_{1}^{2} + q_{i}^{2} - q_{j}^{2} - q_{k}^{2}   & 2q_{i}q_{j}-2q_{1}q_{k}                       & 2q_{i}q_{k} + 2q_{1}q_{j} \\
+                2q_{i}q_{j} + 2q_{1}q_{k}                       & q_{1}^{2} - q_{i}^{2} + q_{j}^{2} - q_{k}^{2} & 2q_{j}q_{k} - 2q_{1}q_{i} \\
+                2q_{i}q_{k} - 2q_{1}q_{j}                       & 2q_{j}q_{k} + 2q_{1}q_{i}                     & q_{1}^{2} - q_{i}^{2} - q_{j}^{2} + q_{k}^{2}
             \end{array}
-            \right)
+            \right) .
         \end{equation}
+
+        Rotation quaternions describing the rotation \textit{to frame a from frame b}
+        is commonly denoted $q^{ab}$, whereas the \textit{b} may be dropped if the rotation is global, i.e. relative the NEDEF system.
+        \textit{a} and \textit{b} are, where unambiguous, replaced by the first character of the
+        name of the reference frame.
+        Full transformations between coordinate systems - including rotation, translation and scaling -
+        are similarly denoted $\mathcal{J}^{ab}$.
+
     \subsection{Kinematics}
-        The motions of the quadrotor are described by the following relations \citep{Pounds_modellingand}: % more citations needed
+        The motions of the quadrotor are described by the following relations \citep{Pounds_modellingand}: % more citations needed?
         \begin{subequations}
             \label{eq:observer:kinematicsc}
             \begin{equation}
                 \label{eq:observer:position}
-                \dot{\xi} = R(q^{c})V
+                \dot{\xi} = V
             \end{equation}
             \begin{equation}
                 \label{eq:observer:quaternionsc}
                 \left(\begin{array}{c}
-                    \dot{q}_{1}^{c} \\
-                    \dot{q}_{i}^{c} \\
-                    \dot{q}_{j}^{c} \\
-                    \dot{q}_{k}^{c}
+                    \dot{q}^{wb}_{0} \\
+                    \dot{q}^{wb}_{i} \\
+                    \dot{q}^{wb}_{j} \\
+                    \dot{q}^{wb}_{k}
                 \end{array}\right) = -\frac{1}{2}\left(\begin{array}{cccc}
                 0 & -\omega_{x} & -\omega_{y} & -\omega_{z} \\
                 \omega_{x} & 0 & -\omega_{z} & \omega_{y} \\
                 \omega_{y} & \omega_{z} & 0 & -\omega_{x} \\
                 \omega_{z} & -\omega_{y} & \omega_{x} & 0
                 \end{array}\right)\left(\begin{array}{c}
-                q_{1}^{c} \\
-                q_{i}^{c} \\
-                q_{j}^{c} \\
-                q_{k}^{c}
+                q^{wb}_{0} \\
+                q^{wb}_{i} \\
+                q^{wb}_{j} \\
+                q^{wb}_{k}
                 \end{array}\right)
             \end{equation}
         \end{subequations}
@@ -109,10 +136,10 @@
         quadrotor's center of gravity, $\mathcal{G}$, yields
         \begin{subequations}
             \begin{equation}
-                \dot{V} = a_{\mathcal{G}} = \frac{1}{m}\sum F
+                \dot{V} = a^{w}_{\mathcal{G}} = R(q^{wb})\frac{1}{m}\sum F
             \end{equation}
             \begin{equation}
-                \dot{\omega} = I_{\mathcal{G}}^{-1}\sum M_{\mathcal{G}}
+                \dot{\omega} = R(q^{wb})I_{\mathcal{G}}^{-1}\sum M_{\mathcal{G}}
             \end{equation}
         \end{subequations}
 
@@ -123,13 +150,16 @@
             \item[$F_{wind}$] Wind.
         \end{itemize}
 
-        Of these, the gravity is trivially described as
+        Of these, the gravity is trivially described with the
+        gravitational acceleration and the total mass of the quadrotor as
         \begin{equation}
             F_{g} = mg\cdot e_{3}^{NED}
         \end{equation}
 
-        The following sections will describe the rotor thrust and wind forces
-        respectively.
+        The following sections will describe the rotor thrust and wind forces respectively.
+        Additionally, other minor forces and moments are discussed in
+        \ref{ssec:observer:additionalforces}.
 
         \input{\currentchapter/thrust}
         \input{\currentchapter/wind}
+        \input{\currentchapter/additionalforces}

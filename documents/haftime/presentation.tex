@@ -1,0 +1,216 @@
+\documentclass{beamer}
+\usetheme{Marburg}%Madrid,Boadilla,default,Warsaw,Bergen,Frankfurt,Darmstadt
+%~ \setbeamertemplate{footline}[page number]
+%~ \setbeamercovered{transparent}
+\setbeamercovered{invisible}
+% To remove the navigation symbols from the bottom of slides
+\setbeamertemplate{navigation symbols}{}
+%\logo{\includegraphics[height=0.6cm]{yourlogo.eps}}
+
+%% Specify report metadata
+\title[A Half-time Report]{Autonomous UAV Landing Using Monocular Vision}
+\date{\today}
+\newcommand{\lang}{swedish}
+\newcommand{\pdfauthor}{Jonatan Olofsson}
+\newcommand{\pdftitle}{Autonomous UAV Landing Using Monocular Vision}
+\newcommand{\pdfsubject}{}
+\newcommand{\pdfkeywords}{}
+
+
+
+%% Include helper files
+\input{include/uses.inc}
+\input{include/pdf.inc}
+\input{include/functions.inc}
+\input{include/style.inc}
+
+\begin{document}
+
+\begin{frame}
+%\frametitle{}
+
+\Huge Autonomous UAV Landing Using Monocular Vision
+
+\LARGE A Half-time Report
+\newline
+\newline
+Jonatan Olofsson
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{What should be done?}
+    \begin{itemize}
+        \item Develop a platform for real-time control of a UAV,
+        \item Integrate the PTAM library as a component in the state estimation,
+        \item Implement a simple landing procedure using the pose estimate.
+    \end{itemize}
+
+    \fig{LinkQuad}{0.3}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{What has been accomplished so far?}
+    \begin{itemize}
+        \item Internal/serial communication,
+        \item Visualization and evaluation tools,
+        \item Physical modelling,
+        \item Pose/state estimation (some problems still),
+        \item Control,
+        \item PTAM.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{CRAP}
+    \begin{itemize}
+        \item A framework for internal communication.
+        \begin{itemize}
+            \item Minimal overhead using C++ function pointers and minimizing copies
+        \end{itemize}
+        \item Serial communication library;
+        \begin{itemize}
+            \item Some connections to previoius implementation,
+            \item C++ templates moves calculations to compile-time,
+            \item Simplistic API.
+        \end{itemize}
+        \item Integrated Matlab-style real-time plotting (enabled compile-time),
+        \item Easily configurable, modular design.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Physical Modelling}
+    Detailed physical model of forces and moments acting on the quadrotor.
+    \begin{itemize}
+        \item Gravity,
+        \item Wind
+        \begin{itemize}
+            \item Stochastic model - estimated by the filter,
+            \item Models forces and moments on the quadrotor.
+        \end{itemize}
+        \item Thrust;
+        \begin{itemize}
+            \item Propeller flapping,
+            \item Ground Effect.
+        \end{itemize}
+        \item Additional forces,
+        \begin{itemize}
+            \item Gyroscopic effects, hub forces etc.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{State Estimation}
+    Estimates the full set of 23 states.
+    \begin{itemize}
+        \item UKF,
+        \item EKF.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Control}
+    Basic idea: Linearize the physical model and use linear control theory.
+    \tiny
+    \begin{equation}
+        \dot{x} = f(x,u) \approx f(x_{0},u_{0})
+            + \underbrace{\left. \frac{\partial f}{\partial x} \right|_{
+                \begin{array}{l}
+                    x=x_{0} \\
+                    u=u_{0}
+                \end{array}
+            }}_{A}
+                \underbrace{\left( x-x_{0} \right)}_{\Delta x}
+            + \underbrace{\left. \frac{\partial f}{\partial u} \right|_{
+                \begin{array}{l}
+                    x=x_{0} \\
+                    u=u_{0}
+                \end{array}
+            }}_{B}
+                \underbrace{\left( u-u_{0} \right)}_{\Delta u}
+    \end{equation}
+    \begin{equation}
+    \label{eq:controller:affinelq}
+        \dot{X} = \left[
+        \begin{array}{c}
+            \dot{x} \\
+            0
+        \end{array}\right] =
+        \underbrace{\left[
+        \begin{array}{cc}
+            A & f(x_{0},u_{0})-Ax_{0} \\
+            0 & 0
+        \end{array}\right]}_{\bar{A}}
+        \underbrace{\left[
+        \begin{array}{c}
+            x \\
+            1
+        \end{array}\right]}_{\bar{X}}
+        +
+        \underbrace{\left[
+        \begin{array}{c}
+            B \\
+            0
+        \end{array}\right]}_{\bar{B}}
+        \Delta u.
+    \end{equation}
+    \begin{itemize}
+        \item SDRE
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{PTAM}
+    \begin{itemize}
+        \item Parallell Tracking And Mapping,
+        \item Developed at the University of Oxford,
+        \item \url{http://www.youtube.com/watch?v=Y9HMn6bd-v8&feature=player_embedded},
+        \item Compiled for the Gumstix but not yet tested,
+        \item Camera settings needs adjustment for good tracking.
+    \end{itemize}
+\end{frame}
+%~ %~
+\begin{frame}
+    \frametitle{Personal Goals}
+    \begin{itemize}
+        \item Create a general lightweight platform for robot automation.
+        \item Learn about flight dynamics.
+        \item Use quaternions.
+        \item Evaluate the UKF and the EKF non-linear filters.
+        \item Use and evaluate SDRE for non-linear control.
+        \item Take the time to write really good and re-usable code.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Time Schedule}
+    \begin{itemize}
+        \item[-] Approx. two weeks behind schedule,
+        \item[-] Expected hover by now,
+        \item[+] About two weeks of buffer left,
+        \item[+] Ketchup effect expected as soon as the observer is working.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Next Steps}
+    \begin{itemize}
+        \item Get the \#!\#?! observer working,
+        \item Compile for gumstix and evaluate speed,
+        \item Update the report;
+        \begin{itemize}
+            \item Results from the evaluation of the UKF,
+            \item Further describe the model,
+            \item Chapter about PTAM and video tracking.
+        \end{itemize}
+        \item Verify the model against flight data and put in real parameter values,
+        \item Perform test flight.
+    \end{itemize}
+\end{frame}
+\end{document}

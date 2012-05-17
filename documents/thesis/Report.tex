@@ -11,13 +11,13 @@
 \input{include/uses.inc}
 %~ \input{include/pdf.inc}
 %~ \input{include/pheader.inc}
-\input{include/functions.inc}
 \input{include/tikz.inc}
 \input{include/style.inc}
+\input{include/functions.inc}
 
 %% Specify report metadata
 \author{Jonatan Olofsson}
-\title{}{Autonomous UAV Landing Using Monocular Vision in GPS-denied Environments}
+\title{}{State Estimation and Control of a Quadrotor, using Monocular SLAM}
 \date{\today}
 
 \thesisDate{9}{19}{YYYY}
@@ -31,30 +31,65 @@
 \keywords{automated landing, slam, ptam, control, uav}
 
 \examiner{
-  Doherty, Patrick \AT \textsc{ida}, Linköpings universitet
+  Doherty, Patrick \AT \textsc{IDA}, Linköpings universitet
 }
 
 \supervisor{
-  Rudol, Piotr \AT \textsc{ida}, Linköpings universitet \AND
-  Schön, Thomas \AT \textsc{isy}, Linköpings universitet \AND
-  Wzorek, Mariusz \AT \textsc{ida}, Linköpings universitet
+  Rudol, Piotr \AT \textsc{IDA}, Linköpings universitet \AND
+  Schön, Thomas \AT \textsc{ISY}, Linköpings universitet \AND
+  Wzorek, Mariusz \AT \textsc{IDA}, Linköpings universitet
 }
 
 \abstract[Svenskt abstract kan man placera här.]{
-    This thesis treats the subject of landing a quadrocopter autonomously.
+    This thesis treats the problem of modelling, estimating and autonomously controlling
+    an Unmanned Aerial Vehicle.
+    The LinkQuad quadrotor developed at Linköping University is used as
+    a development platform, although the results are general for quadrotors and
+    easily extended to other UAV platforms.
 
-    Traditionally this, and most advanced UAV control, has been approached using
+    In the thesis, a control system is developed to fuse state-estimation
+    algorithms with advanced non-linear control.
+
+    The problem of state-estimation and control of Small UAV's (SUAV's) is often approached using
     off-board cameras and sensors to get a precise pose estimation.
     This however restricts the utility of the controlled UAV's to a very limited
     space where sophisticated and expensive gear is available and properly configured.
     By using only on-board sensors, not only is the utility of the UAV greatly increased,
     but costs are also cut.
 
-    To assist the positioning the quadrotor is equipped with a camera
-    utilized by a library for monocular SLAM.
+    To assist the positioning, the quadrotor is equipped with a camera
+    utilized by a library for monocular video-based SLAM, Simultaneous Localization And Mapping.
+    In the thesis, an algorithm is suggested for transforming the localization in videoframe-coordinates
+    to world coordinates which can be used in the state-estimation.
 }
 
-\acknowledgements{Till mor och far}
+\acknowledgements{
+    %~ Vägen hit har kanske inte alltid varit spikrak sedan min storebror Jakob berättade
+    %~ för mig att det var reglerteknik jag menade när vi pratade om vad jag
+    %~ ville göra som stor, men intresset av att styra och ställa får väl anses starkt.
+    %~ Med början i programmeringen så har elektronikintresset utvecklats till
+    %~ ett mer specifikt intresse av obemannade flygfarkoster genom mina mycket goda vänner
+    %~ under studietiden, Erik Levholt och Joakim Gebart, som smittat av sig av
+    %~ drivkraft, kunskap och en fantastisk attityd som väl sammanfattas med
+    %~ vårt motto - ``\textit{Hur svårt kan det vara?}''.
+%~
+    %~ Genom allt så har dock mina föräldrar och familj stöttat mig, och det
+    %~ är med mycket kärlek, glädje och tacksamhet som jag åtnjuter deras sällskap då vi ses.
+    %~ Tack kära mor och far, jag älskar er innerligt!
+%~
+    %~ Många är mina vänner som delat både frustration och glädje under studieåren.
+    %~ Särskilt vill jag tacka gänget ifrån Ryttargårdskyrkan, men främst vill
+    %~ jag tacka Anna för allt stöd hon gett mig genom detta sista år på min utbildning.
+    %~ Tack för kärlek och omtanke, för mat och trevliga kvällar tillsammans.
+    %~ Tack för att du hindrat mig från att drunkna. Jag ser fram emot ett liv med dig!\newline
+%~
+    %~ \textit{Till mor, far och Anna}\newline
+    %~ \vfill
+    %~ \hfill \parbox{0.5\linewidth}{\footnotesize{Linköping i den spirande vårens tid anno 2012 i väntan på vår Herres Jesu Kristi återkomst.
+%~
+    %~ \hspace{1em}\textit{Jonatan Olofsson}}}
+
+}
 
 
 
@@ -74,6 +109,7 @@
 \newchapter{controller}
 \newchapter{video}
 \newchapter{logic}
+\newchapter{results}
 \newchapter{discussion}
 \newchapter{conclusions}
 %%::chapters::%%
@@ -87,6 +123,7 @@
 %% Include all appendices
 \appendix
 
+\newchapter{crap}
 %%::appendices::%%
 
 \end{document}

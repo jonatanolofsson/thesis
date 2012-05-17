@@ -1,0 +1,2 @@
+function plot_sensor(sensor, measurement, simulation, skip)
+plot(measurement.time(1:end-skip), measurement.(sensor)(1:end-skip), 'b', simulation.time(1:end-skip), simulation.(sensor)(1:end-skip), 'r');

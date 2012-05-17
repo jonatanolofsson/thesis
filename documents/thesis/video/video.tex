@@ -1,2 +1,136 @@
-\chapter{Video}
-\label{cha:video}
+\chapter{Monocular SLAM}
+\label{cha:monoslam}
+    In the interest of extracting positioning information from a video stream
+    of a general, unknown, environment, the common approach is to use SLAM,
+    \textit{Simultaneous Localisation And Mapping}.
+    In the mathematical SLAM framework, features are identified and tracked throughout time
+    in the video stream, and a filtering solution is then traditionally applied
+    to estimate the probability densities of the tracked landmarks' positions, as well as
+    that of the camera position.
+
+    To determine the depth distance to a feature, stereo vision is often applied
+    with which the correlation between two synchronized images is used together with the known
+    distance between the cameras to calculate the image depth.
+    As the distance to the tracked objects increase however, the stereo
+    effect is lost and the algorithms' performance drops.
+    There are several other issues to the stereo vision approach - increased
+    cost, synchronization issues, computational load to name a few - which has
+    led to the development of techniques to utilize the information on movement in only a single
+    camera to calculate the depth of the features in the image.
+    The application of SLAM to this approach is refferred to as \textit{Monocular SLAM},
+    and two approaches are presented in this chapter.
+
+    Both approaches rely on feature detection in video frames.
+    An extensive survey of available feature-detecting algorithms
+    is given in \citep{idris09reviewoffeaturedetection}.
+
+    \section{Filtering Based Solutions}
+        One novel approach for camera tracking, used by for instance \citep{DBLP:conf/iccv/Davison03},
+        is to use the EKF-SLAM framework and couple the feature
+        and camera tracking in a time- and measurement update for each consecutive
+        frame (\citep{Eade:2006:SMS:1153170.1153506} does this with FastSLAM 2.0).
+        The \textit{Scenelib} library described in \citep{DBLP:conf/iccv/Davison03}
+        uses a combination of the particle filter and the EKF for feature initialization
+        and feature tracking respectively.
+
+        Common to the filter approaches is that as new features are detected,
+        they are initialized and appended as states to the filter.
+        As frames arrives, the change of position of each feature is measured and
+        the filter is updated accordingly.
+        Thus, one must take care to avoid misassociation of the features, as
+        this leads to false measurements that will mislead the filter.
+
+        It is trivial to include motion models into the filtering approaches, since
+        the general algorithm utilize a classical state-based filter time-update.
+
+    \section{Keyframe-based SLAM}
+        A fundamentally different approach is presented in \citep{klein07parallel},
+        where the focus is put on collecting video frames of greater importance - keyframes -
+        in which a large amount of features are detected.
+        The camera's position is recorded at the time the keyframe is grabbed - see Figure \ref{fig:video:ptamkeyframes} -
+        and the new features detected are added to the active set.
+        As new video frames arrive, features are reprojected and sought for in
+        the new frame, giving a position offset from recorded keyframes which by
+        extension gives the updated position of the camera.
+        \fig{\imagewidth}{ptamkeyframes}{}{fig:video:ptamkeyframes}
+
+
+    \section{The PTAM Library}
+        PTAM - Parallel Tracking And Mapping is a software library for camera tracking
+        developed for Augmented Reality (AR) applications in small workspaces~\citep{klein07parallel}.
+        It has only recently been applied for quadrotor state estimation~\citep{weiss11monocular},
+        although as the library is intended for AR applications, the connection
+        with the world's coordinate system is loose, as duly discussed in Chapter~\ref{ssec:observer:sensormodels:camera}.
+        Several libraries exist extending the functionality of the PTAM library~\citep{Nguyen_Sandor_Park_2010}.
+
+        As recently published, new algorithms - presented in \citep{Newcombe2011} - surpass
+        the library's performance at the expense of computational cost
+        and the demand for a high-profile graphics card.
+        The performance is nonetheless proven\footnote{Examples of projects using PTAM are listed at \url{http://ewokrampage.wordpress.com/projects-using-ptam/}},
+        and improves the usability over preceding libraries, such as \textit{Scenelib}, by including
+        a camera calibration tool, estimating parameters describing the lens properties.
+        \fig{\imagewidth}{ptamcalibration}{}{fig:video:ptamcalibration}
+
+        \subsection{Operation}
+            In the tracking procedure, the PTAM library randomly projects previously recorded features into the
+            captured video frame, visualized in Figure \ref{fig:video:ptamtracking}. It could be argued that the feature projection in the PTAM library
+            could make more use of external sensors and position estimates in this process.
+            This, however, remains as future work.
+            \fig{\imagewidth}{ptamtracking}{}{fig:video:ptamtracking}
+
+            As for mapping; Instead of continuously updating the keyframe's position estimates - as in the filtering solution -
+            the PTAM library presented in \citep{klein07parallel} separates
+            this task from the tracking entirely to a parallel, less time-critical, processing thread\footnote{Hence its name; \textit{Parallell Tracking And Mapping}}.
+            As this update does not have to be performed in real-time each video-frame, this parallellization
+            allows for the use of a more advanced adjustment technique \citep{klein07parallel}, namely
+            Bundle Adjustment\citep{lour09}. The bundle adjustment problem
+            performs a non-linear least-squares optimization over the available keyframe
+            positions, utilizing the sparse structure of the optimization problem that
+            is solved to make the solution computationally tractable~\citep{Lourakis11bundle}.
+
+        \subsection{Modifications to the Library}
+            The PTAM library is originally interfaced with a included graphical interface.
+            However, as the source-code is provided for non-commercial use, the
+            library was modified to interface over serial port with the CRAP framework
+            and also extended with automatic initialization and full non-graphical use.
+            This to enable full automatization on the development platform.
+
+            In the standard PTAM initialization procedure, an image is captured
+            at a starting position. The camera is then translated sideways until the user
+            deems the stereo initialization can be performed with good results.
+            A second frame is then captured, and features from the original image
+            are tracked between the two to perform a stereo initialization to
+            extract the ground plane and a placement for the origin.
+
+            \fig{\imagewidth}{ptamfeaturetracking}{}{fig:video:ptamfeaturetracking}
+
+            In the graphical interface, the tracked features are visualized
+            during the process with lines in the camera image, as in Figure \ref{fig:video:ptamfeaturetracking}.
+            After the initial frame has been captured, the implementation
+            of the automated initialization uses the length of these lines as
+            a measure of when to finalize the initialization procedure.
+            When the length of the line associated with the first\footnote{First in the list of features from the first image still found in the latest frame.}
+            feature exceeds a given theshold, the second frame is
+            captured and the stereo initalization algorithm is started.
+            Should the initialization procedure fail - e.g. by loosing track of most features - the
+            procedure will be restarted until a successful initialization has been performed.
+            The procedure is initially triggered by a command from the serial port.
+
+        \subsection{Practical Use}
+            The PTAM library is designed to use a wide-angle lens, with
+            performance dropping should such not be available~\citep{klein07parallel}.
+            In its current state however, PTAM does not support fish-eye lenses, and although
+            the LinkQuad-mounted camera features a changeable lens, all
+            available wide-angle lenses are fish-eye.
+            It is possible to use the PTAM library with a standard lens, although
+            tracking is easier lost.
+
+            The tracking and initialization quality is also - as all video tracking - dependent on the
+            amount of trackable features in the scene.
+            While the library can recover from lost positioning, an unsufficient amount
+            of features can cause the initialization process to fail, or the tracking to
+            be irrepairably lost.
+            The amount of features tracked is also dependent on the processing
+            power available, and because the complexity of the mapping
+            problem grows fast with the number of keyframes, the libary may
+            have difficulties extending the map to unexplored areas.

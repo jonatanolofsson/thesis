@@ -1,21 +1,36 @@
 \subsubsection{Rotor thrust}
 \label{ssec:observer:thrust}
     Each of the four propellers on the quadrotor induce a torque
-    and a thrust vector on the system.
+    and a thrust vector on the system, proportional to the square of the
+    propeller velocity. The rotational velocity of the propeller is directly
+    influenced by the controller. It may thus be modelled as a first order system - using the time constant $\tau_{rotor}$ with
+    the reference velocity as input, as in Eq. \eqref{eq:observer:wri}.
+    For testing purposes, or where the control signal is not available, Eq. \eqref{eq:observer:wri2} may be used instead.
+    \begin{equation}
+        \label{eq:observer:wri}
+        \dot{\omega_{ri}} = \frac{1}{\tau_{rotor}} \left( \omega_{ri} - r_{i} \right)
+    \end{equation}
+    \begin{equation}
+        \label{eq:observer:wri2}
+        \dot{\omega_{ri}} = 0
+    \end{equation}
+
     Due to the differences in relative airspeed around
     the rotor blade tip as the blades move either along or against
-    the wind-relative velocity, the direction of the thrust will vary
-    with regards to the motions of the quadrotor.
+    the wind-relative velocity, the lifting force on the blade will vary
+    around a rotation lap.
+    This unbalance in lifting force will cause the blades to lean and the
+    direction of the thrust vector to vary with regards to the motions of the quadrotor.
 
-    This phenomenon is called \textit{flapping}, and as discussed
-    in e.g. \citep{Pounds_modellingand}, the flapping of the rotors
+    This phenomenon is called \textit{flapping}, and is discussed
+    in e.g. \citep{Pounds_modellingand}. The flapping of the rotors
     and the centrifugal force acting upon the rotating blades
     will result in that the tilted blade trajectories will
     form a cone with the plane to which the rotor axis is normal.
-    These motions of the propellers add important dynamics to the
-    description of the quadrotors motion.
+    These motions of the propellers add dynamics to the
+    description of the quadrotors motion which must be considered in a deeper analysis.
 
-    It is desirable, for the purpose of this this thesis and
+    It is desirable, for the purpose of this thesis and
     considering computational load, to find a closed-form
     solution to the flapping equations. This implies several
     approximations and restrictions which will be discussed in
@@ -25,28 +40,29 @@
     \eqref{eq:observer:thrust}-\eqref{eq:observer:flapping}
     \citep{Pounds_modellingand,prouty1995helicopter,leishman2002principles}.
 
-    The momentums induced by the propeller rotation and thrust
+    The momenta induced by the propeller rotation and thrust
     are described in equations \eqref{eq:observer:torque}-\eqref{eq:observer:thrustmomentum}.
+    All equations in this section are given in the body-fixed coordinate system.
 
     \begin{subequations}
         \begin{equation}
+            \label{eq:observer:thrust}
+            F_{ri} = C_{T} \rho A_{r} R^{2} \omega_{ri}^{2}\left(
+                \begin{array}{c}
+                    -\sin{a_{1_{s}i}} \\
+                    -\cos{a_{1_{s}i}}\sin{b_{1_{s}i}} \\
+                    -\cos{a_{1_{s}i}}\cos{b_{1_{s}i}}
+                \end{array}\right)
+        \end{equation}
+
+        \begin{equation}
             \label{eq:observer:torque}
-            Q_{i} = -C_{Q} \rho A R^{3} \omega_{ri}||\omega_{ri}||e_{3}^{NED}
+            M_{Qi} = -C_{Q} \rho A R^{3} \omega_{ri}|\omega_{ri}|e_{3}^{\text{NED}}
         \end{equation}
 
         \begin{equation}
             \label{eq:observer:thrustmomentum}
             M_{ri} = F_{ri} \times D_{ri}
-        \end{equation}
-
-        \begin{equation}
-            \label{eq:observer:thrust}
-            F_{ri}^{BF} = C_{T} \rho A_{r} R^{2} \omega_{ri}^{2}\left(
-                \begin{array}{c}
-                    -\sin{a_{1_{s}i}} \\
-                    \cos{a_{1_{s}i}}\sin{b_{1_{s}i}} \\
-                    -\cos{a_{1_{s}i}}\cos{b_{1_{s}i}}
-                \end{array}\right)
         \end{equation}
     \end{subequations}
     The equations for the flapping angles $\left(a_{1_{s}i}, b_{1_{s}i}\right)$ are
@@ -56,10 +72,13 @@
     \begin{subequations}
         \label{eq:observer:flapping}
         \begin{equation}
-            V_{ri} = V_{rel} + \Omega \times D_{ri} % Velocity relative to the wind //Jonatan
+            V_{\text{rel}} = V - V_{\text{wind}}
         \end{equation}
         \begin{equation}
-            \mu_{ri} = \frac{||V_{ri(1,2)}||}{w_{i}R}
+            V_{ri} = V_{\text{rel}} + \Omega \times D_{ri} % Velocity relative to the wind //Jonatan
+        \end{equation}
+        \begin{equation}
+            \mu_{ri} = \frac{||V_{ri(1,2)}||}{\omega_{i}R}
         \end{equation}
         \begin{equation}
             \psi_{ri} = \arctan{\frac{V_{ri(2)}}{V_{ri(1)}}}
@@ -92,34 +111,73 @@
             \end{array}
         \end{equation}
 
-        \textbf{Note: In the equations \eqref{eq:observer:flapping:ab}, taken from \citep{Pounds_modellingand}, I assume that by ''$a$'', they mean lift curve slope, and by ''$a_{0}$'', they mean the linearization point of a and NOT the coning angle of Prouty pp.468, or the mean coning of Prouty pp.153}
+        %~ \textbf{Note: In the equations \eqref{eq:observer:flapping:ab}, taken from \citep{Pounds_modellingand}, I assume that by ''$a$'', they mean lift curve slope, and by ''$a_{0}$'', they mean the linearization point of a and NOT the coning angle of Prouty pp.468, or the mean coning of Prouty pp.153}
 
-        \citep{Pounds_modellingand}
-        \citep{prouty1995helicopter} pp. 165
-        \textbf{Not quite finished here..}
+        %~ \citep{Pounds_modellingand}
+        %~ \citep{prouty1995helicopter} pp. 165
+        %~ \textbf{Not quite finished here.. FIXME: $\theta_{0}$ to table!}
         \begin{equation}
-            C_{T} = \frac{\sigma a}{4}\left[\theta_{tip} - \right]
+            \lambda_{i} = \mu\alpha_{si} + \frac{v_{1i}}{\omega_{i} R}
+        \end{equation}
+        \begin{equation}
+            v_{1i} = \sqrt{
+                -\frac{V_{rel}^{2}}{2} + \sqrt{
+                    \left( \frac{V_{rel}^{2}}{2} \right)^{2}
+                    + \left( \frac{mg}{2 \rho A_{r}} \right)^{2}
+                }
+            }
+        \end{equation}
+        \begin{equation}
+            C_{T} = \frac{\sigma a}{4}\left\lbrace
+                  \left( \frac{2}{3} + \mu_{ri}^{2} \right) \theta_{0}
+                - \left( \frac{1}{2} + \frac{\mu^{2}}{2} \right) \theta_{\text{twist}}
+                + \lambda
+            \right\rbrace
+        \end{equation}
+        \begin{equation} % angle between shaft plane and path (rel. to wind) pp.160
+            \alpha_{si} = \frac{\pi}{2} - \arccos{ -\frac{V_{rel} \cdot e_{z}}{||V_{rel}||} }
+        \end{equation}
+        % This is from bouabdallah07design. Same as above _but_ with negative signs... Why?
+        %~ \begin{equation}
+            %~ C_{T} = \sigma a \left[
+                %~ \left(\frac{1}{6} + \frac{1}{4}\mu^{2}\right)\theta_{0}
+                %~ - (1 + \mu^{2})\frac{\theta_{twist}}{8}
+                %~ - \frac{1}{4}\lambda \right]
+        %~ \end{equation}
+        \begin{equation}
+            C_{Q} = \sigma a \left[
+                \frac{1}{8a}\left( 1 + \mu_{ri}^{2} \right) \bar{C_{d}}
+                + \lambda\left(
+                    \frac{1}{6}\theta_{0}
+                    - \frac{1}{8}\theta_{\text{twist}}
+                    + \frac{1}{4}\lambda
+                    \right)
+                \right]
         \end{equation}
     \end{subequations}
 
     \begin{table}
         \begin{tabularx}{\tablewidth}{|c|c|X|c|}\hline
             \textbf{Symbol} & \textbf{Expression} & \textbf{Description}  & \textbf{Unit} \\\hline
-            $a$ & $\frac{\text{d}C_{L}}{\text{d}\alpha}$ & Slope of the lift curve. & $\frac{1}{rad}$ \\\hline
-            $a$ & $2\pi$ & Lift curve slope.   & $\frac{1}{rad}$ \\\hline
-            $\alpha$ & - & Propeller angle of attack. & $rad$ \\\hline
-            $A_{r}$ & - & Rotor disk area.   & $m^{2}$\\\hline
-            $c$ & - & Blade chord - the (mean) length between the trailing and leading edge of the propeller.   & $m$ \\\hline
+            $a$ & $\frac{\operatorname{d}\!C_{L}}{\operatorname{d}\!\alpha} \approx 2\pi$ & Slope of the lift curve. & $\frac{1}{\text{rad}}$ \\\hline
+            $\alpha_{si}$ & - & Propeller angle of attack. & $\text{rad}$ \\\hline
+            $A_{r}$ & - & Rotor disk area.   & $\text{m}^{2}$\\\hline
+            $c$ & - & Blade chord - the (mean) length between the trailing and leading edge of the propeller.   & $\text{m}$ \\\hline
             $C_{L}$ & - & Coefficient of lift. & $1$ \\\hline
+            $C_{T}$ & * & Coefficient of thrust. This is primarily the scaling factor for how the thrust is related to the square of $\omega_{i}$, as per \ref{eq:observer:thrust}.  & $1$\\\hline
             $C_{T0}$ & - & Linearization point for thrust coefficient.  & $1$\\\hline
-            $C_{Q}$ & $C_{Q} = C_{P} \approx \frac{C_{T}^{3/2}}{\sqrt{2}}$ \footnote{Leishman, pp.67}& Torque coefficient, approximated using hovering conditions.  & $1$\\\hline
+            $C_{Q}$ & * & Torque coefficient. This constant primarily is the scaling factor relating the square of $\omega_{i}$ to the torque from each rotor. & $1$\\\hline
             $\gamma$ & $\frac{\rho a c R^{4}}{I_{b}}$ & $\gamma$ is the Lock Number \citep{leishman2002principles}, described as the ratio between the aerodynamic forces and the inertal forces of the blade.   & $1$ \\ \hline
-            $I_{b}$ & - & Rotational inertia of the blade  & $kgm^{2}$\\\hline
-            $\lambda_{i}$ & $\sqrt{C_{T}/2}$ & $\lambda_{i}$ denotes the inflow to the propeller, which is approximated by the expression to the left.   & $1$ \\\hline
-            $R$ & - & Rotor radius.   & $m$ \\\hline
-            $\rho$ & - & Air density.   & $\frac{kg}{m^{3}}$ \\\hline
+            $I_{b}$ & - & Rotational inertia of the blade  & $\text{kgm}^{2}$\\\hline
+            $\lambda_{i}$ & * & $\lambda_{i}$ denotes the air inflow to the propeller. & $1$ \\\hline
+            $R$ & - & Rotor radius.   & $\text{m}$ \\\hline
+            $\rho$ & - & Air density.   & $\frac{\text{kg}}{\text{m}^{3}}$ \\\hline
             $\sigma$ & $\frac{\text{blade area}}{\text{disk area}}$ & Disk solidity. & $1$ \\\hline
-            $\theta_{twist}$ & - & The angle with which the propeller is twisted.  & $rad$ \\\hline
+            $\theta_{0}$ & - & The angle of the propeller at its base, relative to the horizontal disk plane. & $\text{rad}$ \\\hline
+            $\theta_{\text{twist}}$ & - & The angle with which the propeller is twisted.  & $\text{rad}$ \\\hline
+            $\omega_{\phi},\omega_{\theta},\omega_{\psi}$ & - & The rotational, body-fixed, velocity of the quadrotor. & $\frac{\text{rad}}{\text{s}}$ \\\hline
+            $\omega_{ri}$ & - & The rotational velocity of propeller $i$. & $\frac{\text{rad}}{\text{s}}$ \\\hline
+            $\mu_{ri}$ & - & The normalized, air-relative, blade tip velocity. & $1$ \\\hline
             %$q$ & - & Pitch rate \\\hline % Can this be replaced by \omega_{\theta}? Just did... =) Body-fixed, so should be good
             %$p$ & - & Roll rate \\\hline % Can this be replaced by \omega_{\psi}? Just did... =) Body-fixed, so should be good
         \end{tabularx}

@@ -1,0 +1,13 @@
+dir = '/home/noenc-jonatan/workspace/data/2012-05-11/30Hz/gt2/';
+data = Files.import([dir 'data.log']);
+
+%%
+pl = data.s_accel_x_raw * 0.00982331;
+figure(1);clf;
+[mu, sd] = normfit(pl);
+ix = (-3*sd:1e-3:3*sd) + mu; %covers more than 99% of the curve
+iy = pdf('norm', ix, mu, sd);
+plot(ix,iy);
+hold all;
+h = hist(pl, length(ix));
+bar(ix,h/length(ix))

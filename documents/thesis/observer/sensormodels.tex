@@ -1,2 +1,80 @@
 \section{Sensor Models}
 \label{sec:observer:sensormodels}
+    This Section relates the estimated state of the quadrotor to the expected sensor measurements, $\hat{y}$.
+    The first four sensors - accelerometers, gyroscopes, magnetometers
+    and the pressure sensor - are described quite briefly, while the
+    estimation of the camera's frame of reference requires some more detail.
+
+    It is common to include a GPS, providing world-fixed measurements,
+    to prevent drift in the filtering process. Here, the GPS is replaced with a camera,
+    which will be discussed in Section \ref{ssec:observer:sensormodels:camera}.
+
+    In most equations below, a zero-mean Gaussian term with known covariance is added
+    to account for measurement noise. The Gaussian assumption may in some
+    cases be severely inappropriate, but the Kalman filter framework requires its use.
+
+    \subsection{Accelerometers}
+        The accelerometers, as the name suggests, provides measurements of the
+        accelerations of the sensor. In general, this does not directly correspond
+        to the accelerations of the mathematical centre of gravity used
+        as centre of the measured vehicle, which motivates correction
+        for angular acceleration and rotation.
+        \begin{equation}
+            \hat{y}_{\text{acc}} = a_{\mathcal{G}} + \dot{\omega} \times r_{\text{acc}/\mathcal{G}} + \omega \times \left( \omega \times r_{\text{acc}/\mathcal{G}} \right) + e_{\text{acc}}
+        \end{equation}
+
+    \subsection{Gyroscopes}
+        Gyroscopes, or rate gyroscopes specifically, measure the angular velocity
+        of the sensor. Unlike acceleration, the angular rate is invariant of the
+        relative position of the gyro to the center of gravity.
+        However, gyroscope measurements are associated with a bias which may
+        change over time. This bias term is introduced as a state variable which
+        is modelled constant, Eq. \eqref{eq:filter:sensormodels:accelerometertime},
+        through the time update, leaving its adjustment to the filter measurement update.
+        \begin{equation}
+            y_{\text{gyro}} = \omega + b + e_{\text{gyro}}
+        \end{equation}
+        \begin{equation}
+            \label{eq:filter:sensormodels:accelerometertime}
+            \dot{b} = 0 + e_{\text{bias}}
+        \end{equation}
+
+    \subsection{Magnetometers}
+        Capable of sensing magnetic fields, the magnetometers can be used to
+        sense the direction of the earth's magnetic field and, from knowing
+        the field at the current location, estimate the orientation of a vehicle.
+        \begin{equation}
+            y = R(q) m^{e} + e_{m}
+        \end{equation}
+        The Earth's magnetic field can be approximated using the World Magnetic Model\cite{wmm2010},
+        which for Linköping, Sweden, yields
+        \begin{equation}
+            m^{e} = \left(\begin{array}{ccc}
+                15.7 & 1.11 & 48.4
+            \end{array}\right)_{NEDEF}^{T} \mu T.
+        \end{equation}
+
+        Magnetometer measurements are however very sensitive to disturbances, and in indoor
+        flight, measurements are often useless due to electrical wiring, lighting etc.
+        Thus, the magnetometers were not used for the state estimation in this thesis.
+
+    \subsection{Pressure Sensor}
+        The air pressure, $p$, can be related to altitude using the following equation\cite{physicshandbook}
+        \begin{equation}
+            \label{eq:sensormodels:pressure}
+            p = p_{0} \left( 1 - \frac{L \cdot h}{T_{0}} \right)^{\frac{g \cdot M}{R\cdot L}} + e_{p}
+        \end{equation}
+        \begin{table}
+            \begin{tabularx}{\tablewidth}{|c|X|c|c|}\hline
+                \textbf{Parameter} & \textbf{Description} & \textbf{Value} & \textbf{Unit} \\\hline
+                $L$       & Temperature lapse rate.            & $0.0065$ & $\frac{\text{K}}{\text{m}}$ \\\hline
+                $M$       & Molar mass of dry air.             & $0.0289644$ & $\frac{\text{kg}}{\text{mol}}$ \\\hline
+                $p_{0}$   & Atmospheric pressure at sea level. & $101325$ & $\text{Pa}$ \\\hline
+                $R$       & Universal gas constant.            & $8.31447$ & $\frac{\text{J}}{\text{mol} \cdot \text{K}}$ \\\hline
+                $T_{0}$   & Standard temperature at sea level. & $288.15$ & $\text{K}$ \\\hline
+            \end{tabularx}
+            \label{tos:pressuresensor}
+            \caption{Table of Symbols used in the pressure equation, \eqref{eq:sensormodels:pressure}}.
+        \end{table}
+
+    \input{\currentchapter/camera}

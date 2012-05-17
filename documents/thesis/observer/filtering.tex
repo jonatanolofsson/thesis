@@ -1,17 +1,18 @@
 \section{The Filtering Problem}
 \label{sec:observer:filtering}
     The problem of estimating the state of a system - in this case
-    it's position, orientation, velocity etc. - is in the Kalman filter
-    framework expressed as the problem of finding the state estimate
-    $\hat{x}$ that in a well defined best way (e.g. with Minimum Mean Square Error, MMSE)
+    its position, orientation, velocity etc. - is in general filtering
+    expressed as the problem of finding the state estimate,
+    $\hat{x}$, that in a well defined best way (e.g. with Minimum Mean Square Error, MMSE)
     describes the behaviour of the system.
 
     The evolution of a system plant is traditionally described by a set of differential equations
     that link the change in the variables to the current state and known inputs, $u$.
+    This propagation through time is described by Eq.~\eqref{eq:observer:xdot} ($f_{c}$ denoting the continous case).
     The system is also assumed to be subject to an additive white Gaussian noise $v(t)$ with
     known covariance $Q$.
-    This introduces an uncertainty associated with the system, which accounts
-    for imperfections in the model compared to the physical real-worl-system.
+    This introduces an uncertainty associated with the system's state, which accounts
+    for imperfections in the model compared to the physical real-world-system.
     \begin{equation}
         \label{eq:observer:xdot}
         \dot{x}(t) = f_{c}(x(t),u(t),t) + v_{c}(t)
@@ -19,9 +20,9 @@
     With numeric or analytical solutions, we can obtain the discrete form of
     \eqref{eq:observer:xdot}, where only the sampling times are considered.
     The control signal, $u(t)$, is for instance assumed to be constant in the time interval,
-    and we obtain obtain the next predicted state directly, yielding the prediction of $\hat{x}$
-    at the time $t$ \textit{given} the information at time $t-1$.
-    \footnote{Note that we have not yet performed any measurements that provide information about the state at time t.}
+    and we obtain the next predicted state directly, yielding the prediction of $\hat{x}$
+    at the time $t$ \textit{given} the information at time
+    $t-1$\footnote{Note that we have not yet performed any measurements that provide information about the state at time t.}.
     This motivates the notation used in this thesis - $\hat{x}_{t|t-1}$.
     \begin{equation}
         \label{eq:observer:xnext}
@@ -41,17 +42,17 @@
         \nu_{t} = y_{t} - \hat{y}_{t}
     \end{equation}
     That is, the difference between the measured value and what would be
-    expected in the ideal (simulated) case.
+    expected in the ideal (predicted) case.
     To account for disturbances affecting the sensors, the measurements
-    are associated with an additive white Gaussian noise $w(t)$, with
-    known covariance $R$.
+    are also associated with an additive white Gaussian noise $w(t)$, with
+    known covariance, $R$.
     \begin{equation}
         \hat{y}_{t} = h(\hat{x}_{t}, u_{t}, t) + w(t)
     \end{equation}
 
     The innovation is then fused with the prediction to yield a new
-    estimation \citep{gustafsson2010statistical} of $x$ given the
-    information available as of the time $t$.
+    estimation of $x$ given the
+    information available as of the time $t$~\citep{gustafsson2010statistical}.
     \begin{equation}
         \hat{x}_{t|t} = \hat{x}_{t|t-1} + K_{t}\nu_{t}
     \end{equation}
@@ -61,7 +62,37 @@
     this balancing is made by tracking and weighing the uncertainties
     introduced by the prediction and the measurement noise.
 
-    Because of the assumptions on the noise and the linear property
+    \begin{algorithm}[Kalman Filter]
+        \label{alg:kf}
+        For a linear system, given predictions and
+        measurements with known covariances $Q$ and $R$, the optimal
+        solution to the filtering problem is given by the forward recursion\footnote{As first suggested by Rudolf E. Kálmán in \cite{kalman1960}.}
+
+        \begin{subequations}
+            \textbf{Prediction update}
+            \begin{equation}
+                \hat{x}_{t|t-1} = A \hat{x}_{t-t|t-1} + B u_{t}
+            \end{equation}
+            \begin{equation}
+                P_{t|t-1} = A P_{t-1|t-1} A^{T} + Q
+            \end{equation}
+        \end{subequations}
+        \begin{subequations}
+            \textbf{Measurement update}
+            \begin{equation}
+                \label{eq:observer:filtering:kalmanK}
+                K = P_{t|t-1} H^{T} \left( H P_{t|t-1} H^{T} + R \right)^{-1}
+            \end{equation}
+            \begin{equation}
+                \hat{x}_{t|t} = \hat{x}_{t|t-1} + K \left( y - H \hat{x}_{t|t-1} \right)
+            \end{equation}
+            \begin{equation}
+                P_{t|t} = P_{t|t-1} + K H P_{t|t-1}
+            \end{equation}
+        \end{subequations}
+    \end{algorithm}
+
+    Because of the assumptions on the noise and of the linear property
     of the innovation feedback, the Gaussian property of the noise is preserved
     in the filtering process. The system states can thus ideally
     be considered drawn from a normal distribution.
@@ -69,37 +100,87 @@
         x \sim \mathcal{N}\left(\hat{x}, P_{xx}\right)
     \end{equation}
 
-    Conditioned on the state and measurements before time $k$, the
+    Conditioned on the state and measurements before time $k$ (kept in the set $\mathcal{Y}^{k}$), the
     covariance of the sample distribution is defined as
     \begin{equation}
         P_{xx}(t|k) = E \left[ \left\lbrace x(t) - \hat{x}_{t|k} \right\rbrace
                                \left\lbrace x(t) - \hat{x}_{t|k} \right\rbrace^{T}
-                               | \mathcal{Z}^{j} \right] .
+                               | \mathcal{Y}^{k} \right] .
     \end{equation}
     As new measurements are taken, the covariance of the state evolves
-    \citep{Julier95anewapproach} with the state estimate as
+    with the state estimate as in Eq. \eqref{eq:observer:filtering:pxx}~\citep{Julier95anewapproach}.
     \begin{equation}
+        \label{eq:observer:filtering:pxx}
         P_{xx}(t|t) = P_{xx}(t|t-1) - K_{t}P_{\nu\nu}(t|t-1)K_{t}^{T}
     \end{equation}
     \begin{equation}
         \label{eq:observer:filtering:pnunu}
         P_{\nu\nu}(t|t-1) = P_{yy}(t|t-1) + R(t) .
     \end{equation}
-    $K$ is derived in e.g. \citep{gustafsson2010statistical} as
+    With known covariances, $K$ can be chosen optimmaly for the linear case as derived in e.g. \citep{gustafsson2010statistical};
     \begin{equation}
-        \label{eq:observer:filtering:pxy}
-        K_{t} = P_{xy}(t|t-1)P_{\nu\nu}^{-1}(t|t-1),
+        \label{eq:observer:filtering:kalmanK2}
+        K_{t} = P_{xy}(t|t-1)P_{\nu\nu}^{-1}(t|t-1).
     \end{equation}
-    given the cross-correlation of the predicted state and output, $P_{xy}$.
+    Note that \eqref{eq:observer:filtering:kalmanK2} is another, albeit equivalent,
+    way of calculating \eqref{eq:observer:filtering:kalmanK}, which will be exploited
+    in Section \ref{sec:observer:ukf}.
 
-    There are several approaches to how to propagate the covariance
-    through the prediction-model to acquire $P_{xx}(t|t-1)$ with retained Gaussian properties.
-    As the linear case is simple;
+    Although the Kalman filter is optimal in the linear case, no guarantees are given for the non-linear case.
+    Several methods exist to give a sub-optimal estimate of the non-linear cases,
+    two of which will be studied here.
+
+    One problem with the non-linear case is how to propagate the uncertainty,
+    as described by the covariance, through the prediction and measurement models.
+    With the assumed Gaussian prior, it is desirable to retain the Gaussian
+    property in the posterior estimate, even though this clearly is in violation with the
+    non-linear propagation, which generally does not preserve this property.
+
+    As the linear case is simple however;
     \begin{equation}
         P_{xx}(t|t-1) = AP(t|t)A^{T} + Q_{t};
     \end{equation}
-    a novel approach is to linearize the system for $A$.
-    This linearization, however, fails to capture the finer details
+
+    the novel approach is to linearize the system to yield $A$ in every timestep.
+    This method is called the Extended Kalman Filter, and is considered the
+    de facto standard non-linear filter\cite{Julier04nonlinear}.
+
+    \begin{algorithm}[Extended Kalman Filter]
+        \label{alg:ekf}
+        The Kalman filter in Algorithm \ref{alg:ekf} is in the Extended Kalman filter extended to the
+        non-linear case by straight-forward linearization where nescessary.
+
+        \begin{subequations}
+            \textbf{Prediction update}
+            \begin{equation}
+                \hat{x}_{t|t-1} = f\left( \hat{x}_{t-t|t-1}, u_{t} \right)
+            \end{equation}
+            \begin{equation}
+                P_{t|t-1} = A P_{t-1|t-1} A^{T} + Q
+            \end{equation}
+        \end{subequations}
+        \begin{subequations}\textbf{Measurement update}
+            \begin{equation}
+                \label{eq:filtering:kalmanK}
+                K = P_{t|t-1} H^{T} \left( H P_{t|t-1} H^{T} + R \right)^{-1}
+            \end{equation}
+            \begin{equation}
+                \hat{x}_{t|t} = \hat{x}_{t|t-1} + K \left( y - h(\hat{x}_{t|t-1}) \right)
+            \end{equation}
+            \begin{equation}
+                P_{t|t} = P_{t|t-1} + K H P_{t|t-1},
+            \end{equation}
+        \end{subequations}
+        where
+        \begin{equation}
+            \begin{array}{cc}
+                A = \left.\frac{\partial f(x,u)}{\partial x}\right|_{x = \hat{x}_{t|t}}, & H = \left.\frac{\operatorname{d}\!h(x)}{\operatorname{d}\!x}\right|_{x = \hat{x}_{t|t-1}}.
+            \end{array}
+        \end{equation}
+    \end{algorithm}
+
+    This linearization, some argue\cite{Julier95anewapproach}, fails to capture the finer details
     of highly non-linear systems and may furthermore be tedious to
-    calculate, analytically or otherwise. A different approach is
+    calculate, analytically or otherwise. An alternative approach, known as the Unscented Kalman Filter, is therefore
     discussed in Section \ref{sec:observer:ukf}.
+

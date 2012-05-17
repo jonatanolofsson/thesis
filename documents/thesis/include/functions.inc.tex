@@ -1,6 +1,6 @@
 \newcommand{\currentchapter}{}
-\newcommand{\fig}[4][]{%
-  \begin{figure}[h]
+\newcommand{\fig}[4]{%
+  \begin{figure}[H]
     \centering
     \includegraphics[width=#1\linewidth]{\currentchapter/figures/#2}
     \caption{#3}
@@ -12,6 +12,7 @@
 \renewcommand{\sin}[1]{\text{sin}\left(#1\right)}
 \renewcommand{\cos}[1]{\text{cos}\left(#1\right)}
 \renewcommand{\arctan}[1]{\text{arctan}\left(#1\right)}
+\renewcommand{\arccos}[1]{\text{arccos}\left(#1\right)}
 
 %% Initialize new chapter
 \newcommand{\newchapter}[1]{
@@ -20,4 +21,29 @@
     \clearpage
 }
 
-\newcommand{\matlab}{\textsc{Matlab}}
+\newcommand{\matlab}{\textsc{Matlab}\xspace}
+
+\newtheorem{algorithm}{Algorithm}
+
+
+\def\ifmonospace{\ifdim\fontdimen3\font=0pt }
+\def\C++{%
+\ifmonospace%
+    C++%
+\else%
+    C\kern-.1667em\raise.30ex\hbox{\smaller{++}}%
+\fi%
+\spacefactor1000 }
+
+%c C sharp
+\def\Csharp{%
+\ifmonospace%
+    C\#%
+\else%
+    C\kern-.1667em\raise.30ex\hbox{\smaller{\#}}%
+\fi%
+\spacefactor1000 }
+
+
+
+\def \crap {\textit{CRAP}\xspace}

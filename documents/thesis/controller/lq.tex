@@ -1,9 +1,26 @@
 \section{The Linear Quadratic Controller}
 \label{sec:controller:lq}
+    In this section, the theory of Linear Quadratic control is presented,
+    considering the continous linear plant in \eqref{eq:controller:lq:plant},
+    with control signal $u$ and reference $r$.
+    \begin{subequations}
+        \label{eq:controller:lq:plant}
+        \begin{equation}
+            \dot{x} = Ax + Bu
+        \end{equation}
+        \begin{equation}
+            z = Mx
+        \end{equation}
+        \begin{equation}
+            e = z - r
+        \end{equation}
+    \end{subequations}
+
     The basic LQ controller, described in e.g. \citep{glad2003reglerteori},
     uses a linear state-space system model and weights on the states ($Q$) and control
     signals ($R$) respectively to calculate the control signals that would
-    minimize the integral
+    - given a starting state, a motion model and a constant reference -
+    minimize the integral \eqref{eq:controller:lq:j}.
     \begin{equation}
     \label{eq:controller:lq:j}
         \mathcal{J} = \int_{0}^{\infty} e^{T}(t)Qe(t) + u^{T}(t)Ru(t) dt.
@@ -18,28 +35,35 @@
     engines but slowing the system down.
 
     In the linear case, \eqref{eq:controller:lq:j} can be solved analytically,
-    resulting in a linear feedback
+    resulting in a linear feedback,
     \begin{equation}
-    \label{eq:controller:u}
-        u_{t} = -L\hat{x}_{t} + L_{r}r_{t}
+    \label{eq:controller:u1}
+        u_{t} = -L\hat{x}_{t}
     \end{equation}
     \begin{equation}
     \label{eq:controller:L}
         L = R^{-1}B^{T}S,
     \end{equation}
     where $S$ is the Positively Semi-Definite (PSD) solution to the
-    Continuous Algebraic Riccati Equation (CARE)\citep{glad2003reglerteori},
+    Continuous Algebraic Riccati Equation (CARE)\citep{glad2003reglerteori}, stated in \eqref{eq:controller:lq:care}.
     \begin{equation}
-        A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0.
+        \label{eq:controller:lq:care}
+        A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0
     \end{equation}
 
     To improve the reference following abilities of the controller,
-    the reference is brought into the control signal by a scaling
+    the reference may be brought into the control signal by a scaling
     matrix $L_{r}$, which is chosen so that the static gain of the
     system is equal to identity \citep{glad2003reglerteori}.
     In the case of equal number of control signals as controlled
     states, the following result is obtained;
     \begin{equation}
+    \label{eq:controller:u}
+        u_{t} = -L\hat{x}_{t} + L_{r}r_{t}
+    \end{equation}
+    \begin{equation}
     \label{eq:controller:Lr}
         L_{r} = \left[M(BL - A)^{-1}B\right]^{-1}.
     \end{equation}
+
+%FIXME: Discrete results are used in the code!

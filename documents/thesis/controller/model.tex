@@ -2,10 +2,45 @@
 \label{sec:controller:model}
     In Chapter \ref{cha:observer}, a physical model of the system
     was derived. To incorporate the information from the physical model
-    into the governing control law, the model needs to be fitted into
-    \eqref{eq:controller:affinelq} by providing analytical\footnote{Analytical results are not strictly needed but are, in this case, easily obtained.}
-    expressions for the Jacobi matrices with regards to $x$ and $y$,
-    and removing states which will not be used in the controller.
+    into the governing control law, the model needs to be fitted into eq.
+    \eqref{eq:controller:affinelq} by providing the Jacobi matrices with
+    regards to $x$ and $u$, and removing states which will not be
+    used in the controller.
 
-    \textbf{The model in Chapter \ref{cha:observer} should be validated before
-    proceeding with this section.}
+    The Jacobians of the system are aquired numerically by using
+    central difference
+    \begin{equation}
+        f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}
+    \end{equation}
+
+    While all states are of importance to the dynamics of the quadrotor,
+    it should be noted that only a subset of the states in $x$ is used for control.
+    We thus need to form new matrices containing the relevant states.
+    \paragraph{Notation}
+    \begin{description}
+        \item[] $\bar{x}$ denotes the rows in $x$ that are used for control.
+        \item[] $\bar{x}^{\dagger}$ is used to denote the rows in $x$ that are \textit{not} used for control.
+        \item[] $\bar{A} = [ \bar{A}^{\square} \bar{A}^{\dagger}]$
+        defines the separation of the square part ($\square$) of $\bar{A}$ with columns
+        associated with the controller states, from the other columns ($\dagger$).
+    \end{description}
+
+    The new matrices need to be formed only with the rows that are to be used
+    for control. Extracting those rows from Equation \eqref{eq:controller:gainscheduling:xdot}
+    yields Equation \eqref{eq:controller:model:derivation}.
+    \begin{equation}
+        \label{eq:controller:model:derivation}
+        \begin{array}{rl}
+             \dot{\bar{x}} = \bar{f}(x,u) \approx & \bar{f}(x_{0},u_{0}) + \bar{A}(x - x_{0}) + \bar{B}\Delta u \\
+             = & \bar{f}(x_{0},u_{0}) - \bar{A}^{\square}\bar{x}_{0} - \bar{A}^{\dagger}\bar{x}^{\dagger}_{0} + \bar{A}^{\square}\bar{x} + \bar{A}^{\dagger}\bar{x}^{\dagger} + \bar{B}\Delta u \\
+             = & \bar{f}(x_{0},u_{0}) - \bar{A}^{\square}\bar{x}_{0} + \bar{A}^{\square}\bar{x} + \bar{B}\Delta u
+        \end{array}
+    \end{equation}
+    In the last equality of eq. \eqref{eq:controller:model:derivation}, it
+    is assumed that the states not described in the controller are invariant
+    of control and time, giving $\bar{x}^{\dagger}_{0} = \bar{x}^{\dagger}$.
+    The results of Equation \eqref{eq:controller:model:derivation} can be
+    directly fitted into Equation \eqref{eq:controller:affinelq} to form
+    the new matrices for the controller.
+    Note also that the derivation in \eqref{eq:controller:model:derivation} is
+    completely analogous in the discrete-time case.

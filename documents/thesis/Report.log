@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  4 MAR 2012 19:51
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  17 MAY 2012 18:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -472,6 +472,27 @@ LaTeX Info: Redefining \tableofcontents on input line 697.
 LaTeX Info: Redefining \listoffigures on input line 701.
 LaTeX Info: Redefining \listoftables on input line 705.
 ) (./include/uses.inc.tex
+(/usr/share/texmf-site/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: dvips.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+(/usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count111
@@ -791,249 +812,12 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count135
 )
-(/usr/share/texmf-site/tex/latex/pgf/frontendlayer/tikz.sty
-(/usr/share/texmf-site/tex/latex/pgf/basiclayer/pgf.sty
-(/usr/share/texmf-site/tex/latex/pgf/utilities/pgfrcs.sty
-(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks37
-)
-(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box59
-
-(/usr/share/texmf-dist/tex/latex/ms/everyshi.sty
-Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-))
-(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfrcs.code.tex
-Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
-))
-Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
-
-(/usr/share/texmf-site/tex/latex/pgf/basiclayer/pgfcore.sty
-(/usr/share/texmf-site/tex/latex/pgf/systemlayer/pgfsys.sty
-(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
-
-(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks38
-\pgfkeys@temptoks=\toks39
-
-(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks40
-))
-\pgf@x=\dimen148
-\pgf@y=\dimen149
-\pgf@xa=\dimen150
-\pgf@ya=\dimen151
-\pgf@xb=\dimen152
-\pgf@yb=\dimen153
-\pgf@xc=\dimen154
-\pgf@yc=\dimen155
-\w@pgf@writea=\write3
-\r@pgf@reada=\read2
-\c@pgf@counta=\count136
-\c@pgf@countb=\count137
-\c@pgf@countc=\count138
-\c@pgf@countd=\count139
-
-(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
-)
-Package pgfsys Info: Driver file for pgf: pgfsys-dvips.def on input line 900.
-
-(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsys-dvips.def
-File: pgfsys-dvips.def 2008/04/03  (rcs-revision 1.20)
-
-(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsys-common-postscript.def
-File: pgfsys-common-postscript.def 2008/10/01  (rcs-revision 1.22)
-\pgf@objectcount=\count140
-))) (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count141
-\pgfsyssoftpath@bigbuffer@items=\count142
-) (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
-))
-(/usr/share/texmf-site/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
-
-(/usr/share/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package xcolor Info: Driver file: dvips.def on input line 225.
-LaTeX Info: Redefining \color on input line 702.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `RGB' extended on input line 1353.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
-
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmath.code.tex
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathcalc.code.tex
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathutil.code.tex)
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen156
-\pgfmath@count=\count143
-\pgfmath@box=\box60
-\pgfmath@toks=\toks41
-\pgfmath@stack@operand=\toks42
-\pgfmath@stack@operation=\toks43
-)
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.code.tex
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code
-.tex)
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.comparison.code.te
-x) (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
-(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count144
-))
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
-\pgf@picminx=\dimen157
-\pgf@picmaxx=\dimen158
-\pgf@picminy=\dimen159
-\pgf@picmaxy=\dimen160
-\pgf@pathminx=\dimen161
-\pgf@pathmaxx=\dimen162
-\pgf@pathminy=\dimen163
-\pgf@pathmaxy=\dimen164
-\pgf@xx=\dimen165
-\pgf@xy=\dimen166
-\pgf@yx=\dimen167
-\pgf@yy=\dimen168
-\pgf@zx=\dimen169
-\pgf@zy=\dimen170
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
-\pgf@path@lastx=\dimen171
-\pgf@path@lasty=\dimen172
-) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
-\pgf@shorten@end@additional=\dimen173
-\pgf@shorten@start@additional=\dimen174
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
-\pgfpic=\box61
-\pgf@hbox=\box62
-\pgf@layerbox@main=\box63
-\pgf@picture@serial@count=\count145
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
-\pgflinewidth=\dimen175
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoretransformations.code.t
-ex
-File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
-\pgf@pt@x=\dimen176
-\pgf@pt@y=\dimen177
-\pgf@pt@temp=\dimen178
-) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.te
-x
-File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
-) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
-\pgf@max=\dimen179
-\pgf@sys@shading@range@num=\count146
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
-
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
-\pgfexternal@startupbox=\box64
-))
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
-)
-(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
-) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
-)))
-(/usr/share/texmf-site/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
-\pgfnodeparttextbox=\box65
-)
-(/usr/share/texmf-site/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
-)
-(/usr/share/texmf-site/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen180
-\pgf@nodesepend=\dimen181
-)
-(/usr/share/texmf-site/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
-))
-(/usr/share/texmf-site/tex/latex/pgf/utilities/pgffor.sty
-(/usr/share/texmf-site/tex/latex/pgf/utilities/pgfkeys.sty
-(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeys.code.tex))
-(/usr/share/texmf-site/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen182
-\pgffor@skip=\dimen183
-\pgffor@stack=\toks44
-\pgffor@toks=\toks45
-))
-(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
-
-(/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
-x
-File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count147
-\pgfplotmarksize=\dimen184
-)
-\tikz@lastx=\dimen185
-\tikz@lasty=\dimen186
-\tikz@lastxsaved=\dimen187
-\tikz@lastysaved=\dimen188
-\tikzleveldistance=\dimen189
-\tikzsiblingdistance=\dimen190
-\tikz@figbox=\box66
-\tikz@tempbox=\box67
-\tikztreelevel=\count148
-\tikznumberofchildren=\count149
-\tikznumberofcurrentchild=\count150
-\tikz@fig@count=\count151
- (/usr/share/texmf-site/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count152
-\pgfmatrixcurrentcolumn=\count153
-\pgf@matrix@numberofcolumns=\count154
-)
-\tikz@expandcount=\count155
-
-(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-topaths.code.tex
-File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
-))) (/usr/share/texmf-dist/tex/latex/framed/framed.sty
+(/usr/share/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2007/10/04 v 0.95: framed or shaded text with page breaks
-\fb@frw=\dimen191
-\fb@frh=\dimen192
-\FrameRule=\dimen193
-\FrameSep=\dimen194
+\fb@frw=\dimen148
+\fb@frh=\dimen149
+\FrameRule=\dimen150
+\FrameSep=\dimen151
 )
 (/usr/share/texmf-dist/tex/latex/xpackages/xbase/xparse.sty
 (/usr/share/texmf-dist/tex/latex/expl3/l3names.sty
@@ -1056,38 +840,38 @@ Package: l3tl 2011/04/09 v2223 L3 Experimental Token Lists
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3int.sty
 Package: l3int 2011/04/11 v2229 L3 Experimental Integer module
-\l_tmpa_int=\count156
-\l_tmpb_int=\count157
-\l_tmpc_int=\count158
-\g_tmpa_int=\count159
-\g_tmpb_int=\count160
-\c_max_int=\count161
-\g_tl_inline_level_int=\count162
-\g_prg_inline_level_int=\count163
+\l_tmpa_int=\count136
+\l_tmpb_int=\count137
+\l_tmpc_int=\count138
+\g_tmpa_int=\count139
+\g_tmpb_int=\count140
+\c_max_int=\count141
+\g_tl_inline_level_int=\count142
+\g_prg_inline_level_int=\count143
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3quark.sty
 Package: l3quark 2011/04/14 v2234 L3 Experimental Quark Commands
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3seq.sty
 Package: l3seq 2011/04/21 v2245 The LaTeX3 kernel: sequences and stacks
-\g_seq_nesting_depth_int=\count164
+\g_seq_nesting_depth_int=\count144
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3toks.sty
 Package: l3toks 2011/04/09 v2223 L3 Experimental Token Registers
-\l_tmpb_toks=\toks46
-\l_tmpc_toks=\toks47
-\g_tmpa_toks=\toks48
-\g_tmpb_toks=\toks49
-\g_tmpc_toks=\toks50
-\c_empty_toks=\toks51
-\l_tl_replace_toks=\toks52
+\l_tmpb_toks=\toks37
+\l_tmpc_toks=\toks38
+\g_tmpa_toks=\toks39
+\g_tmpb_toks=\toks40
+\g_tmpc_toks=\toks41
+\c_empty_toks=\toks42
+\l_tl_replace_toks=\toks43
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3prg.sty
 Package: l3prg 2011/04/09 v2223 L3 Experimental control structures
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3clist.sty
 Package: l3clist 2011/04/09 v2223 L3 Experimental comma separated lists
-\g_clist_map_inline_int=\count165
+\g_clist_map_inline_int=\count145
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3token.sty
 Package: l3token 2011/04/09 v2223 L3 Experimental token investigation and manip
@@ -1095,25 +879,25 @@ ulation
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3prop.sty
 Package: l3prop 2011/04/09 v2223 L3 Experimental Property Lists
-\g_prop_inline_level_int=\count166
+\g_prop_inline_level_int=\count146
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3msg.sty
 Package: l3msg 2010/10/02 v2052 L3 Experimental LaTeX Messages module
-\l_msg_redirect_classes_prop=\toks53
-\l_msg_redirect_names_prop=\toks54
-\l_msg_redirect_fatal_prop=\toks55
-\l_msg_redirect_error_prop=\toks56
-\l_msg_redirect_warning_prop=\toks57
-\l_msg_redirect_info_prop=\toks58
-\l_msg_redirect_log_prop=\toks59
-\l_msg_redirect_trace_prop=\toks60
-\l_msg_redirect_none_prop=\toks61
+\l_msg_redirect_classes_prop=\toks44
+\l_msg_redirect_names_prop=\toks45
+\l_msg_redirect_fatal_prop=\toks46
+\l_msg_redirect_error_prop=\toks47
+\l_msg_redirect_warning_prop=\toks48
+\l_msg_redirect_info_prop=\toks49
+\l_msg_redirect_log_prop=\toks50
+\l_msg_redirect_trace_prop=\toks51
+\l_msg_redirect_none_prop=\toks52
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3io.sty
 Package: l3io 2010/10/03 v2063 L3 Experimental i/o module
-\g_iow_streams_prop=\toks62
-\g_ior_streams_prop=\toks63
-\l_iow_stream_int=\count167
+\g_iow_streams_prop=\toks53
+\g_ior_streams_prop=\toks54
+\l_iow_stream_int=\count147
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3skip.sty
 Package: l3skip 2011/02/15 v2149 L3 Experimental skip registers
@@ -1122,112 +906,356 @@ Package: l3skip 2011/02/15 v2149 L3 Experimental skip registers
 \l_tmpc_skip=\skip63
 \g_tmpa_skip=\skip64
 \g_tmpb_skip=\skip65
-\l_tmpa_dim=\dimen195
-\l_tmpb_dim=\dimen196
-\l_tmpc_dim=\dimen197
-\l_tmpd_dim=\dimen198
-\g_tmpa_dim=\dimen199
-\g_tmpb_dim=\dimen200
+\l_tmpa_dim=\dimen152
+\l_tmpb_dim=\dimen153
+\l_tmpc_dim=\dimen154
+\l_tmpd_dim=\dimen155
+\g_tmpa_dim=\dimen156
+\g_tmpb_dim=\dimen157
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3box.sty
 Package: l3box 2011/04/09 v2223 L3 Experimental Box module
-\l_tmpb_box=\box68
+\l_tmpb_box=\box59
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3keyval.sty
 Package: l3keyval 2011/04/09 v2223 L3 Experimental keyval processing
-\l_KV_level_int=\count168
+\l_KV_level_int=\count148
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3keys.sty
 Package: l3keys 2010/11/11 v2082 L3 Experimental key-value support
-\l_keys_choice_int=\count169
+\l_keys_choice_int=\count149
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3precom.sty
 Package: l3precom 2011/04/09 v2223 L3 Experimental precompilation module
-\g_gen_sym_int=\count170
-\g_ggen_sym_int=\count171
+\g_gen_sym_int=\count150
+\g_ggen_sym_int=\count151
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3xref.sty
 Package: l3xref 2011/04/09 v2223 L3 Experimental cross referencing
-\g_xref_all_curr_immediate_fields_prop=\toks64
-\g_xref_all_curr_deferred_fields_prop=\toks65
+\g_xref_all_curr_immediate_fields_prop=\toks55
+\g_xref_all_curr_deferred_fields_prop=\toks56
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3file.sty
 Package: l3file 2011/04/21 v2242 The LaTeX3 kernel: file operations
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3fp.sty
 Package: l3fp 2011/03/19 v2201 L3 Experimental floating-point operations
-\c_one_million=\count172
-\c_one_hundred_million=\count173
-\c_five_hundred_million=\count174
-\c_one_thousand_million=\count175
-\c_fp_pi_by_four_decimal_int=\count176
-\c_fp_pi_by_four_extended_int=\count177
-\c_fp_pi_decimal_int=\count178
-\c_fp_pi_extended_int=\count179
-\c_fp_two_pi_decimal_int=\count180
-\c_fp_two_pi_extended_int=\count181
-\l_fp_count_int=\count182
-\l_fp_div_offset_int=\count183
-\l_fp_exp_integer_int=\count184
-\l_fp_exp_decimal_int=\count185
-\l_fp_exp_extended_int=\count186
-\l_fp_exp_exponent_int=\count187
-\l_fp_input_a_sign_int=\count188
-\l_fp_input_a_integer_int=\count189
-\l_fp_input_a_decimal_int=\count190
-\l_fp_input_a_exponent_int=\count191
-\l_fp_input_b_sign_int=\count192
-\l_fp_input_b_integer_int=\count193
-\l_fp_input_b_decimal_int=\count194
-\l_fp_input_b_exponent_int=\count195
-\l_fp_input_a_extended_int=\count196
-\l_fp_input_b_extended_int=\count197
-\l_fp_mul_a_i_int=\count198
-\l_fp_mul_a_ii_int=\count199
-\l_fp_mul_a_iii_int=\count200
-\l_fp_mul_a_iv_int=\count201
+\c_one_million=\count152
+\c_one_hundred_million=\count153
+\c_five_hundred_million=\count154
+\c_one_thousand_million=\count155
+\c_fp_pi_by_four_decimal_int=\count156
+\c_fp_pi_by_four_extended_int=\count157
+\c_fp_pi_decimal_int=\count158
+\c_fp_pi_extended_int=\count159
+\c_fp_two_pi_decimal_int=\count160
+\c_fp_two_pi_extended_int=\count161
+\l_fp_count_int=\count162
+\l_fp_div_offset_int=\count163
+\l_fp_exp_integer_int=\count164
+\l_fp_exp_decimal_int=\count165
+\l_fp_exp_extended_int=\count166
+\l_fp_exp_exponent_int=\count167
+\l_fp_input_a_sign_int=\count168
+\l_fp_input_a_integer_int=\count169
+\l_fp_input_a_decimal_int=\count170
+\l_fp_input_a_exponent_int=\count171
+\l_fp_input_b_sign_int=\count172
+\l_fp_input_b_integer_int=\count173
+\l_fp_input_b_decimal_int=\count174
+\l_fp_input_b_exponent_int=\count175
+\l_fp_input_a_extended_int=\count176
+\l_fp_input_b_extended_int=\count177
+\l_fp_mul_a_i_int=\count178
+\l_fp_mul_a_ii_int=\count179
+\l_fp_mul_a_iii_int=\count180
+\l_fp_mul_a_iv_int=\count181
+\l_fp_mul_a_v_int=\count182
+\l_fp_mul_a_vi_int=\count183
+\l_fp_mul_b_i_int=\count184
+\l_fp_mul_b_ii_int=\count185
+\l_fp_mul_b_iii_int=\count186
+\l_fp_mul_b_iv_int=\count187
+\l_fp_mul_b_v_int=\count188
+\l_fp_mul_b_vi_int=\count189
+\l_fp_mul_output_int=\count190
+\l_fp_output_sign_int=\count191
+\l_fp_output_integer_int=\count192
+\l_fp_output_decimal_int=\count193
+\l_fp_output_exponent_int=\count194
+\l_fp_output_extended_int=\count195
+\l_fp_round_position_int=\count196
+\l_fp_round_target_int=\count197
+\l_fp_split_sign_int=\count198
+\l_fp_tmp_int=\count199
+\l_fp_trig_octant_int=\count200
+\l_fp_trig_sign_int=\count201
 Normal \count register pool exhausted, switching to extended pool.
-\l_fp_mul_a_v_int=\count277
-\l_fp_mul_a_vi_int=\count278
-\l_fp_mul_b_i_int=\count279
-\l_fp_mul_b_ii_int=\count280
-\l_fp_mul_b_iii_int=\count281
-\l_fp_mul_b_iv_int=\count282
-\l_fp_mul_b_v_int=\count283
-\l_fp_mul_b_vi_int=\count284
-\l_fp_mul_output_int=\count285
-\l_fp_output_sign_int=\count286
-\l_fp_output_integer_int=\count287
-\l_fp_output_decimal_int=\count288
-\l_fp_output_exponent_int=\count289
-\l_fp_output_extended_int=\count290
-\l_fp_round_position_int=\count291
-\l_fp_round_target_int=\count292
-\l_fp_split_sign_int=\count293
-\l_fp_tmp_int=\count294
-\l_fp_trig_octant_int=\count295
-\l_fp_trig_sign_int=\count296
-\l_fp_trig_decimal_int=\count297
-\l_fp_trig_extended_int=\count298
-\l_fp_tmp_dim=\dimen201
+\l_fp_trig_decimal_int=\count277
+\l_fp_trig_extended_int=\count278
+\l_fp_tmp_dim=\dimen158
 \l_fp_tmp_skip=\skip66
 )
 (/usr/share/texmf-dist/tex/latex/expl3/l3luatex.sty
 Package: l3luatex 2010/07/18 v1985 L3 Experimental LuaTeX functions
-\g_cctab_allocate_int=\count299
-\g_cctab_stack_int=\count300
+\g_cctab_allocate_int=\count279
+\g_cctab_stack_int=\count280
 ))
-\c_xparse_shorthands_prop=\toks66
-\l_xparse_m_args_int=\count301
-\l_xparse_mandatory_args_int=\count302
-\l_xparse_processor_int=\count303
-\l_xparse_total_args_int=\count304
-))
+\c_xparse_shorthands_prop=\toks57
+\l_xparse_m_args_int=\count281
+\l_xparse_mandatory_args_int=\count282
+\l_xparse_processor_int=\count283
+\l_xparse_total_args_int=\count284
+)
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
-) (./include/functions.inc.tex)
-(./include/tikz.inc.tex
+)
+(/usr/share/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2003/07/04 ver 3.1
+)
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+)) (./include/tikz.inc.tex
+(/usr/share/texmf-site/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texmf-site/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texmf-site/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks58
+)
+(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box60
+
+(/usr/share/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+))
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+
+(/usr/share/texmf-site/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texmf-site/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+
+(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks59
+\pgfkeys@temptoks=\toks60
+
+(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks61
+))
+\pgf@x=\dimen159
+\pgf@y=\dimen160
+\pgf@xa=\dimen161
+\pgf@ya=\dimen162
+\pgf@xb=\dimen163
+\pgf@yb=\dimen164
+\pgf@xc=\dimen165
+\pgf@yc=\dimen166
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count285
+\c@pgf@countb=\count286
+\c@pgf@countc=\count287
+\c@pgf@countd=\count288
+
+(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-dvips.def on input line 900.
+
+(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsys-dvips.def
+File: pgfsys-dvips.def 2008/04/03  (rcs-revision 1.20)
+
+(/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsys-common-postscript.def
+File: pgfsys-common-postscript.def 2008/10/01  (rcs-revision 1.22)
+\pgf@objectcount=\count289
+))) (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count290
+\pgfsyssoftpath@bigbuffer@items=\count291
+) (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen167
+\pgfmath@count=\count292
+\pgfmath@box=\box61
+\pgfmath@toks=\toks62
+\pgfmath@stack@operand=\toks63
+\pgfmath@stack@operation=\toks64
+)
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code
+.tex)
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.comparison.code.te
+x) (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
+(/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count293
+))
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen168
+\pgf@picmaxx=\dimen169
+\pgf@picminy=\dimen170
+\pgf@picmaxy=\dimen171
+\pgf@pathminx=\dimen172
+\pgf@pathmaxx=\dimen173
+\pgf@pathminy=\dimen174
+\pgf@pathmaxy=\dimen175
+\pgf@xx=\dimen176
+\pgf@xy=\dimen177
+\pgf@yx=\dimen178
+\pgf@yy=\dimen179
+\pgf@zx=\dimen180
+\pgf@zy=\dimen181
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen182
+\pgf@path@lasty=\dimen183
+) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen184
+\pgf@shorten@start@additional=\dimen185
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box62
+\pgf@hbox=\box63
+\pgf@layerbox@main=\box64
+\pgf@picture@serial@count=\count294
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen186
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoretransformations.code.t
+ex
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen187
+\pgf@pt@y=\dimen188
+\pgf@pt@temp=\dimen189
+) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.te
+x
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen190
+\pgf@sys@shading@range@num=\count295
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box65
+))
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+)
+(/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+)))
+(/usr/share/texmf-site/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box66
+)
+(/usr/share/texmf-site/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+(/usr/share/texmf-site/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen191
+\pgf@nodesepend=\dimen192
+)
+(/usr/share/texmf-site/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+))
+(/usr/share/texmf-site/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texmf-site/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texmf-site/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen193
+\pgffor@skip=\dimen194
+\pgffor@stack=\toks65
+\pgffor@toks=\toks66
+))
+(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+(/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
+x
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count296
+\pgfplotmarksize=\dimen195
+)
+\tikz@lastx=\dimen196
+\tikz@lasty=\dimen197
+\tikz@lastxsaved=\dimen198
+\tikz@lastysaved=\dimen199
+\tikzleveldistance=\dimen200
+\tikzsiblingdistance=\dimen201
+\tikz@figbox=\box67
+\tikz@tempbox=\box68
+\tikztreelevel=\count297
+\tikznumberofchildren=\count298
+\tikznumberofcurrentchild=\count299
+\tikz@fig@count=\count300
+ (/usr/share/texmf-site/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count301
+\pgfmatrixcurrentcolumn=\count302
+\pgf@matrix@numberofcolumns=\count303
+)
+\tikz@expandcount=\count304
+
+(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+topaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+)))
+(/usr/share/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
+(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+calc.code.tex
+File: tikzlibrarycalc.code.tex 2009/09/04 v2.10 (rcs-revision 1.6)
+)
+(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+3d.code.tex
+File: tikzlibrary3d.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+)
+(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+arrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
+Normal \dimen register pool exhausted, switching to extended pool.
+\arrowsize=\dimen256
+)))
 (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 shapes.code.tex
 File: tikzlibraryshapes.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
@@ -1297,15 +1325,6 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
 \pgfnodepartfivebox=\box88
 )))
 (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-arrows.code.tex
-File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
-
-(/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
-Normal \dimen register pool exhausted, switching to extended pool.
-\arrowsize=\dimen256
-))
-(/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 fit.code.tex
 File: tikzlibraryfit.code.tex 2008/06/21 v2.10 (rcs-revision 1.3)
 )
@@ -1314,29 +1333,35 @@ backgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2010/02/08 v2.10 (rcs-revision 1.2)
 \pgf@layerbox@background=\box89
 \pgf@layerboxsaved@background=\box90
-)) (./include/style.inc.tex) (./Report.aux)
+)) (./include/style.inc.tex) (./include/functions.inc.tex
+\c@algorithm=\count305
+)
+(./Report.aux
+
+LaTeX Warning: Label `eq:controller:u' multiply defined.
+
+)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 62.
-
-(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 97.
+ (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 62.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 97.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1377,52 +1402,54 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package crop Info: requested driver: `' on input line 62.
-Package crop Info: detected driver: `dvips' on input line 62.
-Package crop Info: using `dvips' graphics driver on input line 62.
-\c@lstlisting=\count305
+Package crop Info: requested driver: `' on input line 97.
+Package crop Info: detected driver: `dvips' on input line 97.
+Package crop Info: using `dvips' graphics driver on input line 97.
+\c@lstlisting=\count306
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 66.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 101.
+
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 66.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 101.
+
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 66.
-
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 101
+.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 66.
-
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 101
+.
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 66.
+(Font)              <10> on input line 101.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 66.
+(Font)              <7> on input line 101.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 66.
-LaTeX Font Info:    Try loading font information for U+msa on input line 66.
+(Font)              <5> on input line 101.
+LaTeX Font Info:    Try loading font information for U+msa on input line 101.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 66.
+LaTeX Font Info:    Try loading font information for U+msb on input line 101.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 File: LiTH_staende_eng_sv.eps Graphic file (type eps)
  <LiTH_staende_eng_sv.eps>
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 66--66
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 101--101
 []| [] 
  []
 
@@ -1432,7 +1459,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 66--66
 ] [0
 
 ]
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 66--66
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 101--101
 []| [] 
  []
 
@@ -1445,7 +1472,8 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 66--66
 ]
 File: LiTH_sigill_sv.eps Graphic file (type eps)
  <LiTH_sigill_sv.eps>
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 66.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 101.
+
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1465,178 +1493,600 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ] [8
 
-] (./Report.toc)
+] (./Report.toc [9
+
+
+])
 \tf@toc=\write4
 \openout4 = `Report.toc'.
 
- [9
 
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
 
-] [10
-
-]
-(./introduction/introduction.tex
+[10] (./introduction/introduction.tex
 Chapter 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 36.
+(Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 36.
+(Font)              <6> on input line 4.
+
+Package natbib Warning: Citation `wiki:suav' on page 1 undefined on input line 
+11.
+
 [1
 
 
+
 ] (./introduction/platform.tex
+Underfull \hbox (badness 1577) in paragraph at lines 79--79
+ [][][] 
+ []
 
-LaTeX Warning: Reference `app:CRAP' on page 2 undefined on input line 16.
 
-) (./introduction/previouswork.tex
+Underfull \hbox (badness 1418) in paragraph at lines 79--79
+ [][][] 
+ []
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 80.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: introduction/figures/LinkQuad.eps Graphic file (type eps)
+<introduction/figures/LinkQuad.eps>) (./introduction/previouswork.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [2]
 
-LaTeX Warning: Reference `sec:logic:landingscheme' on page 3 undefined on input
- line 27.
+Package natbib Warning: Citation `Rudol10' on page 3 undefined on input line 16
+.
 
-))
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[3] (./observer/observer.tex [4
+[3]
+
+Package natbib Warning: Citation `bouabdallah04pid' on page 4 undefined on inpu
+t line 35.
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[4]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 80.
+ (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[5])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[6] (./observer/observer.tex
+Chapter 2.
+(./observer/filtering.tex [7
 
 
 ]
-Chapter 2.
-(./observer/filtering.tex [5]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[6]) (./observer/ukf.tex
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 58.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[7]) (./observer/motionmodel.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [8]
-
-LaTeX Warning: Reference `fig:observer:referenceframes' on page 9 undefined on 
-input line 28.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[9]
+[9]) (./observer/ukf.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[10] (./observer/thrust.tex
+[10]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[11]
-Underfull \hbox (badness 1436) in paragraph at lines 125--125
-[]|\T1/lmr/m/n/10 Blade chord - the (mean)
- []
+[11]) (./observer/motionmodel.tex
+
+LaTeX Warning: Reference `fig:observer:referenceframes' on page 12 undefined on
+ input line 34.
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 125--125
-\T1/lmr/m/n/10 de-scribed as the ra-tio be-
- []
-
-
-Underfull \hbox (badness 6758) in paragraph at lines 125--125
-[]|\T1/lmr/m/n/10 Rotational in-er-tia of the
- []
-
-
-Underfull \hbox (badness 1132) in paragraph at lines 125--125
-[]|\T1/lmr/m/n/10 The an-gle with which the
- []
-
-) (./observer/wind.tex
-Underfull \hbox (badness 2189) in paragraph at lines 47--47
-[]|\T1/lmr/m/n/10 3x3 ma-trix de-scrib-ing the area of the
- []
-
-)) (./observer/sensormodels.tex))
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [12]
+File: observer/figures/worldcoordframes.eps Graphic file (type eps)
+ <observer/figures/worldcoordframes.eps>
+File: observer/figures/quadrotorcoordframes.eps Graphic file (type eps)
+
+<observer/figures/quadrotorcoordframes.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[13] (./controller/controller.tex [14
+[13]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[14] (./observer/thrust.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[15]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[16]
+Underfull \hbox (badness 1014) in paragraph at lines 183--183
+\T1/lmr/m/n/10 lat-ing the square of $\OML/lmm/m/it/10 ![]$ \T1/lmr/m/n/10 to t
+he
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 183--183
+\T1/lmr/m/n/10 base, rel-a-tive to the hor-i-zon-tal
+ []
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 183--183
+[]|\T1/lmr/m/n/10 The ro-ta-tional ve-loc-ity of pro-
+ []
+
+) (./observer/wind.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[17]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[18]
+Underfull \hbox (badness 2189) in paragraph at lines 47--47
+[]|\T1/lmr/m/n/10 3x3 ma-trix de-scrib-ing the area of the
+ []
+
+) (./observer/additionalforces.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[19])) (./observer/sensormodels.tex
+Overfull \hbox (5.22961pt too wide) in paragraph at lines 48--51
+\T1/lmr/m/n/10 The Earth's mag-netic field can be ap-prox-i-mated us-ing the Wo
+rld Mag-netic Model[[]],
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[20]
+
+Package natbib Warning: Citation `physicshandbook' on page 21 undefined on inpu
+t line 62.
+
+(./observer/camera.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[21]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[22])))
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[23] (./controller/controller.tex [24
 
 
 ]
 Chapter 3.
-(./controller/lq.tex [15]) (./controller/gainscheduling.tex)
-(./controller/model.tex
+(./controller/lq.tex [25]) (./controller/gainscheduling.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[16]))
+[26]) (./controller/model.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[17] (./video/video.tex [18
+[27]))
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
 
-
-]
+[28] (./video/video.tex
 Chapter 4.
-) [19] (./logic/logic.tex [20
+[29
 
 
 ]
+File: video/figures/ptamkeyframes.eps Graphic file (type eps)
+ <video/figures/ptamkeyframes.eps>
+
+Package natbib Warning: Citation `Nguyen_Sandor_Park_2010' on page 30 undefined
+ on input line 64.
+
+
+Package natbib Warning: Citation `Newcombe2011' on page 30 undefined on input l
+ine 66.
+
+File: video/figures/ptamcalibration.eps Graphic file (type eps)
+<video/figures/ptamcalibration.eps>
+File: video/figures/ptamtracking.eps Graphic file (type eps)
+ <video/figures/ptamtracking.eps>
+Overfull \hbox (2.03467pt too wide) in paragraph at lines 75--79
+\T1/lmr/m/n/10 In the track-ing pro-ce-dure, the PTAM li-brary ran-domly projec
+ts pre-vi-ously recorded
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[30]
+File: video/figures/ptamfeaturetracking.eps Graphic file (type eps)
+ <video/figures/ptamfeaturetracking.eps>
+Underfull \vbox (badness 5008) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[31])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[32] (./logic/logic.tex
 Chapter 5.
-) [21] (./discussion/discussion.tex [22
+[33
+
+
+]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[34])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[35] (./results/results.tex [36
 
 
 ]
 Chapter 6.
-(./discussion/flapping.tex)) [23] (./conclusions/conclusions.tex [24
+(./results/setup.tex
+Overfull \hbox (2.06755pt too wide) in paragraph at lines 2--14
+\T1/lmr/m/n/10 Witas Vi-con Lab at Linköping Uni-ver-sity, Swe-den. Ground trut
+h data was recorded
+ []
+
+File: results/figures/testarea.eps Graphic file (type eps)
+<results/figures/testarea.eps>) (./results/modelling.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37]
+File: results/figures/accelerometers.eps Graphic file (type eps)
+
+<results/figures/accelerometers.eps>
+File: results/figures/accelerometersresiduals.eps Graphic file (type eps)
+
+<results/figures/accelerometersresiduals.eps>
+Underfull \vbox (badness 1521) has occurred while \output is active []
 
 
-]
-Chapter 7.
-) [25] (./Report.bbl [26
-
-
-] [27])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[28] (./Report.aux)
+[38]
+File: results/figures/accelerometersnormalfit.eps Graphic file (type eps)
+ <results/figures/accelerometersnormalfit.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[39]
+File: results/figures/gyroscopes.eps Graphic file (type eps)
+ <results/figures/gyroscopes.eps>
+File: results/figures/gyroscopesresiduals.eps Graphic file (type eps)
+
+<results/figures/gyroscopesresiduals.eps>
+File: results/figures/gyroscopesnormalfit.eps Graphic file (type eps)
+
+<results/figures/gyroscopesnormalfit.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[40]
+File: results/figures/pressure.eps Graphic file (type eps)
+ <results/figures/pressure.eps>
+File: results/figures/pressureresiduals.eps Graphic file (type eps)
+ <results/figures/pressureresiduals.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[41]
+File: results/figures/pressurenormalfit.eps Graphic file (type eps)
+ <results/figures/pressurenormalfit.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[42]
+
+LaTeX Warning: Reference `fig:results:modelling:camerainitframe' on page 43 und
+efined on input line 65.
+
+
+LaTeX Warning: Reference `fig:results:modelling:camerainitframe' on page 43 und
+efined on input line 67.
+
+File: results/figures/camera.eps Graphic file (type eps)
+<results/figures/camera.eps>
+File: results/figures/cameraresiduals.eps Graphic file (type eps)
+ <results/figures/cameraresiduals.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[43]
+File: results/figures/cameranormalfit.eps Graphic file (type eps)
+ <results/figures/cameranormalfit.eps>) (./results/monoslam.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[44]) (./results/filtering.tex
+File: results/figures/X.eps Graphic file (type eps)
+ <results/figures/X.eps>
+File: results/figures/Y.eps Graphic file (type eps)
+ <results/figures/Y.eps>
+File: results/figures/Z.eps Graphic file (type eps)
+
+<results/figures/Z.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[45]
+File: results/figures/velX.eps Graphic file (type eps)
+ <results/figures/velX.eps>
+File: results/figures/velY.eps Graphic file (type eps)
+ <results/figures/velY.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[46]
+File: results/figures/velZ.eps Graphic file (type eps)
+ <results/figures/velZ.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[47]
+File: results/figures/qwb0.eps Graphic file (type eps)
+ <results/figures/qwb0.eps>
+File: results/figures/qwbi.eps Graphic file (type eps)
+ <results/figures/qwbi.eps>
+File: results/figures/qwbj.eps Graphic file (type eps)
+
+<results/figures/qwbj.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[48]
+File: results/figures/qwbk.eps Graphic file (type eps)
+ <results/figures/qwbk.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[49]
+File: results/figures/wRoll.eps Graphic file (type eps)
+ <results/figures/wRoll.eps>
+File: results/figures/wPitch.eps Graphic file (type eps)
+ <results/figures/wPitch.eps>
+File: results/figures/wYaw.eps Graphic file (type eps)
+
+<results/figures/wYaw.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[50]
+File: results/figures/driftRoll.eps Graphic file (type eps)
+ <results/figures/driftRoll.eps>
+File: results/figures/driftPitch.eps Graphic file (type eps)
+ <results/figures/driftPitch.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[51]
+File: results/figures/driftYaw.eps Graphic file (type eps)
+ <results/figures/driftYaw.eps>
+File: results/figures/windX.eps Graphic file (type eps)
+ <results/figures/windX.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[52]
+File: results/figures/windY.eps Graphic file (type eps)
+ <results/figures/windY.eps>
+File: results/figures/windZ.eps Graphic file (type eps)
+ <results/figures/windZ.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[53]
+File: results/figures/wr1.eps Graphic file (type eps)
+ <results/figures/wr1.eps>
+File: results/figures/wr2.eps Graphic file (type eps)
+ <results/figures/wr2.eps>
+File: results/figures/wr3.eps Graphic file (type eps)
+
+<results/figures/wr3.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[54]
+File: results/figures/wr4.eps Graphic file (type eps)
+ <results/figures/wr4.eps>) (./results/control.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[55]))
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[56] (./discussion/discussion.tex
+Chapter 7.
+(./discussion/flapping.tex)) [57
+
+
+] (./conclusions/conclusions.tex [58
+
+
+]
+Chapter 8.
+) [59] (./Report.bbl [60
+
+
+] [61]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[62]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[63])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[64] (./crap/crap.tex
+Appendix A.
+) [65
+
+
+]
+
+Package natbib Warning: There were undefined citations.
+
+(./Report.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 21095 strings out of 495015
- 383952 string characters out of 3181236
- 483757 words of memory out of 3000000
- 23672 multiletter control sequences out of 15000+200000
- 114340 words of font info for 77 fonts, out of 3000000 for 9000
+ 22026 strings out of 495015
+ 402393 string characters out of 3181236
+ 513074 words of memory out of 3000000
+ 24506 multiletter control sequences out of 15000+200000
+ 121999 words of font info for 80 fonts, out of 3000000 for 9000
  36 hyphenation exceptions out of 8191
- 58i,17n,56p,444b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,17n,60p,453b,861s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Report.dvi (40 pages, 86168 bytes).
+Output written on Report.dvi (77 pages, 207712 bytes).

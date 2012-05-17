@@ -1,0 +1,36 @@
+\section{Summary}
+Over the past few weeks, I have been terribly busy trying to get the
+helicopter to fly in the simulated environment.
+The environment is setup as similar to the LinkQuad as possible, including
+using virtual serial ports for the communication with the ground station interface,
+and simulating real, noisy, sensor inputs. The observer still has a few issues, but then
+it should soon be ready for some real data.
+
+As for the future time schedule; After I get the observer fully working,
+I need to see to the report and get it up to date. I also would like to prepare
+the control system for real flight - first as a passive observer (perhaps with recorded data)
+but then also interfaced with the control MCU.
+
+\section{Problems}
+Due to the unexpected difficulties of getting the flight simulation working,
+I have not had time to work with the report in the desired extent.
+Having gotten it to work however, I now have results to write about, as well
+as verification of the theory used, making it more meaningful to write about.
+
+It may be that the computational load of the estimation and control will be
+a problem on the LinkBoard. I have not been able to give the computation time
+a fair estimate, but it is notably heavier than what was first expected.
+I'm working on the problem, but the modelling may need simplifications in the
+future. In the worst case, this problem means that the modelling work done
+so far will be made superfluous. In that case, it will still have been an
+interesting excercise in quadrotor modelling and will as such definitely have its place
+in the thesis.
+
+\section{Successes}
+The progress made during the last weeks has not been at all insignificant.
+The SDRE LQ controller have been successfully implemented and tested with simulated data,
+even with 3d control commands sent as serial data over a virtual serial port.
+
+Also, the PTAM library is now working with the camera that will be used on board.
+The library is compiled for the LinkBoard, and the software that will run on
+the secondary gumstix is more or less finished, save for tuning the camera settings.

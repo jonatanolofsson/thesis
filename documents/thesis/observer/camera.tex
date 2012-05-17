@@ -1,0 +1,134 @@
+\subsection{Camera}
+\label{ssec:observer:sensormodels:camera}
+    To estimate the position of the camera using the captured images,
+    the PTAM-library is used.
+    Because the main application of the PTAM library is reprojection of
+    augmented reality into the image, consistency between a metric world-fixed
+    coordinate frame (such as the NEDEF-system used on the LinkQuad), and the
+    internally used coordinate system is not of importance - and thus not implemented in the PTAM positioning.
+
+    The measurements from the camera consists of the transform from the PTAM ``world''-coordinates
+    to the camera lens, in terms of
+    \begin{itemize}
+        \item translation, $X^{\text{PTAM}}$,
+        \item and orientation, $q^{PTAM,c}$.
+    \end{itemize}
+    However, since the quite arbtirary\citep{klein07parallel} coordinate system
+    of PTAM is neither of the same scale nor aligned with the quadrotor coordinate system,
+    we need to estimate the affine transformation between the two in order to get useful results.
+
+    The transformation is characterized by
+    \begin{itemize}
+        \item a translation T to the origin, $\varnothing_{\text{PTAM}}$,
+        \item a rotation R by the quaternion $q^{Pw}$,
+        \item and a scaling S by a factor $s$.
+    \end{itemize}
+    %~ \begin{equation}
+        %~ x_{\text{world}} = \underbrace{R(q^{wb})}_{quadrotor orientation} * \underbrace{T(\varnothing_{\text{cam}}) R(q^{bc}) S(s)}_{quadrotor to PTAM transform} x_{\text{cam}}
+    %~ \end{equation}
+    These are collected to a single transformation in Equation
+    \ref{eq:observer:sensormodels:camera:transformation}, forming
+    the full transformation from the global NEDEF system to the
+    PTAM coordinate frame.
+    \begin{equation}
+        \label{eq:observer:sensormodels:camera:transformation}
+        x^{\text{PTAM}} = \underbrace{S(s) R(q^{Pw}) T(-\varnothing_{\text{PTAM}})}_{\triangleq \mathcal{J}^{Pw}, \text{transformation from camera to PTAM}}
+         x^{\text{NEDEF}}
+    \end{equation}
+
+    E.g. \citep{hayashi2010} studies this problem in the offline case,
+    whereas the method used in this thesis extends the idea to the on-line
+    case where no ground truth is available. This is performed by using the
+    first measurement to construct an initial guess which then is filtered
+    through time using the observer.
+
+    While PTAM exhibit very stable positioning, it has a tendency to move
+    its origin due to association errors. To provide stable position
+    measurements, we need to detect these movements and adjust the
+    camera transformation accordingly. Initialization and tracking is dealt with in
+    Section \ref{sssec:observer:sensormodels:camera:initialization} and \ref{sssec:observer:sensormodels:camera:refinement}
+    respectively, whereas the teleportation problem is discussed in
+    Section \ref{sssec:observer:sensormodels:camera:teleportation}.
+
+    \subsubsection{Initialization}
+        \label{sssec:observer:sensormodels:camera:initialization}
+        When the first camera measurement arrives, there is a need to construct a
+        first guess of the transform. Since the PTAM initialization places
+        the origin at what it considers the ground level, the most informed
+        guess we can do without any information about the environment is
+        to assume that this is a horizontal plane at zero height.
+
+        First, however, the orientation of the PTAM coordinate system is calculated
+        from the estimated quadrotor orientation and the measurement in the
+        PTAM coordinate frame;
+        \begin{equation}
+            \label{eq:observer:sensormodels:camera:qpw}
+            q^{Pw} = q^{PTAM,c} q^{cb} q^{bw}.
+        \end{equation}
+
+        To determine the distance to this plane according to the current estimation,
+        Equation \eqref{eq:observer:sensormodels:camera:origin} is solved for $\lambda$
+        in accordance with \ref{eq:observer:sensormodels:camera:lambda}.
+        \begin{equation}
+            \label{eq:observer:sensormodels:camera:origin}
+            \left\lbrace
+            \begin{array}{ll}
+                \varnothing_{\text{PTAM}} &= \xi + R(q^{wb}) r_{\text{camera}/\mathcal{G}} + \lambda R(q^{wP}) \frac{X^{PTAM}}{|X^{PTAM}|} \\
+                \varnothing_{\text{PTAM}} \cdot \hat{z} &= 0
+            \end{array}\right.
+        \end{equation}
+
+        \begin{equation}
+            \label{eq:observer:sensormodels:camera:lambda}
+            \lambda = -\frac{\left(\xi + R(q^{wb}) r_{\text{camera}/\mathcal{G}} \right) \cdot \hat{z}}{\left( R(q^{wP}) \frac{X^{PTAM}}{|X^{PTAM}|} \right) \cdot \hat{z}}
+        \end{equation}
+
+
+        By comparing the approximated distance with the distance measured
+        in the PTAM coordinate system, we obtain a starting guess for the scaling factor, $s$;
+        \begin{equation}
+            s = \frac{|X^{PTAM}|}{|\lambda|}.
+        \end{equation}
+
+        Together, these parameters form an initial estimate of the transformation
+        connecting the PTAM reference frame. This estimate could be inserted into
+        the global observer filter - introducing eight new states containing
+        $q^{Pw}$, $s$ and $\varnothing_{\text{cam}}$ - although little benefit
+        of this has been observed in simulated testing.
+        Because the PTAM coordinate system is defined fixed in the global NEDEF coordinate system,
+        the transform parameters are unchanged in the observer's time update.
+
+    \subsubsection{Continuous Refinement}
+        \label{sssec:observer:sensormodels:camera:refinement}
+        The measurement update is made separate from the update of the inertial sensors, using
+        the measurement equations in \eqref{eq:observer:measurement:camera}, expanding the
+        equation derived in Eqs. \eqref{eq:observer:sensormodels:camera:transformation} and \eqref{eq:observer:sensormodels:camera:qpw}.
+
+        \begin{subequations}
+            \label{eq:observer:measurement:camera}
+            \begin{align}
+                \hat{X}^{\text{PTAM}} &= \mathcal{J}^{Pw} (\xi + R(q^{wb})r_{\text{camera}/\mathcal{G}}) + e_{\text{PTAM,X}} \\
+                \hat{q}^{\text{PTAM,c}} &= q^{Pw} q^{wb} q^{bc} + e_{\text{PTAM,q}}
+            \end{align}
+        \end{subequations}
+
+    \subsubsection{Teleportation}
+        \label{sssec:observer:sensormodels:camera:teleportation}
+        The PTAM tracking may sometimes exhibit a ``teleporting'' behaviour.
+        That is, although tracking is overall stable, the origin may
+        sometimes be misassociated and placed at a new position as the
+        tracking gets lost.
+        To detect this, the measurements may be monitored for sudden changes in position.
+        If a teleportation is detected, a reinitialization would be needed,
+        either performing a new initial estimation, or utilizing the previous state
+        to recognize the new pose of the origin.
+        The teleporting behaviour is detected using simple thresholding,
+        as in Eq. \eqref{eq:observer:sensormodels:camera:teleport},
+        although no action is currently implemented to recover.
+        In Eq. \eqref{eq:observer:sensormodels:camera:teleport}, the
+        estimated motion is scaled by the factor $s$ from the tranformation
+        from PTAM coordinates, and thresholded by a configurable parameter $\epsilon$.
+        \begin{equation}
+            \label{eq:observer:sensormodels:camera:teleport}
+            \left|X^{\text{PTAM}}_{t} - X^{\text{PTAM}}_{t-1}\right| \cdot s > \epsilon
+        \end{equation}

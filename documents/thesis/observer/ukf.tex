@@ -58,7 +58,7 @@
         \caption{Description of the parameters used in the SUT.}
     \end{table}
 
-    When the sigma points $\mathbf{\mathcal{X}_{i}}$ has been calculated,
+    When the sigma points $\mathbf{\mathcal{X}_{i}}$ have been calculated,
     they are propagated through the non-linear prediction function and
     the resulting mean and covariance can be calculated.
     \begin{equation}
@@ -75,7 +75,7 @@
 
     For the measurement update, similar results are obtained, and the equations
     \eqref{eq:observer:ukf:pyy}-\eqref{eq:observer:ukf:pxy} can be connected to
-    equations \eqref{eq:observer:filtering:pnunu}-\eqref{eq:observer:filtering:pxy}.
+    equations \eqref{eq:observer:filtering:pnunu}-\eqref{eq:observer:filtering:kalmanK2}.
     \begin{equation}
         \mathbf{\mathcal{Y}_{i}} = h(\mathbf{\mathcal{X}_{i}}, u, t) \qquad i = 0,\cdots,2n
     \end{equation}
@@ -97,8 +97,9 @@
 
     As can be seen from the equations in this section, the UKF handles the
     propagation of the probability densities through the model without
-    the need for explicit calculation of the Jacobians of Hessians for the system.
+    the need for explicit calculation of the Jacobians or Hessians for the system.
     The filtering is based solely on function evaluations of small offsets from the
-    expected mean state, be it for the measurement functions, discussed in
+    expected mean state\footnote{It is not, however, merely a central difference linearization of the functions, as \citep{Julier95anewapproach} notes.},
+    be it for the measurement functions, discussed in
     Section \ref{sec:observer:sensormodels}, or the time update
     prediction function - the motion model.

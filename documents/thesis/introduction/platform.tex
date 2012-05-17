@@ -2,7 +2,7 @@
     The LinkQuad is a modular quadrotor developed at Linköping University.
     The core configuration is equipped with standard MEMS sensors
     (accelerometers, gyroscopes and a magnetometer),
-    but for our purposes we have also mounted a monocular camera which feeds data
+    but for our purposes, a monocular camera has also been mounted, which feeds data
     into a microcomputer specifically devoted to the processing of the camera feed.
     This devoted microcomputer is what allows the primary on-board microcomputer
     to focus on state estimation and control, without beeing overloaded by
@@ -13,12 +13,73 @@
     automation platform with a purpose similar to that of ROS\footnote{\url{http://www.ros.org/}}.
     It is, in contrast to ROS, primarily designed to run on the kind relatively low-end Linux systems
     that fits the payload and power demands of a SUAV. The framework is further
-    described in Appendix \ref{app:CRAP}.
+    described in Appendix \ref{app:crap}.
 
     Using the framework, the functionality of the implementation is
-    distributed in separate modules.
+    distributed in separate modules:
     \begin{description}
-        \item[Observer] Sensor fusing state estimation. Chapter \ref{cha:observer}.
-        \item[Control]  Affine Quadratic Control. Chapter \ref{cha:controller}.
-        \item[Logic]    State-machine for scheduling controller parameters and reference trajectory. Chapter \ref{cha:logic}.
+        \item[$\bullet$ Observer] Sensor fusing state estimation. Chapter \ref{cha:observer}.
+        \item[$\bullet$ Control]  Affine Quadratic Control. Chapter \ref{cha:controller}.
+        \item[$\bullet$ Logic]    State-machine for scheduling controller parameters and reference trajectory. Chapter \ref{cha:logic}.
     \end{description}
+
+    The platform is also equipped with two microcontrollers, responsible
+    for sensor sampling, motor control, flight logging etc, as depicted in
+    Figure \ref{fig:platform:schematic}.
+
+
+    \begin{figure}[h]
+        \noindent\makebox[\textwidth]{%
+            \begin{tikzpicture}[auto,>=latex']
+            \tikzstyle{mcu} = [rectangle, draw=none, rounded corners=1mm, fill=Emerald,
+                text centered, anchor=north, text=white,font=\small]
+            \tikzstyle{sensor} = [rectangle, draw=none, fill=black,
+                text centered, anchor=north, text=white,font=\tiny, node distance=0.8cm]
+            \tikzstyle{camera} = [rectangle, draw=none, rounded corners=1mm, fill=red,
+                text centered, anchor=north, text=white,font=\small]
+            \tikzstyle{framework} = [rectangle, draw, fill=YellowGreen,
+                text centered, anchor=north, text=white,font=\small,thin, minimum width=2cm,node distance=0.7cm]
+            \tikzstyle{gumstix} = [rectangle, draw=none, fill=LimeGreen, rounded corners=2mm,
+                text centered, anchor=north, text=white,font=\small]
+            \tikzstyle{gumstixtext} = [rectangle, draw=none,
+                text centered, align=center, anchor=north, text=white,font=\small]
+
+            \node [gumstixtext] (primarytext) {Primary computer \\ \tiny{State-estimation and control}};
+            \node [framework, below of=primarytext] (crap) {CRAP};
+            \node [gumstixtext, right of=primarytext, node distance=5cm] (secondarytext) {Secondary computer \\ \tiny{Video processing}};
+            \node [framework, below of=secondarytext] (ptam) {PTAM};
+
+            \begin{pgfonlayer}{background}
+                \node [gumstix, fit=(primarytext) (crap)] (primary) {};
+            \end{pgfonlayer}
+            \begin{pgfonlayer}{background}
+                \node [gumstix, fit=(secondarytext) (ptam)] (secondary) {};
+            \end{pgfonlayer}
+
+            \node [mcu, below of=primary, xshift=-1.5cm, node distance=1.5cm] (smcu) {Sensor MCU};
+            \node [mcu, right of=smcu, node distance=3cm] (cmcu) {Control MCU};
+            \node [sensor, below of=smcu, xshift=-1.2cm] (accelerometer) {Acc.};
+            \node [sensor, right of=accelerometer] (gyro) {Gyro};
+            \node [sensor, right of=gyro] (magnetometer) {Mag.};
+            \node [sensor, right of=magnetometer] (pressure) {hPa};
+            \node [camera, right of=secondary, node distance=3cm] (camera) {Camera};
+            \node [sensor, below of=cmcu] (esc) {Speed controller};
+
+            \path[-]
+                        (primary) edge (secondary)
+                        (primary.south) edge (smcu.north)
+                        (primary.south) edge (cmcu.north)
+                        (cmcu.south) edge (esc.north)
+                        (smcu.south) edge (accelerometer.north)
+                        (smcu.south) edge (gyro.north)
+                        (smcu.south) edge (magnetometer.north)
+                        (smcu.south) edge (pressure.north)
+                        (secondary.east) edge (camera.west);
+            \end{tikzpicture}
+        }
+        \caption{LinkQuad schematic.}
+        \label{fig:platform:schematic}
+    \end{figure}
+
+
+    \fig{0.5}{LinkQuad}{The LinkQuad development platform.}{fig:linkquad}

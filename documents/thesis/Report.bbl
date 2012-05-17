@@ -1,10 +1,21 @@
 \begin{thebibliography}{10}
 
+\bibitem{Benner98acceleratingnewton's}
+Peter Benner.
+\newblock {Accelerating Newton's Method for Discrete-Time Algebraic Riccati
+  Equations}.
+\newblock In {\em {In Proc. MTNS 98}}, pages 569--572, 1998.
+
 \bibitem{DBLP:conf/icra/BloschWSS10}
 Michael Bl{\"o}sch, Stephan Weiss, Davide Scaramuzza, and Roland Siegwart.
 \newblock {Vision based MAV navigation in unknown and unstructured
   environments}.
 \newblock In {\em {ICRA}}, pages 21--28, 2010.
+
+\bibitem{bouabdallah07full}
+Samir Bouabdallah and Roland Siegwart.
+\newblock {Full control of a quadrotor.}
+\newblock In {\em {IROS'07}}, pages 153--158, 2007.
 
 \bibitem{brockers:803111}
 Roland Brockers, Patrick Bouffard, Jeremy Ma, Larry Matthies, and Claire
@@ -15,10 +26,39 @@ Roland Brockers, Patrick Bouffard, Jeremy Ma, Larry Matthies, and Claire
   {Micro- and Nanotechnology Sensors, Systems, and Applications III}}, volume
   8031, page 803111. SPIE, 2011.
 
+\bibitem{Tayfun08sdresurvey}
+Tayfun \c{C}imen.
+\newblock {State-Dependent Riccati Equation (SDRE) Control: A Survey}.
+\newblock In {\em {Proceedings of the 17th IFAC World Congress}}, pages
+  3761--3775, 2008.
+
+\bibitem{wmm2010}
+National Geophysical~Data Center.
+\newblock {The World Magnetic Model}.
+\newblock \url{http://www.ngdc.noaa.gov/geomag/WMM/DoDWMM.shtml}, March 2012.
+
+\bibitem{DBLP:conf/iccv/Davison03}
+Andrew~J. Davison.
+\newblock {Real-Time Simultaneous Localisation and Mapping with a Single
+  Camera}.
+\newblock In {\em {ICCV}}, pages 1403--1410. IEEE Computer Society, 2003.
+
 \bibitem{Doherty_Rudol_2007}
 Patrick Doherty and Piotr Rudol.
 \newblock {A UAV Search and Rescue Scenario with Human Body Detection and
   Geolocalization}, 2007.
+
+\bibitem{Eade:2006:SMS:1153170.1153506}
+Ethan Eade and Tom Drummond.
+\newblock {Scalable Monocular SLAM}.
+\newblock In {\em {Proceedings of the 2006 IEEE Computer Society Conference on
+  Computer Vision and Pattern Recognition - Volume 1}}, {CVPR '06}, pages
+  469--476, Washington, DC, USA, 2006. IEEE Computer Society.
+
+\bibitem{Erdem_analysisand}
+Evrin~Bilge Erdem.
+\newblock {ANALYSIS AND REAL-TIME IMPLEMENTATION OF STATE-DEPENDENT RICCATI
+  EQUATION CONTROLLED SYSTEMS BY}, 2001.
 
 \bibitem{glad2003reglerteori}
 T.~Glad and L.~Ljung.
@@ -30,16 +70,38 @@ F.~Gustafsson.
 \newblock {\em {Statistical Sensor Fusion}}.
 \newblock Utbildningshuset/Studentlitteratur, 2010.
 
+\bibitem{hayashi2010}
+Masayuki Hayashi et~al.
+\newblock {A Study of Camera Tracking Evaluation on TrakMark Data-Set}.
+\newblock Technical report, University of Tsukuba, 2011.
+
+\bibitem{idris09reviewoffeaturedetection}
+M.Y.I. Idris, H.~Arof, E.M. Tamil, N.M. Noor, and Z.~Razak.
+\newblock {Review of Feature Detection Techniques for Simultaneous Localization
+  and Mapping and System on Chip Approach}.
+\newblock {\em Information Technology Journal}, 8:250--262, 2009.
+
 \bibitem{Julier02thescaled}
 Simon~J. Julier and Idak Industries.
 \newblock {The scaled unscented transformation}.
 \newblock In {\em {in Proc. IEEE Amer. Control Conf}}, pages 4555--4559, 2002.
+
+\bibitem{Julier04nonlinear}
+Simon~J. Julier and Jeffrey~K. Uhlmann.
+\newblock {Unscented Filtering and Nonlinear Estimation}.
+\newblock {\em Proceedings of the IEEE}, pages 401--422, 2004.
 
 \bibitem{Julier95anewapproach}
 Simon J | Uhlmann Jeffrey K | Durrant-Whyte Hugh~F Julier.
 \newblock {A new approach for filtering nonlinear systems}.
 \newblock In {\em {1995 American Control Conference, 14th, Seattle, WA; UNITED
   STATES; 21-23 June 1995}}, pages 1628--1632, 1995.
+
+\bibitem{kalman1960}
+Kalman, Rudolph, and Emil.
+\newblock {A New Approach to Linear Filtering and Prediction Problems}.
+\newblock {\em Transactions of the ASME--Journal of Basic Engineering},
+  82(Series D):35--45, 1960.
 
 \bibitem{Karlsson05thevslam}
 Niklas Karlsson, Enrico~Di Bernardo, Jim Ostrowski, Luis Goncalves, Paolo
@@ -54,6 +116,12 @@ Georg Klein and David Murray.
 \newblock In {\em {Proc. Sixth {IEEE} and {ACM} International Symposium on
   Mixed and Augmented Reality {(ISMAR'07)}}}, Nara, Japan, November 2007.
 
+\bibitem{klein09cameraphone}
+Georg Klein and David Murray.
+\newblock {Parallel Tracking and Mapping on a Camera Phone}.
+\newblock In {\em {Proc. Eigth {IEEE} and {ACM} International Symposium on
+  Mixed and Augmented Reality {(ISMAR'09)}}}, Orlando, October 2009.
+
 \bibitem{kuipers2002quaternions}
 J.B. Kuipers.
 \newblock {\em {Quaternions and rotation sequences: a primer with applications
@@ -65,11 +133,32 @@ J.G. Leishman.
 \newblock {\em {Principles of helicopter aerodynamics}}.
 \newblock {Cambridge aerospace series}. Cambridge University Press, 2002.
 
-\bibitem{DM:MS:10}
+\bibitem{Lourakis11bundle}
+Manolis~I.A. Lourakis, editor.
+\newblock {\em {Bundle adjustment gone public}}, 10 2011.
+
+\bibitem{lour09}
+M.I.~A. Lourakis and A.A. Argyros.
+\newblock {SBA: A Software Package for Generic Sparse Bundle Adjustment}.
+\newblock {\em ACM Trans. Math. Software}, 36(1):1--30, 2009.
+
+\bibitem{mellinger10perching}
 D.~Mellinger, M.~Shomin, and V.~Kumar.
 \newblock {Control of Quadrotors for Robust Perching and Landing}.
 \newblock In {\em {Proceedings of the International Powered Lift Conference}},
   Oct 2010.
+
+\bibitem{Merz06}
+Torsten Merz, Piotr Rudol, and Mariusz Wzorek.
+\newblock {Control System Framework for Autonomous Robots Based on Extended
+  State Machines}.
+\newblock In {\em {ICAS 2006 - International Conference on Autonomic and
+  Autonomous Systems,2006}}, 2006.
+
+\bibitem{nyberg11diagnosis}
+Mattias Nyberg and Erik Frisk.
+\newblock {\em {Model Based Diagnosis of Technical Processes}}.
+\newblock LiU-tryck, 2011.
 
 \bibitem{united2010u}
 United States. Dept. of Defense. Office of the~Secretary of~Defense.
@@ -94,10 +183,22 @@ R.W. Prouty.
 A.~Rantzer and M.~Johansson.
 \newblock {Piecewise Linear Quadratic Optimal Control}, 1999.
 
+\bibitem{10.1109/MED.2006.328740}
+V.~Sima and P.~Benner.
+\newblock {A SLICOT Implementation of a Modified Newton's Method for Algebraic
+  Riccati Equations}.
+\newblock {\em Mediterranean Conference on Control and Automation}, 0:1--6,
+  2006.
+
 \bibitem{DBLP:conf/icra/StrasdatMD10}
 Hauke Strasdat, J.~M.~M. Montiel, and Andrew~J. Davison.
 \newblock {Real-time monocular SLAM: Why filter?}
 \newblock In {\em {ICRA}}, pages 2657--2664, 2010.
+
+\bibitem{Tornqvist08}
+David T{\"o}rnqvist.
+\newblock {\em {Estimation and Detection with Applications to Navigation}}.
+\newblock PhD thesis, Link{\"o}ping University, 2008.
 
 \bibitem{valavanis2007advances}
 K.~Valavanis.
@@ -117,9 +218,19 @@ S~Weiss, D~Scaramuzza, and R~Siegwart.
   GPS-denied environments}.
 \newblock {\em Journal of Field Robotics}, 28(6):854--874, 2011.
 
+\bibitem{wiki:atmosphericpressure}
+Wikipedia.
+\newblock {Atmospheric Pressure}.
+\newblock {\em Wikipedia}, April 2012.
+
 \bibitem{Wong_Bil_2006}
 K~C Wong and C~Bil.
 \newblock {UAVs OVER AUSTRALIA - Market And Capabilities}.
 \newblock {\em Flight International}, pages 1--16, 2006.
+
+\bibitem{Wzorek11}
+Mariusz Wzorek.
+\newblock {Selected Aspects of Navigation and Path Planning in Unmanned
+  Aircraft Systems}, 2011.
 
 \end{thebibliography}
