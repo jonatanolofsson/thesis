@@ -1,0 +1,32 @@
+controlstates   = Files.import('controlstate.log');
+controlsignal   = Files.import('controlsignal.log');
+reference       = Files.import('reference.log');
+observer        = Files.import('observer.log');
+reality         = Files.import('reality.log');
+
+if ~exist('figures', 'var')
+    figures = Figures();
+end
+
+%%
+figures.getFigure('referencefollowing');
+subplot(4,1,1); plot(reference.time, reference.velX, 'r', controlstates.time, controlstates.velX, 'b'); title('Velocity, X'); ylabel('m/s'); legend('Reference', 'Observer estimate');
+subplot(4,1,2); plot(reference.time, reference.velY, 'r', controlstates.time, controlstates.velY, 'b'); title('Velocity, Y'); ylabel('m/s');
+subplot(4,1,3); plot(reference.time, reference.velZ, 'r', controlstates.time, controlstates.velZ, 'b'); title('Velocity, Z'); ylabel('m/s');
+subplot(4,1,4); plot(reference.time, reference.wYaw, 'r', controlstates.time, controlstates.wYaw, 'b'); title('Yaw rate'); xlabel('time'); ylabel('rad/s');
+
+%%
+figures.getFigure('wind');
+plot(observer.time, observer.windZ);
+
+%%
+skip = 0;
+for i = [22:24]
+    [h1 h2] = plot_cov(observer, observer.colheaders{i}, i-1, skip);
+%     if ~any(i == [5:11 22:28])
+        h3 = plot(reality.time(1:end-skip), reality.(observer.colheaders{i})(1:end-skip), 'r');
+        rmsval = sqrt(mean((interp1(reality.time(1:end-skip), reality.(observer.colheaders{i})(1:end-skip), observer.time(1:end-skip), 'cubic', 'extrap')-observer.(observer.colheaders{i})(1:end-skip)).^2));
+        external.textbp(['RMS: ' num2str(rmsval)]);
+        legend([h1 h2 h3], 'Observer', 'Covariance', 'Ground truth');
+%     else
+end
