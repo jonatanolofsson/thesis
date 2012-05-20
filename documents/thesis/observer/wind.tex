@@ -17,7 +17,7 @@
             F_{\text{wind}} = F_{wind,body} + \sum_{i=0}^{3} F_{wind,ri}
         \end{equation}
         \begin{equation}
-            F_{\text{wind,body}} = -\frac{1}{2} C_{D} \rho A V_{rel} ||V_{rel}||
+            F_{\text{wind,body}} = -\frac{1}{2} C_{D} \rho A V_{\text{rel}} ||V_{\text{rel}}||
         \end{equation}
         \begin{equation}
             F^{BF}_{\text{wind},ri} = -\frac{1}{2} \rho C_{D,r} \sigma A_{r} (V_{ri} \cdot e_{P_{ri}3}^{BF}) ||V_{ri} \cdot e_{P_{ri}3}^{BF}|| e_{P_{ri}3}^{BF}
@@ -36,6 +36,14 @@
             M_{\text{wind},ri} = D_{ri}^{BF} \times F^{BF}_{\text{wind},ri}
         \end{equation}
     \end{subequations}
+
+    The wind model applied in this thesis is a decaying model that tends
+    towards zero if no measurements tell otherwise.
+    This decaying model is presented in Eq. \eqref{eq:observer:wind:wind}.
+    \begin{equation}
+        \label{eq:observer:wind:wind}
+        \dot{V_{\text{wind}}} = -\epsilon V_{\text{wind}}
+    \end{equation}
 
 
     \begin{table}

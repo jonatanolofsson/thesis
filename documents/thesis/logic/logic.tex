@@ -9,11 +9,32 @@
     In projects related to the LinkQuad quadrotor, generic state-machine
     frameworks have been developed and researched\citep{Merz06,Wzorek11}.
     On the LinkQuad, for the purpose of this thesis, a stripped down state-machine engine
-    was implemented in the \textit{CRAP} framework presented in Appendix \ref{app:crap}.
+    was implemented in the \textit{CRAP} framework presented in Appendix~\ref{app:crap}.
 
     The state machine is responsible for transitioning between the
-    states - action modes - predefined in an action sequence, ultimately
-    providing reference signals for the controller.
+    states predefined in an action sequence (\textit{mode}), ultimately
+    providing reference signals for the controller. Figure~\ref{fig:logic:statemachine}
+    examplifies the notation used in this chapter.
+
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{%
+            \begin{tikzpicture}[auto]
+                \node (entry) {Entry};
+                \node [state, right of=entry] (state1) {State 1 \\ \footnotesize{Do something}};
+                \node [condition,right of=state1] (cond) {Condition};
+                \node [state, right of=cond] (state2) {State 2 \\ \footnotesize{Do something else}};
+                \node [right of=state2, node distance=2.5cm] (cont) {$\cdots$};
+                \path[->]
+                    (entry) edge (state1)
+                    (state1) edge (cond)
+                    (cond) edge (state2)
+                    (state2) edge (cont)
+                ;
+            \end{tikzpicture}
+        }
+        \caption{State-machine example. An active state is active and continuously invoked until a transition condition evaluates true. The next state is then activated.}
+        \label{fig:logic:statemachine}
+    \end{figure}
 
     \section{Implemented Modes}
         In this Section, four basic modes are presented which were implemented
@@ -24,7 +45,7 @@
             the time of the activation, and three independent PID-controllers
             are initialized to generate reference signals to the main controller,
             working to keep the quadrotor at the place where it was first initialized.
-            \begin{figure}[h]
+            \begin{figure}[H]
                 \noindent\makebox[\textwidth]{%
                     \begin{tikzpicture}[auto]
                         \node (entry) {Entry};
@@ -36,7 +57,7 @@
                             (hover.east) edge [loop below, out=0, in=-90, distance=2cm] (hover.south);
                     \end{tikzpicture}
                 }
-                \caption{Hovering scheme.}
+                \caption{Hovering scheme. The position of the quadrotor is noted when the mode is activated. The hover state is then immediately activated to keep the quadrotor in this position.}
                 \label{fig:logic:hoverscheme}
             \end{figure}
 
@@ -56,7 +77,7 @@
             from the joystick reference provided over the serial interface
             from the ground station.
 
-            \begin{figure}[h]
+            \begin{figure}[H]
                 \noindent\makebox[\textwidth]{%
                     \begin{tikzpicture}[auto]
                         \node (entry) {Entry};
@@ -68,7 +89,7 @@
                             (control.east) edge [loop below, out=0, in=-90, distance=2cm] (control.south);
                     \end{tikzpicture}
                 }
-                \caption{Freeflight scheme}
+                \caption{Freeflight scheme. The freeflight mode merely forwards controller reference signals received from the interface.}
                 \label{fig:logic:freeflightscheme}
             \end{figure}
 
@@ -92,7 +113,7 @@
             landing site - relative to the quadrotor - is filtered to increase the
             certainty of the positioning.
 
-            \begin{figure}[h]
+            \begin{figure}[H]
                 \noindent\makebox[\textwidth]{%
                     \begin{tikzpicture}[auto]
                         \node (entry) {Entry};
@@ -113,7 +134,7 @@
                         ;
                     \end{tikzpicture}
                 }
-                \caption{Landing scheme.}
+                \caption{Landing scheme. The landing mode consists of three stages to perform and detect landing.}
                 \label{fig:logic:landingscheme}
             \end{figure}
 
@@ -123,8 +144,9 @@
             using the camera feedback and other sensors to stabilize the descent.
 
             \subsubsection{Landing Detection}
-                Since we recognize that our estimated position - with origin at our starting point -
-                is not nescessarily consistent with the Height Over Ground (HOG)
+            \label{ssec:logic:landing:detection}
+                Since we recognize that our estimated position - initialized at our starting point -
+                is not nescessarily consistent with the true Height Over Ground (HOG)
                 at the landing site, it is nescessary to choose a more robust
                 method to detect the completion of the landing procedure than simply halting at zero height.
                 The approach is to use the measurements to determine when movement
@@ -133,7 +155,7 @@
                 provides several tools for detecting the non-linear event that
                 the quadrotor can descend no further.
 
-                In the physical model presented in Chapter \ref{cha:observer},
+                In the physical model presented in Chapter~\ref{cha:observer},
                 two terms is of specific interest for the detection.
                 The first - and the obvious - is the velocity in the gravity-aligned z-axis.
                 When sensor measurements pull this term towards zero,

@@ -1,71 +1,104 @@
 \section{Filtering}
-\paragraph{Positioning}
-    While the altitude positioning, plotted in Figure \ref{fig:results:filtering:z},
+\label{sec:results:filtering}
+\subsection{Positioning}
+    While the altitude positioning, shown in Figure~\ref{fig:results:filtering:position},
     exhibit disturbances correlated with pressure sensor noise,
-    the positioning exhibit very good performance. The position state
+    the positioning generally exhibit very good performance. The position state
     is observed in the state-estimation more or less directly by the camera
     and the stability of the camera positioning is thus of course reflected here.
-    \fig{\plotwidth}{X}{}{fig:results:filtering:x}
-    \fig{\plotwidth}{Y}{}{fig:results:filtering:y}
-    \fig{\plotwidth}{Z}{}{fig:results:filtering:z}
+    \begin{subfigures}{Positioning in the X- and Y-direction mostly well corresponds to ground truth, thanks to the camera positioning.
+    The positioning in the Z-direction shows signs of the noise from the pressure sensor.}{fig:results:filtering:position}
+        \sfig{\splotwidth}{X}
+        \sfig{\splotwidth}{Y}
+        \sfig{\plotwidth}{Z}
+    \end{subfigures}
 
-\paragraph{Velocities}
+\subsection{Velocities}
     The velocities, beeing closely coupled with the camera observed position,
-    also exhibit good performance in Figures \ref{fig:results:filtering:velx}-\ref{fig:results:filtering:velz}.
+    also exhibit good performance in Figure~\ref{fig:results:filtering:velocities}.
     There are shortcomings to the estimation's horizontal precision, although
     this could probably be significantly improved with further filter tuning.
-    \fig{\plotwidth}{velX}{}{fig:results:filtering:velx}
-    \fig{\plotwidth}{velY}{}{fig:results:filtering:vely}
-    \fig{\plotwidth}{velZ}{}{fig:results:filtering:velz}
+    \begin{subfigures}{Velocity estimates are generally adequate, but with more tuning, the results are likely to improve.}{fig:results:filtering:velocities}
+        \sfig{\splotwidth}{velX}
+        \sfig{\splotwidth}{velY}
+        \sfig{\plotwidth}{velZ}
+    \end{subfigures}
 
-\paragraph{Orientation, Rotational Velocity and Gyroscope Offset}
+\subsection{Orientation, Rotational Velocity and Gyroscope Bias}
     Along with the position, the orientation is estimated from the camera,
-    yielding notable precision, as seen in Figures
-    \ref{fig:results:filtering:qwb0}-\ref{fig:results:filtering:qwbk}.
+    yielding notable precision, as seen in Figure~\ref{fig:results:filtering:qwb}.
 
     The bias of the gyroscopes is removed during the initialization process.
     Since the time-frame of the tests were far less than the time expeted to
     detect a change in the bias, these should thus be estimated to zero.
-    As depicted in Figures \ref{fig:results:filtering:driftroll}-\ref{fig:results:filtering:driftyaw}, they are.
+    As depicted in Figure~\ref{fig:results:filtering:drift}, they are.
 
-    As noted in Section \ref{ssec:results:modelling:gyroscopes}, the
+    As noted in Section~\ref{ssec:results:modelling:gyroscopes}, the
     filtering of the rotational velocities of the quadrotor body,
-    exhibited with its associated covariance in Figures \ref{fig:results:filtering:wroll}-\ref{fig:results:filtering:wyaw},
-    correlates very well to the measured results.
-    \fig{\plotwidth}{qwb0}{}{fig:results:filtering:qwb0}
-    \fig{\plotwidth}{qwbi}{}{fig:results:filtering:qwbi}
-    \fig{\plotwidth}{qwbj}{}{fig:results:filtering:qwbj}
-    \fig{\plotwidth}{qwbk}{}{fig:results:filtering:qwbk}
+    exhibited with their associated covariance in Figure~\ref{fig:results:filtering:omega},
+    correlates very well to the measurements.
+    \begin{subfigures}{The orientation of the quadrotor was estimated with good accuracy.}{fig:results:filtering:qwb}
+        \sfig{\splotwidth}{qwb0}
+        \sfig{\splotwidth}{qwbi}
+        \sfig{\splotwidth}{qwbj}
+        \sfig{\splotwidth}{qwbk}
+    \end{subfigures}
 
-    \fig{\plotwidth}{wRoll}{}{fig:results:filtering:wroll}
-    \fig{\plotwidth}{wPitch}{}{fig:results:filtering:wpitch}
-    \fig{\plotwidth}{wYaw}{}{fig:results:filtering:wyaw}
+    \begin{subfigures}{The predicted angular velocities corresponds very well to the gyro measurements.}{fig:results:filtering:omega}
+        \sfig{\splotwidth}{wRoll}
+        \sfig{\splotwidth}{wPitch}
+        \sfig{\plotwidth}{wYaw}
+    \end{subfigures}
 
-    \fig{\plotwidth}{driftRoll}{}{fig:results:filtering:driftroll}
-    \fig{\plotwidth}{driftPitch}{}{fig:results:filtering:driftpitch}
-    \fig{\plotwidth}{driftYaw}{}{fig:results:filtering:driftyaw}
+    \begin{subfigures}{The gyroscopes' drift was removed prior to entering the filter, and does not change during the short recording of data.}{fig:results:filtering:drift}
+        \sfig{\splotwidth}{driftRoll}
+        \sfig{\splotwidth}{driftPitch}
+        \sfig{\plotwidth}{driftYaw}
+    \end{subfigures}
 
-\paragraph{Wind force}
+\subsection{Wind force}
     As the tests were performed inside, the filter was tuned to basically keep the
     wind constant. Thus, it is difficult to come to any conclusions regarding the
-    wind impact on the model. They are however, as seen in Figures \ref{fig:results:filtering:windx}-\ref{fig:results:filtering:windy},
-    correctly estimated to zero.
-    \fig{\plotwidth}{windX}{}{fig:results:filtering:windx}
-    \fig{\plotwidth}{windY}{}{fig:results:filtering:windy}
-    \fig{\plotwidth}{windZ}{}{fig:results:filtering:windz}
+    wind impact on the model. Figure~\ref{fig:results:filtering:wind}
+    show them to be correctly estimated to zero in the collected dataset,
+    although in the case with simulated data with wind, shown in Figure~\ref{fig:results:filtering:simwind},
+    results are poor.
 
-\paragraph{Propeller Velocity}
+    When a landing is simulated, Figure~\ref{fig:results:filtering:windbump}
+    exhibits an interesting property where a notable bump occurs at the
+    time of the landing. While this is not the expected behaviour
+    - the estimate should be negative and constant -
+    it does show that the wind may be useful as a detector for landing.
+
+    \begin{subfigures}{Wind estimates from recorded test-data.}{fig:results:filtering:wind}
+        \sfig{\splotwidth}{windX}
+        \sfig{\splotwidth}{windY}
+        \sfig{\plotwidth}{windZ}
+    \end{subfigures}
+
+    \begin{subfigures}{Wind from simulated test-flight.}{fig:results:filtering:simwind}
+        \sfig{\splotwidth}{simwindX}
+        \sfig{\splotwidth}{simwindY}
+        \sfig{\plotwidth}{simwindZ}
+    \end{subfigures}
+
+    \fig{\plotwidth}{windbump}{Even in simulation, the landing was detectable in the vertical wind estimate, albeit in this case not as expected.}{fig:results:filtering:windbump}
+
+\subsection{Propeller Velocity}
     As the filter evaluation was performed without the use of the controller,
-    the control signal is unavailable. Thus, Eq. \ref{eq:observer:wri2} was used as
-    motion model, effectively leaving the estimation of the propeller velocities
-    to the measurement update. It is evident, in Figures \ref{fig:results:filtering:wr1}-\ref{fig:results:filtering:wr4}
-    that the estimation is active, however it is impossible to validate.
+    the control signal is unavailable. Thus, Eq.~\ref{eq:observer:wri2} was used as
+    motion model in the filter validation, effectively leaving the estimation of the propeller velocities
+    to the measurement update. It is evident, in Figure~\ref{fig:results:filtering:wr}
+    that the estimation is active, however it is impossible to validate properly with the available data.
     Ideally, the velocities of the propellers should be measured in flight.
     However, that data is currently unavailable in the development system used for evaluation.
     The estimated velocities are, notably, in a reasonable range,
-    increasing the plausability for correctness of Eq. \ref{eq:observer:thrust}, which is
+    increasing the plausability for correctness of Eq.~\ref{eq:observer:thrust}, which is
     otherwise hard to verify using the available data.
-    \fig{\plotwidth}{wr1}{}{fig:results:filtering:wr1}
-    \fig{\plotwidth}{wr2}{}{fig:results:filtering:wr2}
-    \fig{\plotwidth}{wr3}{}{fig:results:filtering:wr3}
-    \fig{\plotwidth}{wr4}{}{fig:results:filtering:wr4}
+
+    \begin{subfigures}{Propeller angular rate estimates could not be properly verified with the data available, although do exhibit a reasonable value range given the model parameter settings.}{fig:results:filtering:wr}
+        \sfig{\splotwidth}{wr1}
+        \sfig{\splotwidth}{wr2}
+        \sfig{\splotwidth}{wr3}
+        \sfig{\splotwidth}{wr4}
+    \end{subfigures}

@@ -1,2 +1,17 @@
 \section{Control}
-    For the control evaluation,
+\label{sec:results:control}
+    The control algorithm was tested in simulation on the model presented
+    of Chapter~\ref{cha:observer} and verified in Section~\ref{sec:results:modelling}.
+    The control, very basically tuned, did in simulation exhibit stable and responsive
+    properties. The reference track included velocity control in all directions,
+    control of yaw rate and finally landing. This corresponds to a wide
+    range of the operatations to which a quadrotor is used.
+
+    In Figure~\ref{fig:results:control:referencefollowing}, the reference
+    flight is plotted, and as can be seen it starts with a sinusoid velocity.
+    After $150$ seconds - simulation time - the landing procedure is initialized and the velocity is
+    reduced until after about $180$, when the velocity is below the threshold
+    to begin descent. Landing is detected by the shortfall of velocity
+    after just over 400 seconds.
+
+    \fig{\plotwidth}{referencefollowing}{Control of the simulated flight was stable, although - beeing untuned - somewhat slow. The actuation of the yaw rate is very weak, which is evident in slow reaction of the yaw rate control.}{fig:results:control:referencefollowing}

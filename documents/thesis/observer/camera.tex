@@ -26,9 +26,8 @@
     %~ \begin{equation}
         %~ x_{\text{world}} = \underbrace{R(q^{wb})}_{quadrotor orientation} * \underbrace{T(\varnothing_{\text{cam}}) R(q^{bc}) S(s)}_{quadrotor to PTAM transform} x_{\text{cam}}
     %~ \end{equation}
-    These are collected to a single transformation in Equation
-    \ref{eq:observer:sensormodels:camera:transformation}, forming
-    the full transformation from the global NEDEF system to the
+    These are collected to a single transformation in Eq.~\ref{eq:observer:sensormodels:camera:transformation},
+    forming the full transformation from the global NEDEF system to the
     PTAM coordinate frame.
     \begin{equation}
         \label{eq:observer:sensormodels:camera:transformation}
@@ -46,9 +45,9 @@
     its origin due to association errors. To provide stable position
     measurements, we need to detect these movements and adjust the
     camera transformation accordingly. Initialization and tracking is dealt with in
-    Section \ref{sssec:observer:sensormodels:camera:initialization} and \ref{sssec:observer:sensormodels:camera:refinement}
+    Section~\ref{sssec:observer:sensormodels:camera:initialization} and \ref{sssec:observer:sensormodels:camera:refinement}
     respectively, whereas the teleportation problem is discussed in
-    Section \ref{sssec:observer:sensormodels:camera:teleportation}.
+    Section~\ref{sssec:observer:sensormodels:camera:teleportation}.
 
     \subsubsection{Initialization}
         \label{sssec:observer:sensormodels:camera:initialization}
@@ -66,9 +65,27 @@
             q^{Pw} = q^{PTAM,c} q^{cb} q^{bw}.
         \end{equation}
 
+        $q^{bc}$, the inverse of $q^{cb}$ of Equation~\ref{eq:observer:sensormodels:camera:qpw},
+        describes the rotation from camera coordinates to body-fixed coordinates, taking
+        into account the differing definitions between the PTAM library
+        camera coordinate system and that used in this thesis.
+        With known camera pitch and yaw - $\Theta_{c}$ and $\Psi_{c}$ respectively -
+        this  corresponds to four consecutive rotations, given in
+        Eq.~\eqref{eq:observer:sensormodels:qbc} as rotations around gives axes.
+
+        %~ Quaternion<double> qbc(
+            %~ AngleAxis<double>(config["camera"]["tilt"].as<double>(), Vector3d::UnitY())
+            %~ * AngleAxis<double>(config["camera"]["yaw"].as<double>(), Vector3d::UnitZ())
+            %~ * AngleAxis<double>(M_PI_2, Vector3d::UnitZ())
+            %~ * AngleAxis<double>(M_PI_2, Vector3d::UnitX()));
+        \begin{equation}
+        \label{eq:observer:sensormodels:qbc}
+            q^{bc} = \text{rot}(\Theta_{c}, \hat{y}) * \text{rot}(\Psi_{c}, \hat{z}) * \text{rot}(\pi/2, \hat{z}) * \text{rot}(\pi/2, \hat{x})
+        \end{equation}
+
         To determine the distance to this plane according to the current estimation,
         Equation \eqref{eq:observer:sensormodels:camera:origin} is solved for $\lambda$
-        in accordance with \ref{eq:observer:sensormodels:camera:lambda}.
+        in accordance with Eq.~\ref{eq:observer:sensormodels:camera:lambda}.
         \begin{equation}
             \label{eq:observer:sensormodels:camera:origin}
             \left\lbrace
@@ -123,9 +140,9 @@
         either performing a new initial estimation, or utilizing the previous state
         to recognize the new pose of the origin.
         The teleporting behaviour is detected using simple thresholding,
-        as in Eq. \eqref{eq:observer:sensormodels:camera:teleport},
+        as in Eq.~\eqref{eq:observer:sensormodels:camera:teleport},
         although no action is currently implemented to recover.
-        In Eq. \eqref{eq:observer:sensormodels:camera:teleport}, the
+        In Eq.~\eqref{eq:observer:sensormodels:camera:teleport}, the
         estimated motion is scaled by the factor $s$ from the tranformation
         from PTAM coordinates, and thresholded by a configurable parameter $\epsilon$.
         \begin{equation}

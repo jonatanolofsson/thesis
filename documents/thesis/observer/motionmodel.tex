@@ -5,8 +5,8 @@
     is made on what measurements can be expected, and evaluating the plausibility
     of each measurement after how well they correspond to the prediction.
     With assumed Gaussian white noise distributions, this evaluation
-    can be done in the probabilistic Kalman framework as presented in Sections
-    \ref{sec:observer:filtering}-\ref{sec:observer:ukf}, where the
+    can be done in the probabilistic Kalman framework as presented in
+    Sections~\ref{sec:observer:filtering}-\ref{sec:observer:ukf}, where the
     probablity estimate of the sensors' measurements are based on the motion
     model's prediction. In this section, a motion model is derived and evaluated.
     The model is presented in its continuous form, since the discretization
@@ -31,25 +31,25 @@
 
             \item[Body-fixed (BF)] The body-fixed coordinate system is fixed in the
             quadrotor with $\hat{x}$-axis in the forward direction and the $z$-axis in the downward
-            direction - as depicted in Figure \ref{fig:observer:referenceframes}.
+            direction - as depicted in Figure~\ref{fig:observer:motionmodel:quadrotorcoordframes}.
 
             \item[Propeller fixed] Each of the propellers are associated
             with their own frame of reference, $P_{i}$, which tracks the
             virtual tilting of the thrust vector due to flapping,
-            discussed in Section \ref{ssec:observer:thrust}.
+            discussed in Section~\ref{ssec:observer:thrust}.
 
             \item[Camera frame] This is the frame which describes the
             location of the camera.
 
             \item[PTAM frame] This is the frame of reference used by the PTAM video SLAM library.
-            This frame is initially unknown, and its recovery is discussed in Section \ref{ssec:observer:sensormodels:camera}.
+            This frame is initially unknown, and its recovery is discussed in Section~\ref{ssec:observer:sensormodels:camera}.
 
             \item[IMU frame] This is the body-fixed frame in which the IMU measurements are said
             to be done. The origin is thus fixed close to the inertial sensors.
         \end{description}
-        The coordinate frames are visualized in Figures \ref{fig:observer:motionmodel:worldcoordframes}-\ref{fig:observer:motionmodel:quadrotorcoordframes}.
-        \fig{0.8}{worldcoordframes}{}{fig:observer:motionmodel:worldcoordframes}
-        \fig{0.8}{quadrotorcoordframes}{}{fig:observer:motionmodel:quadrotorcoordframes}
+        The coordinate frames are visualized in Figures~\ref{fig:observer:motionmodel:worldcoordframes}-\ref{fig:observer:motionmodel:quadrotorcoordframes}.
+        \fig{0.8}{worldcoordframes}{The NEDEF, body-fixed and the PTAM coordinate frames are of global importance.}{fig:observer:motionmodel:worldcoordframes}
+        \fig{0.8}{quadrotorcoordframes}{Locally, on the quadrotor, there are several coordinate frames used in the thesis. Here, the IMU frame coincides with the body-fixed frame.}{fig:observer:motionmodel:quadrotorcoordframes}
 
         The conversion between the reference frames are characterized by a
         transformation including translation and a three-dimensional rotation.
@@ -158,7 +158,7 @@
 
         The following sections will describe the rotor thrust and wind forces respectively.
         Additionally, other minor forces and moments are discussed in
-        \ref{ssec:observer:additionalforces}.
+        Section~\ref{ssec:observer:additionalforces}.
 
         \input{\currentchapter/thrust}
         \input{\currentchapter/wind}

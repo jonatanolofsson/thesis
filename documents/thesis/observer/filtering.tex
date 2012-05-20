@@ -108,7 +108,7 @@
                                | \mathcal{Y}^{k} \right] .
     \end{equation}
     As new measurements are taken, the covariance of the state evolves
-    with the state estimate as in Eq. \eqref{eq:observer:filtering:pxx}~\citep{Julier95anewapproach}.
+    with the state estimate as in Eq.~\eqref{eq:observer:filtering:pxx}~\citep{Julier95anewapproach}.
     \begin{equation}
         \label{eq:observer:filtering:pxx}
         P_{xx}(t|t) = P_{xx}(t|t-1) - K_{t}P_{\nu\nu}(t|t-1)K_{t}^{T}
@@ -124,7 +124,7 @@
     \end{equation}
     Note that \eqref{eq:observer:filtering:kalmanK2} is another, albeit equivalent,
     way of calculating \eqref{eq:observer:filtering:kalmanK}, which will be exploited
-    in Section \ref{sec:observer:ukf}.
+    in Section~\ref{sec:observer:ukf}.
 
     Although the Kalman filter is optimal in the linear case, no guarantees are given for the non-linear case.
     Several methods exist to give a sub-optimal estimate of the non-linear cases,
@@ -147,7 +147,7 @@
 
     \begin{algorithm}[Extended Kalman Filter]
         \label{alg:ekf}
-        The Kalman filter in Algorithm \ref{alg:ekf} is in the Extended Kalman filter extended to the
+        The Kalman filter in Algorithm~\ref{alg:ekf} is in the Extended Kalman filter extended to the
         non-linear case by straight-forward linearization where nescessary.
 
         \begin{subequations}
@@ -182,5 +182,5 @@
     This linearization, some argue\cite{Julier95anewapproach}, fails to capture the finer details
     of highly non-linear systems and may furthermore be tedious to
     calculate, analytically or otherwise. An alternative approach, known as the Unscented Kalman Filter, is therefore
-    discussed in Section \ref{sec:observer:ukf}.
+    discussed in Section~\ref{sec:observer:ukf}.
 

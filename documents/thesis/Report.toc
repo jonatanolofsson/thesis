@@ -46,33 +46,53 @@
 \contentsline {section}{\numberline {4.2}Keyframe-based SLAM}{30}
 \contentsline {section}{\numberline {4.3}The PTAM Library}{30}
 \contentsline {subsection}{\numberline {4.3.1}Operation}{31}
-\contentsline {subsection}{\numberline {4.3.2}Modifications to the Library}{31}
-\contentsline {subsection}{\numberline {4.3.3}Practical Use}{32}
-\contentsline {chapter}{\numberline {5}Finite State-Machines}{33}
-\contentsline {section}{\numberline {5.1}Implemented Modes}{33}
-\contentsline {subsection}{\numberline {5.1.1}Hovering}{33}
-\contentsline {subsection}{\numberline {5.1.2}PTAM initialization}{34}
-\contentsline {subsection}{\numberline {5.1.3}Free Flight}{34}
-\contentsline {subsection}{\numberline {5.1.4}Landing}{34}
-\contentsline {subsubsection}{Landing Detection}{35}
-\contentsline {chapter}{\numberline {6}Results}{37}
-\contentsline {section}{\numberline {6.1}Experiment Setup}{37}
-\contentsline {section}{\numberline {6.2}Modelling}{38}
-\contentsline {subsection}{\numberline {6.2.1}Accelerometers}{38}
-\contentsline {subsection}{\numberline {6.2.2}Gyroscopes}{40}
-\contentsline {subsection}{\numberline {6.2.3}Pressure Sensor}{41}
-\contentsline {subsection}{\numberline {6.2.4}Camera}{43}
-\contentsline {section}{\numberline {6.3}Filtering}{45}
-\contentsline {paragraph}{Positioning}{45}
-\contentsline {paragraph}{Velocities}{46}
-\contentsline {paragraph}{Orientation, Rotational Velocity and Gyroscope Offset}{48}
-\contentsline {paragraph}{Wind force}{53}
-\contentsline {paragraph}{Propeller Velocity}{54}
-\contentsline {section}{\numberline {6.4}Control}{56}
+\contentsline {subsection}{\numberline {4.3.2}Modifications to the Library}{32}
+\contentsline {subsection}{\numberline {4.3.3}Practical Use}{33}
+\contentsline {chapter}{\numberline {5}Finite State-Machines}{35}
+\contentsline {section}{\numberline {5.1}Implemented Modes}{35}
+\contentsline {subsection}{\numberline {5.1.1}Hovering}{35}
+\contentsline {subsection}{\numberline {5.1.2}PTAM initialization}{36}
+\contentsline {subsection}{\numberline {5.1.3}Free Flight}{36}
+\contentsline {subsection}{\numberline {5.1.4}Landing}{36}
+\contentsline {subsubsection}{Landing Detection}{37}
+\contentsline {chapter}{\numberline {6}Results}{39}
+\contentsline {section}{\numberline {6.1}Experiment Setup}{39}
+\contentsline {section}{\numberline {6.2}Modelling}{40}
+\contentsline {subsection}{\numberline {6.2.1}Accelerometers}{40}
+\contentsline {subsection}{\numberline {6.2.2}Gyroscopes}{42}
+\contentsline {subsection}{\numberline {6.2.3}Pressure Sensor}{43}
+\contentsline {subsection}{\numberline {6.2.4}Camera}{45}
+\contentsline {section}{\numberline {6.3}Filtering}{47}
+\contentsline {subsection}{\numberline {6.3.1}Positioning}{47}
+\contentsline {subsection}{\numberline {6.3.2}Velocities}{48}
+\contentsline {subsection}{\numberline {6.3.3}Orientation, Rotational Velocity and Gyroscope Bias}{49}
+\contentsline {subsection}{\numberline {6.3.4}Wind force}{52}
+\contentsline {subsection}{\numberline {6.3.5}Propeller Velocity}{54}
+\contentsline {section}{\numberline {6.4}Control}{55}
 \contentsline {chapter}{\numberline {7}Discussion}{57}
-\contentsline {section}{\numberline {7.1}Flapping}{57}
-\contentsline {chapter}{\numberline {8}Concluding Remarks}{59}
-\contentsline {section}{\numberline {8.1}Conclusions}{59}
-\contentsline {section}{\numberline {8.2}Further work}{59}
-\contentsline {chapter}{\numberline {A}CRAP}{65}
-\contentsline {section}{\numberline {A.1}}{65}
+\contentsline {section}{\numberline {7.1}Modelling}{57}
+\contentsline {section}{\numberline {7.2}Filtering}{58}
+\contentsline {subsection}{\numberline {7.2.1}EKF vs. UKF}{58}
+\contentsline {subsection}{\numberline {7.2.2}Performance}{58}
+\contentsline {section}{\numberline {7.3}Camera Localization}{59}
+\contentsline {section}{\numberline {7.4}Controller}{59}
+\contentsline {section}{\numberline {7.5}State-machine Logic}{60}
+\contentsline {section}{\numberline {7.6}Real-time Performance}{60}
+\contentsline {chapter}{\numberline {8}Concluding Remarks}{61}
+\contentsline {section}{\numberline {8.1}Further work}{61}
+\contentsline {subsection}{\numberline {8.1.1}Filtering and Control}{61}
+\contentsline {subsection}{\numberline {8.1.2}Mission Planning}{62}
+\contentsline {subsection}{\numberline {8.1.3}Monocular SLAM}{62}
+\contentsline {section}{\numberline {8.2}Conclusions}{62}
+\contentsline {chapter}{\numberline {A}CRAP}{67}
+\contentsline {section}{\numberline {A.1}Structure}{68}
+\contentsline {section}{\numberline {A.2}Communication}{70}
+\contentsline {subsection}{\numberline {A.2.1}Internal}{70}
+\contentsline {subsection}{\numberline {A.2.2}Serial Communication}{71}
+\contentsline {section}{\numberline {A.3}Modules}{72}
+\contentsline {subsection}{\numberline {A.3.1}Observer}{72}
+\contentsline {subsection}{\numberline {A.3.2}Controller}{72}
+\contentsline {subsection}{\numberline {A.3.3}Logic}{73}
+\contentsline {subsection}{\numberline {A.3.4}Camera Reader, Sensor Reader and Baselink}{74}
+\contentsline {section}{\numberline {A.4}Interface}{74}
+\contentsline {chapter}{\numberline {B}GNU General Public License}{76}

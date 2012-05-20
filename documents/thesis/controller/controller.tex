@@ -6,13 +6,16 @@
     of the engines driving the propellers.
 
     The controller approach chosen in this thesis is based on the Linear Quadratic (LQ)
-    controller, the theory of which is presented in Section \ref{sec:controller:lq}.
+    controller, the theory of which is presented in Section~\ref{sec:controller:lq}.
     An extension to the technique of \textit{gain-scheduling} is discussed
-    in Section \ref{sec:controller:gainscheduling}.
+    in Section~\ref{sec:controller:gainscheduling}.
 
-    The physical model of the system was derived in Section \ref{sec:observer:motionmodel}.
-    In Section \ref{sec:controller:model}, this is further developed
+    The physical model of the system was derived in Section~\ref{sec:observer:motionmodel}.
+    In Section~\ref{sec:controller:model}, this is further developed
     and adapted for compatibility as a model for the controller.
+    The controller is interfaced by providing references
+    for the NED-frame velocities and the, body-fixed, yaw rate.
+    The controller outputs reference angular rates for each propeller.
 
     \input{\currentchapter/lq}
     \input{\currentchapter/gainscheduling}

@@ -4,10 +4,403 @@
     framework was developed for connecting the different separable modules
     and provide a core library of useful functions.
     The result is called \textit{\C++ Robot Automation Platform}, or \crap for short.
+    To emphasize the central idea of modularity, one can note that the actual compiled
+    core - headers not included - are less that two-hundred lines of code.
+
     The main ideas of \crap are borrowed from the \textit{Robot Operating System}, \textit{ROS}\footnote{\url{http://ros.org/}},
-    while implementing these in a much more efficient and uniform manner.
+    while implementing these in a more efficient and uniform manner.
     By constraining the intermodular messaging to \C++\footnote{ROS allows messaging between Python and C++ modules} and compartmentalizing the
     modules in separate threads as opposed to processes, \crap significantly
     reduces the overhead associated with the flexibility of such modular software.
 
-    \section{}
+    This document contains a brief technical description of the inner workings of the framework,
+    focused on the implementation for quadrotor control described in this thesis.
+    Further documentation is available in the code, which can be found at
+    \url{https://github.com/jonatanolofsson/crap}.
+
+    The relevant directory structure is as follows,
+    examplified for the observer module:
+
+    \begin{minipage}{\textwidth}
+    \dirtree{%
+.1 /.
+.2 CMakeLists.txt.
+.2 modules.
+.3 CMakeLists.txt\DTcomment{Modules to be compiled are listed in here.}.
+.3 observer.
+.4 CMakeLists.txt.
+.4 observer.cpp.
+.3 $\cdots$.
+.2 configuration.
+.3 observer.yaml.
+.3 $\cdots$.
+.2 include.
+.2 src\DTcomment{The few lines of core}.
+.2 interface\DTcomment{3d interface}.
+.2 cmake\DTcomment{Files to find dependencies}.
+    }
+    \end{minipage}
+
+    \section{Structure}
+    \label{sec:crap:structure}
+        Modules, as shown in Figure~\ref{fig:crap:schematic},
+        connect to each other using \textit{messages} sent in \textit{message topics}.
+        Topics are identifed by a string name, and is
+        Each module is initialized in its own processing thread, but may
+        chose to end this initial thread and react only to
+        incoming messages, which are received in a separate \textit{messaging thread},
+        which is instantiated when a module starts to \textit{listen} to a topic.
+        Further details of this procedure is given in Section~\ref{sec:crap:communication}
+
+        \crap makes use of the \textit{yaml-cpp} \C++ library, which allows
+        configuration to be simply parsed run-time. The core configuration
+        file is given as the first input argument to the \crap executable
+        and contains a list of the modules that should be loaded, each with
+        a unique name, executable shared object and an optional configuration file,
+        as examplified in Listing~\ref{lst:crap:configuration}.
+
+        Each module is compiled individually to a \textit{shared object},
+        which can be dynamically linked to the \crap platform at runtime, in accordance
+        with the selected core configuration.
+        The modules are all located in the \texttt{modules} directory,
+        and all compilation details needed for run-time linking are defined in the CMake
+        configuration of that directory.
+
+        \lstset{language=,caption={Core configuration example, listing what modules should be loaded on execution.},label=lst:crap:configuration}
+        \begin{minipage}{\textwidth}
+        \begin{lstlisting}
+---
+module_root: modules/
+config_root: /home/shared/projects/crap/configuration/
+modules:
+ -  name: sender
+    file: comm_sender.so
+
+ -  name: baselink
+    file: baselink.so
+    configuration:
+        receive_flight_commands: false
+        send_flight_data: true
+        port: /dev/pts/5
+        reference_timeout: 10.0
+
+ -  name: observer
+    file: observer.so
+    configuration: observer.yaml
+
+ -  name: reality
+    file: reality.so
+    configuration: reality_reader.yaml
+
+ -  name: sensor_reader
+    file: sensor_reader.so
+    configuration: sensor_reader.yaml
+
+ -  name: camera_reader
+    file: camera_reader.so
+    configuration: camera_reader.yaml
+        \end{lstlisting}
+        \end{minipage}
+
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{%\usetikzlibrary{shapes}
+            \tikzstyle{thread} = [rectangle, draw=none, rounded corners=1mm, fill=WildStrawberry,
+                            text centered, anchor=north, text=white, align=center,font=\tiny]
+            \tikzstyle{module} = [rectangle, draw=none, rounded corners=1mm, fill=Green,
+                            text centered, anchor=north, text=white, minimum width=2cm, minimum height=1cm, align=center,font=\scriptsize]
+            \tikzstyle{external} = [rectangle, draw=none, rounded corners=1mm, fill=CadetBlue,
+                            text centered, anchor=north, text=white, minimum width=3cm, minimum height=1cm, node distance=3.5cm, align=center,font=\scriptsize]
+            \begin{tikzpicture}[auto]
+                \def \mr {3.2cm}
+                \def \tr {1.4cm}
+                \def \trc {0.4cm}
+                \def \er {4.5cm}
+                \def \pr {4.5cm}
+                \def \prr {5.5cm}
+                \foreach \angle/\radius/\label/\name in {0/\mr/camera_reader/Camera reader, 60/\mr/controller/Controller,120/\mr/observer/Observer,180/\mr/logic/Logic,240/\mr/sensor_reader/Sensor reader,300/\mr/reality/Reality}
+                    {\node [module] at (\angle:\radius) (\label) {\name};}
+                \foreach \angle/\radius/\label/\name in {-45/\tr/camera_data/Camera data, 225/\tr/sensor_data/Sensor data,113/\pr/pose/Pose,113/\prr/reference/Reference,335/\er/camera_sim/Camera simulation,270/\er/imu_sim/IMU simulation,90/\trc/controlsignal/Control signal}
+                    {\node [thread] at (\angle:\radius) (\label) {\name};}
+
+                \node [external, left of=sensor_reader] (sensors) {Sensors};
+                \node [external, right of=camera_reader] (ptam) {PTAM};
+
+                \path[->]
+                    (observer) edge (pose)
+                    (pose) edge[bend left] (controller)
+                    (pose.south west) edge[bend right] (logic)
+                    (reality) edge[bend left] (imu_sim)
+                    (imu_sim) edge[bend left,dashed] (sensor_reader)
+                    (reality) edge[bend right] (camera_sim)
+                    (camera_sim) edge[dashed] (camera_reader)
+                    (camera_reader) edge (camera_data)
+                    (camera_data) edge[bend left] (observer.south)
+                    (controller) edge (controlsignal)
+                    (controlsignal) edge (observer)
+                    (controlsignal) edge[bend right] (reality)
+                    (sensor_reader) edge (sensor_data)
+                    (sensor_data) edge (observer.south)
+                    (logic.north west) edge[bend left] (reference.south west)
+                    (reference) edge[bend left] (controller.north)
+                    ;
+                \path[>>->>,dashed]
+                    (sensors) edge (sensor_reader)
+                    (ptam) edge (camera_reader);
+            \end{tikzpicture}
+        }
+        \caption{CRAP schematic. The Figure~describes the relationship of modules (green) and their internal communication through messages (red).
+        External modules, connected through a serial interface, are shown in blue. Dashed lines are optional.}
+        \label{fig:crap:schematic}
+    \end{figure}
+
+    \section{Communication}
+    \label{sec:crap:communication}
+        As presented in Section~\ref{sec:crap:structure}, the modules interact using
+        \textit{messages} in \textit{topics}. When a message is sent, it
+        is pushed to a messenger thread which will invoke the callback specified
+        by each listening module.
+
+        Using the existing message definitions for serial communication on the LinkQuad,
+        the framework also provides an implementation for serial communication
+        which re-uses this interface, allowing callbacks to be used interchangeably
+        for both serial and internal communication.
+
+        The following subsections provide code samples for both use cases.
+
+        \subsection{Internal}
+        The example in Listing~\ref{lst:crap:communication:internal}
+        displays the simple interface for internal communication.
+        As long as both sender and receiver agree on the type, any data
+        can be transferred, as the data is passed directly through function
+        pointers without need for serialization. Each topic can have multiple listeners
+        and multiple senders, but only one data type can be sent on each topic.
+        This restriction is not programmatically enforced, but must be asserted
+        in the development process.
+
+        \lstset{caption={Excerpts from the mode-switching code in the state-machine, demonstating the use of internal messaging.},label=lst:crap:communication:internal}
+        \begin{minipage}{\textwidth}
+        \begin{lstlisting}
+void switch_mode(const std::string& mode) {...}
+...
+comm::listen("/logic/mode", switch_mode);
+...
+comm::send("/logic/mode", std::string("hover"));
+        \end{lstlisting}
+        \end{minipage}
+
+        \subsection{Serial Communication}
+            The serial communication is slightly more resctrcted than the
+            internal communication, to comply with the existing definition
+            of the LinkQuad serial communication.
+            As examplified in Listings~\ref{lst:crap:communication:serial:typedef}-\ref{lst:crap:communication:serial:send},
+            the interface is however as far as possible the same as for the internal
+            communication. It should be noted that the \texttt{listen} method
+            used in Listing~\ref{lst:crap:communication:serial:send}
+            automatically requests the data accepted by the callback by sending
+            a data request of the specified serial port. This request is
+            disabled using the alternative, but analog, method \texttt{passive\_listen}.
+
+            The serial communication has been branched into a separate
+            library to allow use outside of the \crap framework.
+
+        \lstset{caption={Message definition for the serial communication. Both communicating parts must agree on what data is sent.},label=lst:crap:communication:serial:typedef}
+        \begin{minipage}{\textwidth}
+        \begin{lstlisting}
+using namespace LinkQuad::comm::serial;
+using namespace LinkQuad::comm::serial::data;
+using namespace LinkQuad::comm::serial::data::SUser;
+typedef LinkQuad::comm::serial::data::serial_data<
+    params_32f_0,
+    params_32f_1,...> serial_data;
+        \end{lstlisting}
+        \lstset{caption={Excerpts from code receiving data over serial communication. The \texttt{listen} automatically requests the correct data using LinkQuad data-request messages.},label=lst:crap:communication:serial:listen}
+        \begin{lstlisting}
+using namespace LinkQuad::comm::serial::data;
+using namespace LinkQuad::comm::serial::data::SSMCU;
+void camera_receive(const serial_data& d) {
+            measurement.z <<
+                (scalar) d.params_32f_0,
+                (scalar) d.params_32f_1,
+...
+}
+...
+LinkQuad::comm::serial::listen<SSMCU::Part>("/dev/pts/1", camera_receive);
+        \end{lstlisting}
+
+        \end{minipage}
+
+        \lstset{caption={Excerpts from code for sending data over the serial interface. The data is then sent in a separate thread, leaving the caller to continue.},label=lst:crap:communication:serial:send}
+        \begin{minipage}{\textwidth}
+        \begin{lstlisting}
+msg.params_32f_0 = q.x();
+msg.params_32f_1 = q.y();
+...
+LinkQuad::comm::serial::send(serial_port, msg);
+        \end{lstlisting}
+        \end{minipage}
+
+
+    \section{Modules}
+        \tikzstyle{action} = [rectangle, draw=none, rounded corners=1mm, fill=Green,minimum width=1.5cm, node distance=1.2cm,
+                        text centered, anchor=north, text=white, align=center,font=\tiny]
+        \tikzstyle{event} = [diamond, draw=none, rounded corners=1mm, fill=WildStrawberry,minimum width=1.5cm,minimum height=1.5cm,
+                        text centered, anchor=north, text=white, node distance=2cm, align=center,font=\tiny]
+
+
+        This Section~describes the most important modules, and their implementations, individually.
+        \subsection{Observer}
+            The observer is implemented according to the theory presented in Chapter~\ref{cha:observer}.
+            As implemented, the observer responds to three different events:
+            \begin{itemize}
+                \item The filter's time update is performed at a fixed rate.
+                \item The IMU measurement update is run as soon as IMU data is received.
+                \item The camera measurement update is run as soon as camera data is received.
+            \end{itemize}
+            The two latter events are triggered by incoming messages, and are run in
+            separate threads, as depicted in the schematic in Figure~\ref{fig:crap:observer}.
+
+            \begin{figure}[H]
+                \noindent\makebox[\textwidth]{
+                    \begin{tikzpicture}[auto]
+                        \node [event] (ticktock) {Timer};
+                        \node[action, below of=ticktock] (timeupdate) {Prediction update};
+                        \node[action, below of=timeupdate,node distance=0.7cm] (publish) {Publish};
+                        \node[action,left of=timeupdate, node distance=2cm] (init) {Initialization};
+
+                        \node [event, right of=ticktock] (imudata) {IMU data};
+                        \node[action, below of=imudata] (imuupdate) {IMU update};
+
+                        \node [event, right of=imudata] (cameradata) {Camera data};
+                        \node[action, below of=cameradata] (cameraupdate) {Camera update};
+
+                        \path[->]
+                            (timeupdate) edge (publish)
+                            (ticktock) edge (timeupdate)
+                            (imudata) edge (imuupdate)
+                            (cameradata) edge (cameraupdate)
+                        ;
+                    \end{tikzpicture}
+                }
+                \caption{The observer reacts to three events; A timer executes the prediction update, and incoming messages invoke the measurement updates. The state is published to other modules at a fixed rate immediately after the prediction update.}
+                \label{fig:crap:observer}
+            \end{figure}
+        \subsection{Controller}
+            The controller implements the non-linear control described in Chapter~\ref{cha:controller}.
+            The control output is updated as soon as a new pose estimate is
+            received from the observer. The reference signal is updated asynchronously
+            as such a message arrives, but does not cause an update of the output signal.
+            The observer is thus reactive only, and the original
+            thread will terminate as soon as the message topic callbacks have
+            been registered.
+            \begin{figure}[H]
+                \noindent\makebox[\textwidth]{
+                    \begin{tikzpicture}[auto]
+                        \node [event] (pose) {New pose};
+                        \node[action, below of=pose] (linearize) {Linearize model};
+                        \node[action, below of=linearize] (sdre) {SDRE\footnotemark};
+                        \node[action,right of=linearize, node distance=2.3cm] (calccontrol) {Calculate control};
+                        \node[action,below of=calccontrol] (publish) {Publish};
+
+                        \node [event, right of=pose] (reference) {New reference};
+                        \node[action, below of=reference] (refup) {Update reference};
+
+                        \path[->]
+                            (pose) edge (linearize)
+                            (linearize) edge (sdre)
+                            (sdre) edge (calccontrol.south west)
+                            (calccontrol) edge (publish)
+                            (reference) edge (refup)
+                        ;
+                    \end{tikzpicture}
+                }
+                \caption{The controller output is changed only when the a new pose estimate arrives from the observer.}
+                \label{fig:crap:controller}
+            \end{figure}
+            \footnotetext{Solve the Damn Riccati Equation}
+
+        \subsection{Logic}
+            The logic module uses a single-threaded state-machine to implement
+            the state-machine modes proposed in Chapter~\ref{cha:logic}.
+            Just as the modules, each mode is compiled independently to
+            a shared object which is then loaded and linked when the mode
+            is requested.
+            The relevant directory stucture is as follows:
+
+\begin{minipage}{\textwidth}
+            \dirtree{%
+.1 /.
+.2 configuration.
+.3 modes.
+.4 hover.yaml
+.2 modules.
+.3 logic.
+.4 modes.
+.5 CMakeLists.txt\DTcomment{Modes to be compiled are listed in here.}.
+.5 landing.
+.6 CMakeLists.txt.
+.6 hover.cpp.
+}
+\end{minipage}
+
+        The file \texttt{hover.cpp} is what contains the chain that is executed
+        in the state-machine mode. Each mode must contain a C-method with the
+        same name as the mode. This is the entry point to the mode.
+        The return-value of this method, and all other parts of the chain,
+        is a void pointer to the next function to be executed.
+        The active function is invoked at a fixed rate until a NULL value is
+        returned. Listing~\ref{lst:crap:logic:hover} contains
+        excerpts from the \texttt{hover} mode, which examplifies the function
+        chaining as well as demonstrating practical use of the \crap framework.
+        The conFigure~method in said listing will - when the mode is first
+        requested and thus loaded - receive the contents of the configuration
+        file in the \texttt{modes} directory.
+        \lstset{caption={Code sample demonstrating the central functionality of each state-machine mode.},label=lst:crap:logic:hover}
+        \begin{minipage}{\textwidth}
+        \begin{lstlisting}
+extern "C" {
+    YAML::Node config;
+    void configure(YAML::Node& c) {config = c;}
+
+    typedef state_vector(*state_fn)();
+    state_fn get_state = comm::bind<state_fn>("observer", "get_state");
+
+    void* hover_control() {
+        ...
+        comm::send("/reference", ref);
+        return (void*) hover_control;
+    }
+
+    void* hover() {
+        x = get_state();
+        position = x.segment<3>(state::position);
+        return (void*) hover_control;
+    }
+}
+        \end{lstlisting}
+        \end{minipage}
+
+        \subsection{Camera Reader, Sensor Reader and Baselink}
+            The camera reader provides the interface to the serially transferred
+            measurements from the PTAM library, running on the secondary computer.
+            Likewise, the sensor reader module interfaces the sensor MCU on the LinkQuad
+            to retrieve IMU measurements, which are forwarded to the observer.
+
+            The baselink interfaces the graphical front-end of Section~\ref{sec:crap:interface}
+            through a serial interface, allowing the front-end to e.g. run on
+            a connected laptop when \crap is run on a host without support for graphics.
+
+    \section{Interface}
+    \label{sec:crap:interface}
+        The baselink module that connects to the graphical interface
+        provides relevant parts of the observer's current state estimate.
+        This is used to visualize the simulation or flight in real-time, as
+        depicted in Figure~\ref{fig:crap:interface}.
+
+        The baselink module also accepts commands over the serial interface,
+        which can be sent to the \crap engine and forwarded by the \texttt{freeflight}
+        state-machine mode to the controller as control reference.
+        The interface implements 3D control through the open-source
+        spacenav\footnote{\url{http://spacenav.sourceforge.net/}} drivers
+        for 3DConnexion's 3D-mice.
+
+        \fig{\imagewidth}{interface}{The \crap framework features a simple graphical viewer to visualize the observer's pose estimates.}{fig:crap:interface}

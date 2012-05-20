@@ -12,6 +12,12 @@ Michael Bl{\"o}sch, Stephan Weiss, Davide Scaramuzza, and Roland Siegwart.
   environments}.
 \newblock In {\em {ICRA}}, pages 21--28, 2010.
 
+\bibitem{bouabdallah04pid}
+S~Bouabdallah, A~Noth, and R~Siegwart.
+\newblock {PID vs LQ Control Techniques Applied to an Indoor Micro Quadrotor}.
+\newblock In {\em {Proc. of The IEEE International Conference on Intelligent
+  Robots and Systems (IROS)}}, 2004.
+
 \bibitem{bouabdallah07full}
 Samir Bouabdallah and Roland Siegwart.
 \newblock {Full control of a quadrotor.}
@@ -155,6 +161,22 @@ Torsten Merz, Piotr Rudol, and Mariusz Wzorek.
 \newblock In {\em {ICAS 2006 - International Conference on Autonomic and
   Autonomous Systems,2006}}, 2006.
 
+\bibitem{Newcombe2011}
+Richard Newcombe, Steven Lovegrove, and Andrew Davison.
+\newblock {DTAM: Dense Tracking and Mapping in Real-Time}.
+\newblock In {\em {13th International Conference on Computer Vision
+  (ICCV2011)}}, November 2011.
+
+\bibitem{Nguyen_Sandor_Park_2010}
+Thanh Nguyen, Christian Sandor, and Jun Park.
+\newblock {PTAMM-Plus: Refactoring and Extending PTAMM}.
+\newblock {\em Camera}, pages 84--88, 2010.
+
+\bibitem{physicshandbook}
+Carl Nordling and Jonny {\"O}sterman.
+\newblock {\em {Physics Handbook}}.
+\newblock Studentlitteratur, 2006.
+
 \bibitem{nyberg11diagnosis}
 Mattias Nyberg and Erik Frisk.
 \newblock {\em {Model Based Diagnosis of Technical Processes}}.
@@ -164,11 +186,6 @@ Mattias Nyberg and Erik Frisk.
 United States. Dept. of Defense. Office of the~Secretary of~Defense.
 \newblock {\em {U.S. Army Roadmap for unmanned aircraft systems, 2010-2035}}.
 \newblock U. S. Army UAS Center of Excellence, 2010.
-
-\bibitem{rosvslam}
-Helen Oleynikova.
-\newblock {ROS vSLAM}, September 2011.
-\newblock [online] \url{http://www.ros.org/wiki/vslam}.
 
 \bibitem{Pounds_modellingand}
 Paul Pounds, Robert Mahony, and Peter Corke.
@@ -182,6 +199,15 @@ R.W. Prouty.
 \bibitem{Rantzer99piecewiselinear}
 A.~Rantzer and M.~Johansson.
 \newblock {Piecewise Linear Quadratic Optimal Control}, 1999.
+
+\bibitem{Rudol10}
+Piotr Rudol, Mariusz Wzorek, and Patrick Doherty.
+\newblock {Vision-based Pose Estimation for Autonomous Indoor Navigation of
+  Micro-scale Unmanned Aircraft Systems}.
+\newblock In {\em {Proceedings of the 2010 IEEE International Conference on
+  Robotics and Automation (ICRA)}}, number 2010 in {Proceedings - IEEE
+  International Conference on Robotics and Automation}, pages 1913--1920. IEEE
+  conference proceedings, 2010.
 
 \bibitem{10.1109/MED.2006.328740}
 V.~Sima and P.~Benner.
@@ -218,10 +244,10 @@ S~Weiss, D~Scaramuzza, and R~Siegwart.
   GPS-denied environments}.
 \newblock {\em Journal of Field Robotics}, 28(6):854--874, 2011.
 
-\bibitem{wiki:atmosphericpressure}
+\bibitem{wiki:suav}
 Wikipedia.
-\newblock {Atmospheric Pressure}.
-\newblock {\em Wikipedia}, April 2012.
+\newblock {Miniature UAV --- Wikipedia{,} The Free Encyclopedia}, 2012.
+\newblock [Online; accessed 14-May-2012].
 
 \bibitem{Wong_Bil_2006}
 K~C Wong and C~Bil.

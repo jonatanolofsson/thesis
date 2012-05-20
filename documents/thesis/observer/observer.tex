@@ -5,24 +5,24 @@
     motion, so determining the up-to-date position is of vital importance.
     This chapter deals with the estimation of the states relevant for positioning
     and controlling the LinkQuad.
-    Filter theory and notation is established in Section \ref{sec:observer:filtering}.
+    Filter theory and notation is established in Section~\ref{sec:observer:filtering}.
 
     In this thesis, an Unscented Kalman Filter (UKF) and an Extended Kalman Filter (EKF) both are evaluated.
     These filters both extends the linear Kalman filter theory to the non-linear case.
     The UKF circumvents the linearization used in the EKF in an appealing black-box way,
     albeit it is more sensitive to obscure cases in the physical model,
-    as detailed in the discussion in Chapter \ref{cha:discussion}.
+    as detailed in the discussion in Chapter~\ref{cha:discussion}.
     The theory of the EKF and UKF is treated in
-    Section \ref{sec:observer:filtering} and \ref{sec:observer:ukf} respectively.
+    Sections~\ref{sec:observer:filtering} and \ref{sec:observer:ukf} respectively.
 
-    The motion model of the system is derived and discussed in Section \ref{sec:observer:motionmodel}.
+    The motion model of the system is derived and discussed in Section~\ref{sec:observer:motionmodel}.
 
     As well as beeing modelled, the motions of the system are captured by the on-board sensors.
     A measurement $y$ is related to the motion model by the sensor model $h$;
     \begin{equation}
         y(t) = h(x(t),u(t),t)
     \end{equation}
-    The models for the sensors used in this work are discussed in Section \ref{sec:observer:sensormodels}.
+    The models for the sensors used in this work are discussed in Section~\ref{sec:observer:sensormodels}.
 
     \input{\currentchapter/filtering}
     \input{\currentchapter/ukf}

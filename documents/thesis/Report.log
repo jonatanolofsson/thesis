@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  17 MAY 2012 18:31
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  20 MAY 2012 20:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1016,6 +1016,25 @@ Package: relsize 2003/07/04 ver 3.1
 )
 (/usr/share/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+)
+(/usr/share/texmf-dist/tex/generic/dirtree/dirtree.sty
+Package: dirtree 2006/01/25 v0.2 package wrapper for dirtree
+
+(/usr/share/texmf-dist/tex/generic/dirtree/dirtree.tex
+`dirtree' v0.2, 2006/01/25 (jcc)
+\DT@offset=\dimen159
+\DT@width=\dimen160
+\DT@sep=\dimen161
+\DT@all=\dimen162
+\DT@rulewidth=\dimen163
+\DT@dotwidth=\dimen164
+\DTbaselineskip=\dimen165
+\DT@counti=\count285
+\DT@countii=\count286
+\DT@countiii=\count287
+\DT@countiv=\count288
+)
+File: dirtree.tex 2006/01/25 v0.2 `dirtree' (jcc)
 )) (./include/tikz.inc.tex
 (/usr/share/texmf-site/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf-site/tex/latex/pgf/basiclayer/pgf.sty
@@ -1046,20 +1065,20 @@ Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 (/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
 \pgfkeys@tmptoks=\toks61
 ))
-\pgf@x=\dimen159
-\pgf@y=\dimen160
-\pgf@xa=\dimen161
-\pgf@ya=\dimen162
-\pgf@xb=\dimen163
-\pgf@yb=\dimen164
-\pgf@xc=\dimen165
-\pgf@yc=\dimen166
+\pgf@x=\dimen166
+\pgf@y=\dimen167
+\pgf@xa=\dimen168
+\pgf@ya=\dimen169
+\pgf@xb=\dimen170
+\pgf@yb=\dimen171
+\pgf@xc=\dimen172
+\pgf@yc=\dimen173
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count285
-\c@pgf@countb=\count286
-\c@pgf@countc=\count287
-\c@pgf@countd=\count288
+\c@pgf@counta=\count289
+\c@pgf@countb=\count290
+\c@pgf@countc=\count291
+\c@pgf@countd=\count292
 
 (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -1071,11 +1090,11 @@ File: pgfsys-dvips.def 2008/04/03  (rcs-revision 1.20)
 
 (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsys-common-postscript.def
 File: pgfsys-common-postscript.def 2008/10/01  (rcs-revision 1.22)
-\pgf@objectcount=\count289
+\pgf@objectcount=\count293
 ))) (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count290
-\pgfsyssoftpath@bigbuffer@items=\count291
+\pgfsyssoftpath@smallbuffer@items=\count294
+\pgfsyssoftpath@bigbuffer@items=\count295
 ) (/usr/share/texmf-site/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 ))
@@ -1086,8 +1105,8 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen167
-\pgfmath@count=\count292
+\pgfmath@dimen=\dimen174
+\pgfmath@count=\count296
 \pgfmath@box=\box61
 \pgfmath@toks=\toks62
 \pgfmath@stack@operand=\toks63
@@ -1103,51 +1122,51 @@ x) (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
 (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf-site/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count293
+\c@pgfmathroundto@lastzeros=\count297
 ))
 (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
-\pgf@picminx=\dimen168
-\pgf@picmaxx=\dimen169
-\pgf@picminy=\dimen170
-\pgf@picmaxy=\dimen171
-\pgf@pathminx=\dimen172
-\pgf@pathmaxx=\dimen173
-\pgf@pathminy=\dimen174
-\pgf@pathmaxy=\dimen175
-\pgf@xx=\dimen176
-\pgf@xy=\dimen177
-\pgf@yx=\dimen178
-\pgf@yy=\dimen179
-\pgf@zx=\dimen180
-\pgf@zy=\dimen181
+\pgf@picminx=\dimen175
+\pgf@picmaxx=\dimen176
+\pgf@picminy=\dimen177
+\pgf@picmaxy=\dimen178
+\pgf@pathminx=\dimen179
+\pgf@pathmaxx=\dimen180
+\pgf@pathminy=\dimen181
+\pgf@pathmaxy=\dimen182
+\pgf@xx=\dimen183
+\pgf@xy=\dimen184
+\pgf@yx=\dimen185
+\pgf@yy=\dimen186
+\pgf@zx=\dimen187
+\pgf@zy=\dimen188
 )
 (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
-\pgf@path@lastx=\dimen182
-\pgf@path@lasty=\dimen183
+\pgf@path@lastx=\dimen189
+\pgf@path@lasty=\dimen190
 ) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
-\pgf@shorten@end@additional=\dimen184
-\pgf@shorten@start@additional=\dimen185
+\pgf@shorten@end@additional=\dimen191
+\pgf@shorten@start@additional=\dimen192
 )
 (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
 \pgfpic=\box62
 \pgf@hbox=\box63
 \pgf@layerbox@main=\box64
-\pgf@picture@serial@count=\count294
+\pgf@picture@serial@count=\count298
 )
 (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
-\pgflinewidth=\dimen186
+\pgflinewidth=\dimen193
 )
 (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoretransformations.code.t
 ex
 File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
-\pgf@pt@x=\dimen187
-\pgf@pt@y=\dimen188
-\pgf@pt@temp=\dimen189
+\pgf@pt@x=\dimen194
+\pgf@pt@y=\dimen195
+\pgf@pt@temp=\dimen196
 ) (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 )
@@ -1162,8 +1181,8 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 )
 (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
-\pgf@max=\dimen190
-\pgf@sys@shading@range@num=\count295
+\pgf@max=\dimen197
+\pgf@sys@shading@range@num=\count299
 )
 (/usr/share/texmf-site/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
@@ -1189,8 +1208,8 @@ File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
 )
 (/usr/share/texmf-site/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen191
-\pgf@nodesepend=\dimen192
+\pgf@nodesepstart=\dimen198
+\pgf@nodesepend=\dimen199
 )
 (/usr/share/texmf-site/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
@@ -1200,8 +1219,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf-site/tex/generic/pgf/utilities/pgfkeys.code.tex))
 (/usr/share/texmf-site/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen193
-\pgffor@skip=\dimen194
+\pgffor@iter=\dimen200
+\pgffor@skip=\dimen201
 \pgffor@stack=\toks65
 \pgffor@toks=\toks66
 ))
@@ -1211,28 +1230,29 @@ Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 (/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
 x
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count296
-\pgfplotmarksize=\dimen195
+\pgf@plot@mark@count=\count300
+Normal \dimen register pool exhausted, switching to extended pool.
+\pgfplotmarksize=\dimen256
 )
-\tikz@lastx=\dimen196
-\tikz@lasty=\dimen197
-\tikz@lastxsaved=\dimen198
-\tikz@lastysaved=\dimen199
-\tikzleveldistance=\dimen200
-\tikzsiblingdistance=\dimen201
+\tikz@lastx=\dimen257
+\tikz@lasty=\dimen258
+\tikz@lastxsaved=\dimen259
+\tikz@lastysaved=\dimen260
+\tikzleveldistance=\dimen261
+\tikzsiblingdistance=\dimen262
 \tikz@figbox=\box67
 \tikz@tempbox=\box68
-\tikztreelevel=\count297
-\tikznumberofchildren=\count298
-\tikznumberofcurrentchild=\count299
-\tikz@fig@count=\count300
+\tikztreelevel=\count301
+\tikznumberofchildren=\count302
+\tikznumberofcurrentchild=\count303
+\tikz@fig@count=\count304
  (/usr/share/texmf-site/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count301
-\pgfmatrixcurrentcolumn=\count302
-\pgf@matrix@numberofcolumns=\count303
+\pgfmatrixcurrentrow=\count305
+\pgfmatrixcurrentcolumn=\count306
+\pgf@matrix@numberofcolumns=\count307
 )
-\tikz@expandcount=\count304
+\tikz@expandcount=\count308
 
 (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 topaths.code.tex
@@ -1253,8 +1273,7 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 
 (/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
-Normal \dimen register pool exhausted, switching to extended pool.
-\arrowsize=\dimen256
+\arrowsize=\dimen263
 )))
 (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 shapes.code.tex
@@ -1333,35 +1352,45 @@ backgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2010/02/08 v2.10 (rcs-revision 1.2)
 \pgf@layerbox@background=\box89
 \pgf@layerboxsaved@background=\box90
-)) (./include/style.inc.tex) (./include/functions.inc.tex
-\c@algorithm=\count305
+)) (./include/style.inc.tex
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-(./Report.aux
-
-LaTeX Warning: Label `eq:controller:u' multiply defined.
-
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+))
+(./include/functions.inc.tex
+ LaTeX info: Defining document environment 'subfigures'
+(LaTeX)  with arg. spec. 'mm' on line 23.
+
+\c@algorithm=\count309
+) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 97.
- (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 121.
+
+
+(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 97.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 121.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1402,54 +1431,54 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package crop Info: requested driver: `' on input line 97.
-Package crop Info: detected driver: `dvips' on input line 97.
-Package crop Info: using `dvips' graphics driver on input line 97.
-\c@lstlisting=\count306
+Package crop Info: requested driver: `' on input line 121.
+Package crop Info: detected driver: `dvips' on input line 121.
+Package crop Info: using `dvips' graphics driver on input line 121.
+\c@lstlisting=\count310
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 101.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 125.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 101.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 125.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 101
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 125
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 101
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 125
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 101.
+(Font)              <10> on input line 125.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 101.
+(Font)              <7> on input line 125.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 101.
-LaTeX Font Info:    Try loading font information for U+msa on input line 101.
+(Font)              <5> on input line 125.
+LaTeX Font Info:    Try loading font information for U+msa on input line 125.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 101.
+LaTeX Font Info:    Try loading font information for U+msb on input line 125.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 File: LiTH_staende_eng_sv.eps Graphic file (type eps)
  <LiTH_staende_eng_sv.eps>
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 101--101
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 125--125
 []| [] 
  []
 
@@ -1459,7 +1488,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 101--101
 ] [0
 
 ]
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 101--101
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 125--125
 []| [] 
  []
 
@@ -1472,7 +1501,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 101--101
 ]
 File: LiTH_sigill_sv.eps Graphic file (type eps)
  <LiTH_sigill_sv.eps>
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 101.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 125.
 
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1496,7 +1525,12 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ] (./Report.toc [9
 
 
-])
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[10])
 \tf@toc=\write4
 \openout4 = `Report.toc'.
 
@@ -1505,18 +1539,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[10] (./introduction/introduction.tex
+[11] [12
+
+] (./introduction/introduction.tex
 Chapter 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 4.
-
-Package natbib Warning: Citation `wiki:suav' on page 1 undefined on input line 
-11.
-
 [1
-
 
 
 ] (./introduction/platform.tex
@@ -1541,21 +1572,11 @@ $[]$
  []
 
 [2]
-
-Package natbib Warning: Citation `Rudol10' on page 3 undefined on input line 16
-.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[3]
-
-Package natbib Warning: Citation `bouabdallah04pid' on page 4 undefined on inpu
-t line 35.
-
-)
+[3])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1600,11 +1621,6 @@ $[]$
  []
 
 [11]) (./observer/motionmodel.tex
-
-LaTeX Warning: Reference `fig:observer:referenceframes' on page 12 undefined on
- input line 34.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1638,18 +1654,18 @@ $[]$
  []
 
 [16]
-Underfull \hbox (badness 1014) in paragraph at lines 183--183
+Underfull \hbox (badness 1014) in paragraph at lines 182--182
 \T1/lmr/m/n/10 lat-ing the square of $\OML/lmm/m/it/10 ![]$ \T1/lmr/m/n/10 to t
 he
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 183--183
+Underfull \hbox (badness 1019) in paragraph at lines 182--182
 \T1/lmr/m/n/10 base, rel-a-tive to the hor-i-zon-tal
  []
 
 
-Underfull \hbox (badness 1448) in paragraph at lines 183--183
+Underfull \hbox (badness 1448) in paragraph at lines 182--182
 []|\T1/lmr/m/n/10 The ro-ta-tional ve-loc-ity of pro-
  []
 
@@ -1664,7 +1680,7 @@ $[]$
  []
 
 [18]
-Underfull \hbox (badness 2189) in paragraph at lines 47--47
+Underfull \hbox (badness 2189) in paragraph at lines 55--55
 []|\T1/lmr/m/n/10 3x3 ma-trix de-scrib-ing the area of the
  []
 
@@ -1684,12 +1700,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[20]
-
-Package natbib Warning: Citation `physicshandbook' on page 21 undefined on inpu
-t line 62.
-
-(./observer/camera.tex
+[20] (./observer/camera.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1732,94 +1743,89 @@ Chapter 4.
 ]
 File: video/figures/ptamkeyframes.eps Graphic file (type eps)
  <video/figures/ptamkeyframes.eps>
-
-Package natbib Warning: Citation `Nguyen_Sandor_Park_2010' on page 30 undefined
- on input line 64.
-
-
-Package natbib Warning: Citation `Newcombe2011' on page 30 undefined on input l
-ine 66.
-
 File: video/figures/ptamcalibration.eps Graphic file (type eps)
-<video/figures/ptamcalibration.eps>
-File: video/figures/ptamtracking.eps Graphic file (type eps)
- <video/figures/ptamtracking.eps>
-Overfull \hbox (2.03467pt too wide) in paragraph at lines 75--79
-\T1/lmr/m/n/10 In the track-ing pro-ce-dure, the PTAM li-brary ran-domly projec
-ts pre-vi-ously recorded
- []
-
-
+ <video/figures/ptamcalibration.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [30]
+File: video/figures/ptamtracking.eps Graphic file (type eps)
+ <video/figures/ptamtracking.eps>
+Overfull \hbox (2.03467pt too wide) in paragraph at lines 76--80
+\T1/lmr/m/n/10 In the track-ing pro-ce-dure, the PTAM li-brary ran-domly projec
+ts pre-vi-ously recorded
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[31]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[32]
 File: video/figures/ptamfeaturetracking.eps Graphic file (type eps)
- <video/figures/ptamfeaturetracking.eps>
-Underfull \vbox (badness 5008) has occurred while \output is active []
-
-
+ <video/figures/ptamfeaturetracking.eps>)
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[31])
+[33]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[32] (./logic/logic.tex
+[34] (./logic/logic.tex
 Chapter 5.
-[33
+[35
 
 
 ]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[34])
+[36])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[35] (./results/results.tex [36
+[37]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
 
-
-]
+[38] (./results/results.tex
 Chapter 6.
 (./results/setup.tex
-Overfull \hbox (2.06755pt too wide) in paragraph at lines 2--14
-\T1/lmr/m/n/10 Witas Vi-con Lab at Linköping Uni-ver-sity, Swe-den. Ground trut
-h data was recorded
- []
-
 File: results/figures/testarea.eps Graphic file (type eps)
-<results/figures/testarea.eps>) (./results/modelling.tex
+ <results/figures/testarea.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
+ [39
+
+
+])
+(./results/modelling.tex
 File: results/figures/accelerometers.eps Graphic file (type eps)
-
-<results/figures/accelerometers.eps>
-File: results/figures/accelerometersresiduals.eps Graphic file (type eps)
-
-<results/figures/accelerometersresiduals.eps>
-Underfull \vbox (badness 1521) has occurred while \output is active []
-
-
+ <results/figures/accelerometers.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[38]
+[40]
+File: results/figures/accelerometersresiduals.eps Graphic file (type eps)
+ <results/figures/accelerometersresiduals.eps>
 File: results/figures/accelerometersnormalfit.eps Graphic file (type eps)
- <results/figures/accelerometersnormalfit.eps>
+
+<results/figures/accelerometersnormalfit.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1827,7 +1833,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[39]
+[41]
 File: results/figures/gyroscopes.eps Graphic file (type eps)
  <results/figures/gyroscopes.eps>
 File: results/figures/gyroscopesresiduals.eps Graphic file (type eps)
@@ -1843,7 +1849,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[40]
+[42]
 File: results/figures/pressure.eps Graphic file (type eps)
  <results/figures/pressure.eps>
 File: results/figures/pressureresiduals.eps Graphic file (type eps)
@@ -1855,7 +1861,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[41]
+[43]
 File: results/figures/pressurenormalfit.eps Graphic file (type eps)
  <results/figures/pressurenormalfit.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1865,17 +1871,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[42]
-
-LaTeX Warning: Reference `fig:results:modelling:camerainitframe' on page 43 und
-efined on input line 65.
-
-
-LaTeX Warning: Reference `fig:results:modelling:camerainitframe' on page 43 und
-efined on input line 67.
-
+[44]
 File: results/figures/camera.eps Graphic file (type eps)
-<results/figures/camera.eps>
+ <results/figures/camera.eps>
 File: results/figures/cameraresiduals.eps Graphic file (type eps)
  <results/figures/cameraresiduals.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1885,9 +1883,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[43]
+[45]
 File: results/figures/cameranormalfit.eps Graphic file (type eps)
- <results/figures/cameranormalfit.eps>) (./results/monoslam.tex
+ <results/figures/cameranormalfit.eps>
+File: results/figures/camerainitframe.eps Graphic file (type eps)
+
+<results/figures/camerainitframe.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1895,7 +1896,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[44]) (./results/filtering.tex
+[46]) (./results/filtering.tex
 File: results/figures/X.eps Graphic file (type eps)
  <results/figures/X.eps>
 File: results/figures/Y.eps Graphic file (type eps)
@@ -1903,29 +1904,7 @@ File: results/figures/Y.eps Graphic file (type eps)
 File: results/figures/Z.eps Graphic file (type eps)
 
 <results/figures/Z.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[45]
-File: results/figures/velX.eps Graphic file (type eps)
- <results/figures/velX.eps>
-File: results/figures/velY.eps Graphic file (type eps)
- <results/figures/velY.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[46]
-File: results/figures/velZ.eps Graphic file (type eps)
- <results/figures/velZ.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2012) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1933,13 +1912,13 @@ $[]$
  []
 
 [47]
-File: results/figures/qwb0.eps Graphic file (type eps)
- <results/figures/qwb0.eps>
-File: results/figures/qwbi.eps Graphic file (type eps)
- <results/figures/qwbi.eps>
-File: results/figures/qwbj.eps Graphic file (type eps)
+File: results/figures/velX.eps Graphic file (type eps)
+ <results/figures/velX.eps>
+File: results/figures/velY.eps Graphic file (type eps)
+ <results/figures/velY.eps>
+File: results/figures/velZ.eps Graphic file (type eps)
 
-<results/figures/qwbj.eps>
+<results/figures/velZ.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1948,6 +1927,13 @@ $[]$
  []
 
 [48]
+File: results/figures/qwb0.eps Graphic file (type eps)
+ <results/figures/qwb0.eps>
+File: results/figures/qwbi.eps Graphic file (type eps)
+ <results/figures/qwbi.eps>
+File: results/figures/qwbj.eps Graphic file (type eps)
+
+<results/figures/qwbj.eps>
 File: results/figures/qwbk.eps Graphic file (type eps)
  <results/figures/qwbk.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1977,6 +1963,9 @@ File: results/figures/driftRoll.eps Graphic file (type eps)
  <results/figures/driftRoll.eps>
 File: results/figures/driftPitch.eps Graphic file (type eps)
  <results/figures/driftPitch.eps>
+File: results/figures/driftYaw.eps Graphic file (type eps)
+
+<results/figures/driftYaw.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1985,19 +1974,28 @@ $[]$
  []
 
 [51]
-File: results/figures/driftYaw.eps Graphic file (type eps)
- <results/figures/driftYaw.eps>
 File: results/figures/windX.eps Graphic file (type eps)
  <results/figures/windX.eps>
+File: results/figures/windY.eps Graphic file (type eps)
+ <results/figures/windY.eps>
+File: results/figures/windZ.eps Graphic file (type eps)
+
+<results/figures/windZ.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [52]
-File: results/figures/windY.eps Graphic file (type eps)
- <results/figures/windY.eps>
-File: results/figures/windZ.eps Graphic file (type eps)
- <results/figures/windZ.eps>
+File: results/figures/simwindX.eps Graphic file (type eps)
+ <results/figures/simwindX.eps>
+File: results/figures/simwindY.eps Graphic file (type eps)
+ <results/figures/simwindY.eps>
+File: results/figures/simwindZ.eps Graphic file (type eps)
+
+<results/figures/simwindZ.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2006,6 +2004,13 @@ $[]$
  []
 
 [53]
+File: results/figures/windbump.eps Graphic file (type eps)
+ <results/figures/windbump.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[54]
 File: results/figures/wr1.eps Graphic file (type eps)
  <results/figures/wr1.eps>
 File: results/figures/wr2.eps Graphic file (type eps)
@@ -2013,80 +2018,264 @@ File: results/figures/wr2.eps Graphic file (type eps)
 File: results/figures/wr3.eps Graphic file (type eps)
 
 <results/figures/wr3.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[54]
 File: results/figures/wr4.eps Graphic file (type eps)
  <results/figures/wr4.eps>) (./results/control.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: results/figures/referencefollowing.eps Graphic file (type eps)
+
+<results/figures/referencefollowing.eps>))
+Underfull \vbox (badness 6808) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[55]))
+[55]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [56] (./discussion/discussion.tex
 Chapter 7.
-(./discussion/flapping.tex)) [57
-
-
-] (./conclusions/conclusions.tex [58
+[57
 
 
 ]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[58]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[59])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[60] (./conclusions/conclusions.tex
 Chapter 8.
-) [59] (./Report.bbl [60
+
+Underfull \vbox (badness 1521) has occurred while \output is active []
+
+ [61
 
 
-] [61]
+])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[62]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[63])
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[64] (./crap/crap.tex
-Appendix A.
-) [65
+[62] (./Report.bbl [63
 
 
 ]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
 
-Package natbib Warning: There were undefined citations.
+[64]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
 
-(./Report.aux)
+[65])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
 
-LaTeX Warning: There were undefined references.
+[66] (./crap/crap.tex
+Appendix A.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 24--43
+[]$[]$ 
+ []
 
 
-LaTeX Warning: There were multiply-defined labels.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- ) 
+ [67
+
+
+]
+Overfull \hbox (15.0pt too wide) in paragraph at lines 70--104
+[]$[]$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[68]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[69]
+Overfull \hbox (6.25694pt too wide) in paragraph at lines 163--167
+[]\T1/lmr/m/n/10 Using the ex-ist-ing mes-sage def-i-ni-tions for se-rial com-m
+u-ni-ca-tion on the LinkQuad,
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[70]
+Overfull \hbox (15.0pt too wide) in paragraph at lines 181--190
+[]$[]$ 
+ []
+
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 207--231
+[]$[]$ 
+ []
+
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 233--241
+[]$[]$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[71]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[72]
+Overfull \hbox (15.0pt too wide) in paragraph at lines 329--344
+[]$[]$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[73]
+File: crap/figures/interface.eps Graphic file (type eps)
+ <crap/figures/interface.eps>)
+Underfull \vbox (badness 8189) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[74]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[75] (./gpl/gpl.tex
+Appendix B.
+[76
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[77]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[78]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[79]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[80]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[81]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[82]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[83]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[84]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[85]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[86]
+Overfull \hbox (7.72542pt too wide) in paragraph at lines 621--631
+[]\T1/lmr/m/n/10 IN NO EVENT UN-LESS RE-QUIRED BY AP-PLI-CA-BLE LAW OR AGREED
+ []
+
+
+Overfull \hbox (3.14503pt too wide) in paragraph at lines 621--631
+\T1/lmr/m/n/10 PARTY WHO MOD-I-FIES AND/OR CON-VEYS THE PRO-GRAM AS PER-
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[87]
+Overfull \hbox (144.5191pt too wide) in paragraph at lines 703--709
+\T1/lmr/m/n/10 Li-cense in-stead of this Li-cense. But first, please read \T1/l
+mtt/m/n/10 http://www.gnu.org/philosophy/why-not-lgpl.html\T1/lmr/m/n/10 . 
+ []
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[88] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 22026 strings out of 495015
- 402393 string characters out of 3181236
- 513074 words of memory out of 3000000
- 24506 multiletter control sequences out of 15000+200000
- 121999 words of font info for 80 fonts, out of 3000000 for 9000
+ 22917 strings out of 495015
+ 414600 string characters out of 3181236
+ 600845 words of memory out of 3000000
+ 25373 multiletter control sequences out of 15000+200000
+ 134014 words of font info for 85 fonts, out of 3000000 for 9000
  36 hyphenation exceptions out of 8191
- 58i,17n,60p,453b,861s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,17n,60p,525b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Report.dvi (77 pages, 207712 bytes).
+Output written on Report.dvi (102 pages, 396468 bytes).

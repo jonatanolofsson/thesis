@@ -1,9 +1,82 @@
 \chapter{Concluding Remarks}
 \label{cha:conclusions}
+    This thesis covers the theory and implementation of the most
+    important aspects of autonomous flight. The implementation is
+    still in need of tuning, both for state-estimation accuracy and control,
+    but the foundations for high-level control and estimation using
+    modern and effective algorithms have been laid.
 
-\section{Conclusions}
+    While the implementation has yet to see real flight, it is believed
+    that little work remain before test-flights can be performed,
+    the most important work beeing tuning of state-estimation and control.
 
+    With extensions to the state-machine logic, the system is prepared to
+    perform advanced missions, including such planned by a future on-board
+    artificially intelligent mission planner.
 
 \section{Further work}
 \label{sec:conclusions:furtherwork}
     %~ Wind model, drag model, wind momentum on body
+    While the implementation still needs tuning, it shows promise
+    and one can see many fields which would prove interesting for
+    future in-detail study - filter, model and control tuning included.
+
+    \subsection{Filtering and Control}
+        As a future study, it would be of interest to make a comparison between
+        a fully tuned advanced model, compared to simpler motion models that
+        can be applied in the filtering framework.
+        Also, after the proposed model has been properly verified and tuned, further
+        modelling may be of interest.
+
+        As more processing power becomes available one can, in the filtering
+        process, consider using even more state-of the art filtering techniques,
+        such as GPU-implemented Particle filtering.
+        Similarly, simpler control models could be compared with the
+        advanced SDRE-solution proposed in this thesis.
+
+        Future work could also investigate the inclusion of other types of
+        optimal control, such as Model Predictive Control, MPC.
+
+    \subsection{Mission Planning}
+        With relatively little work, the state-machine logic could
+        be extended with autonomous mission planning, using parallel state
+        machines and e.g. PDDL planning tools.
+        The graphical front-end could be replaced or extended with tools
+        suitable for mission control.
+
+    \subsection{Monocular SLAM}
+        One of the main results of this thesis is the relating of the PTAM
+        coordinate system to the world coordinate system.
+        This result could be relevant for any future work including real-work
+        positioning using video feedback.
+
+        There is also a potential to improve the PTAM library.
+        One could, for instance, consider closing the loop, using the observer's
+        pose estimate and motion model to improve the quality of the camera tracking.
+        The PTAM library was specifically developed for hand-held cameras
+        without any other sensors available, yet the algorithm would benefit
+        of such information.
+        There are also some performance issues when the internal map of PTAM features
+        grows.
+        This could be improved by for instance using R-trees%\footnote{\url{http://en.wikipedia.org/wiki/R-tree}}
+        for keyframe indexing to sort out relevant keyframes to reproject
+        into the video feed.
+
+
+\section{Conclusions}
+    The achievements and theory presented in this thesis represent a set
+    of higher level algorithms than is common in the SUAV field.
+    This is highly intentional, as I believe it is the untested solutions
+    that need to be tried in order to advance research in the area.
+    While one may argue that a simpler solution is ``good enough'',
+    superiority is not achieved by mimicking results but by expanding the ideas
+    of the cutting edge technology presented by a world of hobbyists,
+    developers and scientists.
+
+    To be able to stand on the shoulders of previous work it is important
+    that research is made publically available, both as theoretical reports
+    but also their programmatic implementation.
+    It is my firm belief that a scientific field will shine only
+    with implementations available freely to form the base of something bigger.
+    Therefore, the full implementation of this thesis is hereby
+    released under the GNU General Public License\footnote{GPLv3 or, by users choice, any later version.}.

@@ -1,13 +1,13 @@
 \section{Sensor Models}
 \label{sec:observer:sensormodels}
-    This Section relates the estimated state of the quadrotor to the expected sensor measurements, $\hat{y}$.
+    This Section~relates the estimated state of the quadrotor to the expected sensor measurements, $\hat{y}$.
     The first four sensors - accelerometers, gyroscopes, magnetometers
     and the pressure sensor - are described quite briefly, while the
     estimation of the camera's frame of reference requires some more detail.
 
     It is common to include a GPS, providing world-fixed measurements,
     to prevent drift in the filtering process. Here, the GPS is replaced with a camera,
-    which will be discussed in Section \ref{ssec:observer:sensormodels:camera}.
+    which will be discussed in Section~\ref{ssec:observer:sensormodels:camera}.
 
     In most equations below, a zero-mean Gaussian term with known covariance is added
     to account for measurement noise. The Gaussian assumption may in some
@@ -29,7 +29,7 @@
         relative position of the gyro to the center of gravity.
         However, gyroscope measurements are associated with a bias which may
         change over time. This bias term is introduced as a state variable which
-        is modelled constant, Eq. \eqref{eq:filter:sensormodels:accelerometertime},
+        is modelled constant, Eq.~\eqref{eq:filter:sensormodels:accelerometertime},
         through the time update, leaving its adjustment to the filter measurement update.
         \begin{equation}
             y_{\text{gyro}} = \omega + b + e_{\text{gyro}}
