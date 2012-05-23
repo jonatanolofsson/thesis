@@ -1,19 +1,19 @@
-\section{Previous work}
+\section{Related Work}
 \label{sec:previouswork}
     %~ Previous work can be used for both reference implemetations, but also to
     %~ recognize limitations and restrictions posed on the systems studied in the works to
     %~ extend the work further. In addition to the sources presented in this
     %~ Section, several more are cited in the following chapters.
 
-    The problem of positioning an unmanned quadrotor using
+    Positioning an unmanned quadrotor using
     visual feedback is a problem which has received extensive attention
     during recent years, and only recently been implemented with convincing
-    results~\citep{DBLP:conf/icra/BloschWSS10,weiss11monocular}.
+    results \citep{DBLP:conf/icra/BloschWSS10,weiss11monocular}.
     Few have attempted to use on-board sensors only, but have relied on
     external setups to track the motions of a quadrotor - reportedly with high precision.
     Fewer still have succeeded using strictly real-time algorithms
     running on the limited processing power that standard
-    SUAV's generally are equipped with, although successful implementations do exist, e.g. \citep{Rudol10}.
+    MAVs generally are equipped with, although successful implementations do exist, e.g. \citep{Rudol10}.
     The LinkQuad is in that regard, with its distributed processing power, well suited
     as a development platform when studying this problem.
 
@@ -23,9 +23,9 @@
     This problem is studied in e.g. \citep{mellinger10perching,brockers:803111},
     but perhaps the most interesting results are obtained in \citep{DBLP:conf/icra/BloschWSS10,weiss11monocular},
     where the ideas from \citep{klein07parallel} of using monocular SLAM
-    are implemented on a UAV platform and excellent results are obtained
-    in terms of achieving real flight, although some problems remain regarding
-    the long-term stability of the controller.
+    are implemented on a UAV platform and excellent results are obtained,
+    using the feedback from the camera's pose estimate for control.
+    Some problems remain however regarding the long-term stability of the controller.
 
     A landing control scheme, inspirational to the approach in this thesis,
     is suggested by \citep{brockers:803111}, which is summarized in Section~\ref{ssec:logic:landing}.
@@ -33,36 +33,43 @@
     Both Linear Quadratic control and PID controllers have been used for control
     in aforementioned projects, and ambiguous results have been attained
     as to which is better \citep{bouabdallah04pid}. Continued effort of
-    quadrotor modelling have however shown great potential\citep{bouabdallah07full}.
+    quadrotor modelling have however shown great potential of the LQ design \citep{bouabdallah07full}.
 
     \subsection{Visual SLAM}
-    A first take on a Visual SLAM (VSLAM) algorithm is presented in \citep{Karlsson05thevslam}, resting on the
-    foundation of a Rao-Blackwellized particle filter with Kalman filter banks.
-    The algorithm presented in \citep{Karlsson05thevslam} also extends to
-    the case of multiple cameras, which could be interesting in a longer perspective.
-    %~ An implementation has been made in a ROS project\citep{rosvslam}, which may be used for reference.
+    Applying the idea of Simultaneaous Localization And Mapping (SLAM)
+    to the data available in a video feed is known as Visual SLAM (vSLAM).
+    A directional paper is presented in \citep{Karlsson05thevslam}, resting on the
+    foundation of a Rao-Blackwellized particle filter with Kalman filter banks
+    to track landmarks recognized from previous videoframes.
+    %~ The algorithm presented in \citep{Karlsson05thevslam} also extends to
+    %~ the case of multiple cameras, which could be interesting in a longer perspective.
+    %~ An implementation has been made in a ROS project \citep{rosvslam}, which may be used for reference.
     Similar approaches, using common Kalman Filtering solutions have been implemented by e.g. \citep{DBLP:conf/iccv/Davison03,Eade:2006:SMS:1153170.1153506},
-    and are available open-source\footnote{\url{http://www.doc.ic.ac.uk/~ajd/Scene/}}.
+    and are available as open-source software\footnote{\url{http://www.doc.ic.ac.uk/~ajd/Scene/}}.
 
-    An alternative approach to VSLAM is suggested by \citep{klein07parallel} in the PTAM - Parallel Tracking And Mapping - library it presents.
+    Another approach to vSLAM is suggested in \citep{klein07parallel} and
+    implemented as the PTAM - Parallel Tracking And Mapping - library.
     This library splits the tracking problem - estimating the camera position -
     of SLAM from the mapping problem - globally optimizing the positions of
     registered features with regards to each other.
     Without the constraint of real-time mapping, this optimization can run
     more advanced algorithms at a slower pace than required by the tracking.
-    A modified version of the said library has also demonstrationally beed implemented on an iPhone~\citep{klein09cameraphone}.
-    This is of special interest to this thesis, since it demonstrates
-    a successful implementation in a resource-constrained environment similar to that available on a SUAV.
 
-    The algorithm proposed in \citep{klein07parallel} uses selected keyframes
-    from which offsets are calculated continously in the tracking thread, while
-    the map optimization problem is addressed separately as fast as possible using information only
-    from these keyframes. This opposed to the traditional VSLAM filtering
-    solution where each frame has to be used for continuous filter updates.
-    Several existing implementations exist with this technique, e.g. as described by \citep{DBLP:conf/iccv/Davison03}.
-
-    By, for instance, not considering the full uncertainties in either camera pose or feature location,
+    Also, by for instance not considering the full uncertainties in either camera pose or feature location,
     the complexity of the algorithm is reduced and the number of studied points
     can be increased to achieve better robustness and
-    performance than when a filtering solution is used\citep{DBLP:conf/icra/StrasdatMD10}.
-    Again, this is the method on which \citep{weiss11monocular} bases its implementation.
+    performance than when a filtering solution is used \citep{DBLP:conf/icra/StrasdatMD10}.
+
+    A modified version of the PTAM library has been implemented on an iPhone \citep{klein09cameraphone}.
+    This is of special interest to this thesis, since it demonstrates
+    a successful implementation in a resource-constrained environment similar to that available on a MAV.
+    The library has been previously applied to the UAV state-estimation field, as presented in \citep{weiss11monocular},
+    although its primary field of application is Augmented Reality (AR).
+
+    %~ The algorithm proposed in \citep{klein07parallel} uses selected keyframes
+    %~ from which offsets are calculated continously in the tracking thread, while
+    %~ the map optimization problem is addressed separately as fast as possible using information only
+    %~ from these keyframes. This opposed to the traditional VSLAM filtering
+    %~ solution where each frame has to be used for continuous filter updates.
+    %~ Several existing implementations exist with this technique, e.g. as described by \citep{DBLP:conf/iccv/Davison03}.
+    %~ Again, this is the method on which \citep{weiss11monocular} bases its implementation.

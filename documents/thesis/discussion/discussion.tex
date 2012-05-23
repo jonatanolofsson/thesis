@@ -2,7 +2,7 @@
 \label{cha:discussion}
     In this chapter, the results of the thesis are discussed,
     analyzing the contents of Chapter~\ref{cha:results} and providing
-    a basis for later discussions on further work.
+    a basis for later discussions on future work.
 
     \section{Modelling}
         It is arguable whether the advanced physical modelling presented
@@ -27,8 +27,9 @@
         Section~\ref{ssec:observer:thrust} were in fact even disabled during
         the verification in Chapter~\ref{cha:results} due to the
         difficulty of verification. In its current state, the model
-        shows good promise but the performance of the model must also
-        be weighed againts the computational complexity.
+        adequately describes the accelerations of the system - and with tuning it might become great -
+        but the performance of the model must also be weighed againts
+        the computational complexity.
 
         The advanced model used in the state estimation does however bear the
         advantage that the linearization performed in the extended Kalman filter,
@@ -53,14 +54,10 @@
         were presented in Sections~\ref{sec:results:modelling}-\ref{sec:results:filtering} of Chapter~\ref{cha:results}.
         As previously noted in Section~\ref{ssec:results:modelling:accelerometers},
         the parameters of the motion model were set to reasonably guessed values
-        but otherwise untuned. As were the filter parameters.
-        It should also be duly noted that the test data is recorded from a very limited test
-        case. Limiting factors include:
-        \begin{itemize}
-            \item Video could only be recorded for $20$ seconds ($30$~Hz mode) or $40$ seconds ($15$~Hz mode),
-            \item Only limited movement was possible in the experiment setup,
-            \item Unperturbed ground thruth was used for initialization.
-        \end{itemize}
+        but otherwise untuned. Similarly, filter covariances were roughly
+        tuned to reasonable values. Video was recorded for $20$ seconds ($30$~Hz mode)
+        or $40$ seconds ($15$~Hz mode), and the Vicon ground thruth was used for
+        initialization but then only for plot reference.
 
         \subsection{EKF vs. UKF}
             In this thesis, two non-linear filter algorithms were studied.
@@ -85,7 +82,7 @@
         \subsection{Performance}
             The quality of the tracking, despite lack of tuning and previously
             mentioned problems, is in some cases remarkable given the
-            preconditions - not least the angle and angular velocity estimates.
+            preconditions, the angle and angular rate estimates in particular.
             The most important factor for this is the high precision achieved by the
             camera positioning. By experimenting with filter tuning, it
             is apparent that noise from the pressure sensor
@@ -98,7 +95,7 @@
             most rewarding factor to increase the performance of the filtering
             is simply to further tune it. Since this can be quite time-consuming,
             it could not be included in the thesis, but tools for simulation
-            and evaluation is provided in the implementation.
+            and evaluation are provided in the implementation.
 
             Currently, the integration of the continuous model from Chapter~\ref{cha:observer}
             is performed using numerical Euler integration.
@@ -116,7 +113,7 @@
     \section{Camera Localization}
         Two libraries were evaluated for the camera localization part of this thesis,
         namely Scenelib and PTAM. Scenelib is the older library of the two,
-        and the library to which PTAM was compared in its original paper~\citep{klein07parallel}.
+        and the library to which PTAM was compared in its original paper \citep{klein07parallel}.
         The Scenelib library, using the filter approach described in Chapter~\ref{sec:video:filtersolutions},
         has the advantage to use metric measures.
         This could potentially have simplified the integration with the
@@ -137,8 +134,9 @@
     \section{Controller}
         The advantages and disadvantages of different control techniques
         and its applications to quadrotor control
-        have been previously discussed and evaluated in~\citep{bouabdallah04pid}.
-        The conclusions are ambiguous, but the state-space control do have potential.
+        have been previously discussed and evaluated in \citep{bouabdallah04pid}.
+        The conclusions are ambiguous, but the state-space approach is believed to
+        excel with continued modelling.
 
         One disadvantage with the state-space approach is its - in comparison
         to PID control - lack of easily implemented integrating states.
@@ -147,10 +145,13 @@
 
         The SDRE approach used in this thesis is also notably rare - if at all existing - in litterature,
         and is an interesting topic for further research.
-        Lacking of a full evaluation however, the results can only be directional
-        but they do show promise.
-        The control does of course suffer from the same lack of parameter tuning
-        as the filtering that would be nescessary for real in-flight control.
+        The control implementation is very versatile although the computational
+        burden can be somewhat lifted by comparing other techniques for solving
+        the Riccati equation of Eq. \ref{eq:controller:lq:care} and its discrete equivalent.
+        While the control would need to be verified and tuned for real flight,
+        the tools and structure have been verified in simulation with good results.
+        %~ The control does of course suffer from the same lack of parameter tuning
+        %~ as the filtering that would be nescessary for real in-flight control.
 
         It should be noted that the control model is fundamentally the same
         as the observer model and, more importantly, the underlying simulation
@@ -158,11 +159,13 @@
         the control evaluation suffers from the fact that the control is ``perfect'' for the
         simulated model, and not nescessarily for real flight.
 
-        Even though very little of the work was focused on tuning the control,
-        the simulated control was unexpectedly good. The control handled
-        moderate simulated winds and disturbances without much trouble, and
+        One clear advantage with the LQ control methodology is its simple
+        tuning, and even though very little of the work was focused on
+        tuning the control, the performance of the simulated control was acceptable.
+        The control handled moderate simulated winds and disturbances without trouble, and
         followed velocity references adequately.
-        Since the actuating of the yaw rate control is very weak, poor control
+        Since the actuating of the yaw rate control is very weak in
+        quadrotor configurations such as the LinkQuad, slow control
         is to be expected here, especially without more tuning of the control
         parameters.
 
@@ -181,8 +184,15 @@
         the force acting on the quadrotor by a ever-increasing wind.
         In simulation, the landing detection failed to detect landing
         as proposed in Section~\ref{ssec:logic:landing:detection}.
-        Although the plot in Figure~\ref{fig:results:filtering:windbump}
-        is made from simulated data, implies that landing detection
+
+        When a landing is simulated, Figure~\ref{fig:results:filtering:windbump}
+        exhibits an interesting property where a notable bump occurs at the
+        time of the landing. While this is not the expected behaviour
+        - the estimate should be negative and constant -
+        it does show that the wind may be useful as a detector for landing.
+
+        The plot in Figure~\ref{fig:results:filtering:windbump}
+        is made from simulated data, but it implies that landing detection
         using wind estimation might be feasible, although more work is required
         to achieve the quality of estimation needed to securely detect landing.
         The received result was unexpected, and debugging should be performed prior
@@ -192,13 +202,24 @@
         is needed but it is believed that with proper filter tuning, the
         variable in question may be a contributing factor in a more advanced
         landing-detection system.
-
+\pagebreak
     \section{Real-time Performance}
-        FIXME: Add real results
+        Although real-time control is easily achieved on a modern laptop,
+        simulations indicate that real-time performance
+        could not be achieved on the LinkQuad's gumstix without modifications.
 
         The performance of the proposed algorithms when evaluated on the
-        gumstix is penalized by the lack of a floating point processor, FPU, to
-        carry out the calculations. Furthermore, the system was evaluated
-        using the reference implementation of BLAS\footnote{\textit{Basic Linear Algebra Subprograms}, a standard set of mathematical routines},
-        which could possibly be replaced by a tuned implementation such
-        as ATLAS\footnote{\textit{Automatically Tuned Linear Algebra Software}}.
+        gumstix is penalized by the lack of a floating point processor (FPU) to
+        carry out the calculations. However, the gumstix has a
+        Digital Signal Processing unit (DSP) which would be possible to
+        use as a FPU to increase execution speed.
+        Attempts were in fact also made to convert libraries and algorithms from
+        double precision calculations to single precision, although these attempts failed.
+        This is still, however, believed to be of significance to achieve real-time performance.
+
+        Furthermore, the system was evaluated
+        using the reference implementation of BLAS\footnote{\textit{Basic Linear Algebra Subprograms},
+        a standard set of mathematical routines}, which could possibly
+        be replaced by a tuned implementation such as ATLAS\footnote{\textit{Automatically Tuned Linear Algebra Software}}.
+        Model simplifications may also be nescessary to achieve real-time performance
+        on the existing hardware.

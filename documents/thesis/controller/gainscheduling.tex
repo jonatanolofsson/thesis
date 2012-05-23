@@ -14,8 +14,11 @@
     but instead of using pre-calculated gains, the linearization is done
     in-flight.
 
-    The problem of solving of the Riccati equation  on-line is treated under
+    The problem of solving of the Riccati equation  online is treated under
     the subject of \textit{State-Dependent Riccati Equations}, SDRE's.
+    While beeing computationally heavier than the standard LQ formulation
+    due to having to solve the Riccati equation each time step, the need
+    for finding valid linearization points is removed and more general problems can be treated.
     The basic formulation of the problem is covered in e.g. \citep{Rantzer99piecewiselinear},
     and an extensive survery is presented in \citep{Tayfun08sdresurvey}.
     Implementation details are detailed and evaluated in e.g \citep{Erdem_analysisand,Benner98acceleratingnewton's,10.1109/MED.2006.328740}.
@@ -23,8 +26,12 @@
     The LQ theory is extended to the non-linear case using the Taylor
     expansion of a general motion model is exploited to form the general
     result of Equation \eqref{eq:controller:affinelq}.
-    The linearization of the motion model is presented in
-    Equation \eqref{eq:controller:gainscheduling:xdot}.
+    Similar to several other modifications to the LQ methodology - such as
+    Model Predictive Control (MPC) - the cost associated with the control signal
+    is often applied relative to its current level, $\Delta u$, to avoid
+    forcing all control signals to zero in the optimization problem that is solved.
+    In each time-step the local linearization of the motion model, as presented in
+    Eq. \eqref{eq:controller:gainscheduling:xdot}, is used to solve the LQ-equations for $\Delta u$.
 
     \begin{equation}
         \label{eq:controller:gainscheduling:xdot}

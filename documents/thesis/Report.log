@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  20 MAY 2012 20:01
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  23 MAY 2012 17:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1370,27 +1370,27 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 156.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 156.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 156.
 
 
 (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 121.
+LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 156.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1431,54 +1431,54 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package crop Info: requested driver: `' on input line 121.
-Package crop Info: detected driver: `dvips' on input line 121.
-Package crop Info: using `dvips' graphics driver on input line 121.
+Package crop Info: requested driver: `' on input line 156.
+Package crop Info: detected driver: `dvips' on input line 156.
+Package crop Info: using `dvips' graphics driver on input line 156.
 \c@lstlisting=\count310
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 125.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 160.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 125.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 160.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 125
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 160
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 125
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 160
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 125.
+(Font)              <10> on input line 160.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 125.
+(Font)              <7> on input line 160.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 125.
-LaTeX Font Info:    Try loading font information for U+msa on input line 125.
+(Font)              <5> on input line 160.
+LaTeX Font Info:    Try loading font information for U+msa on input line 160.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 125.
+LaTeX Font Info:    Try loading font information for U+msb on input line 160.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 File: LiTH_staende_eng_sv.eps Graphic file (type eps)
  <LiTH_staende_eng_sv.eps>
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 125--125
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 160--160
 []| [] 
  []
 
@@ -1488,7 +1488,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 125--125
 ] [0
 
 ]
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 125--125
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 160--160
 []| [] 
  []
 
@@ -1501,7 +1501,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 125--125
 ]
 File: LiTH_sigill_sv.eps Graphic file (type eps)
  <LiTH_sigill_sv.eps>
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 125.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 160.
 
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1551,17 +1551,17 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 ] (./introduction/platform.tex
-Underfull \hbox (badness 1577) in paragraph at lines 79--79
+Underfull \hbox (badness 1577) in paragraph at lines 83--83
  [][][] 
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 79--79
+Underfull \hbox (badness 1418) in paragraph at lines 83--83
  [][][] 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 80.
+(Font)              <9> on input line 84.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1582,10 +1582,16 @@ $[]$
  []
 
 [4]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 80.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 84.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
+Overfull \hbox (0.74202pt too wide) in paragraph at lines 118--119
+[]\T1/lmr/m/n/10 State es-ti-ma-tion the-ory and phys-i-cal mod-elling of a qua
+dro-
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1631,9 +1637,6 @@ File: observer/figures/worldcoordframes.eps Graphic file (type eps)
 File: observer/figures/quadrotorcoordframes.eps Graphic file (type eps)
 
 <observer/figures/quadrotorcoordframes.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1654,18 +1657,18 @@ $[]$
  []
 
 [16]
-Underfull \hbox (badness 1014) in paragraph at lines 182--182
+Underfull \hbox (badness 1014) in paragraph at lines 186--186
 \T1/lmr/m/n/10 lat-ing the square of $\OML/lmm/m/it/10 ![]$ \T1/lmr/m/n/10 to t
 he
  []
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 182--182
+Underfull \hbox (badness 1019) in paragraph at lines 186--186
 \T1/lmr/m/n/10 base, rel-a-tive to the hor-i-zon-tal
  []
 
 
-Underfull \hbox (badness 1448) in paragraph at lines 182--182
+Underfull \hbox (badness 1448) in paragraph at lines 186--186
 []|\T1/lmr/m/n/10 The ro-ta-tional ve-loc-ity of pro-
  []
 
@@ -1690,17 +1693,23 @@ $[]$
  []
 
 [19])) (./observer/sensormodels.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[20]
 Overfull \hbox (5.22961pt too wide) in paragraph at lines 48--51
 \T1/lmr/m/n/10 The Earth's mag-netic field can be ap-prox-i-mated us-ing the Wo
 rld Mag-netic Model[[]],
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
+Overfull \hbox (9.0105pt too wide) in paragraph at lines 62--63
+\T1/lmr/m/n/10 The baro-met-ric pres-sure, $\OML/lmm/m/it/10 p$\T1/lmr/m/n/10 ,
+ can be re-lated to al-ti-tude us-ing the fol-low-ing equation[[]] 
  []
 
-[20] (./observer/camera.tex
+(./observer/camera.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1710,17 +1719,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[22])))
+[22]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[23] (./controller/controller.tex [24
+[23])))
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
 
-
-]
+[24] (./controller/controller.tex
 Chapter 3.
-(./controller/lq.tex [25]) (./controller/gainscheduling.tex
+(./controller/lq.tex [25
+
+
+]) (./controller/gainscheduling.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1743,36 +1757,27 @@ Chapter 4.
 ]
 File: video/figures/ptamkeyframes.eps Graphic file (type eps)
  <video/figures/ptamkeyframes.eps>
-File: video/figures/ptamcalibration.eps Graphic file (type eps)
- <video/figures/ptamcalibration.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [30]
+File: video/figures/ptamcalibration.eps Graphic file (type eps)
+ <video/figures/ptamcalibration.eps>
 File: video/figures/ptamtracking.eps Graphic file (type eps)
  <video/figures/ptamtracking.eps>
-Overfull \hbox (2.03467pt too wide) in paragraph at lines 76--80
-\T1/lmr/m/n/10 In the track-ing pro-ce-dure, the PTAM li-brary ran-domly projec
-ts pre-vi-ously recorded
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [31]
+File: video/figures/ptamfeaturetracking.eps Graphic file (type eps)
+ <video/figures/ptamfeaturetracking.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[32]
-File: video/figures/ptamfeaturetracking.eps Graphic file (type eps)
- <video/figures/ptamfeaturetracking.eps>)
+[32])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1792,7 +1797,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[36])
+[36]
+Overfull \vbox (38.36642pt too high) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1802,17 +1810,19 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[38] (./results/results.tex
+[38])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[39] (./results/results.tex [40
+
+
+]
 Chapter 6.
 (./results/setup.tex
 File: results/figures/testarea.eps Graphic file (type eps)
- <results/figures/testarea.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [39
-
-
-])
+ <results/figures/testarea.eps> [41])
 (./results/modelling.tex
 File: results/figures/accelerometers.eps Graphic file (type eps)
  <results/figures/accelerometers.eps>
@@ -1820,98 +1830,99 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[40]
+[42]
 File: results/figures/accelerometersresiduals.eps Graphic file (type eps)
  <results/figures/accelerometersresiduals.eps>
 File: results/figures/accelerometersnormalfit.eps Graphic file (type eps)
 
 <results/figures/accelerometersnormalfit.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[41]
-File: results/figures/gyroscopes.eps Graphic file (type eps)
- <results/figures/gyroscopes.eps>
-File: results/figures/gyroscopesresiduals.eps Graphic file (type eps)
-
-<results/figures/gyroscopesresiduals.eps>
-File: results/figures/gyroscopesnormalfit.eps Graphic file (type eps)
-
-<results/figures/gyroscopesnormalfit.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[42]
-File: results/figures/pressure.eps Graphic file (type eps)
- <results/figures/pressure.eps>
-File: results/figures/pressureresiduals.eps Graphic file (type eps)
- <results/figures/pressureresiduals.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [43]
-File: results/figures/pressurenormalfit.eps Graphic file (type eps)
- <results/figures/pressurenormalfit.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+File: results/figures/gyroscopes.eps Graphic file (type eps)
+ <results/figures/gyroscopes.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [44]
-File: results/figures/camera.eps Graphic file (type eps)
- <results/figures/camera.eps>
-File: results/figures/cameraresiduals.eps Graphic file (type eps)
- <results/figures/cameraresiduals.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: results/figures/gyroscopesresiduals.eps Graphic file (type eps)
+ <results/figures/gyroscopesresiduals.eps>
+File: results/figures/gyroscopesnormalfit.eps Graphic file (type eps)
 
-
+<results/figures/gyroscopesnormalfit.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [45]
-File: results/figures/cameranormalfit.eps Graphic file (type eps)
- <results/figures/cameranormalfit.eps>
-File: results/figures/camerainitframe.eps Graphic file (type eps)
-
-<results/figures/camerainitframe.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+File: results/figures/pressure.eps Graphic file (type eps)
+ <results/figures/pressure.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[46]) (./results/filtering.tex
-File: results/figures/X.eps Graphic file (type eps)
- <results/figures/X.eps>
-File: results/figures/Y.eps Graphic file (type eps)
- <results/figures/Y.eps>
-File: results/figures/Z.eps Graphic file (type eps)
+[46]
+File: results/figures/pressureresiduals.eps Graphic file (type eps)
+ <results/figures/pressureresiduals.eps>
+File: results/figures/pressurenormalfit.eps Graphic file (type eps)
 
-<results/figures/Z.eps>
-Underfull \vbox (badness 2012) has occurred while \output is active []
-
-
+<results/figures/pressurenormalfit.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [47]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[48]
+File: results/figures/camera.eps Graphic file (type eps)
+ <results/figures/camera.eps>
+File: results/figures/cameraresiduals.eps Graphic file (type eps)
+ <results/figures/cameraresiduals.eps>
+File: results/figures/cameranormalfit.eps Graphic file (type eps)
+
+<results/figures/cameranormalfit.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[49]
+File: results/figures/camerainitframe.eps Graphic file (type eps)
+ <results/figures/camerainitframe.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[50]) (./results/filtering.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[51]
+File: results/figures/X.eps Graphic file (type eps)
+ <results/figures/X.eps>
+File: results/figures/Y.eps Graphic file (type eps)
+ <results/figures/Y.eps>
+File: results/figures/Z.eps Graphic file (type eps)
+ <results/figures/Z.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[52]
+Overfull \vbox (41.79596pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[53]
 File: results/figures/velX.eps Graphic file (type eps)
  <results/figures/velX.eps>
 File: results/figures/velY.eps Graphic file (type eps)
@@ -1919,14 +1930,19 @@ File: results/figures/velY.eps Graphic file (type eps)
 File: results/figures/velZ.eps Graphic file (type eps)
 
 <results/figures/velZ.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[54]
+Overfull \vbox (17.63843pt too high) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[48]
+[55]
 File: results/figures/qwb0.eps Graphic file (type eps)
  <results/figures/qwb0.eps>
 File: results/figures/qwbi.eps Graphic file (type eps)
@@ -1936,29 +1952,27 @@ File: results/figures/qwbj.eps Graphic file (type eps)
 <results/figures/qwbj.eps>
 File: results/figures/qwbk.eps Graphic file (type eps)
  <results/figures/qwbk.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[49]
 File: results/figures/wRoll.eps Graphic file (type eps)
- <results/figures/wRoll.eps>
+
+<results/figures/wRoll.eps>
 File: results/figures/wPitch.eps Graphic file (type eps)
  <results/figures/wPitch.eps>
 File: results/figures/wYaw.eps Graphic file (type eps)
 
 <results/figures/wYaw.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[56]
+Overfull \vbox (15.50314pt too high) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[50]
+[57]
 File: results/figures/driftRoll.eps Graphic file (type eps)
  <results/figures/driftRoll.eps>
 File: results/figures/driftPitch.eps Graphic file (type eps)
@@ -1966,14 +1980,16 @@ File: results/figures/driftPitch.eps Graphic file (type eps)
 File: results/figures/driftYaw.eps Graphic file (type eps)
 
 <results/figures/driftYaw.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: results/figures/headings.eps Graphic file (type eps)
+ <results/figures/headings.eps>
+Overfull \vbox (6.60182pt too high) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[51]
+[58]
 File: results/figures/windX.eps Graphic file (type eps)
  <results/figures/windX.eps>
 File: results/figures/windY.eps Graphic file (type eps)
@@ -1981,14 +1997,19 @@ File: results/figures/windY.eps Graphic file (type eps)
 File: results/figures/windZ.eps Graphic file (type eps)
 
 <results/figures/windZ.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[59]
+Overfull \vbox (26.42023pt too high) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[52]
+[60]
 File: results/figures/simwindX.eps Graphic file (type eps)
  <results/figures/simwindX.eps>
 File: results/figures/simwindY.eps Graphic file (type eps)
@@ -1996,48 +2017,45 @@ File: results/figures/simwindY.eps Graphic file (type eps)
 File: results/figures/simwindZ.eps Graphic file (type eps)
 
 <results/figures/simwindZ.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (49.1891pt too high) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[53]
+[61]
 File: results/figures/windbump.eps Graphic file (type eps)
  <results/figures/windbump.eps>
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[54]
 File: results/figures/wr1.eps Graphic file (type eps)
  <results/figures/wr1.eps>
 File: results/figures/wr2.eps Graphic file (type eps)
- <results/figures/wr2.eps>
+
+<results/figures/wr2.eps>
 File: results/figures/wr3.eps Graphic file (type eps)
-
-<results/figures/wr3.eps>
+ <results/figures/wr3.eps>
 File: results/figures/wr4.eps Graphic file (type eps)
- <results/figures/wr4.eps>) (./results/control.tex
+ <results/figures/wr4.eps>)
+(./results/control.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[62]
 File: results/figures/referencefollowing.eps Graphic file (type eps)
-
-<results/figures/referencefollowing.eps>))
-Underfull \vbox (badness 6808) has occurred while \output is active []
-
-
+ <results/figures/referencefollowing.eps>)
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[55]
+[63])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[56] (./discussion/discussion.tex
+[64] (./discussion/discussion.tex
 Chapter 7.
-[57
+[65
 
 
 ]
@@ -2045,30 +2063,32 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[58]
+[66]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[59])
+[67]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[60] (./conclusions/conclusions.tex
+[68])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[69] (./conclusions/conclusions.tex [70
+
+
+]
 Chapter 8.
-
-Underfull \vbox (badness 1521) has occurred while \output is active []
-
- [61
-
-
-])
+[71])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[62] (./Report.bbl [63
+[72] (./Report.bbl [73
 
 
 ]
@@ -2076,27 +2096,24 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[64]
+[74]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[65])
+[75])
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[66] (./crap/crap.tex
+[76] (./crap/crap.tex
 Appendix A.
 
 Overfull \hbox (15.0pt too wide) in paragraph at lines 24--43
 []$[]$ 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [67
+[77
 
 
 ]
@@ -2105,22 +2122,16 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 70--104
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[68]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+[78]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[69]
+[79]
 Overfull \hbox (6.25694pt too wide) in paragraph at lines 163--167
 []\T1/lmr/m/n/10 Using the ex-ist-ing mes-sage def-i-ni-tions for se-rial com-m
 u-ni-ca-tion on the LinkQuad,
@@ -2131,7 +2142,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[70]
+[80]
 Overfull \hbox (15.0pt too wide) in paragraph at lines 181--190
 []$[]$ 
  []
@@ -2147,72 +2158,6 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 233--241
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[71]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[72]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 329--344
-[]$[]$ 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[73]
-File: crap/figures/interface.eps Graphic file (type eps)
- <crap/figures/interface.eps>)
-Underfull \vbox (badness 8189) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[74]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[75] (./gpl/gpl.tex
-Appendix B.
-[76
-
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[77]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[78]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[79]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[80]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -2223,11 +2168,18 @@ $[]$
  []
 
 [82]
+Overfull \hbox (15.0pt too wide) in paragraph at lines 329--344
+[]$[]$ 
+ []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [83]
+File: crap/figures/interface.eps Graphic file (type eps)
+ <crap/figures/interface.eps>)
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -2237,45 +2189,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[85]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[86]
-Overfull \hbox (7.72542pt too wide) in paragraph at lines 621--631
-[]\T1/lmr/m/n/10 IN NO EVENT UN-LESS RE-QUIRED BY AP-PLI-CA-BLE LAW OR AGREED
- []
-
-
-Overfull \hbox (3.14503pt too wide) in paragraph at lines 621--631
-\T1/lmr/m/n/10 PARTY WHO MOD-I-FIES AND/OR CON-VEYS THE PRO-GRAM AS PER-
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[87]
-Overfull \hbox (144.5191pt too wide) in paragraph at lines 703--709
-\T1/lmr/m/n/10 Li-cense in-stead of this Li-cense. But first, please read \T1/l
-mtt/m/n/10 http://www.gnu.org/philosophy/why-not-lgpl.html\T1/lmr/m/n/10 . 
- []
-
-)
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[88] (./Report.aux) ) 
+[85] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 22917 strings out of 495015
- 414600 string characters out of 3181236
- 600845 words of memory out of 3000000
- 25373 multiletter control sequences out of 15000+200000
- 134014 words of font info for 85 fonts, out of 3000000 for 9000
+ 22986 strings out of 495015
+ 415975 string characters out of 3181236
+ 599603 words of memory out of 3000000
+ 25446 multiletter control sequences out of 15000+200000
+ 126951 words of font info for 83 fonts, out of 3000000 for 9000
  36 hyphenation exceptions out of 8191
- 58i,17n,60p,525b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,17n,60p,528b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Report.dvi (102 pages, 396468 bytes).
+Output written on Report.dvi (99 pages, 366688 bytes).

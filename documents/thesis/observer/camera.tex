@@ -2,10 +2,13 @@
 \label{ssec:observer:sensormodels:camera}
     To estimate the position of the camera using the captured images,
     the PTAM-library is used.
-    Because the main application of the PTAM library is reprojection of
-    augmented reality into the image, consistency between a metric world-fixed
+    The main application of the PTAM library is reprojection of
+    augmented reality into the video stream.
+    This means that consistency between a metric world-fixed
     coordinate frame (such as the NEDEF-system used on the LinkQuad), and the
-    internally used coordinate system is not of importance - and thus not implemented in the PTAM positioning.
+    internally used coordinate system is not nescessary for its application.
+    The transformation between the NEDEF coordinate system and the
+    PTAM coordinate system thus have to be determined.
 
     The measurements from the camera consists of the transform from the PTAM ``world''-coordinates
     to the camera lens, in terms of
@@ -13,11 +16,12 @@
         \item translation, $X^{\text{PTAM}}$,
         \item and orientation, $q^{PTAM,c}$.
     \end{itemize}
-    However, since the quite arbtirary\citep{klein07parallel} coordinate system
+    A rough estimate of the quality of the tracking is also provided as an enumerated representation of either \textit{Good}, \textit{Poor} or \textit{Bad}.
+    However, since the quite arbtirary \citep{klein07parallel} coordinate system
     of PTAM is neither of the same scale nor aligned with the quadrotor coordinate system,
     we need to estimate the affine transformation between the two in order to get useful results.
 
-    The transformation is characterized by
+    Since both the NEDEF and the PTAM coordinate frame is world-fixed, the transformation is characterized by
     \begin{itemize}
         \item a translation T to the origin, $\varnothing_{\text{PTAM}}$,
         \item a rotation R by the quaternion $q^{Pw}$,
@@ -35,16 +39,17 @@
          x^{\text{NEDEF}}
     \end{equation}
 
-    E.g. \citep{hayashi2010} studies this problem in the offline case,
-    whereas the method used in this thesis extends the idea to the on-line
-    case where no ground truth is available. This is performed by using the
-    first measurement to construct an initial guess which then is filtered
-    through time using the observer.
+    The offline case of this problem is partially studied in \citep{hayashi2010},
+    whereas the method used in this thesis can be extended to the on-line
+    case where no ground truth is available by introducing continously improved
+    states to the observer filter, using the first measurement to construct
+    an initial guess.
 
-    While PTAM exhibit very stable positioning, it has a tendency to move
+    While PTAM exhibits very stable positioning, it has a tendency to move
     its origin due to association errors. To provide stable position
-    measurements, we need to detect these movements and adjust the
-    camera transformation accordingly. Initialization and tracking is dealt with in
+    measurements, those movements should be detected and the
+    camera transformation adjusted accordingly.
+    Initialization and tracking is dealt with in
     Section~\ref{sssec:observer:sensormodels:camera:initialization} and \ref{sssec:observer:sensormodels:camera:refinement}
     respectively, whereas the teleportation problem is discussed in
     Section~\ref{sssec:observer:sensormodels:camera:teleportation}.

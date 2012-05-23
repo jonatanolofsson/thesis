@@ -1,4 +1,4 @@
-\section{Modelling}
+\section{Model Verification}
 \label{sec:results:modelling}
     The verification of a complex model is best done in small parts.
     It is however, with the model given in Chapter~\ref{cha:observer},
@@ -12,7 +12,7 @@
 
     \subsection{Accelerometers}
         \label{ssec:results:modelling:accelerometers}
-        As most of the modelling of Chapter~\ref{cha:observer} concerns
+        As most of the modelling in Chapter~\ref{cha:observer} concerns
         the forces acting upon the quadrotor, the accelerometers
         provide an interesting measure of the quality of the model.
         It should be noted that parameters were set to reasonable values,
@@ -23,16 +23,19 @@
         X- and Y-directions where the model does very little.
         From the Figures~\ref{fig:results:modelling:accelerometersresiduals} and \ref{fig:results:modelling:accelerometersnormalfit},
         it can be seen that the model does have beneficial
-        effects for the estimation, yielding residuals with zero-close means.
-        \fig{\plotwidth}{accelerometers}{Measured and predicted accelerations in the NEDEF system.}{fig:results:modelling:accelerometers}
-        \fig{\plotwidth}{accelerometersresiduals}{Residuals between measured and predicted accelerations.}{fig:results:modelling:accelerometersresiduals}
+        effects for the estimation, yielding predictions with lesser residuals
+        than for instance a constant velocity model would.
+        The residuals are also centered around zero due to the compensation
+        for sensor bias, which is relevant to reduce drift in the system.
+        \fig{\plotwidth}{accelerometers}{Measured and predicted accelerations in the NEDEF system. The motion model does not describe the horizontal motion although does - even in its early stage - explain some of the altitudinal acceleration.}{fig:results:modelling:accelerometers}
+        \fig{\plotwidth}{accelerometersresiduals}{Residuals between measured and predicted accelerations. A zero mean is relevant to reduce drift in the system.}{fig:results:modelling:accelerometersresiduals}
         \fig{\plotwidth}{accelerometersnormalfit}{Accelerometer residuals fitted to a normal PDF. Both theoretical and numerical values have been normalized to a maximum height of one.}{fig:results:modelling:accelerometersnormalfit}
 
     \subsection{Gyroscopes}
         \label{ssec:results:modelling:gyroscopes}
         It is clear, from Figure~\ref{fig:results:modelling:gyroscopes}, that
-        the model well describes the angular velocity of the quadrotor.
-        The residuals, described by Figures~\ref{fig:results:modelling:gyroscopesresiduals}
+        the model describes the angular velocity of the quadrotor well.
+        The residuals, presented by Figures~\ref{fig:results:modelling:gyroscopesresiduals}
         and \ref{fig:results:modelling:gyroscopesnormalfit}
         display a behaviour which is adequately well described by a random,
         normally distributed, variable, which is expected from the
@@ -47,33 +50,37 @@
         Figures~\ref{fig:results:modelling:pressureresiduals} and \ref{fig:results:modelling:pressurenormalfit},
         does not exhibit any obvious trends, noise does spill into
         the positioning with the current tuning, currently adding little contribution
-        to the state estimation. This is however likely to be improved by firther filter tuning.
+        to the state estimation. This is however likely to be improved by further filter tuning,
+        although indoor use of pressure sensors is, like magnetometers, known to
+        be problematic due to air conditioning and other sources of pressure changes.
         \fig{\plotwidth}{pressure}{Measured and predicted pressure.}{fig:results:modelling:pressure}
         \fig{\plotwidth}{pressureresiduals}{Residuals between measured and predicted pressure.}{fig:results:modelling:pressureresiduals}
         \fig{\plotwidth}{pressurenormalfit}{Pressure residuals fitted to a normal PDF. Both theoretical and numerical values have been normalized to a maximum height of one.}{fig:results:modelling:pressurenormalfit}
 
-    \subsection{Camera}
-        The camera tracking, displayed in Figures~\ref{fig:results:modelling:camera}-\ref{fig:results:modelling:cameranormalfit},
+    \subsection{Camera Positioning}
+        The camera tracking, shown in Figures~\ref{fig:results:modelling:camera}-\ref{fig:results:modelling:cameranormalfit},
         exhibit very good stability and performance, and significantly add to
         the filter performance. The absolute positioning provided by the
-        camera does not only counter the drift in derived observer states,
-        but also, not least through its accurate measurements of orientation
-        angles exhibited in Figure~\ref{fig:results:modelling:camera}.
-        It should be noted that the results, especially in
+        camera counters the drift in derived observer states,
+        and provides accurate measurements of orientation angles and position, as
+        exhibited in Figure~\ref{fig:results:modelling:camera}.
+        Because of potential errors in the world-PTAM transformation, the orientation - which
+        is independent of the scale - is often the most reliable of the two quantities.
+        It should be noted that the position results, especially in
         Figures~\ref{fig:results:modelling:cameraresiduals}-\ref{fig:results:modelling:cameranormalfit}
-        should be scaled approximately by a factor of three to correspond
+        should be scaled by a factor - for this data approximately $3$ - to correspond
         to metric quantities.
 
         When the PTAM library is initialized, it tries to determine the
         ground plane. Thus we are able to verify, in Figure~\ref{fig:results:modelling:camerainitframe}, the initialization process and transformation
-        by confirming that the Z-axes are approximately parallell.
+        by confirming that the Z-axes ($Z^{NEDEF}$ and $z^{PTAM}$) are approximately parallel.
         The slight tilting observed in Figure~\ref{fig:results:modelling:camerainitframe}
         is caused by a misplacement of the ground plane in the initialization process.
         Knowing the pose at the initialization allows us to compensate for this in the
         transformation, making the positioning less sensitive for PTAM initialization errors.
         Exact positioning on the moment of initialization is still of importance, however.
 
-        \fig{\plotwidth}{camera}{Measured and predicted angles and positions, in the PTAM coordinate frame. Measures should be multiplied by a scale of approximately $3$ for metric comparison.}{fig:results:modelling:camera}
-        \fig{\plotwidth}{cameraresiduals}{Residuals between measured and predicted angles and positions, in the PTAM coordinate frame. Measures should be multiplied by a scale of approximately $3$ for metric comparison.}{fig:results:modelling:cameraresiduals}
-        \fig{\plotwidth}{cameranormalfit}{Residuals fitted to a normal PDF. Both theoretical and numerical values have been normalized to a maximum height of one. Measures should be multiplied by a scale of approximately $3$ for metric comparison.}{fig:results:modelling:cameranormalfit}
-        \fig{\plotwidth}{camerainitframe}{The PTAM coordinate system is somewhat askew from its theoretical orientation, with the z-axis parallell to the ground. This can also be seen in Figure~\ref{fig:video:ptamtracking}, which is captured from the same dataset.}{fig:results:modelling:camerainitframe}
+        \fig{\plotwidth}{camera}{Measured and predicted angles and positions, in the PTAM coordinate frame. Positional measures should be multiplied by a scale of approximately $3$ for metric comparison.}{fig:results:modelling:camera}
+        \fig{\plotwidth}{cameraresiduals}{Residuals between measured and predicted angles and positions, in the PTAM coordinate frame. Positional measures should be multiplied by a scale of approximately $3$ for metric comparison.}{fig:results:modelling:cameraresiduals}
+        \fig{\plotwidth}{cameranormalfit}{Residuals fitted to a normal PDF. Both theoretical and numerical values have been normalized to a maximum height of one. Positional measures should be multiplied by a scale of approximately $3$ for metric comparison.}{fig:results:modelling:cameranormalfit}
+        \fig{\plotwidth}{camerainitframe}{The PTAM coordinate system is somewhat askew from its theoretical orientation, with the z-axis parallel to the ground. This can also be seen in Figure~\ref{fig:video:ptamtracking}, which is captured from the same dataset.}{fig:results:modelling:camerainitframe}

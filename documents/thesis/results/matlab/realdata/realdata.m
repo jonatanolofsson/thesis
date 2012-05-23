@@ -5,8 +5,6 @@ else
     figures.closeAll();
 end
 
-skip = 30*12;
-
 %% Import data
 measurements.imu = Files.import('imu_measured.log');
 simulation.imu = Files.import('imu_simulated.log');
@@ -32,6 +30,16 @@ reality.roll    = Quaternion.toRoll(reality.qwb0, reality.qwbi, reality.qwbj, re
 reality.pitch   = Quaternion.toPitch(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 reality.yaw     = Quaternion.toYaw(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 
+measurements.imu.time = measurements.imu.time/2;
+measurements.camera.time = measurements.camera.time/2;
+simulation.imu.time = simulation.imu.time/2;
+simulation.camera.time = simulation.camera.time/2;
+observer.time = observer.time/2;
+reality.time = reality.time/2;
+
+raw = Files.import('data.log');
+
+reality.time(980) = reality.time(980)+0.0001;
 %%
 sensors
 filtering
@@ -46,11 +54,13 @@ A = [-0.324889   0.945334 -0.0281195;
 -0.0858934 -0.059103  -0.99455]';
 
 E = eye(3);
-figures.getFigure('camerainitframe');
+figures.getFigure('camerainitframe');clf;
 draw_coordinate_system(A);
 draw_coordinate_system(E);
 xlabel('X'); ylabel('Y'); zlabel('Z');
 text(1.1,0,0,'X'); text(0,1.1,0,'Y'); text(0,0,1.1,'Z');
-text('Position', 1.1*A(3,:), 'String', 'Z^{PTAM}')
+text('Position', 1.1*A(1,:), 'String', 'x^{PTAM}');
+text('Position', 1.1*A(2,:), 'String', 'y^{PTAM}');
+text('Position', 1.1*A(3,:), 'String', 'z^{PTAM}');
 view([120 25]);
 set(gca,'XDir','reverse'); set(gca,'ZDir','reverse');

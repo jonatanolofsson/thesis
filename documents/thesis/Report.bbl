@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{arjomandi:classification}
+Maziar Arjomandi.
+\newblock {Classification of Unmanned Aerial Vechicles}.
+\newblock Technical report, Mechanical Engineering, 2006.
+
 \bibitem{Benner98acceleratingnewton's}
 Peter Benner.
 \newblock {Accelerating Newton's Method for Discrete-Time Algebraic Riccati
@@ -63,8 +68,8 @@ Ethan Eade and Tom Drummond.
 
 \bibitem{Erdem_analysisand}
 Evrin~Bilge Erdem.
-\newblock {ANALYSIS AND REAL-TIME IMPLEMENTATION OF STATE-DEPENDENT RICCATI
-  EQUATION CONTROLLED SYSTEMS BY}, 2001.
+\newblock {Analysis and Real-time Implementation of State-Dependent Riccati
+  Equation Controlled Systems}, 2001.
 
 \bibitem{glad2003reglerteori}
 T.~Glad and L.~Ljung.
@@ -243,11 +248,6 @@ S~Weiss, D~Scaramuzza, and R~Siegwart.
 \newblock {Monocular-SLAM based navigation for autonomous micro helicopters in
   GPS-denied environments}.
 \newblock {\em Journal of Field Robotics}, 28(6):854--874, 2011.
-
-\bibitem{wiki:suav}
-Wikipedia.
-\newblock {Miniature UAV --- Wikipedia{,} The Free Encyclopedia}, 2012.
-\newblock [Online; accessed 14-May-2012].
 
 \bibitem{Wong_Bil_2006}
 K~C Wong and C~Bil.

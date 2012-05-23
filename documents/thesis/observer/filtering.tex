@@ -1,7 +1,7 @@
 \section{The Filtering Problem}
 \label{sec:observer:filtering}
-    The problem of estimating the state of a system - in this case
-    its position, orientation, velocity etc. - is in general filtering
+    In the general filtering problem, the estimation of the systems states - in this case
+    its position, orientation, velocity etc. - is
     expressed as the problem of finding the state estimate,
     $\hat{x}$, that in a well defined best way (e.g. with Minimum Mean Square Error, MMSE)
     describes the behaviour of the system.
@@ -52,7 +52,7 @@
 
     The innovation is then fused with the prediction to yield a new
     estimation of $x$ given the
-    information available as of the time $t$~\citep{gustafsson2010statistical}.
+    information available as of the time $t$ \citep{gustafsson2010statistical}.
     \begin{equation}
         \hat{x}_{t|t} = \hat{x}_{t|t-1} + K_{t}\nu_{t}
     \end{equation}
@@ -108,7 +108,7 @@
                                | \mathcal{Y}^{k} \right] .
     \end{equation}
     As new measurements are taken, the covariance of the state evolves
-    with the state estimate as in Eq.~\eqref{eq:observer:filtering:pxx}~\citep{Julier95anewapproach}.
+    with the state estimate as in Eq.~\eqref{eq:observer:filtering:pxx} \citep{Julier95anewapproach}.
     \begin{equation}
         \label{eq:observer:filtering:pxx}
         P_{xx}(t|t) = P_{xx}(t|t-1) - K_{t}P_{\nu\nu}(t|t-1)K_{t}^{T}

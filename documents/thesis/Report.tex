@@ -17,7 +17,7 @@
 
 %% Specify report metadata
 \author{Jonatan Olofsson}
-\title{}{State Estimation and Control of a Quadrotor using Monocular SLAM}
+\title{}{Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques}
 \date{\today}
 
 \thesisDate{9}{19}{YYYY}
@@ -27,8 +27,8 @@
 \thesisDivision{Department of Computer and Information Science}
 \URL[http://www.ida.liu.se/divisions/aiics/]{http://www.ida.liu.se/divisions/aiics/}
 
-\subject{State Estimation and Control of a Quadrotor using Monocular SLAM}
-\keywords{slam, ptam, control, uav, linkquad, non-linear control, sdre} %FIXME
+\subject{Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques}
+\keywords{slam, ptam, control, uav, linkquad, non-linear control, sdre, mav, ukf, ekf} %FIXME
 
 \examiner{
   Doherty, Patrick \AT \textsc{IDA}, Linköpings universitet
@@ -40,52 +40,87 @@
   Wzorek, Mariusz \AT \textsc{IDA}, Linköpings universitet
 }
 
-\abstract[{}
-    Denna rapport avhandlar modellering, estimering och autonom kontroll över
-    en obemannad flygfarkost, UAV.
-    Quadrotorn \textit{LinkQuad} som utvecklas vid Linköpings Universitet har
-    använts som utvecklingsplattform, men resultaten är generella för liknande plattformar
-    och kan lätt utökas till andra typer av obemannade flygfarkoster.
-    I arbetet utvecklas moduler och kärnan till ett reglersystem som binder samman
-    algoritmer för tillståndsestimering med avancerad olinjär reglerteknik.
-
-    Problemet med tillståndsestimering och reglering av små obemannade flygfarkoster (SUAV)
-    angrips ofta med hjälp av externa kameror och sensorer för en mycket precis estimering och reglering.
+\abstract[
+    %~ Denna rapport avhandlar modellering, estimering och autonom kontroll över
+    %~ en obemannad flygfarkost, UAV.
+    %~ Quadrotorn \textit{LinkQuad} som utvecklas vid Linköpings Universitet har
+    %~ använts som utvecklingsplattform, men resultaten är generella för liknande plattformar
+    %~ och kan lätt utökas till andra typer av obemannade flygfarkoster.
+    %~ I arbetet utvecklas moduler och kärnan till ett reglersystem som binder samman
+    %~ algoritmer för tillståndsestimering med avancerad olinjär reglerteknik.
+%~
+    %~ Problemet med tillståndsestimering och reglering av små obemannade flygfarkoster (MAV)
+    %~ angrips ofta med hjälp av externa kameror och sensorer för en mycket precis estimering och reglering.
     %~ Detta angreppssätt begränsar dock användningen av farkosten till begränsade utrymmen med
     %~ mycket dyr utrustning.
-    Genom att enbart använda sensorer tillgängliga på farkosten kan man utöka användbarheten,
-    samtidigt som man håller kostnader nere.
-
-    Vid positioneringen av quadrotorn används en kamera som används
-    av positioneringsbiblioteket PTAM, som enbart behöver en kamera för att
-    utföra SLAM, \textit{Simultaneous Localization And Mapping}.
-    I rapporten föreslås en algoritm för att initiera biblioteket autonomt och
-    omvandla de erhållna video-koordinaterna till användbara världs-koordinater som
-    kan användas i tillståndsestimeringen.
+    %~ Genom att enbart använda sensorer tillgängliga på farkosten kan man utöka användbarheten,
+    %~ samtidigt som man håller kostnader nere.
+%~
+    %~ Vid positioneringen av quadrotorn används en kamera som används
+    %~ av positioneringsbiblioteket PTAM, som enbart behöver en kamera för att
+    %~ utföra SLAM, \textit{Simultaneous Localization And Mapping}.
+    %~ I rapporten föreslås en algoritm för att initiera biblioteket autonomt och
+    %~ omvandla de erhållna video-koordinaterna till användbara världs-koordinater som
+    %~ kan användas i tillståndsestimeringen.
 ]{
-    This thesis treats the problem of modelling, estimating and autonomously controlling
-    an Unmanned Aerial Vehicle.
-    The \textit{LinkQuad} quadrotor developed at Linköping University is used as
-    a development platform, although the results are general for quadrotors and
-    easily extended to other UAV platforms.
-    In the thesis, the modules and core of a control system is developed to fuse state-estimation
-    algorithms with advanced non-linear control.
+    %~ In this thesis, the problem of modelling, estimating and autonomously controlling
+    %~ an Unmanned Aerial Vehicle is studied.
+    %~ The \textit{LinkQuad} quadrotor developed at Linköping University is used as
+    %~ a development platform, although the methods presented in this thesis
+    %~ are general and easily extended to other UAV platforms.
+    %~ In the thesis, the modules and core of a control system is developed
+    %~ to fuse state-estimation algorithms with advanced non-linear control.
+%~
+    %~ The problem of state-estimation and control of Micro UAVs (MAVs)
+    %~ is often approached using off-board cameras and sensors to get a precise pose estimation.
+    %~ This however restricts the utility of the controlled UAVs to a very limited
+    %~ space where these sensors are available and properly configured.
+    %~ By using only on-board sensors, not only is the utility of the UAV greatly
+    %~ increased, but costs are also cut.
+%~
+    %~ To assist the positioning, the quadrotor is equipped with a camera
+    %~ utilized by a library for monocular video-based SLAM, Simultaneous Localization And Mapping.
+    %~ In the thesis, an algorithm is suggested for autonomous initialization and
+    %~ for transforming the localization in videoframe-coordinates
+    %~ to world coordinates which can be used in the state-estimation.
+    The use of Unmanned Aerial Vehicles have seen enourmous growth in the recent years
+    due to the advances in the related scientific and technological fields.
+    This fact combined with decreasing costs of using UAVs enables their use in new application areas.
+    Many of these new tasks are suitable for miniature scale UAVs - MAVs - which have the added advantage of
+    portability and ease of deployment, as well as reducing the cost further.
 
-    The problem of state-estimation and control of Small UAV's (SUAV's) is often approached using
-    off-board cameras and sensors to get a precise pose estimation.
-    This however restricts the utility of the controlled UAV's to a very limited
-    space where sophisticated and expensive gear is available and properly configured.
-    By using only on-board sensors, not only is the utility of the UAV greatly increased,
-    but costs are also cut.
+    One of the main functionalities nescessary for successful
+    MAV deployment in real-world applications is autonomous landing.
+    Landing puts particularly high requirements on positioning accuracy,
+    especially in indoor confined environments where the commonly used
+    GPS positioning technology is unavailable. For that reason using
+    an additional sensor, such as a camera, is beneficial.
 
-    To assist the positioning, the quadrotor is equipped with a camera
-    utilized by a library for monocular video-based SLAM, Simultaneous Localization And Mapping.
-    In the thesis, an algorithm is suggested for autonomous initialization and
-    for transforming the localization in videoframe-coordinates
-    to world coordinates which can be used in the state-estimation.
+    In this thesis, a set of technologies for achieving autonomous landing
+    is developed and evaluated. In particular, state-estimation based on
+    monocular vision SLAM techniques are fused with onboard embedded sensors.
+    This is then used as the basis for non-linear adaptive control as well
+    trajectory generation for a simple landing procedure.
+    These components are connected using a new proposed
+    framework for robotic development.
+
+    The proposed system has been fully implemented and tested in a simulated
+    environment and validated using recorded data. Basic autonomous landing
+    was performed in simulation and the result show that the proposed system
+    is a viable solution for achieving fully autonomous landing.
 }
 
 \acknowledgements{
+    %~ \begin{quote} FIXME
+    %~ \textit{
+        %~ My whole-hearted thanks goes to all the staff on ISY and IDA
+        %~ who supported and assisted in the work with this thesis.
+        %~ Many have helped me, none have been forgotten.
+        %~ Special thanks goes to Mariusz Wzorek and Piotr Rudol for their assistance,
+        %~ and for their much appreciated friendship.
+    %~ } \vspace{1cm}
+    %~ \end{quote}
+
     %~ Vägen hit har kanske inte alltid varit spikrak sedan min storebror Jakob berättade
     %~ för mig att det var reglerteknik jag menade när vi pratade om vad jag
     %~ ville göra som stor, men intresset av att styra och ställa får väl anses starkt.
@@ -109,7 +144,7 @@
 %~
     %~ \textit{Till Mor, Far och Anna}\newline
     %~ \vfill
-    %~ \hfill \parbox{0.5\linewidth}{\footnotesize{Linköping i den spirande vårens tid anno 2012\newline{}
+    %~ \hfill \parbox{0.5\linewidth}{\footnotesize{Linköping i den spirande vårens tid anno 2012\newline
     %~ i väntan på vår Herres Jesu Kristi återkomst.
 %~
     %~ \hspace{1em}\textit{Jonatan Olofsson}}}
@@ -128,7 +163,7 @@
 % the content, for this table to be updated.
 \newpage
 
-%~ \raggedbottom
+\raggedbottom
 
 \newchapter{introduction}
 \newchapter{observer}
@@ -150,7 +185,7 @@
 \appendix
 
 \newchapter{crap}
-\newchapter{gpl}
+%~ \newchapter{gpl}
 %%::appendices::%%
 
 \end{document}

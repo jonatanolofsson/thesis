@@ -5,8 +5,6 @@ else
     figures.closeAll();
 end
 
-skip = 30*12;
-
 %% Import data
 measurements.imu = Files.import('imu_measured.log');
 simulation.imu = Files.import('imu_simulated.log');
@@ -31,6 +29,9 @@ reality = Files.import('reality.log');
 reality.roll    = Quaternion.toRoll(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 reality.pitch   = Quaternion.toPitch(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 reality.yaw     = Quaternion.toYaw(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
+
+measurements.imu.time = measurements.imu.time/2;
+measurements.camera.time = measurements.camera.time/2;
 
 %%
 sensors

@@ -6,22 +6,28 @@
     the positioning generally exhibit very good performance. The position state
     is observed in the state-estimation more or less directly by the camera
     and the stability of the camera positioning is thus of course reflected here.
+
+    In the plot of the Z-axial positioning in Figure~\ref{fig:results:filtering:position},
+    the estimates from the pre-existing complementary filter -
+    moved to share the initial conditions of the Kalman filter - was added for
+    comparison, showing their comparable performance.
+
     \begin{subfigures}{Positioning in the X- and Y-direction mostly well corresponds to ground truth, thanks to the camera positioning.
-    The positioning in the Z-direction shows signs of the noise from the pressure sensor.}{fig:results:filtering:position}
+    In the Z-axis, the estimation of the pre-existing complementary filter is added for comparison, its starting point adjusted to produce comparable plots.}{fig:results:filtering:position}
         \sfig{\splotwidth}{X}
         \sfig{\splotwidth}{Y}
-        \sfig{\plotwidth}{Z}
+        \sfig{\splotwidth}{Z}
     \end{subfigures}
 
 \subsection{Velocities}
     The velocities, beeing closely coupled with the camera observed position,
-    also exhibit good performance in Figure~\ref{fig:results:filtering:velocities}.
+    also exhibit good performance (Figure~\ref{fig:results:filtering:velocities}).
     There are shortcomings to the estimation's horizontal precision, although
     this could probably be significantly improved with further filter tuning.
     \begin{subfigures}{Velocity estimates are generally adequate, but with more tuning, the results are likely to improve.}{fig:results:filtering:velocities}
         \sfig{\splotwidth}{velX}
         \sfig{\splotwidth}{velY}
-        \sfig{\plotwidth}{velZ}
+        \sfig{\splotwidth}{velZ}
     \end{subfigures}
 
 \subsection{Orientation, Rotational Velocity and Gyroscope Bias}
@@ -30,59 +36,61 @@
 
     The bias of the gyroscopes is removed during the initialization process.
     Since the time-frame of the tests were far less than the time expeted to
-    detect a change in the bias, these should thus be estimated to zero.
-    As depicted in Figure~\ref{fig:results:filtering:drift}, they are.
+    detect a change in the bias, these should thus be estimated to zero,
+    as verfied in Figure~\ref{fig:results:filtering:drift}.
 
     As noted in Section~\ref{ssec:results:modelling:gyroscopes}, the
     filtering of the rotational velocities of the quadrotor body,
     exhibited with their associated covariance in Figure~\ref{fig:results:filtering:omega},
     correlates very well to the measurements.
+    In Figure~\ref{fig:results:filtering:headings}, the Kalman filter performance is compared
+    to the previously existing complementary filter. It can be seen that
+    the prediction update of the Kalman filter improves the phase of the filter,
+    although they are of comparable performance towards the end of the dataset.
+
     \begin{subfigures}{The orientation of the quadrotor was estimated with good accuracy.}{fig:results:filtering:qwb}
-        \sfig{\splotwidth}{qwb0}
-        \sfig{\splotwidth}{qwbi}
-        \sfig{\splotwidth}{qwbj}
-        \sfig{\splotwidth}{qwbk}
+        \sfig{\sfplotwidth}{qwb0}
+        \sfig{\sfplotwidth}{qwbi}
+        \sfig{\sfplotwidth}{qwbj}
+        \sfig{\sfplotwidth}{qwbk}
     \end{subfigures}
 
     \begin{subfigures}{The predicted angular velocities corresponds very well to the gyro measurements.}{fig:results:filtering:omega}
         \sfig{\splotwidth}{wRoll}
         \sfig{\splotwidth}{wPitch}
-        \sfig{\plotwidth}{wYaw}
+        \sfig{\splotwidth}{wYaw}
     \end{subfigures}
 
     \begin{subfigures}{The gyroscopes' drift was removed prior to entering the filter, and does not change during the short recording of data.}{fig:results:filtering:drift}
         \sfig{\splotwidth}{driftRoll}
         \sfig{\splotwidth}{driftPitch}
-        \sfig{\plotwidth}{driftYaw}
+        \sfig{\splotwidth}{driftYaw}
     \end{subfigures}
+    \fig{\plotwidth}{headings}{A comparison with the tuned complementary filter show that both filters accurately describe the heading, and although the phase of the Kalman filter is better in the beginning, they are of comparable performance towards the end of the dataset.}{fig:results:filtering:headings}
 
-\subsection{Wind force}
+\subsection{Wind Force}
     As the tests were performed inside, the filter was tuned to basically keep the
     wind constant. Thus, it is difficult to come to any conclusions regarding the
     wind impact on the model. Figure~\ref{fig:results:filtering:wind}
-    show them to be correctly estimated to zero in the collected dataset,
+    shows them to be correctly estimated to zero in the collected dataset,
     although in the case with simulated data with wind, shown in Figure~\ref{fig:results:filtering:simwind},
-    results are poor.
-
-    When a landing is simulated, Figure~\ref{fig:results:filtering:windbump}
-    exhibits an interesting property where a notable bump occurs at the
-    time of the landing. While this is not the expected behaviour
-    - the estimate should be negative and constant -
-    it does show that the wind may be useful as a detector for landing.
+    results are poor, most likely due to that the simulation of the sensors' data
+    does not fully cover the non-continuous behaviour that is expected in the
+    event of touching the ground, for example proper clamping of accelerometer simulations.
 
     \begin{subfigures}{Wind estimates from recorded test-data.}{fig:results:filtering:wind}
         \sfig{\splotwidth}{windX}
         \sfig{\splotwidth}{windY}
-        \sfig{\plotwidth}{windZ}
+        \sfig{\splotwidth}{windZ}
     \end{subfigures}
 
     \begin{subfigures}{Wind from simulated test-flight.}{fig:results:filtering:simwind}
         \sfig{\splotwidth}{simwindX}
         \sfig{\splotwidth}{simwindY}
-        \sfig{\plotwidth}{simwindZ}
+        \sfig{\splotwidth}{simwindZ}
     \end{subfigures}
 
-    \fig{\plotwidth}{windbump}{Even in simulation, the landing was detectable in the vertical wind estimate, albeit in this case not as expected.}{fig:results:filtering:windbump}
+    \fig{\plotwidth}{windbump}{Even in simulation, the landing was detectable in the vertical wind estimate, although more work is required to properly model and detect the event.}{fig:results:filtering:windbump}
 
 \subsection{Propeller Velocity}
     As the filter evaluation was performed without the use of the controller,
@@ -97,8 +105,8 @@
     otherwise hard to verify using the available data.
 
     \begin{subfigures}{Propeller angular rate estimates could not be properly verified with the data available, although do exhibit a reasonable value range given the model parameter settings.}{fig:results:filtering:wr}
-        \sfig{\splotwidth}{wr1}
-        \sfig{\splotwidth}{wr2}
-        \sfig{\splotwidth}{wr3}
-        \sfig{\splotwidth}{wr4}
+        \sfig{\sfplotwidth}{wr1}
+        \sfig{\sfplotwidth}{wr2}
+        \sfig{\sfplotwidth}{wr3}
+        \sfig{\sfplotwidth}{wr4}
     \end{subfigures}

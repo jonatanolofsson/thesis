@@ -15,13 +15,13 @@
     \subsection{Coordinate Frames}
         In the model of the quadrotor, there are several frames of reference.
         \begin{description}
-            \item[North-East-Down (NED)]
+            \item[North-East-Down (NED):]
             The NED-frame is fixed at the center of gravity of the quadrotor.
             The NED system's $\hat{z}$-axis is aligned with the gravitational axis and
             the $\hat{x}$-axis along the northern axis.
             The $\hat{y}$-axis is chosen to point east to form a right-hand system.
 
-            \item[North-East-Down Earth Fixed (NEDEF)] This frame is fixed at
+            \item[North-East-Down Earth Fixed (NEDEF):] This frame is fixed at
             a given origin in the earth (such as the take-off point) and is
             considered an inertial frame, but is in all
             other aspects equivalent to the NED frame.
@@ -29,22 +29,22 @@
             This frame is often referred to as the ``world'' coordinate system,
             or ``$w$'' for short in equations in disambiguation from the NED system.
 
-            \item[Body-fixed (BF)] The body-fixed coordinate system is fixed in the
+            \item[Body-fixed (BF):] The body-fixed coordinate system is fixed in the
             quadrotor with $\hat{x}$-axis in the forward direction and the $z$-axis in the downward
             direction - as depicted in Figure~\ref{fig:observer:motionmodel:quadrotorcoordframes}.
 
-            \item[Propeller fixed] Each of the propellers are associated
+            \item[Propeller fixed:] Each of the propellers are associated
             with their own frame of reference, $P_{i}$, which tracks the
             virtual tilting of the thrust vector due to flapping,
             discussed in Section~\ref{ssec:observer:thrust}.
 
-            \item[Camera frame] This is the frame which describes the
+            \item[Camera frame:] This is the frame which describes the
             location of the camera.
 
-            \item[PTAM frame] This is the frame of reference used by the PTAM video SLAM library.
+            \item[PTAM frame:] This is the frame of reference used by the PTAM video SLAM library.
             This frame is initially unknown, and its recovery is discussed in Section~\ref{ssec:observer:sensormodels:camera}.
 
-            \item[IMU frame] This is the body-fixed frame in which the IMU measurements are said
+            \item[IMU frame:] This is the body-fixed frame in which the IMU measurements are said
             to be done. The origin is thus fixed close to the inertial sensors.
         \end{description}
         The coordinate frames are visualized in Figures~\ref{fig:observer:motionmodel:worldcoordframes}-\ref{fig:observer:motionmodel:quadrotorcoordframes}.
@@ -145,9 +145,9 @@
 
         The main forces acting upon the quadrotor are the effects of three different components
         \begin{itemize}
-            \item[$\sum_{i=0}^{3}F_{ri}$] Rotor thrust,
-            \item[$F_{g}$] Gravity,
-            \item[$F_{wind}$] Wind.
+            \item $\sum_{i=0}^{3}F_{ri}$ - Rotor thrust,
+            \item $F_{g}$ - Gravity,
+            \item $F_{wind}$ - Wind.
         \end{itemize}
 
         Of these, the gravity is trivially described with the
