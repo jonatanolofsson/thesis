@@ -12,7 +12,7 @@
 }
 
 @inproceedings{Tayfun08sdresurvey,
-	abstract = "{Since the mid-90{\^A}{\~A}{\^A}{\^A}{\^A}{\^A}{\^A}s, State-Dependent Riccati Equation (SDRE) strategies have emerged as general design methods that provide a systematic and effective means of designing nonlinear controllers, observers, and filters. These methods overcome many of the difficulties and shortcomings of existing methodologies, and deliver computationally simple algorithms that have been highly effective in a variety of practical and meaningful applications. In a special session at the 17th IFAC Symposium on Automatic Control in Aerospace 2007, theoreticians and practitioners in this area of research were brought together to discuss and present SDRE-based design methodologies as well as review the supporting theory. It became evident that the number of successful simulation, experimental and practical real-world applications of SDRE control have outpaced the available theoretical results. This paper reviews the theory developed to date on SDRE nonlinear regulation for solving nonlinear optimal control problems, and discusses issues that are still open for investigation. Existence of solutions as well as stability and optimality properties associated with SDRE controllers are the main contribution in the paper. The capabilities, design flexibility and art of systematically carrying out an effective SDRE design are also emphasized, demonstrating how several situations that prevent the direct application of the SDRE technique, such as the existence of state and control constraints, can be readily handled using this method.}",
+	abstract = "{Since the mid-90{\^A}{\~A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}s, State-Dependent Riccati Equation (SDRE) strategies have emerged as general design methods that provide a systematic and effective means of designing nonlinear controllers, observers, and filters. These methods overcome many of the difficulties and shortcomings of existing methodologies, and deliver computationally simple algorithms that have been highly effective in a variety of practical and meaningful applications. In a special session at the 17th IFAC Symposium on Automatic Control in Aerospace 2007, theoreticians and practitioners in this area of research were brought together to discuss and present SDRE-based design methodologies as well as review the supporting theory. It became evident that the number of successful simulation, experimental and practical real-world applications of SDRE control have outpaced the available theoretical results. This paper reviews the theory developed to date on SDRE nonlinear regulation for solving nonlinear optimal control problems, and discusses issues that are still open for investigation. Existence of solutions as well as stability and optimality properties associated with SDRE controllers are the main contribution in the paper. The capabilities, design flexibility and art of systematically carrying out an effective SDRE design are also emphasized, demonstrating how several situations that prevent the direct application of the SDRE technique, such as the existence of state and control constraints, can be readily handled using this method.}",
 	author = "\c{C}imen, Tayfun",
 	booktitle = "{Proceedings of the 17th IFAC World Congress}",
 	citeulike-article-id = "7814575",
@@ -24,6 +24,19 @@
 	title = "{State-Dependent Riccati Equation (SDRE) Control: A Survey}",
 	url = "http://www.ifac-papersonline.net/Detailed/36352.html",
 	year = "2008"
+}
+
+@inproceedings{Newcombe2011,
+	author = "Newcombe, Richard and Lovegrove, Steven and Davison, Andrew",
+	booktitle = "{13th International Conference on Computer Vision (ICCV2011)}",
+	citeulike-article-id = "9639209",
+	keywords = "3d\_modeling; camera\_calibration; dtam; reconstruction; slam",
+	location = "Barcelona, Spain",
+	month = nov,
+	posted-at = "2011-08-10 13:30:20",
+	priority = "5",
+	title = "{DTAM: Dense Tracking and Mapping in Real-Time}",
+	year = "2011"
 }
 
 @proceedings{DBLP:conf/iccv/2003,
@@ -228,7 +241,7 @@
 
 @misc{Barac11,
 	author = "Barac, Daniel",
-	institution = "Link{\~A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}¶ping University, Automatic Control, UASTECH - Autonomous Unmanned Aircraft Systems Technologies",
+	institution = "Link{\~A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}{\^A}¶ping University, Automatic Control, UASTECH - Autonomous Unmanned Aircraft Systems Technologies",
 	pages = "54",
 	title = "{Localization algorithms for indoor UAVs}",
 	year = "2011"
@@ -435,22 +448,22 @@
 @inproceedings{Merz06,
 	author = "Merz, Torsten and Rudol, Piotr and Wzorek, Mariusz",
 	booktitle = "{ICAS 2006 - International Conference on Autonomic and Autonomous Systems,2006}",
-	institution = "Link{\~A}{\^A}{\^A}{\^A}¶ping University, The Institute of Technology",
-	institution2 = "Link{\~A}{\^A}{\^A}{\^A}¶ping University, AUTTEK - Autonomous Unmanned Aerial Vehicle Research Group",
-	institution3 = "Link{\~A}{\^A}{\^A}{\^A}¶ping University, KPLAB - Knowledge Processing Lab",
+	institution = "Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping University, The Institute of Technology",
+	institution2 = "Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping University, AUTTEK - Autonomous Unmanned Aerial Vehicle Research Group",
+	institution3 = "Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping University, KPLAB - Knowledge Processing Lab",
 	title = "{Control System Framework for Autonomous Robots Based on Extended State Machines}",
 	year = "2006"
 }
 
 @misc{Wzorek11,
 	author = "Wzorek, Mariusz",
-	institution = "Link{\~A}{\^A}{\^A}{\^A}¶ping University, UASTECH - Autonomous Unmanned Aircraft Systems Technologies",
-	institution2 = "Link{\~A}{\^A}{\^A}{\^A}¶ping University, The Institute of Technology",
+	institution = "Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping University, UASTECH - Autonomous Unmanned Aircraft Systems Technologies",
+	institution2 = "Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping University, The Institute of Technology",
 	number = "1509",
 	pages = "107",
-	publisher = "Link{\~A}{\^A}{\^A}{\^A}¶ping University Electronic Press",
-	school = "Link{\~A}{\^A}{\^A}{\^A}¶ping UniversityLink{\~A}{\^A}{\^A}{\^A}¶ping University, UASTECH - Autonomous Unmanned Aircraft Systems Technologies, The Institute of Technology",
-	series = "{Link{\~A}{\^A}{\^A}{\^A}¶ping Studies in Science and Technology. Thesis}",
+	publisher = "Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping University Electronic Press",
+	school = "Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping UniversityLink{\~A}{\^A}{\^A}{\^A}{\^A}¶ping University, UASTECH - Autonomous Unmanned Aircraft Systems Technologies, The Institute of Technology",
+	series = "{Link{\~A}{\^A}{\^A}{\^A}{\^A}¶ping Studies in Science and Technology. Thesis}",
 	title = "{Selected Aspects of Navigation and Path Planning in Unmanned Aircraft Systems}",
 	year = "2011"
 }
@@ -458,7 +471,7 @@
 @phdthesis{Tornqvist08,
 	author = "T{\"o}rnqvist, David",
 	institution = "Automatic Control",
-	institution2 = "Link{\~A}{\^A}{\^A}¶ping University, The Institute of Technology",
+	institution2 = "Link{\~A}{\^A}{\^A}{\^A}¶ping University, The Institute of Technology",
 	number = "1216",
 	pages = "174",
 	publisher = "Link{\"o}ping University Electronic Press",
@@ -554,9 +567,9 @@
 @inproceedings{Rudol10,
 	author = "Rudol, Piotr and Wzorek, Mariusz and Doherty, Patrick",
 	booktitle = "{Proceedings of the 2010 IEEE International Conference on Robotics and Automation (ICRA)}",
-	institution = "Link{\~A}¶ping University, KPLAB - Knowledge Processing Lab",
-	institution2 = "Link{\~A}¶ping University, The Institute of Technology",
-	institution3 = "Link{\~A}¶ping University, AUTTEK - Autonomous Unmanned Aerial Vehicle Research Group",
+	institution = "Link{\~A}{\^A}¶ping University, KPLAB - Knowledge Processing Lab",
+	institution2 = "Link{\~A}{\^A}¶ping University, The Institute of Technology",
+	institution3 = "Link{\~A}{\^A}¶ping University, AUTTEK - Autonomous Unmanned Aerial Vehicle Research Group",
 	number = "2010",
 	pages = "1913--1920",
 	publisher = "IEEE conference proceedings",

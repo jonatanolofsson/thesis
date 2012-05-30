@@ -6,7 +6,7 @@
     augmented reality into the video stream.
     This means that consistency between a metric world-fixed
     coordinate frame (such as the NEDEF-system used on the LinkQuad), and the
-    internally used coordinate system is not nescessary for its application.
+    internally used coordinate system is not necessary for its application.
     The transformation between the NEDEF coordinate system and the
     PTAM coordinate system thus have to be determined.
 
@@ -17,7 +17,7 @@
         \item and orientation, $q^{PTAM,c}$.
     \end{itemize}
     A rough estimate of the quality of the tracking is also provided as an enumerated representation of either \textit{Good}, \textit{Poor} or \textit{Bad}.
-    However, since the quite arbtirary \citep{klein07parallel} coordinate system
+    However, since the quite arbitrary \citep{klein07parallel} coordinate system
     of PTAM is neither of the same scale nor aligned with the quadrotor coordinate system,
     we need to estimate the affine transformation between the two in order to get useful results.
 
@@ -41,7 +41,7 @@
 
     The offline case of this problem is partially studied in \citep{hayashi2010},
     whereas the method used in this thesis can be extended to the on-line
-    case where no ground truth is available by introducing continously improved
+    case where no ground truth is available by introducing continuously improved
     states to the observer filter, using the first measurement to construct
     an initial guess.
 
@@ -62,12 +62,12 @@
         guess we can do without any information about the environment is
         to assume that this is a horizontal plane at zero height.
 
-        First, however, the orientation of the PTAM coordinate system is calculated
+        The orientation of the PTAM coordinate system is calculated as in Eq. \eqref{eq:observer:sensormodels:camera:qpw}
         from the estimated quadrotor orientation and the measurement in the
-        PTAM coordinate frame;
+        PTAM coordinate frame.
         \begin{equation}
             \label{eq:observer:sensormodels:camera:qpw}
-            q^{Pw} = q^{PTAM,c} q^{cb} q^{bw}.
+            q^{Pw} = q^{PTAM,c} q^{cb} q^{bw}
         \end{equation}
 
         $q^{bc}$, the inverse of $q^{cb}$ of Equation~\ref{eq:observer:sensormodels:camera:qpw},
@@ -85,7 +85,7 @@
             %~ * AngleAxis<double>(M_PI_2, Vector3d::UnitX()));
         \begin{equation}
         \label{eq:observer:sensormodels:qbc}
-            q^{bc} = \text{rot}(\Theta_{c}, \hat{y}) * \text{rot}(\Psi_{c}, \hat{z}) * \text{rot}(\pi/2, \hat{z}) * \text{rot}(\pi/2, \hat{x})
+            q^{bc} = \text{rot}(\Theta_{c}, \hat{y}) \cdot \text{rot}(\Psi_{c}, \hat{z}) \cdot \text{rot}(\pi/2, \hat{z}) \cdot \text{rot}(\pi/2, \hat{x})
         \end{equation}
 
         To determine the distance to this plane according to the current estimation,
@@ -105,22 +105,29 @@
             \lambda = -\frac{\left(\xi + R(q^{wb}) r_{\text{camera}/\mathcal{G}} \right) \cdot \hat{z}}{\left( R(q^{wP}) \frac{X^{PTAM}}{|X^{PTAM}|} \right) \cdot \hat{z}}
         \end{equation}
 
+        \fig{\plotwidth}{ground}{The PTAM coordinate system is assumed to be positioned at zero height. $\lambda$ is calculated as the estimated real-world distance to the PTAM coordinate system.}{fig:ground}
 
-        By comparing the approximated distance with the distance measured
-        in the PTAM coordinate system, we obtain a starting guess for the scaling factor, $s$;
+
+        With this definition, $\lambda$ corresponds to the approximated distance
+        from the camera to the PTAM origin, in the metric world-fixed coordinate system.
+        By comparing this approximation with the distance measured
+        in the PTAM coordinate system, we obtain an estimate for the scaling factor, $s$, given
+        in Eq.~\ref{eq:observer:camera:s}.
         \begin{equation}
-            s = \frac{|X^{PTAM}|}{|\lambda|}.
+        \label{eq:observer:camera:s}
+            s = \frac{|X^{PTAM}|}{|\lambda|}
         \end{equation}
 
-        Together, these parameters form an initial estimate of the transformation
-        connecting the PTAM reference frame. This estimate could be inserted into
-        the global observer filter - introducing eight new states containing
+        Together, these parameters describes the transformation
+        connecting the PTAM reference frame to the metric world.
+        For further refinement, the parameters could be inserted into the
+        global observer filter - introducing eight new states containing
         $q^{Pw}$, $s$ and $\varnothing_{\text{cam}}$ - although little benefit
         of this has been observed in simulated testing.
         Because the PTAM coordinate system is defined fixed in the global NEDEF coordinate system,
         the transform parameters are unchanged in the observer's time update.
 
-    \subsubsection{Continuous Refinement}
+    \subsubsection{Camera Measurements}
         \label{sssec:observer:sensormodels:camera:refinement}
         The measurement update is made separate from the update of the inertial sensors, using
         the measurement equations in \eqref{eq:observer:measurement:camera}, expanding the
@@ -136,7 +143,7 @@
 
     \subsubsection{Teleportation}
         \label{sssec:observer:sensormodels:camera:teleportation}
-        The PTAM tracking may sometimes exhibit a ``teleporting'' behaviour.
+        The PTAM tracking may sometimes exhibit a ``teleporting'' behavior.
         That is, although tracking is overall stable, the origin may
         sometimes be misassociated and placed at a new position as the
         tracking gets lost.
@@ -144,11 +151,11 @@
         If a teleportation is detected, a reinitialization would be needed,
         either performing a new initial estimation, or utilizing the previous state
         to recognize the new pose of the origin.
-        The teleporting behaviour is detected using simple thresholding,
+        The teleporting behavior is currently detected using simple thresholding,
         as in Eq.~\eqref{eq:observer:sensormodels:camera:teleport},
         although no action is currently implemented to recover.
         In Eq.~\eqref{eq:observer:sensormodels:camera:teleport}, the
-        estimated motion is scaled by the factor $s$ from the tranformation
+        estimated motion is scaled by the factor $s$ from the transformation
         from PTAM coordinates, and thresholded by a configurable parameter $\epsilon$.
         \begin{equation}
             \label{eq:observer:sensormodels:camera:teleport}

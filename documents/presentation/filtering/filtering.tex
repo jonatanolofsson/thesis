@@ -1,0 +1,84 @@
+\section{State-Estimation}
+    \subsection{Sensor Fusion}
+    \begin{frame}{Sensor Fusion}
+        Uses information from all sensors with models of expected behavior
+        to estimate the movements of the vehicle.
+
+        The Kalman filter is the standard choice for high-level state estimation.
+
+        \textbf{Non-linear extensions:}
+        \begin{itemize}
+            \item UKF
+            \item EKF
+        \end{itemize}
+        The UKF has issues with the applied motion model in high uncertainty simulations.
+        The EKF was selected as the more reliable filter.
+    \end{frame}
+
+    \subsection{Filtering Framework}
+    \begin{frame}{Filtering Framework}
+        The standard formulation of a high-level (Bayesian) state estimation framework
+        relies on two separate steps.
+
+        \vspace{0.5cm}
+
+        \textbf{Time update: } Use the motion model to predict the vehicle's motions.
+
+        \textbf{Measurement update: } Sample the sensors and weigh their likelihood against the current estimate.
+
+
+        \vspace{0.5cm}
+        Through discrete instances of time, the steps are independent.
+        %~ We may e.g. perform one m.u. for the IMU and one for the camera before
+        %~ performing a time update.
+    \end{frame}
+
+    \subsection{Physical Motion-model}
+    \begin{frame}{Motion Model}
+        For simulation purposes, a non-linear physical model of the quadrotor
+        is studied in the thesis.
+        \begin{itemize}
+            %~ \item Detailed physical model of $>23$~states.
+            \item Same model is used for state estimation, control and simulation.
+            \item May easily be replaced by simpler model, e.g. for state estimation.
+        \end{itemize}
+
+        The model also includes sensor-models for all used sensors.
+        %~ \begin{itemize}
+            %~ \item Used both for simulation and state estimation.
+            %~ \item New sensor types are easily added.
+        %~ \end{itemize}
+    \end{frame}
+    % EKF vs. UKF
+    % Kalman filter framework with time- and measurement updates
+
+%~ \begin{frame}
+    %~ \frametitle{State Estimation}
+    %~ Estimates the full set of 23 states.
+    %~ \begin{itemize}
+        %~ \item UKF,
+        %~ \item EKF.
+    %~ \end{itemize}
+%~ \end{frame}
+%~
+%~ \begin{frame}
+    %~ \frametitle{Physical Modelling}
+    %~ Detailed physical model of forces and moments acting on the quadrotor.
+    %~ \begin{itemize}
+        %~ \item Gravity,
+        %~ \item Wind
+        %~ \begin{itemize}
+            %~ \item Stochastic model - estimated by the filter,
+            %~ \item Models forces and moments on the quadrotor.
+        %~ \end{itemize}
+        %~ \item Thrust;
+        %~ \begin{itemize}
+            %~ \item Propeller flapping,
+            %~ \item Ground Effect.
+        %~ \end{itemize}
+        %~ \item Additional forces,
+        %~ \begin{itemize}
+            %~ \item Gyroscopic effects, hub forces etc.
+        %~ \end{itemize}
+    %~ \end{itemize}
+%~ \end{frame}

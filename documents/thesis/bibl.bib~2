@@ -602,7 +602,7 @@
 	year = "2010"
 }
 
-@techreport{New1,
+@techreport{arjomandi:classification,
 	author = "Arjomandi, Maziar",
 	institution = "Mechanical Engineering",
 	school = "University of Adelaide",

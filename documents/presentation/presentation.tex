@@ -1,0 +1,70 @@
+\documentclass[xcolor=usenames,dvipsnames]{beamer}
+\setbeameroption{hide notes}
+\setbeameroption{xcolor}
+\usetheme[hideothersubsections]%
+{Hannover}
+%~ \setbeamertemplate{footline}[page number]
+\setbeamercovered{transparent}
+%~ \setbeamercovered{invisible}
+% To remove the navigation symbols from the bottom of slides
+\setbeamertemplate{navigation symbols}{}
+%\logo{\includegraphics[height=0.6cm]{yourlogo.eps}}
+\usecolortheme{dolphin}
+
+%% Specify report metadata
+% Author, Title, etc.
+
+\title[Towards Autonomous Landing, using Monocular SLAM]
+{%
+Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques%
+}
+
+\author[Jonatan Olofsson]{Jonatan Olofsson}
+
+\institute[Link\"oping University]
+{
+  Department of Computer and Information Science at Link\"oping University, Sweden
+}
+
+\date[2012]{Master's Thesis Presentation, 2012-06-08}
+
+\newcommand{\lang}{english}
+\newcommand{\pdfauthor}{Jonatan Olofsson}
+\newcommand{\pdftitle}{Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques}
+\newcommand{\pdfsubject}{}
+\newcommand{\pdfkeywords}{}
+
+
+
+%% Include helper files
+\input{include/uses.inc}
+\input{include/pdf.inc}
+\input{include/functions.inc}
+\input{include/style.inc}
+\input{include/tikz.inc}
+
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+\note{
+    Hello and welcome to my thesis presentation.
+    My name is Jonatan Olofsson and have been working on this thesis for the
+    past semester.
+}
+
+\setcounter{tocdepth}{1}
+\begin{frame}{Presentation Outline}
+    \tableofcontents
+\end{frame}
+
+\newchapter{introduction}
+\newchapter{monoslam}
+\newchapter{filtering}
+\newchapter{control}
+%~ \newchapter{results}
+\newchapter{conclusions}
+
+\end{document}

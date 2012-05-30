@@ -4,36 +4,33 @@
     Some of these are summarized briefly in this section, and are discussed further in \citep{bouabdallah07full}.
     Unless where explicitly noted, annotation is similar to Section~\ref{ssec:observer:thrust}.
     \paragraph{Hub Force}
-        \begin{equation}
-            C_{H} = \sigma a \left[
+        \begin{align}
+            C_{H} &= \sigma a \left[
                 \frac{1}{4a}\mu\bar{C_{d}}
                 + \frac{1}{4}\lambda\mu\left( \theta_{0} + \frac{\theta_{twist}}{2} \right)
-                \right]
-        \end{equation}
-        \begin{equation}
-            F_{\text{hub},i} = -C_{H} \rho A R^{2} \omega_{i}^{2}\hat{x}
-        \end{equation}
-        \begin{equation}
-            M_{\text{hub},i} = D_{i} \times F_{hub,i}
-        \end{equation}
+                \right] \\
+%
+            F_{\text{hub},i} &= -C_{H} \rho A R^{2} \omega_{i}^{2}\hat{x} \\
+%
+            M_{\text{hub},i} &= D_{i} \times F_{hub,i}
+        \end{align}
 
     \paragraph{Rolling Moment}
-        \begin{equation}
-            C_{\text{RM}} = - \sigma a \mu \left[
+        \begin{align}
+            C_{\text{RM}} &= - \sigma a \mu \left[
                 \frac{1}{6}\theta_{0}
                 + \frac{1}{8}\theta_{twist}
                 - \frac{1}{8}\lambda_{i}
-                \right]
-        \end{equation}
-        \begin{equation}
-            M_{\text{RM},i} = C_{\text{RM}} \rho A R^{3} \omega_{i}^{2}
-        \end{equation}
+                \right] \\
+%
+            M_{\text{RM},i} &= C_{\text{RM}} \rho A R^{3} \omega_{i}^{2}
+        \end{align}
 
     \paragraph{Ground Effect}
         As the vehicle gets close to ground, the wind foils of the propellers
         provide a cushion of air under the vehicle, giving extra lift.
         \begin{equation}
-            T_{\text{IGE}} = \frac{1}{1-\frac{R^{2}}{16z^{2}}} T
+            F_{ri,\text{IGE}} = \frac{1}{1-\frac{R^{2}}{16z^{2}}} F_{ri}
         \end{equation}
 
     \paragraph{Gyro Effects and Counter-Torque}

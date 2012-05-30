@@ -6,9 +6,9 @@
                     text centered, anchor=north, text=white, minimum height=1cm, node distance=3cm, align=center]
     \tikzstyle{choice}=[font=\scriptsize]
 
-    State-machines are a modelling tool to describe the behaviour of a system
+    State-machines are a modeling tool to describe the behavior of a system
     in terms of \textit{states} and the transitions between them.
-    Several paradigms of state-machines exist - Mealy and Moore beeing the notable forefathers in the field.
+    Several paradigms of state-machines exist - Mealy and Moore being the notable forefathers in the field.
 
     In projects related to the LinkQuad quadrotor, generic state-machine
     frameworks have been developed and researched in previous projects \citep{Merz06,Wzorek11}.
@@ -20,7 +20,7 @@
     providing reference signals for the controller.
     Each state represents an action, which is performed repeatedly until
     a transition condition is met.
-    Figure~\ref{fig:logic:statemachine} examplifies the notation used in this chapter.
+    Figure~\ref{fig:logic:statemachine} exemplifies the notation used in this chapter.
 
     \begin{figure}[H]
         \noindent\makebox[\textwidth]{%
@@ -38,12 +38,12 @@
                 ;
             \end{tikzpicture}
         }
-        \caption{State-machine example. An active state is active and continuously invoked until a transition condition evaluates true. The next state is then activated.}
+        \caption{State-machine example. An active state is continuously invoked until a transition condition is met. The next state is then activated.}
         \label{fig:logic:statemachine}
     \end{figure}
 
-        In this chapter, four basic modes are presented which were implemented
-        in the timeframe of this thesis.
+    In this chapter, four basic modes are presented which were implemented
+    in the time-frame of this thesis.
 
     \section{Hovering Mode}
         In the hover mode, the position of the quadrotor is noted at
@@ -84,11 +84,11 @@
             \noindent\makebox[\textwidth]{%
             \begin{tikzpicture}[auto]
                 \node [state] (notstarted) {Tracking not started};
-                \node [condition, below of=notstarted] (start) {Start tracking?};
+                \node [condition, below of=notstarted] (start) {Start tracking};
                 \node [state, below of=start] (dostart) {Start initial tracking};
                 \node [state, below of=dostart] (started) {Initial tracking started};
-                \node [condition, below of=started] (enough) {Moved enough?};
-                \node [condition, right of=started] (lost) {Lost?};
+                \node [condition, below of=started] (enough) {Moved enough};
+                \node [condition, right of=started] (lost) {Lost};
                 \node [state, below of=enough] (init) {Initialize map};
                 \node [state, below of=init] (tracking) {Tracking};
                 \node [condition, left of=started] (reset1) {Reset};
@@ -115,9 +115,9 @@
         \end{figure}
 
     \section{Free Flight Mode}
-        In the free flight mode, the control reference is forwarded
-        from the joystick reference provided over the serial interface
-        from the ground station.
+        In the free flight mode, control reference signals for velocties
+        and yaw rate are forwarded from the joystick reference provided
+        over the serial interface from the ground station.
 
         \begin{figure}[H]
             \noindent\makebox[\textwidth]{%
@@ -131,26 +131,27 @@
                         (control.east) edge [loop below, out=0, in=-90, distance=2cm] (control.south);
                 \end{tikzpicture}
             }
-            \caption{Freeflight scheme. The freeflight mode merely forwards controller reference signals received from the interface.}
+            \caption{Free flight scheme. The free flight mode merely forwards controller reference signals received from the interface.}
             \label{fig:logic:freeflightscheme}
         \end{figure}
 
     \section{Landing Mode}
         \label{ssec:logic:landing}
         There have been several studies of autonomous quadrotor landing,
-        in e.g. \citep{mellinger10perching,brockers:803111}.
-        \citep{brockers:803111} proposes a landing scheme closely related to
-        that which is proposed in this thesis.
+        e.g. \citep{mellinger10perching,brockers:803111}.
+        In \citep{brockers:803111} a landing scheme is proposed which is
+        closely related to that which is proposed in this thesis.
         The algorithm used can be summarized in the following steps:
         \begin{itemize}
             \item Detection of landing site,
             \item Refinement of landing site position estimate,
             \item Descent on landing site,
-            \item Landig detection.
+            \item Landing detection.
         \end{itemize}
 
         In the detection phase, the environment is searched for a suitable
-        landing place. In \citep{brockers:803111}, landing is then performed on an elevated surface which is detected using video processing.
+        landing place. In \citep{brockers:803111}, landing is then performed
+        on an elevated surface which is detected using video processing.
         After the landing area has been located, the position of the
         landing site - relative to the quadrotor - is filtered to increase the
         certainty of the positioning.
@@ -167,11 +168,13 @@
                     \path[->]
                         (entry.east) edge (halt.west)
                         (halt.east) edge (halted.west)
-                        (halted.east) edge [loop right,distance=2cm, in=45,out=-45] node [choice] {No} (halted.east)
-                        (halted) edge [loop right,in=90,out=-135] node [choice,yshift=0.2cm] {Yes} (descend.north)
+                        (halted) edge[loop right,in=90,out=-135] (descend.north)
+                        %~ (halted.east) edge [loop right,distance=2cm, in=45,out=-45] node [choice] {No} (halted.east)
+                        %~ (halted) edge [loop right,in=90,out=-135] node [choice,yshift=0.2cm] {Yes} (descend.north)
                         (descend.east) edge (landed.west)
-                        (landed.east) edge [loop right,distance=2cm, in=45,out=-45] node [choice] {No} (landed.east)
-                        (landed) edge [loop right,in=90,out=-135] node [choice,yshift=0.2cm] {Yes} (spindown.north)
+                        (landed) edge[loop right,in=90,out=-135] (spindown.north)
+                        %~ (landed.east) edge [loop right,distance=2cm, in=45,out=-45] node [choice] {No} (landed.east)
+                        %~ (landed) edge [loop right,in=90,out=-135] node [choice,yshift=0.2cm] {Yes} (spindown.north)
                 %       (control.east) edge [loop below, out=0, in=-90, distance=2cm] (control.south)
                     ;
                 \end{tikzpicture}
@@ -188,13 +191,13 @@
         \subsection{Landing Detection}
         \label{ssec:logic:landing:detection}
             Since we recognize that our estimated position - initialized at our starting point -
-            is not nescessarily consistent with the true Height Over Ground (HOG)
-            at the landing site, it is nescessary to choose a more robust
+            is not necessarily consistent with the true Height Over Ground (HOG)
+            at the landing site, it is necessary to choose a more robust
             method to detect the completion of the landing procedure than simply halting at zero height.
             The approach is to use the measurements to determine when the movement
             has stopped; that is, when the quadrotor has reached ground.
             Detection theory, as discussed in e.g. \citep{Tornqvist08,nyberg11diagnosis},
-            provides several tools for detecting the non-linear event that
+            provides several tools for detecting the nonlinear event that
             the quadrotor can descend no further.
 
             In the physical model presented in Chapter~\ref{cha:observer},
@@ -207,5 +210,5 @@
             ground contact - will explain the lack of movement by a drastic increase in
             the estimated wind acting in the z-direction.
             This estimated state - the second of interest - is easily monitored
-            and could e.g. be filtered using the Cumulative Sum (CUSUM) algorithm to
-            increase detection confidence, or simply thresholded to detect landing.
+            and could be further filtered to increase detection confidence,
+            or simply thresholded to detect landing.

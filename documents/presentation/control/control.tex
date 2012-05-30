@@ -1,0 +1,90 @@
+\section{Non-linear Control}
+\subsection{LQ control}
+\begin{frame}{Linear Quadratic control}
+    Linear Quadratic Control utilizes a linear motion model to optimally
+    control the system.
+
+    \textbf{Definition: } Find $u=-Lx$ s.t.
+    \scriptsize
+    \begin{equation*}
+        \mathcal{J} = \int_{0}^{\infty} x^{T}Qx + u^{T}Ru dt.
+    \end{equation*}
+    \normalsize
+    is minimized. A feedback-form closed solution exists, having solved the CARE\footnote{Continous Algebraic Riccati Equation};
+    \scriptsize
+    \begin{equation*}
+        A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0
+    \end{equation*}
+    \begin{equation*}
+        L = R^{-1}B^{T}S
+    \end{equation*}
+\end{frame}
+\begin{frame}{Linear Quadratic control}
+    \begin{itemize}
+        \item Appealingly simple.
+        \item Requires a linear motion model
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    The motions of a quadrotor is non-linear, but can locally
+    be described by a linear approximation.
+
+    \begin{itemize}
+        \item The motion model needs linearization.
+        \item The linearization needs a linearization point.
+    \end{itemize}
+\end{frame}
+
+\subsection{SDRE}
+\begin{frame}{State-Dependent Riccati Equation}
+    \textbf{Basic idea: } Linearize the physical model and use LQ theory.
+    \tiny
+    \begin{equation*}
+        \dot{x} = f(x,u) \approx f(x_{0},u_{0})
+            + \underbrace{\left. \frac{\partial f}{\partial x} \right|_{
+                \begin{array}{l}
+                    x=x_{0} \\
+                    u=u_{0}
+                \end{array}
+            }}_{A}
+                \underbrace{\left( x-x_{0} \right)}_{\Delta x}
+            + \underbrace{\left. \frac{\partial f}{\partial u} \right|_{
+                \begin{array}{l}
+                    x=x_{0} \\
+                    u=u_{0}
+                \end{array}
+            }}_{B}
+                \underbrace{\left( u-u_{0} \right)}_{\Delta u}
+    \end{equation*}
+%~ \end{frame}
+%~ \begin{frame}{State-Dependent Riccati Equation}
+    \normalsize
+    By adding a homogeneous state, the linear property of the equation is regained.
+    The result is locally valid in every differentiable point in the state space.
+    \tiny
+    \begin{equation*}
+        \dot{X} = \left[
+        \begin{array}{c}
+            \dot{x} \\
+            0
+        \end{array}\right] =
+        \underbrace{\left[
+        \begin{array}{cc}
+            A & f(x_{0},u_{0})-Ax_{0} \\
+            0 & 0
+        \end{array}\right]}_{\bar{A}}
+        \underbrace{\left[
+        \begin{array}{c}
+            x \\
+            1
+        \end{array}\right]}_{\bar{X}}
+        +
+        \underbrace{\left[
+        \begin{array}{c}
+            B \\
+            0
+        \end{array}\right]}_{\bar{B}}
+        \Delta u.
+    \end{equation*}
+\end{frame}

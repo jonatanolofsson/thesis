@@ -1,0 +1,19 @@
+\beamer@endinputifotherversion {3.16pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Background}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{The LinkQuad Platform}{4}{0}{1}
+\beamer@subsectionintoc {1}{3}{Problem Formulation}{6}{0}{1}
+\beamer@subsectionintoc {1}{4}{Method}{7}{0}{1}
+\beamer@sectionintoc {2}{Monocular SLAM}{12}{0}{2}
+\beamer@subsectionintoc {2}{1}{Initialization}{14}{0}{2}
+\beamer@subsectionintoc {2}{2}{Connecting the Coordinate Systems}{15}{0}{2}
+\beamer@subsectionintoc {2}{3}{Library Modifications}{16}{0}{2}
+\beamer@sectionintoc {3}{State-Estimation}{17}{0}{3}
+\beamer@subsectionintoc {3}{1}{Sensor Fusion}{17}{0}{3}
+\beamer@subsectionintoc {3}{2}{Filtering Framework}{18}{0}{3}
+\beamer@subsectionintoc {3}{3}{Physical Motion-model}{19}{0}{3}
+\beamer@sectionintoc {4}{Non-linear Control}{20}{0}{4}
+\beamer@subsectionintoc {4}{1}{LQ control}{20}{0}{4}
+\beamer@subsectionintoc {4}{2}{SDRE}{22}{0}{4}
+\beamer@sectionintoc {5}{Conslusions}{23}{0}{5}

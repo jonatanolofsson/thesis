@@ -1,0 +1,268 @@
+\section{Introduction}
+
+    \subsection{Background}
+        \begin{frame}{Background}
+            \begin{itemize}
+                \item Increased interest in civilian applications.
+                \item For many applications, a small scale vehicle is desired.
+                \item MAV - Micro Air Vehicle; UAV weighing $5$~kg or less\footnote{Definitions differ}.
+            \end{itemize}
+            \fig{0.5}{skeldar}
+        \end{frame}
+        \note{
+            During the past few years, there has been a significant increase
+            in the interest in the field of unmanned aerial vehicles.
+            While the military industry is the major developer of UAVs,
+            the maturity and availability of technology has enabled applications
+            in search-and-rescue operations and even hobby-level implementations.
+
+            Many UAVs are of considerable size to carry load and to increase flight-time.
+            As new applications develop however, the interest has increased in small scale UAVs
+            such as the LinkQuad, towards which this thesis have been targeted.
+            This type of UAV is known as MAV, Micro Air Vehicle.
+        }
+
+    \subsection{The LinkQuad Platform}
+        \begin{frame}{The LinkQuad Platform}
+            Quadrotor research platform developed by AIICS at the
+            Department of Computer and Information Science of Linköping University.
+
+            Used sensors: Accelerometers, gyroscopes, pressure sensor, camera
+
+            \fig{0.5}{linkquadoutside}
+        \end{frame}
+        \note{
+            The LinkQuad platform is a quadrotor developed here at IDA.
+            It is equipped with a standard set of inertial sensors - accelerometers and gyroscopes -
+            as well as pressure sensors, magnetometers and GPS.
+            It can also be optionally equipped with a camera, which was used in this thesis.
+        }
+        \begin{frame}{The LinkQuad Platform}
+            \begin{itemize}
+                \item Dual gumstix micro-computers (Linux).
+                \item Sensor-board with dual microcontrollers for sensor sampling, data logging and low-level control.
+            \end{itemize}
+            \begin{tikzpicture}[auto,>=latex']
+            \tikzstyle{mcu} = [rectangle, draw=none, rounded corners=1mm, fill=Emerald,
+                text centered, anchor=north, text=white,font=\small]
+            \tikzstyle{sensor} = [rectangle, draw=none, fill=black,
+                text centered, anchor=north, text=white,font=\tiny, node distance=0.8cm]
+            \tikzstyle{camera} = [rectangle, draw=none, rounded corners=1mm, fill=red,
+                text centered, anchor=north, text=white,font=\small]
+            \tikzstyle{framework} = [rectangle, draw, fill=YellowGreen,
+                text centered, anchor=north, text=white,font=\small,thin, minimum width=2cm,node distance=0.7cm]
+            \tikzstyle{gumstix} = [rectangle, draw=none, fill=LimeGreen, rounded corners=2mm,
+                text centered, anchor=north, text=white,font=\small]
+            \tikzstyle{gumstixtext} = [rectangle, draw=none,
+                text centered, align=center, anchor=north, text=white,font=\small]
+
+            \node [gumstixtext] (primarytext) {Primary computer \\ \tiny{State-estimation and control}};
+            \node [framework, below of=primarytext] (crap) {CRAP};
+            \node [gumstixtext, right of=primarytext, node distance=5cm] (secondarytext) {Secondary computer \\ \tiny{Video processing}};
+            \node [framework, below of=secondarytext] (ptam) {PTAM};
+
+            \begin{pgfonlayer}{background}
+                \node [gumstix, fit=(primarytext) (crap)] (primary) {};
+            \end{pgfonlayer}
+            \begin{pgfonlayer}{background}
+                \node [gumstix, fit=(secondarytext) (ptam)] (secondary) {};
+            \end{pgfonlayer}
+
+            \node [mcu, below of=primary, xshift=-1.5cm, node distance=1.5cm] (smcu) {Sensor MCU};
+            \node [mcu, right of=smcu, node distance=3cm] (cmcu) {Control MCU};
+            \node [sensor, below of=smcu, xshift=-1.2cm] (accelerometer) {Acc.};
+            \node [sensor, right of=accelerometer] (gyro) {Gyro};
+            \node [sensor, right of=gyro] (magnetometer) {Mag.};
+            \node [sensor, right of=magnetometer] (pressure) {hPa};
+            \node [camera, below of=secondary, node distance=1.5cm] (camera) {Camera};
+            \node [sensor, below of=cmcu] (esc) {Speed controller};
+            \node [sensor, right of=esc, node distance=1.8cm] (sdcard) {SD-card};
+
+            \path[-]
+                        (primary) edge (secondary)
+                        (primary.south) edge (smcu.north)
+                        (primary.south) edge (cmcu.north)
+                        (cmcu.south) edge (esc.north)
+                        (smcu.south) edge (accelerometer.north)
+                        (smcu.south) edge (gyro.north)
+                        (smcu.south) edge (magnetometer.north)
+                        (smcu.south) edge (pressure.north)
+                        (secondary) edge (camera)
+                        (smcu.east) edge (cmcu.west)
+                        (cmcu.south) edge (sdcard.north)
+                        ;
+            \end{tikzpicture}
+        \end{frame}
+        \note{
+            One particularly notable feature on the LinkQuad is the dual
+            gumstix Linux microcomputers. This allows us to dedicate one
+            each of these to video processing and state estimation respectively.
+        }
+
+    \subsection{Problem Formulation}
+        % Why was a high-level filtering and control framework needed?
+        \begin{frame}[c]{Problem Formulation}
+
+            \textbf{Primary goal:} Develop a control system
+                for the LinkQuad that use video-based positioning
+                to provide stable landing.
+
+            \textbf{Breakdown:}
+            \begin{itemize}
+                \item Video-based SLAM.
+                \item Sensor Fusion with available sensors.
+                \item Use state-estimate for control.
+                \item Generate control reference for landing procedure.
+            \end{itemize}
+        \end{frame}
+        \note{
+            One of the most important features of an independent UAV is
+            the landing procedure. Therefore, the goal of this thesis was
+            to develop a control system that, with the help of camera positioning,
+            could be used to land the LinkQuad.
+        }
+
+    \subsection{Method}
+        \begin{frame}{Method: Video-based Positioning}
+            Extract 3D information from 2D video-stream.
+            \begin{itemize}
+                \item vSLAM - Visual SLAM.
+                \item Simultaneous Localisation And Mapping to track features in the video-stream.
+                \item Gives orientation and position relative to the features.
+                \item High computational demands.
+                \item Complex sensor measurements.
+                %~ \item Fits nicely into a state-space filtering framework.
+            \end{itemize}
+        \end{frame}
+        \note{
+            One of the main technologies that were studied in this thesis
+            is video based SLAM, Simultaneous Localization And Mapping using
+            video-stream data.
+            A vSLAM algorithm - and I say ``a'', 'cause there are several, which
+            work in simiilar ways - extracts trackable features from the video images,
+            and tracks their changes in position between the video frames.
+            This is used to extract the camera's position relative to the
+            features.
+            Video processing generally puts high computational demands, and
+            the resulting measurements are quite complex to interpret.
+            A high-level filtering framework needed to be implemented to
+            integrate the video positioning with the state estimation of the quadrotor.
+        }
+
+        \begin{frame}{Method: Filtering}
+            Current implementation is based on
+            complementary filtering.
+            \scriptsize
+            \begin{equation*}
+                \text{angle} = (0.98)*(\text{angle} + \text{gyro} * \text{dt}) + (0.02)*(a_{\hat{x}})
+            \end{equation*}
+            \normalsize
+            Performance is adequate, but the c.f is difficult to extend.
+
+            Also, camera measurements
+            \begin{itemize}
+                \item cannot be used directly in the current filter,
+                \item fits nicely into a standard state-space filter framework.
+            \end{itemize}
+
+            A high-level filtering framework with an advanced motion model
+            was implemented and applied for state-estimation.
+        \end{frame}
+        \note{
+            The current observer - that is, implementation of state estimation - is based on the
+            complementary filter, and while the performance of the filter
+            is quite adequate for its current purpose, adding more sensors - especially
+            such as the camera positioning - is quite difficult.
+
+            The de facto standard techique for nonlinear state estimation,
+            the Extended Kalman Filter, was ultimately applied for the state estimation.
+            Extensive work was in fact put into creating a physical motion model,
+            and while a simpler model probably would have sufficed for the state estimation,
+            the same model could in fact thereby be re-used later, for instance in the nonlinear
+            control that was implemented.
+        }
+
+        \begin{frame}{Method: Control}
+            With a motion model available, control signals can be computed optimally.
+            Linear Quadratic control offers
+            \begin{itemize}
+                \item simple implementation,
+                \item simple tuning,
+                \item optimal control.
+            \end{itemize}
+            Motion model needs to be linear, which is not the case for a quadrotor.
+            This constraint can be circumvented by an extension to LQ control using the
+            \textbf{State-dependent Riccati Equation}.
+        \end{frame}
+        \note{
+            Having a motion model ment that the LQ control methodology was near
+            at hand to be applied. The problem is, the LQ requires the motion model to be linear.
+            In the thesis, I study a technique to bypass this constraint
+            called State-dependent Riccati Equations, which basically solves the
+            linear problem repeatedly online.
+        }
+
+    \tikzstyle{state} = [rectangle, draw=none, rounded corners=1mm, fill=YellowGreen,
+                    text centered, anchor=north, text=white, minimum width=2cm, minimum height=1cm, node distance=2cm, align=center]
+    \tikzstyle{condition} = [diamond, draw=none, fill=red!80,
+                    text centered, anchor=north, text=white, minimum height=1cm, node distance=2.3cm, align=center]
+    \tikzstyle{choice}=[font=\scriptsize]
+
+        \begin{frame}{Method: Reference Generation}
+            With properly implemented control, landing is a matter of descending
+            steadily until landing is detected.
+            \begin{figure}[h]
+            \footnotesize\centering
+                \begin{tikzpicture}[auto]
+                    \node (entry) {Entry};
+                    \node [state, right of=entry] (halt) {Halt to hover\\ {\tiny Set $V_{ref}=0$}};
+                    \node [condition,right of=halt] (halted) {$|V| < \epsilon$};
+                    \node [state, below of=halt, node distance=1.8cm] (descend) {Descend \\ {\tiny Set $V_{ref,z} > 0$}};
+                    \node [condition,right of=descend] (landed) {Landed};
+                    \node [state, below of=descend, node distance=1.8cm] (spindown) {Spin down};
+                    \path[->]
+                        (entry.east) edge (halt.west)
+                        (halt.east) edge (halted.west)
+                        (halted) edge[loop right,in=90,out=-135] (descend.north)
+                        (descend.east) edge (landed.west)
+                        (landed) edge[loop right,in=90,out=-135] (spindown.north)
+                    ;
+                \end{tikzpicture}
+            \end{figure}
+        \end{frame}
+        \note{
+            Finally, I also implemented a state-machine engine to generate
+            reference signals for the controlled descent and landing of a quadrotor.
+            The basic idea is to use the positioning for a stabilized descent
+            and to detect the event of landing when the vehicle has hit the ground.
+        }
+
+        \begin{frame}{Method: Landing Detection}
+            Landing is generally associated with a lack of descent.
+            The observer will explain this with upward winds.
+
+            \vspace{0.7cm}
+
+            \textbf{Two interesting states to monitor:}
+            \begin{itemize}
+                \item Altitudinal velocity
+                \item Altitudinal wind velocity
+            \end{itemize}
+
+            \vspace{0.7cm}
+
+            %~ Beause only simulated landing was performed in this thesis,
+            %~ the implementation needs further work.
+        \end{frame}
+        \note{
+            As the quadrotor lands, the observer's current motion model will fail
+            to accurately describe this sudden loss of altitudinal velocity and will
+            instead, after a while's settling time, explain the behaviour
+            of the vehicle by an increased upward force from the modeled wind.
+            Thus, the altitudinal velocity and estimated altitudinal wind velocity
+            could both be monitored for increased detection reliability.
+        }
+
+%~ \begin{frame}{The LinkQuad Platform}
+    %~ \fig{LinkQuad}{0.3}
+%~ \end{frame}

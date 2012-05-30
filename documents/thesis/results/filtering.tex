@@ -1,5 +1,9 @@
 \section{Filtering}
 \label{sec:results:filtering}
+The filter implementation was evaluated with recorded data.
+Due to model stability issues, as discussed in Chapter \ref{cha:discussion},
+the EKF-filter was selected for evaluation.
+
 \subsection{Positioning}
     While the altitude positioning, shown in Figure~\ref{fig:results:filtering:position},
     exhibit disturbances correlated with pressure sensor noise,
@@ -10,7 +14,9 @@
     In the plot of the Z-axial positioning in Figure~\ref{fig:results:filtering:position},
     the estimates from the pre-existing complementary filter -
     moved to share the initial conditions of the Kalman filter - was added for
-    comparison, showing their comparable performance.
+    comparison. The complementary filter exhibits the problems associated
+    with the pressure sensor, while the camera-based positioning is stable
+    throughout the test.
 
     \begin{subfigures}{Positioning in the X- and Y-direction mostly well corresponds to ground truth, thanks to the camera positioning.
     In the Z-axis, the estimation of the pre-existing complementary filter is added for comparison, its starting point adjusted to produce comparable plots.}{fig:results:filtering:position}
@@ -20,10 +26,11 @@
     \end{subfigures}
 
 \subsection{Velocities}
-    The velocities, beeing closely coupled with the camera observed position,
+    The velocities, being closely coupled with the camera observed position,
     also exhibit good performance (Figure~\ref{fig:results:filtering:velocities}).
     There are shortcomings to the estimation's horizontal precision, although
-    this could probably be significantly improved with further filter tuning.
+    this could probably be significantly improved with further filter tuning
+    and the availability of control signals.
     \begin{subfigures}{Velocity estimates are generally adequate, but with more tuning, the results are likely to improve.}{fig:results:filtering:velocities}
         \sfig{\splotwidth}{velX}
         \sfig{\splotwidth}{velY}
@@ -35,9 +42,9 @@
     yielding notable precision, as seen in Figure~\ref{fig:results:filtering:qwb}.
 
     The bias of the gyroscopes is removed during the initialization process.
-    Since the time-frame of the tests were far less than the time expeted to
+    Since the time-frame of the tests were far less than the time expected to
     detect a change in the bias, these should thus be estimated to zero,
-    as verfied in Figure~\ref{fig:results:filtering:drift}.
+    as verified in Figure~\ref{fig:results:filtering:drift}.
 
     As noted in Section~\ref{ssec:results:modelling:gyroscopes}, the
     filtering of the rotational velocities of the quadrotor body,
@@ -75,7 +82,7 @@
     shows them to be correctly estimated to zero in the collected dataset,
     although in the case with simulated data with wind, shown in Figure~\ref{fig:results:filtering:simwind},
     results are poor, most likely due to that the simulation of the sensors' data
-    does not fully cover the non-continuous behaviour that is expected in the
+    does not fully cover the non-continuous behavior that is expected in the
     event of touching the ground, for example proper clamping of accelerometer simulations.
 
     \begin{subfigures}{Wind estimates from recorded test-data.}{fig:results:filtering:wind}
@@ -101,7 +108,7 @@
     Ideally, the velocities of the propellers should be measured in flight.
     However, that data is currently unavailable in the development system used for evaluation.
     The estimated velocities are, notably, in a reasonable range,
-    increasing the plausability for correctness of Eq.~\ref{eq:observer:thrust}, which is
+    increasing the plausibility for correctness of Eq.~\ref{eq:observer:thrust}, which is
     otherwise hard to verify using the available data.
 
     \begin{subfigures}{Propeller angular rate estimates could not be properly verified with the data available, although do exhibit a reasonable value range given the model parameter settings.}{fig:results:filtering:wr}

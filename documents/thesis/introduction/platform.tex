@@ -5,12 +5,13 @@
     but for our purposes, a monocular camera has also been mounted, which feeds data
     into a microcomputer specifically devoted to the processing of the camera feed.
     This devoted microcomputer is what allows the primary on-board microcomputer
-    to focus on state estimation and control, without beeing overloaded by
+    to focus on state estimation and control, without being overloaded by
     video processing.
 
     The primary microcomputer is running a framework named C++ Robot Automation Platform (CRAP),
     which was developed by the thesis' author for this purpose. CRAP is a light-weight
-    automation platform with a purpose similar to that of ROS\footnote{\url{http://www.ros.org/}}.
+    automation platform with a purpose similar to that of ROS\footnote{\url{http://www.ros.org/}}, a
+    modular robotics framework developed by Willow Garange\footnote{\url{http://www.willowgarage.com/}}.
     It is, in contrast to ROS, primarily designed to run on the kind relatively low-end Linux systems
     that fits the payload and power demands of a MAV. The framework is further
     described in Appendix~\ref{app:crap}.
@@ -23,7 +24,7 @@
         \item[$\bullet$ Logic:]    State-machine for scheduling controller parameters and reference trajectory. Chapter~\ref{cha:logic}.
     \end{description}
 
-    The platform is also equipped with two microcontrollers, responsible
+    The platform is also equipped with two micro-controllers, responsible
     for sensor sampling, motor control, flight logging etc., as depicted in
     Figure~\ref{fig:platform:schematic}.
 
@@ -85,5 +86,7 @@
         \label{fig:platform:schematic}
     \end{figure}
 
-
-    \fig{0.5}{LinkQuad}{The LinkQuad development platform.}{fig:linkquad}
+    \begin{subfigures}{The LinkQuad development platform.}{fig:linkquad}
+        \sfig{0.45}{LinkQuad}
+        \sfig{0.45}{linkquadoutside}
+    \end{subfigures}

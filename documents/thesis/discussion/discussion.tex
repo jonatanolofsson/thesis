@@ -5,11 +5,11 @@
     a basis for later discussions on future work.
 
     \section{Modelling}
-        It is arguable whether the advanced physical modelling presented
+        It is arguable whether the advanced physical modeling presented
         in Chapter~\ref{cha:observer} is tenable, as performance similar or better
         than presented in Section~\ref{sec:results:filtering} is very likely
         to have been achieved using a well tuned, far simpler, motion model.
-        These results are not suprising.
+        These results are not surprising however.
         Aside from requiring accurate parameter settings, the full potential of the
         proposed model is dependent on the availability of control reference
         signals and more accurate control over the true rotational velocity of
@@ -20,7 +20,7 @@
         The nature and extensiveness of the model does however open
         for e.g. future outdoor applications, handling wind and other
         disturbances. The state-space approach also allows for simple addition
-        of further modelling and added states.
+        of further modeling and added states.
 
         The model, as presented in this thesis, needs further in-detail
         verification and tuning. The flapping equations presented in
@@ -28,7 +28,7 @@
         the verification in Chapter~\ref{cha:results} due to the
         difficulty of verification. In its current state, the model
         adequately describes the accelerations of the system - and with tuning it might become great -
-        but the performance of the model must also be weighed againts
+        but the performance of the model must also be weighed against
         the computational complexity.
 
         The advanced model used in the state estimation does however bear the
@@ -56,11 +56,11 @@
         the parameters of the motion model were set to reasonably guessed values
         but otherwise untuned. Similarly, filter covariances were roughly
         tuned to reasonable values. Video was recorded for $20$ seconds ($30$~Hz mode)
-        or $40$ seconds ($15$~Hz mode), and the Vicon ground thruth was used for
+        or $40$ seconds ($15$~Hz mode), and the Vicon ground Truth was used for
         initialization but then only for plot reference.
 
         \subsection{EKF vs. UKF}
-            In this thesis, two non-linear filter algorithms were studied.
+            In this thesis, two nonlinear filter algorithms were studied.
             After an initial evaluation period of the Unscented Kalman Filter,
             one weakness of the algorithm was exposed that rendered the
             algorithm very difficult to use further.
@@ -72,7 +72,7 @@
             will cause effects large enough to destabilize the filtering solution.
             Excessive covariance in angle estimates may for instance
             cause the filter to evaluate and compare two cases of the quadrotor
-            beeing upside down, both irrelevant to the mean case of stable flight.
+            being upside down, both irrelevant to the mean case of stable flight.
             Hence, the implementation was changed to use the more stable EKF algorithm.
             With further tuning, the UKF may be usable in a later stage, but with the inherent
             instability of the model, the UKF is still inherently problematic in
@@ -89,11 +89,13 @@
             in Figure~\ref{fig:results:modelling:pressure} affects the altitude positioning
             somewhat negatively. However, as the trends in measured and predicted pressure of Figure~\ref{fig:results:modelling:pressure}
             seem to correlate with the ground truth altitude in Figure~\ref{fig:results:filtering:position},
-            further tuning and modelling may increase the utility of the pressure sensor.
+            further tuning and modeling may increase the utility of the pressure sensor.
+            With its problematic behavior however, the pressure sensor was
+            disabled in the filter for the continued filter verification.
 
-            With the filter structure in place, what I believe to be the single
+            With the filter structure in place, the single
             most rewarding factor to increase the performance of the filtering
-            is simply to further tune it. Since this can be quite time-consuming,
+            would be simply to further tune it. Since this can be quite time-consuming,
             it could not be included in the thesis, but tools for simulation
             and evaluation are provided in the implementation.
 
@@ -101,19 +103,22 @@
             is performed using numerical Euler integration.
             This is a simple and fast integration method, but lacks in accuracy.
             Applying a more advanced solution, e.g. a standard Runge-Kutta solver,
-            is expensive, but a study to determine a reasonable trade-off
-            using different integration-techniques could be performed.
+            could be expensive for a complex model, but a study to determine
+            a reasonable trade-off using different integration-techniques could be performed.
             The cost of integration may very well outweigh
             the performance gained by applying the advanced motion model,
             and the precision loss caused by the Euler integration might
             exceed the gain from the finer details of the said model.
             A simpler model could remove the need for numerical integration
-            entirely and provide a significant speed-up.
+            entirely and provide a significant speed-up. The complex model
+            would however still be highly relevant for validation and
+            development purposes.
 
     \section{Camera Localization}
+    \label{sec:discussion:cameralocalization}
         Two libraries were evaluated for the camera localization part of this thesis,
         namely Scenelib and PTAM. Scenelib is the older library of the two,
-        and the library to which PTAM was compared in its original paper \citep{klein07parallel}.
+        and is also the library to which PTAM was compared in its original paper \citep{klein07parallel}.
         The Scenelib library, using the filter approach described in Chapter~\ref{sec:video:filtersolutions},
         has the advantage to use metric measures.
         This could potentially have simplified the integration with the
@@ -121,43 +126,46 @@
         with camera calibration rendered the Scenelib library subpar.
 
         The PTAM library is designed to be used with a wide-angle camera lens,
-        which was unfortunately impossible with the resources available.
+        which unfortunately was impossible with the resources available.
         While good performance could be achieved in the restricted testing
         environment, a wide-angle lens is likely to improve the tracking
         performance when larger scenes are explored.
 
-        One can note that, in the recorded test case, tracking was stable
+        One can note that tracking was stable in the recorded test case
         at the low capture rate of $15$~Hz, which is promising as an implementation
         on the gumstix might be limited to those speeds considering the
-        computational limits.
+        computational limits. A faster rate is nonetheless advisable.
 
     \section{Controller}
         The advantages and disadvantages of different control techniques
         and its applications to quadrotor control
         have been previously discussed and evaluated in \citep{bouabdallah04pid}.
         The conclusions are ambiguous, but the state-space approach is believed to
-        excel with continued modelling.
+        excel with continued modeling.
 
         One disadvantage with the state-space approach is its - in comparison
         to PID control - lack of easily implemented integrating states.
         This does add demands on a physically correct model, which may
-        or may not always be available in flight-conditions.
+        not always be available in all flight-conditions.
 
-        The SDRE approach used in this thesis is also notably rare - if at all existing - in litterature,
-        and is an interesting topic for further research.
+        The SDRE approach used in this thesis is also notably rare - if at
+        all existing - in the application of quadrotor control
+        and with its ease of use, it is an interesting topic for further research and applications.
         The control implementation is very versatile although the computational
         burden can be somewhat lifted by comparing other techniques for solving
         the Riccati equation of Eq. \ref{eq:controller:lq:care} and its discrete equivalent.
-        While the control would need to be verified and tuned for real flight,
-        the tools and structure have been verified in simulation with good results.
-        %~ The control does of course suffer from the same lack of parameter tuning
-        %~ as the filtering that would be nescessary for real in-flight control.
+        Several numerical approaches exist to solving the Riccati equation,
+        although an iterative approach could prove beneficial since
+        the equation is solved repeatedly and the previous solution would make a
+        good starting guess.
 
+        While the control would need to be further verified and tuned before applied in real flight,
+        the tools and structure have been verified in simulation with good results.
         It should be noted that the control model is fundamentally the same
         as the observer model and, more importantly, the underlying simulation
         model. Even though noise was added to both the system and the measurements,
         the control evaluation suffers from the fact that the control is ``perfect'' for the
-        simulated model, and not nescessarily for real flight.
+        simulated model, and not necessarily for real flight.
 
         One clear advantage with the LQ control methodology is its simple
         tuning, and even though very little of the work was focused on
@@ -183,28 +191,31 @@
         that such a force would be indistinguishable from
         the force acting on the quadrotor by a ever-increasing wind.
         In simulation, the landing detection failed to detect landing
-        as proposed in Section~\ref{ssec:logic:landing:detection}.
-
-        When a landing is simulated, Figure~\ref{fig:results:filtering:windbump}
+        as proposed in Section~\ref{ssec:logic:landing:detection}, although
+        when a landing is simulated, Figure~\ref{fig:results:filtering:windbump}
         exhibits an interesting property where a notable bump occurs at the
-        time of the landing. While this is not the expected behaviour
+        time of the landing. While this is not the expected behavior
         - the estimate should be negative and constant -
         it does show that the wind may be useful as a detector for landing.
+        This discrepancy of results is believed to be due to
+        the simulation's lack of a model for sensor measurements at the event of ground contact
+        and the observer's lack of control signals in its state-estimation.
 
-        The plot in Figure~\ref{fig:results:filtering:windbump}
-        is made from simulated data, but it implies that landing detection
+        %~ The plot in Figure~\ref{fig:results:filtering:windbump}
+        %~ is made from simulated data, but it
+        The results achieved in simulation implies that landing detection
         using wind estimation might be feasible, although more work is required
         to achieve the quality of estimation needed to securely detect landing.
-        The received result was unexpected, and debugging should be performed prior
-        to discarding the idea.
-        Hence, no well-founded conclusions can be drawn as for the suitability
-        of wind estimation as a means of landing detection. Further work
-        is needed but it is believed that with proper filter tuning, the
-        variable in question may be a contributing factor in a more advanced
-        landing-detection system.
+        %~ The received result was unexpected, and debugging should be performed prior
+        %~ to discarding the idea.
+        %~ Hence, no well-founded conclusions can be drawn as for the suitability
+        %~ of wind estimation as a means of landing detection. Further work
+        %~ is needed but it is believed that with proper filter tuning, the
+        %~ variable in question may be a contributing factor in a more advanced
+        %~ landing-detection system.
 \pagebreak
     \section{Real-time Performance}
-        Although real-time control is easily achieved on a modern laptop,
+        Although real-time performance is easily achieved on a modern laptop,
         simulations indicate that real-time performance
         could not be achieved on the LinkQuad's gumstix without modifications.
 
@@ -221,5 +232,10 @@
         using the reference implementation of BLAS\footnote{\textit{Basic Linear Algebra Subprograms},
         a standard set of mathematical routines}, which could possibly
         be replaced by a tuned implementation such as ATLAS\footnote{\textit{Automatically Tuned Linear Algebra Software}}.
-        Model simplifications may also be nescessary to achieve real-time performance
-        on the existing hardware.
+        Model simplifications may also be necessary to achieve real-time performance
+        on the existing hardware, although nonlinearities will always enter the model
+        through the nonlinear rotations.
+        Landing in the trivial case can no doubt be performed using a simple, perhaps even linear, model.
+        Generalisations extending the utility of the controller, for instance when
+        using the controller for other flight cases, would require the use
+        of a more advanced model, such as proposed in this thesis.

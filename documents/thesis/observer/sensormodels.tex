@@ -9,15 +9,15 @@
     to prevent drift in the filtering process. Here, the GPS is replaced with a camera,
     which will be discussed in Section~\ref{ssec:observer:sensormodels:camera}.
 
-    In most equations below, a zero-mean Gaussian term with known covariance is added
+    In most equations in this section, a zero-mean Gaussian term $e$ with known covariance is added
     to account for measurement noise. The Gaussian assumption may in some
     cases be severely inappropriate, but the Kalman filter framework requires its use.
 
     \subsection{Accelerometers}
         The accelerometers, as the name suggests, provides measurements of the
         accelerations of the sensor. In general, this does not directly correspond
-        to the accelerations of the mathematical centre of gravity used
-        as centre of the measured vehicle, which motivates correction
+        to the accelerations of the mathematical center of gravity used
+        as center of the measured vehicle, which motivates correction
         for angular acceleration and rotation.
         \begin{equation}
             \hat{y}_{\text{acc}} = a_{\mathcal{G}} + \dot{\omega} \times r_{\text{acc}/\mathcal{G}} + \omega \times \left( \omega \times r_{\text{acc}/\mathcal{G}} \right) + e_{\text{acc}}
@@ -29,7 +29,7 @@
         relative position of the gyro to the center of gravity.
         However, gyroscope measurements are associated with a bias which may
         change over time. This bias term is introduced as a state variable which
-        is modelled constant, Eq.~\eqref{eq:filter:sensormodels:accelerometertime},
+        is modeled constant, Eq.~\eqref{eq:filter:sensormodels:accelerometertime},
         through the time update, leaving its adjustment to the filter measurement update.
         \begin{equation}
             y_{\text{gyro}} = \omega + b + e_{\text{gyro}}
@@ -41,17 +41,18 @@
 
     \subsection{Magnetometers}
         Capable of sensing magnetic fields, the magnetometers can be used to
-        sense the direction of the earth's magnetic field and, from knowing
+        sense the direction of the Earth's magnetic field and, from knowing
         the field at the current location, estimate the orientation of a vehicle.
         \begin{equation}
             y = R(q) m^{e} + e_{m}
         \end{equation}
         The Earth's magnetic field can be approximated using the World Magnetic Model\cite{wmm2010},
-        which for Linköping, Sweden, yields
+        which for Linköping, Sweden, is given in Eq. \eqref{eq:observer:sensormodels:magneticfield}.
         \begin{equation}
+            \label{eq:observer:sensormodels:magneticfield}
             m^{e} = \left(\begin{array}{ccc}
                 15.7 & 1.11 & 48.4
-            \end{array}\right)_{NEDEF}^{T} \mu T.
+            \end{array}\right)_{NEDEF}^{T} \mu T
         \end{equation}
 
         Magnetometer measurements are however very sensitive to disturbances, and in indoor
@@ -59,7 +60,12 @@
         Thus, the magnetometers were not used for the state estimation in this thesis.
 
     \subsection{Pressure Sensor}
-        The barometric pressure, $p$, can be related to altitude using the following equation\cite{physicshandbook}
+        The barometric pressure, $p$, can be related to altitude using Eq. \eqref{eq:sensormodels:pressure} \cite{physicshandbook}.
+        The pressure sensor, as shown in the validation, is inherently
+        noisy and especially so in an indoor environment where air conditioning
+        causes disturbances in the relatively small - and thus pressure sensitive -
+        environments that are available indoors.
+        The pressure sensor is also affected by the propeller turbulence.
         \begin{equation}
             \label{eq:sensormodels:pressure}
             p = p_{0} \left( 1 - \frac{L \cdot h}{T_{0}} \right)^{\frac{g \cdot M}{R\cdot L}} + e_{p}

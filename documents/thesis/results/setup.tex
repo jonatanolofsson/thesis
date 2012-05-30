@@ -1,16 +1,16 @@
 \section{Experimental Setup}
     The data used for the evaluation of the model and the filter in
-    this Chapter~was recorded on the LinkQuad quadrotor in the UASTech Vicon Lab
+    this chapter was recorded on the LinkQuad quadrotor in the UASTech Vicon Lab
     at Linköping University, Sweden. Ground truth data was recorded using
     the Vicon tracking system at a rate of $10$~Hz, while sensors were sampled
     at $500$~Hz and logged on-board the LinkQuad.
-    For the dataset used in this Chapter, where not noted otherwise,
+    For the dataset used in this Chapter,
     camera data was collected at a rate of $30$~Hz during 20-second bursts after
     which the data had to be written to memory.
     The camera was tilted approximately $30$ degrees downwards from the
     horizontal body-fixed plane of the quadrotor, giving an overview of the cluttered
     floor in Figure~\ref{fig:results:setup:testarea}.
-    The camera settings were tuned to minimize the disturbance from lightsources
+    The camera settings were tuned to minimize the disturbance from light-sources
     and the infrared light used by the Vicon system.
 
     The LinkQuad was then manually moved by hand to resemble flight conditions
@@ -18,8 +18,8 @@
 
     \fig{0.8}{testarea}{To provide visual features for the PTAM library to detect, the testscene was cluttered with objects.}{fig:results:setup:testarea}
 
-    After the validation of the model, the model was then used for simulated
-    control and landing, which is used in Section~\ref{sec:results:control}
-    to validate the proposed control scheme. For the validation, simulated wind, random Gaussian
-    system noise and random Gaussian measurement noise was injected into
-    the system.
+    After the validation of the model, it was then used for simulated
+    control and landing, described in Section~\ref{sec:results:control},
+    to validate the proposed control scheme.
+    For the validation, simulated wind, random Gaussian system noise and
+    random Gaussian measurement noise was injected into the system.

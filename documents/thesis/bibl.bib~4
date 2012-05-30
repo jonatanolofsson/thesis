@@ -593,3 +593,12 @@
 	year = "2004"
 }
 
+@article{Nguyen_Sandor_Park_2010,
+	author = "Nguyen, Thanh and Sandor, Christian and Park, Jun",
+	journal = "Camera",
+	pages = "84--88",
+	title = "{PTAMM-Plus: Refactoring and Extending PTAMM}",
+	url = "http://www.vrsj.org/ic-at/ICAT2010_Proceedings/paper/paper-014.pdf",
+	year = "2010"
+}
+

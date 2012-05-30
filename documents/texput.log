@@ -1,19 +1,19 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  20 MAY 2012 14:06
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  29 MAY 2012 20:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Report.tex
+**presentation.tex
 
 ! Emergency stop.
-<*> Report.tex
-              
+<*> presentation.tex
+                    
 End of file on the terminal!
 
  
 Here is how much of TeX's memory you used:
  3 strings out of 495015
- 100 string characters out of 3181236
+ 106 string characters out of 3181236
  45157 words of memory out of 3000000
  3292 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000

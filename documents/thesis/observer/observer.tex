@@ -8,7 +8,7 @@
     Filter theory and notation is established in Section~\ref{sec:observer:filtering}.
 
     In this thesis, an Unscented Kalman Filter (UKF) and an Extended Kalman Filter (EKF) are evaluated.
-    These filters both extend the linear Kalman filter theory to the non-linear case.
+    These filters both extend the linear Kalman filter theory to the nonlinear case.
     The UKF circumvents the linearization used in the EKF in an appealing black-box way,
     albeit it is more sensitive to obscure cases in the physical model,
     as detailed in the discussion in Chapter~\ref{cha:discussion}.
@@ -17,14 +17,14 @@
 
     The application of a motion model to the filtering process is known to
     be highly beneficial, and is a central component in the Kalman filter framework.
-    The motion model is used to predict the behaviour of the system and may do
+    The motion model is used to predict the behavior of the system and may do
     so in more or less detail by varying the complexity of the model.
-    A more complex model may provide superior filtering performance altough
+    A more complex model may provide superior filtering performance although
     at increased computational cost. The motion model used in this thesis,
     derived in Section~\ref{sec:observer:motionmodel}, models the quadrotor
     in detail to obtain simulational validity and precise control.
 
-    As well as beeing modelled, the motions of the system are captured by the on-board sensors.
+    As well as being modeled, the motions of the system are captured by the on-board sensors.
     A measurement $y$ is related to the motion model by the sensor model $h$;
     \begin{equation}
         y(t) = h(x(t),u(t),t)

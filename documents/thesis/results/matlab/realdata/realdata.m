@@ -5,6 +5,8 @@ else
     figures.closeAll();
 end
 
+skipsec = 3/20;
+
 %% Import data
 measurements.imu = Files.import('imu_measured.log');
 simulation.imu = Files.import('imu_simulated.log');
@@ -30,16 +32,16 @@ reality.roll    = Quaternion.toRoll(reality.qwb0, reality.qwbi, reality.qwbj, re
 reality.pitch   = Quaternion.toPitch(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 reality.yaw     = Quaternion.toYaw(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 
-measurements.imu.time = measurements.imu.time/2;
-measurements.camera.time = measurements.camera.time/2;
-simulation.imu.time = simulation.imu.time/2;
-simulation.camera.time = simulation.camera.time/2;
-observer.time = observer.time/2;
-reality.time = reality.time/2;
+% measurements.imu.time = measurements.imu.time/2;
+% measurements.camera.time = measurements.camera.time/2;
+% simulation.imu.time = simulation.imu.time/2;
+% simulation.camera.time = simulation.camera.time/2;
+% observer.time = observer.time/2;
+% reality.time = reality.time/2;
 
 raw = Files.import('data.log');
 
-reality.time(980) = reality.time(980)+0.0001;
+% reality.time(980) = reality.time(980)+0.0001;
 %%
 sensors
 filtering

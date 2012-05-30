@@ -12,10 +12,10 @@ end
 
 %%
 figures.getFigure('referencefollowing');
-subplot(4,1,1); plot(reference.time, reference.velX, 'r', controlstates.time, controlstates.velX, 'b', reality.time, reality.velX, 'k'); title('Velocity, X'); ylabel('m/s'); legend('Reference', 'Observer estimate', 'Simulated reality');
-subplot(4,1,2); plot(reference.time, reference.velY, 'r', controlstates.time, controlstates.velY, 'b', reality.time, reality.velY, 'k'); title('Velocity, Y'); ylabel('m/s');
-subplot(4,1,3); plot(reference.time, reference.velZ, 'r', controlstates.time, controlstates.velZ, 'b', reality.time, reality.velZ, 'k'); title('Velocity, Z'); ylabel('m/s');
-subplot(4,1,4); plot(reference.time, reference.wYaw, 'r', controlstates.time, controlstates.wYaw, 'b', reality.time, reality.wYaw, 'k'); title('Yaw rate'); xlabel('time'); ylabel('rad/s');
+subplot(4,1,1); plot(reference.time, reference.velX, 'r', controlstates.time, controlstates.velX, 'b', reality.time, reality.velX, 'g'); title('Velocity, X'); ylabel('m/s'); legend('Reference', 'Observer estimate', 'Simulated reality');
+subplot(4,1,2); plot(reference.time, reference.velY, 'r', controlstates.time, controlstates.velY, 'b', reality.time, reality.velY, 'g'); title('Velocity, Y'); ylabel('m/s');
+subplot(4,1,3); plot(reference.time, reference.velZ, 'r', controlstates.time, controlstates.velZ, 'b', reality.time, reality.velZ, 'g'); title('Velocity, Z'); ylabel('m/s');
+subplot(4,1,4); plot(reference.time, reference.wYaw, 'r', controlstates.time, controlstates.wYaw, 'b', reality.time, reality.wYaw, 'g'); title('Yaw rate'); xlabel('time'); ylabel('rad/s');
 
 %%
 figures.getFigure('windbump');

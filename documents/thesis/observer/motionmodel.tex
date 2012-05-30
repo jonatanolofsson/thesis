@@ -7,7 +7,7 @@
     With assumed Gaussian white noise distributions, this evaluation
     can be done in the probabilistic Kalman framework as presented in
     Sections~\ref{sec:observer:filtering}-\ref{sec:observer:ukf}, where the
-    probablity estimate of the sensors' measurements are based on the motion
+    probability estimate of the sensors' measurements are based on the motion
     model's prediction. In this section, a motion model is derived and evaluated.
     The model is presented in its continuous form, since the discretization
     is made numerically on-line.
@@ -89,12 +89,31 @@
             \right) .
         \end{equation}
 
-        Rotation quaternions describing the rotation \textit{to frame a from frame b}
+        Rotation quaternions describing the rotation \textit{to frame $a$ from frame $b$}
         is commonly denoted $q^{ab}$, whereas the \textit{b} may be dropped if the rotation is global, i.e. relative the NEDEF system.
         \textit{a} and \textit{b} are, where unambiguous, replaced by the first character of the
         name of the reference frame.
         Full transformations between coordinate systems - including rotation, translation and scaling -
         are similarly denoted $\mathcal{J}^{ab}$.
+
+        The equations in this chapter is given in their time-continuous form
+        to simplify the description of the forces.
+        The equations are discretized in the implementation using numerical Euler integration (Eq. \eqref{eq:observer:euler})
+        or Runge-Kutta integration (Eq. \eqref{eq:observer:rungekutta}), using an integration step of $T$.
+        \begin{equation}
+        \label{eq:observer:euler}
+            X_{t+1} = X_{t} + T \cdot f(X,t)
+        \end{equation}
+        \begin{subequations}
+        \label{eq:observer:rungekutta}
+            \begin{align}
+                X_{t+1} &= X_{t} + \tfrac{1}{6} \left(k_1 + 2k_2 + 2k_3 + k_4 \right) \\
+                k_1 &= Tf(X, t) \\
+                k_2 &= Tf(X_{t} + \tfrac{1}{2} k_1, t + \tfrac{1}{2}T) \\
+                k_3 &= Tf(X_{t} + \tfrac{1}{2} k_2, t + \tfrac{1}{2}T) \\
+                k_4 &= Tf(X_{t} + k_3, t + T)
+            \end{align}
+        \end{subequations}
 
     \subsection{Kinematics}
         The motions of the quadrotor are described by the following relations \citep{Pounds_modellingand}: % more citations needed?
@@ -130,30 +149,31 @@
 
 
     \subsection{Dynamics}
-        The motions of the quadrotor can be fully mathematically explained by the
-        forces and moments acting on the vehicle. Using the rigid-body assumtion,
-        Eulers' extension of Newton's laws of motion for the
-        quadrotor's center of gravity, $\mathcal{G}$, yields
+        The motions of the quadrotor can be fully explained by the
+        forces and moments acting on the vehicle. Using the rigid-body assumption,
+        Euler's extension of Newton's laws of motion applied to the
+        quadrotor's center of gravity, $\mathcal{G}$, yields Eqs.~\ref{eq:motionmodel:newton}.
+        These equations describe the acceleration and angular acceleration of the vehicle
+        as related to the forces acting on the vehicle.
         \begin{subequations}
-            \begin{equation}
-                \dot{V} = a^{w}_{\mathcal{G}} = R(q^{wb})\frac{1}{m}\sum F
-            \end{equation}
-            \begin{equation}
-                \dot{\omega} = R(q^{wb})I_{\mathcal{G}}^{-1}\sum M_{\mathcal{G}}
-            \end{equation}
+        \label{eq:motionmodel:newton}
+            \begin{align}
+                \dot{V} &= a^{w}_{\mathcal{G}} = R(q^{wb})\frac{1}{m}\sum F \\
+                \dot{\Omega} &= R(q^{wb})I_{\mathcal{G}}^{-1}\sum M_{\mathcal{G}}
+            \end{align}
         \end{subequations}
 
         The main forces acting upon the quadrotor are the effects of three different components
         \begin{itemize}
-            \item $\sum_{i=0}^{3}F_{ri}$ - Rotor thrust,
+            \item $\sum_{i=1}^{4}F_{ri}$ - Rotor thrust,
             \item $F_{g}$ - Gravity,
-            \item $F_{wind}$ - Wind.
+            \item $F_{\text{wind}}$ - Wind.
         \end{itemize}
 
         Of these, the gravity is trivially described with the
         gravitational acceleration and the total mass of the quadrotor as
         \begin{equation}
-            F_{g} = mg\cdot e_{3}^{NED}
+            F_{g} = mg\cdot \hat{z}^{NED}
         \end{equation}
 
         The following sections will describe the rotor thrust and wind forces respectively.

@@ -7,7 +7,7 @@
     longer adhere to the physical circumstances valid there.
 
     This will lead to sub-optimal control and possibly even to system failure.
-    A common approach in non-linear control is to switch between pre-calculated
+    A common approach in nonlinear control is to switch between pre-calculated
     control gains which has been calculated for selected linearization points.
 
     The approach used in this thesis is closely related to gain scheduling,
@@ -16,14 +16,14 @@
 
     The problem of solving of the Riccati equation  online is treated under
     the subject of \textit{State-Dependent Riccati Equations}, SDRE's.
-    While beeing computationally heavier than the standard LQ formulation
+    While being computationally heavier than the standard LQ formulation
     due to having to solve the Riccati equation each time step, the need
     for finding valid linearization points is removed and more general problems can be treated.
     The basic formulation of the problem is covered in e.g. \citep{Rantzer99piecewiselinear},
-    and an extensive survery is presented in \citep{Tayfun08sdresurvey}.
+    and an extensive survey is presented in \citep{Tayfun08sdresurvey}.
     Implementation details are detailed and evaluated in e.g \citep{Erdem_analysisand,Benner98acceleratingnewton's,10.1109/MED.2006.328740}.
 
-    The LQ theory is extended to the non-linear case using the Taylor
+    The LQ theory is extended to the nonlinear case using the Taylor
     expansion of a general motion model is exploited to form the general
     result of Equation \eqref{eq:controller:affinelq}.
     Similar to several other modifications to the LQ methodology - such as
@@ -55,7 +55,7 @@
     In the standard formulation of LQ, the linearization is made
     around a stationary point $(x_{0},u_{0})$, where $f(x_{0},u_{0}) = 0$.
     In a more general formulation, it is possible to lift this constraint
-    using a homogenous state \citep{Rantzer99piecewiselinear};
+    using a homogeneous state \citep{Rantzer99piecewiselinear};
     \begin{equation}
     \label{eq:controller:affinelq}
         \dot{X} = \left[

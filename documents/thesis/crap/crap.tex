@@ -19,7 +19,7 @@
     \url{https://github.com/jonatanolofsson/crap}.
 
     The relevant directory structure is as follows,
-    examplified for the observer module:
+    exemplified for the observer module:
 
     \begin{minipage}{\textwidth}
     \dirtree{%
@@ -45,7 +45,7 @@
     \label{sec:crap:structure}
         Modules, as shown in Figure~\ref{fig:crap:schematic},
         connect to each other using \textit{messages} sent in \textit{message topics}.
-        Topics are identifed by a string name, and is
+        Topics are identified by a string name, and is
         Each module is initialized in its own processing thread, but may
         chose to end this initial thread and react only to
         incoming messages, which are received in a separate \textit{messaging thread},
@@ -57,10 +57,10 @@
         file is given as the first input argument to the \crap executable
         and contains a list of the modules that should be loaded, each with
         a unique name, executable shared object and an optional configuration file,
-        as examplified in Listing~\ref{lst:crap:configuration}.
+        as exemplified in Listing~\ref{lst:crap:configuration}.
 
         Each module is compiled individually to a \textit{shared object},
-        which can be dynamically linked to the \crap platform at runtime, in accordance
+        which can be dynamically linked to the \crap platform at run-time, in accordance
         with the selected core configuration.
         The modules are all located in the \texttt{modules} directory,
         and all compilation details needed for run-time linking are defined in the CMake
@@ -177,7 +177,7 @@ modules:
         This restriction is not programmatically enforced, but must be asserted
         in the development process.
 
-        \lstset{caption={Excerpts from the mode-switching code in the state-machine, demonstating the use of internal messaging.},label=lst:crap:communication:internal}
+        \lstset{caption={Excerpts from the mode-switching code in the state-machine, demonstrating the use of internal messaging.},label=lst:crap:communication:internal}
         \begin{minipage}{\textwidth}
         \begin{lstlisting}
 void switch_mode(const std::string& mode) {...}
@@ -189,10 +189,10 @@ comm::send("/logic/mode", std::string("hover"));
         \end{minipage}
 
         \subsection{Serial Communication}
-            The serial communication is slightly more resctrcted than the
+            The serial communication is slightly more restricted than the
             internal communication, to comply with the existing definition
             of the LinkQuad serial communication.
-            As examplified in Listings~\ref{lst:crap:communication:serial:typedef}-\ref{lst:crap:communication:serial:send},
+            As exemplified in Listings~\ref{lst:crap:communication:serial:typedef}-\ref{lst:crap:communication:serial:send},
             the interface is however as far as possible the same as for the internal
             communication. It should be noted that the \texttt{listen} method
             used in Listing~\ref{lst:crap:communication:serial:send}
@@ -285,7 +285,7 @@ LinkQuad::comm::serial::send(serial_port, msg);
                 \label{fig:crap:observer}
             \end{figure}
         \subsection{Controller}
-            The controller implements the non-linear control described in Chapter~\ref{cha:controller}.
+            The controller implements the nonlinear control described in Chapter~\ref{cha:controller}.
             The control output is updated as soon as a new pose estimate is
             received from the observer. The reference signal is updated asynchronously
             as such a message arrives, but does not cause an update of the output signal.
@@ -349,9 +349,9 @@ LinkQuad::comm::serial::send(serial_port, msg);
         is a void pointer to the next function to be executed.
         The active function is invoked at a fixed rate until a NULL value is
         returned. Listing~\ref{lst:crap:logic:hover} contains
-        excerpts from the \texttt{hover} mode, which examplifies the function
+        excerpts from the \texttt{hover} mode, which exemplifies the function
         chaining as well as demonstrating practical use of the \crap framework.
-        The conFigure~method in said listing will - when the mode is first
+        The configure~method in said listing will - when the mode is first
         requested and thus loaded - receive the contents of the configuration
         file in the \texttt{modes} directory.
         \lstset{caption={Code sample demonstrating the central functionality of each state-machine mode.},label=lst:crap:logic:hover}

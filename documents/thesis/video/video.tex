@@ -2,7 +2,7 @@
 \label{cha:monoslam}
     In the interest of extracting positioning information from a video stream
     of a general, unknown, environment, the common approach is to use SLAM techniques,
-    \textit{Simultaneous Localisation And Mapping}.
+    \textit{Simultaneous Localization And Mapping}.
     In the mathematical SLAM framework, features in the images are identified
     and tracked throughout time in the video stream, and a filtering solution
     is then traditionally applied to estimate the probability densities
@@ -15,9 +15,9 @@
     effect is lost and the algorithms' performance drops.
     There are several other issues to the stereo vision approach - increased
     cost, synchronization issues, computational load to name a few - which has
-    led to the development of techniques to utilize the information on movement in only a single
-    camera to calculate the depth of the features in the image.
-    The application of SLAM to this approach is refferred to as \textit{Monocular SLAM},
+    led to the development of techniques to utilize the information which can be extracted
+    from tracking movement in only a single camera to reconstruct a three-dimensional scene.
+    The application of SLAM to this approach is referred to as \textit{Monocular SLAM},
     and two approaches are presented in this chapter.
 
     Both approaches rely on feature detection in video frames.
@@ -46,6 +46,7 @@
         the general algorithm utilize classical state-based time- and measurement-updates.
 
     \section{Keyframe-based SLAM}
+    \label{eq:video:kfslam}
         A fundamentally different approach is presented in \citep{klein07parallel},
         where the focus is put on collecting video frames of greater importance - keyframes -
         in which a large amount of features are detected.
@@ -54,9 +55,16 @@
         As new video frames arrive, features are reprojected and sought for in
         the new frame, giving a position offset from recorded keyframes which by
         extension gives the updated position of the camera.
-        \fig{\imagewidth}{ptamkeyframes}{Keyframes containing features - here represented by dots - are recorded and the camera's position at the time of the frame's capture is stored and visualized as coordinate axes. The thick coordinate system displays the camera's current position estimate.}{fig:video:ptamkeyframes}
+        \fig{\imagewidth}{ptamkeyframes}{Keyframes containing features - here
+        represented by dots - are recorded and the camera's position at the
+        time of the frame's capture is stored and visualized as coordinate axes.
+        The thick coordinate system displays the camera's current position estimate.
+        The colors of the features represent library-internal information on
+        the how the feature was detected.
+        }{fig:video:ptamkeyframes}
 
 
+\pagebreak
     \section{The PTAM Library}
         PTAM - Parallel Tracking And Mapping is a software library for camera tracking
         developed for Augmented Reality (AR) applications in small workspaces \citep{klein07parallel}.
@@ -76,16 +84,19 @@
             The PTAM library partitions the SLAM problem into a real-time tracking
             loop and a less time-critical optimization procedure on the collected keyframes.
 
-            In the tracking procedure, the PTAM library randomly projects previously recorded features into the
-            captured video frame, visualized in Figure~\ref{fig:video:ptamtracking}. It could be argued that the feature projection in the PTAM library
-            could make more use of external sensors and position estimates in this process.
-            This, however, remains as future work.
+            In the tracking procedure, the PTAM library uses the Keyframe
+            technique described in Section~\ref{eq:video:kfslam}, and randomly projects
+            previously recorded features into the captured video frame,
+            visualized in Figure~\ref{fig:video:ptamtracking}.
+            The selection of features to re-project could potentially be
+            improved, as discussed in Section~\ref{sec:discussion:cameralocalization},
+            although this remains as future work.
             \fig{\imagewidth}{ptamtracking}{Features - visualized as dots - are projected into the image and sought for. The calculated offset from the features' original positions then yield a position estimate.}{fig:video:ptamtracking}
 
             As for mapping; Instead of continuously updating the keyframe's position estimates - as in the filtering solution -
-            the PTAM library can use a less time-critical algorithm in a parallel processing thread\footnote{Hence its name; \textit{Parallel Tracking And Mapping}}.
-            The applied algorithm is known as Bundle Adjustment, which
-            performs a non-linear least-squares optimization over the available keyframes'
+            the PTAM library uses a less time-critical algorithm in a parallel processing thread\footnote{Hence its name; \textit{Parallel Tracking And Mapping}}.
+            The applied algorithm is known as Bundle Adjustment, and
+            performs a nonlinear least-squares optimization over the available keyframes'
             to calibrate their positions relative to each other, based on shared features. \citep{lour09}.
             The library that is used utilizes the sparse structure of the optimization problem that
             is solved to make the solution computationally tractable \citep{Lourakis11bundle}.
@@ -109,13 +120,14 @@
             \fig{\imagewidth}{ptamfeaturetracking}{To create the initial map, PTAM is initialized with a set of two offset images. Features are tracked during the initialization to find the ground plane. The movement of the tracked features are visualized as lines in the image.}{fig:video:ptamfeaturetracking}
 
             In the graphical user interface, the tracked features are visualized
-            during the process with lines in the camera image, as in Figure~\ref{fig:video:ptamfeaturetracking}.
+            during the initialization process with lines in the camera image,
+            shown in Figure~\ref{fig:video:ptamfeaturetracking}.
             After the initial frame has been captured, the implementation
             of the automated initialization uses the length of these lines as
             a measure of when to finalize the initialization procedure.
             When the length of the line associated with the first\footnote{First in the list of features from the first image still found in the latest frame.}
-            feature exceeds a given theshold, the second frame is
-            captured and the stereo initalization algorithm is started.
+            feature exceeds a given threshold, the second frame is
+            captured and the stereo initialization algorithm is started.
             Should the initialization procedure fail - e.g. by loosing track of most features - the
             procedure will be restarted until a successful initialization has been performed.
             The procedure is initially triggered by a command from the serial port.
@@ -131,10 +143,10 @@
 
             The tracking and initialization quality is also - as all video tracking - dependent on the
             amount of trackable features in the scene.
-            While the library can recover from lost positioning, an unsufficient amount
+            While the library can recover from lost positioning, an insufficient amount
             of features can cause the initialization process to fail, or the tracking to
-            be irrepairably lost.
+            be irreparably lost.
             The amount of features tracked is also dependent on the processing
             power available, and because the complexity of the mapping
-            problem grows fast with the number of keyframes, the libary may
+            problem grows fast with the number of keyframes, the library may
             have difficulties extending the map to unexplored areas.

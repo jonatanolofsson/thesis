@@ -2,18 +2,16 @@
 \label{ssec:observer:thrust}
     Each of the four propellers on the quadrotor induce a torque
     and a thrust vector on the system, proportional to the square of the
-    propeller velocity. The rotational velocity of the propeller is directly
-    influenced by the controller. It may thus be modelled as a first order system - using the time constant $\tau_{rotor}$ with
+    propeller velocity - with sign depending on the direction of rotation.
+    The rotational velocity of the propeller is directly
+    influenced by the controller. It may as such be modeled as a first order
+    system using the time constant $\tau_{rotor}$ with
     the reference velocity as input, as in Eq. \eqref{eq:observer:wri}.
-    For testing purposes, or where the control signal is not available, Eq. \eqref{eq:observer:wri2} may be used instead.
-    \begin{equation}
-        \label{eq:observer:wri}
-        \dot{\omega_{ri}} = \frac{1}{\tau_{rotor}} \left( \omega_{ri} - r_{i} \right)
-    \end{equation}
-    \begin{equation}
-        \label{eq:observer:wri2}
-        \dot{\omega_{ri}} = 0
-    \end{equation}
+    For testing purposes, or where the control signal, $r_{i}$ is not available, Eq. \eqref{eq:observer:wri2} may be used instead.
+    \begin{align}
+        \dot{\omega}_{ri} &= \frac{1}{\tau_{rotor}} \left( \omega_{ri} - r_{i} \right) \label{eq:observer:wri} \\
+        \dot{\omega}_{ri} &= 0 \label{eq:observer:wri2}
+    \end{align}
 
     Due to the differences in relative airspeed around
     the rotor blade tip as the blades move either along or against
@@ -28,12 +26,11 @@
     will result in that the tilted blade trajectories will
     form a cone with the plane to which the rotor axis is normal.
     These motions of the propellers add dynamics to the
-    description of the quadrotors motion which must be considered in a deeper analysis.
+    description of the quadrotor's motion which must be considered in a deeper analysis.
 
     It is desirable, for the purpose of this thesis and
     considering computational load, to find a closed-form
     solution to the flapping equations.
-    %~ This implies several approximations and restrictions which will be discussed in Section~\ref{sec:discussion:flapping}.
     The resulting flapping angles and their impact on
     the thrust vectors can be described as in equations
     \eqref{eq:observer:thrust}-\eqref{eq:observer:flapping}
@@ -44,48 +41,42 @@
     It should be noted that the differing momenta from the varying speed of the
     propellers is the most important factor for the actuation of yaw rate control.
     This entails that the control - with such weak source of actuation - is expected to be slow.
+    In the equations below, rotor velocities are given with positive orientation around the downwards
+    pointing z-axis. With the current LinkQuad setup, this results in positive rotational velocities for
+    rotor $2$ and $4$. Since all motors are single-directional, all thrust vectors are pointing upwards.
 
     All equations in this section are given in the body-fixed coordinate system.
 
     \begin{subequations}
-        \begin{equation}
-            \label{eq:observer:thrust}
-            F_{ri} = C_{T} \rho A_{r} R^{2} \omega_{ri}^{2}\left(
+        \begin{align}
+            F_{ri} &= C_{T} \rho A_{r} R^{2} \omega_{ri}^{2}\left(
                 \begin{array}{c}
                     -\sin{a_{1_{s}i}} \\
                     -\cos{a_{1_{s}i}}\sin{b_{1_{s}i}} \\
                     -\cos{a_{1_{s}i}}\cos{b_{1_{s}i}}
                 \end{array}\right)
-        \end{equation}
-
-        \begin{equation}
-            \label{eq:observer:torque}
-            M_{Qi} = -C_{Q} \rho A R^{3} \omega_{ri}|\omega_{ri}|e_{3}^{\text{NED}}
-        \end{equation}
-
-        \begin{equation}
-            \label{eq:observer:thrustmomentum}
-            M_{ri} = F_{ri} \times D_{ri}
-        \end{equation}
+                \label{eq:observer:thrust} \\
+%
+            M_{Qi} &= -C_{Q} \rho A R^{3} \omega_{ri}|\omega_{ri}|\hat{z}^{\text{NED}} \label{eq:observer:torque} \\
+%
+            M_{ri} &= F_{ri} \times D_{ri} \label{eq:observer:thrustmomentum}
+        \end{align}
     \end{subequations}
     The equations for the flapping angles $\left(a_{1_{s}i}, b_{1_{s}i}\right)$ are
     derived in \citep{Pounds_modellingand,prouty1995helicopter,leishman2002principles},
     but are in \eqref{eq:observer:flapping} extended to include the velocity relative to the wind.
-    $V_{ri(n)}$ denotes the n'th element of the vector $V_{ri}$.
+    $V_{ri(n)}$ denotes the nth element of the vector $V_{ri}$.
     \begin{subequations}
         \label{eq:observer:flapping}
-        \begin{equation}
-            V_{\text{rel}} = V - V_{\text{wind}}
-        \end{equation}
-        \begin{equation}
-            V_{ri} = V_{\text{rel}} + \Omega \times D_{ri} % Velocity relative to the wind //Jonatan
-        \end{equation}
-        \begin{equation}
-            \mu_{ri} = \frac{||V_{ri(1,2)}||}{\omega_{i}R}
-        \end{equation}
-        \begin{equation}
-            \psi_{ri} = \arctan{\frac{V_{ri(2)}}{V_{ri(1)}}}
-        \end{equation}
+        \begin{align}
+            V_{\text{rel}} &= V - V_{\text{wind}} \\
+%
+            V_{ri} &= V_{\text{rel}} + \Omega \times D_{ri} \\ % Velocity relative to the wind //Jonatan
+%
+            \mu_{ri} &= \frac{||V_{ri(1,2)}||}{\omega_{i}R} \\
+%
+            \psi_{ri} &= \arctan{\frac{V_{ri(2)}}{V_{ri(1)}}} % This really should be improved in the future!
+        \end{align}
         \begin{equation}
             \label{eq:observer:flapping:ab}
             \begin{array}{rr}\left(
@@ -119,27 +110,25 @@
         %~ \citep{Pounds_modellingand}
         %~ \citep{prouty1995helicopter} pp. 165
         %~ \textbf{Not quite finished here.. FIXME: $\theta_{0}$ to table!}
-        \begin{equation}
-            \lambda_{i} = \mu\alpha_{si} + \frac{v_{1i}}{\omega_{i} R}
-        \end{equation}
-        \begin{equation}
-            v_{1i} = \sqrt{
+        \begin{align}
+            \lambda_{i} &= \mu\alpha_{si} + \frac{v_{1i}}{\omega_{i} R} \\
+%
+            v_{1i} &= \sqrt{
                 -\frac{V_{rel}^{2}}{2} + \sqrt{
                     \left( \frac{V_{rel}^{2}}{2} \right)^{2}
                     + \left( \frac{mg}{2 \rho A_{r}} \right)^{2}
                 }
-            }
-        \end{equation}
-        \begin{equation}
-            C_{T} = \frac{\sigma a}{4}\left\lbrace
+            }\\
+%
+            C_{T} &= \frac{\sigma a}{4}\left\lbrace
                   \left( \frac{2}{3} + \mu_{ri}^{2} \right) \theta_{0}
                 - \left( \frac{1}{2} + \frac{\mu^{2}}{2} \right) \theta_{\text{twist}}
                 + \lambda
-            \right\rbrace
-        \end{equation}
-        \begin{equation} % angle between shaft plane and path (rel. to wind) pp.160
-            \alpha_{si} = \frac{\pi}{2} - \arccos{ -\frac{V_{rel} \cdot e_{z}}{||V_{rel}||} }
-        \end{equation}
+            \right\rbrace \\
+%
+%           % angle between shaft plane and path (rel. to wind) pp.160
+            \alpha_{si} &= \frac{\pi}{2} - \arccos{ -\frac{V_{rel} \cdot e_{z}}{||V_{\text{rel}}||} } \\
+%
         % This is from bouabdallah07design. Same as above _but_ with negative signs... Why?
         %~ \begin{equation}
             %~ C_{T} = \sigma a \left[
@@ -147,8 +136,8 @@
                 %~ - (1 + \mu^{2})\frac{\theta_{twist}}{8}
                 %~ - \frac{1}{4}\lambda \right]
         %~ \end{equation}
-        \begin{equation}
-            C_{Q} = \sigma a \left[
+%
+            C_{Q} &= \sigma a \left[
                 \frac{1}{8a}\left( 1 + \mu_{ri}^{2} \right) \bar{C_{d}}
                 + \lambda\left(
                     \frac{1}{6}\theta_{0}
@@ -156,7 +145,7 @@
                     + \frac{1}{4}\lambda
                     \right)
                 \right]
-        \end{equation}
+        \end{align}
     \end{subequations}
 
     \begin{table}
@@ -170,7 +159,7 @@
             $C_{T}$ & * & Coefficient of thrust. This is primarily the scaling factor for how the thrust is related to the square of $\omega_{i}$, as per Eq.~\ref{eq:observer:thrust}.  & $1$\\\hline
             $C_{T0}$ & - & Linearization point for thrust coefficient.  & $1$\\\hline
             $C_{Q}$ & * & Torque coefficient. This constant primarily is the scaling factor relating the square of $\omega_{i}$ to the torque from each rotor. & $1$\\\hline
-            $\gamma$ & $\frac{\rho a c R^{4}}{I_{b}}$ & $\gamma$ is the Lock Number \citep{leishman2002principles}, described as the ratio between the aerodynamic forces and the inertal forces of the blade.   & $1$ \\ \hline
+            $\gamma$ & $\frac{\rho a c R^{4}}{I_{b}}$ & $\gamma$ is the Lock Number \citep{leishman2002principles}, described as the ratio between the aerodynamic forces and the inertial forces of the blade.   & $1$ \\ \hline
             $I_{b}$ & - & Rotational inertia of the blade  & $\text{kgm}^{2}$\\\hline
             $\lambda_{i}$ & * & $\lambda_{i}$ denotes the air inflow to the propeller. & $1$ \\\hline
             $R$ & - & Rotor radius.   & $\text{m}$ \\\hline

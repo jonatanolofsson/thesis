@@ -1,0 +1,20 @@
+\section{Real-time Performance}
+\label{sec:results:realtime}
+    The real-time performance was measured for the CRAP system using the
+    recorded data to simulate flight on the gumstix.
+    $611$ time-steps were performed, each with time update,
+    IMU measurement update, camera measurement update and control signal update.
+    The system was set to run at $30$ Hz, yielding a theoretical execution time of
+    $\frac{611}{30} = 20.366\cdots $ seconds. The execution time was
+    measured using the UNIX \texttt{time} command, which returns
+    \begin{itemize}
+        \item User time, the time used by the process directly,
+        \item System time, the time spent by the kernel on behalf of the process,
+        \item Total wall time spent by the process,
+        \item Percentage of CPU time devoted to the executed process.
+    \end{itemize}
+
+    The results include the initial setup and configuration and was as follows:
+    \begin{verbatim}
+        17.78 user 3.67 system 0:21.50 elapsed 99\% CPU
+    \end{verbatim}

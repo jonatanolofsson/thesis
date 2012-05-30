@@ -1,6 +1,6 @@
 headers = {'time','Velocity, X', 'Velocity, Y', 'Velocity, Z', 'Roll rate', 'Pitch rate', 'Yaw rate', 'Rotor 1', 'Rotor 2', 'Rotor 3', 'Rotor 4', 'Orientation, q^{bw}_{i}', 'Orientation, q^{bw}_{j}', 'Orientation, q^{bw}_{k}', 'Orientation, q^{bw}_{0}', 'Position, X', 'Position, Y', 'Position, Z', 'Gyro bias, roll', 'Gyro bias, pitch', 'Gyro bias, yaw', 'Wind, X', 'Wind, Y', 'Wind, Z'};
 units = {'time','m/s','m/s','m/s','rad/s','rad/s','rad/s','rad/s','rad/s','rad/s','rad/s','','','','','m','m','m','rad/s','rad/s','rad/s','m/s','m/s','m/s'};
-skip = floor(length(observer.time)*6/40);
+skip = floor(length(observer.time)*skipsec/20);
 for i = 2:length(observer.colheaders)
     %%
     figures.getFigure(observer.colheaders{i});clf;
@@ -12,9 +12,9 @@ for i = 2:length(observer.colheaders)
         external.textbp(['RMS: ' num2str(rmsval)]);
         if i == 18
             t = (raw.s_time-raw.s_time(1))/(raw.s_time(end)-raw.s_time(1)) * max(observer.time);
-            skip2 = floor(length(t)*6/40);
+            skip2 = floor(length(t)*skipsec);
             hold all; 
-            h4 = plot(t(1:end-skip2), raw.s_alt_cf(1:end-skip2)-raw.s_alt_cf(1)+observer.Z(1), 'k');
+            h4 = plot(t(1:end-skip2), -(raw.s_alt_cf(1:end-skip2)-raw.s_alt_cf(1))+observer.Z(1), 'k');
             legend([h1 h2 h3 h4], 'Observer', 'Covariance', 'Ground truth', 'Complementary filter');
         else
             legend([h1 h2 h3], 'Observer', 'Covariance', 'Ground truth');
@@ -28,41 +28,41 @@ for i = 2:length(observer.colheaders)
         ylim(m + 3*[-1 1]);
     elseif any(i-1 == 4:6)
         ylim(m + 1*[-1 1]);
-    elseif any(i-1 == 15:16)
-        ylim(m + 3*[-1 1]);
+%     elseif any(i-1 == 15:16)
+%         ylim(m + 3*[-1 1]);
 %     elseif any(i-1 == 7:10)
 %         ylim(m + 20*[-1 1]);
     end
     title(headers{i});
     ylabel(units{i});
-    xlabel('Time');
     subplot(3,1,3);
     plot(observer.time(1:end-skip), squeeze(observer.covariance(i-1,i-1,1:end-skip)), 'g');
     ylabel(['(' units{i} ')^2']);
+    xlabel('Time');
     title('Covariance');
 end
 
 figures.getFigure('wRoll');
-subplot(2,1,1);
+subplot(3,1,[1 2]);
 hold all; plot(measurements.imu.time(1:end-skip), measurements.imu.wRoll(1:end-skip), 'k');
 
 figures.getFigure('wPitch');
-subplot(2,1,1);
+subplot(3,1,[1 2]);
 hold all; plot(measurements.imu.time(1:end-skip), measurements.imu.wPitch(1:end-skip), 'k');
 
 figures.getFigure('wYaw');
-subplot(2,1,1);
+subplot(3,1,[1 2]);
 hold all; plot(measurements.imu.time(1:end-skip), measurements.imu.wYaw(1:end-skip), 'k');
 
 %% Heading comparison
 figures.getFigure('headings');clf;
-skip = floor(length(observer.time)*6/40);
+skip = floor(length(observer.time)*skipsec);
 h1 = plot(observer.time(1:end-skip), observer.yaw(1:end-skip), 'b');
 hold all;
-skip = floor(length(reality.time)*6/40);
+skip = floor(length(reality.time)*skipsec);
 h2 = plot(reality.time(1:end-skip), reality.yaw(1:end-skip), 'r');
 t = (raw.s_time-raw.s_time(1))/(raw.s_time(end)-raw.s_time(1)) * max(observer.time);
-skip = floor(length(t)*6/40);
+skip = floor(length(t)*skipsec);
 h3 = plot(t(1:end-skip), (raw.s_heading_cf(1:end-skip)-raw.s_heading_cf(1))/180*pi+observer.yaw(1), 'g');
 legend([h1 h2 h3], 'Observer', 'Ground truth', 'Complementary filter');
 xlabel('Time');

@@ -8,7 +8,7 @@
         }
     \end{quote}
     The approach is thus to propagate the uncertainty of the system
-    through the non-linear system and fit the results as a Gaussian distribution.
+    through the nonlinear system and fit the results as a Gaussian distribution.
     The propagation is made by simulating the system in the prediction
     model for carefully chosen offsets from the current state called
     \textit{sigma points}, each associated with a weight of importance.
@@ -17,7 +17,7 @@
     is the \textit{Scaled Unscented Transform} (SUT) \citep{vandermerwe:upf}.
     The SUT uses a minimal set of sigma points needed to describe the
     first two moments of the propagated distribution - two for each
-    dimension ($n$) of the state vector and one for the mean.
+    of the $n$ dimensions of the state vector and one for the mean.
     \begin{align}\nonumber
         \mathbf{\mathcal{X}_{0}} &= \hat{x} & \\\nonumber
         \mathbf{\mathcal{X}_{i}} &= \hat{x} + \left( \sqrt{(n + \lambda) P_{xx}} \right)_{i}
@@ -47,19 +47,19 @@
         \begin{tabularx}{\tablewidth}{c|p{2cm}X}
             \textbf{Variable} & \textbf{Value} & \textbf{Description} \\ \hline
             $\alpha$ & $0 \leq \alpha \leq 1$ (e.g. $0.01$) & Scales the size of the sigma point distribution.
-                                                A small $\alpha$ can be used to avoid large non-local non-linearities. \\
+                                                A small $\alpha$ can be used to avoid large non-local nonlinearities. \\
             $\beta$  & $2$ &  As discussed in \citep{Julier02thescaled}, $\beta$ affects the weighting of the center point,
                             which will directly influence the magnitude of errors introduced by the fourth and higher
                             order moments. In the strictly Gaussian case, $\beta = 2$ can be shown to be optimal. \\
-            $\kappa$ & $0$ &  $\kappa$ is the number of times that the centerpoint is included in the set of sigma points,
-                            which will add weight to the centerpoint and scale the distribution of sigma points. \\
+            $\kappa$ & $0$ &  $\kappa$ is the number of times that the center point is included in the set of sigma points,
+                            which will add weight to the center point and scale the distribution of sigma points. \\
         \end{tabularx}
         \label{tbl:observer:ukf::parameters}
         \caption{Description of the parameters used in the SUT.}
     \end{table}
 
     When the sigma points $\mathbf{\mathcal{X}_{i}}$ have been calculated,
-    they are propagated through the non-linear prediction function and
+    they are propagated through the nonlinear prediction function and
     the resulting mean and covariance can be calculated.
     \begin{equation}
         \mathbf{\mathcal{X}^{+}_{i}} = f(\mathbf{\mathcal{X}_{i}}, u, t) \qquad i = 0,\cdots,2n
