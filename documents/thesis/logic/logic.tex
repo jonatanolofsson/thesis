@@ -13,9 +13,9 @@
     In projects related to the LinkQuad quadrotor, generic state-machine
     frameworks have been developed and researched in previous projects \citep{Merz06,Wzorek11}.
     On the LinkQuad, for the purpose of this thesis, a simple state-machine engine
-    was implemented in the \textit{CRAP} framework presented in Appendix~\ref{app:crap}.
+    was implemented.% in the \textit{CRAP} framework presented in Appendix~\ref{app:crap}.
 
-    The state machine in this framework is responsible for transitioning between the
+    This state-machine is responsible for transitioning between the
     states predefined in an action sequence (a \textit{mode}), ultimately
     providing reference signals for the controller.
     Each state represents an action, which is performed repeatedly until
@@ -38,7 +38,7 @@
                 ;
             \end{tikzpicture}
         }
-        \caption{State-machine example. An active state is continuously invoked until a transition condition is met. The next state is then activated.}
+        \caption{State-machine example. An active state is repeatedly invoked until a transition condition is met. The next state is then activated.}
         \label{fig:logic:statemachine}
     \end{figure}
 
@@ -46,10 +46,10 @@
     in the time-frame of this thesis.
 
     \section{Hovering Mode}
-        In the hover mode, the position of the quadrotor is noted at
+        In the hover mode, the position of the quadrotor is recorded at
         the time of the activation, and three independent PID-controllers
-        are initialized to generate reference signals to the main controller,
-        working to keep the quadrotor at the place where it was first initialized.
+        are initialized to generate reference velocities to the main controller,
+        to keep the quadrotor at the place where the mode was first initialized.
         \begin{figure}[H]
             \noindent\makebox[\textwidth]{%
                 \begin{tikzpicture}[auto]
@@ -62,23 +62,22 @@
                         (hover.east) edge [loop below, out=0, in=-90, distance=2cm] (hover.south);
                 \end{tikzpicture}
             }
-            \caption{Hovering scheme. The position of the quadrotor is noted when the mode is activated. The hover state is then immediately activated to keep the quadrotor in this position.}
+            \caption{Hovering scheme. The position of the quadrotor is recorded when the mode is activated. The hover control state is then immediately activated to keep the quadrotor in this position.}
             \label{fig:logic:hoverscheme}
         \end{figure}
 
     \section{PTAM Initialization Mode}
-        Entering this mode starts an automated initialization process
-        to set up the initial PTAM coordinate system. Commands are sent
-        to the PTAM module to initialize tracking, after which
-        the quadrotor should be moved sideways for the
-        stereo initialization performed by the PTAM library.
+        By entering this mode, an automated initialization process is started to
+        initialize the PTAM library and set up the transformation discussed in Chapter~\ref{cha:observer}.
+        Commands are sent to the PTAM module to initialize tracking, after which
+        the quadrotor should be moved sideways for the stereo
+        initialization to be performed by the PTAM library.
 
         As part of the proposed modifications to the PTAM library, the
-        initialization process is started remotely when the command is received,
-        and the video-captured motion is then monitored to make an estimate either
+        initialization process is started remotely on command,
+        and the video-captured motion is then monitored to determine either
         when the initialization has failed - in which case it is simply restarted -
-        or it is believed that the camera has moved enough for a stable
-        stereo initialization to be performed.
+        or when the camera has moved enough for a stable stereo initialization to be performed.
 
         \begin{figure}[H]
             \noindent\makebox[\textwidth]{%
@@ -110,14 +109,14 @@
                 ;
             \end{tikzpicture}
             }
-            \caption{After the commands have been sent to start the PTAM initialization routine, the quality of the tracking is monitored until a stable map initialization is believed to be possible.}
+            \caption{After the commands have been sent to start the PTAM initialization routine, the quality of the tracking is monitored until a stable map initialization is deemed to be possible.}
             \label{fig:logic:ptamscheme}
         \end{figure}
 
     \section{Free Flight Mode}
         In the free flight mode, control reference signals for velocties
         and yaw rate are forwarded from the joystick reference provided
-        over the serial interface from the ground station.
+        over the serial interface from the user interface.
 
         \begin{figure}[H]
             \noindent\makebox[\textwidth]{%
@@ -131,7 +130,7 @@
                         (control.east) edge [loop below, out=0, in=-90, distance=2cm] (control.south);
                 \end{tikzpicture}
             }
-            \caption{Free flight scheme. The free flight mode merely forwards controller reference signals received from the interface.}
+            \caption{Free flight scheme. The free flight mode merely forwards controller reference signals received from the user interface.}
             \label{fig:logic:freeflightscheme}
         \end{figure}
 
@@ -149,12 +148,12 @@
             \item Landing detection.
         \end{itemize}
 
-        In the detection phase, the environment is searched for a suitable
+        In the landing site detection phase, the environment is searched for a suitable
         landing place. In \citep{brockers:803111}, landing is then performed
         on an elevated surface which is detected using video processing.
         After the landing area has been located, the position of the
         landing site - relative to the quadrotor - is filtered to increase the
-        certainty of the positioning.
+        confidence of the position estimate.
 
         \begin{figure}[H]
             \noindent\makebox[\textwidth]{%
@@ -183,18 +182,23 @@
             \label{fig:logic:landingscheme}
         \end{figure}
 
-        While the filtered position converges, the quadrotor is moved to
+        While the landing site position estimate converges, the quadrotor is moved to
         a position above the landing site as preparation for the Descend phase,
         where the quadrotor lowers until landing has been detected,
         using the camera feedback and other sensors to stabilize the descent.
 
+        The landing site detection of the algorithm is not covered by
+        this thesis, but the other steps of the described landing scheme
+        is implemented as described by Figure~\ref{fig:logic:landingscheme}.
+
         \subsection{Landing Detection}
         \label{ssec:logic:landing:detection}
-            Since we recognize that our estimated position - initialized at our starting point -
+            In the landing detection, it must be recognized that the
+            estimated position - initialized at the starting point -
             is not necessarily consistent with the true Height Over Ground (HOG)
-            at the landing site, it is necessary to choose a more robust
+            at the landing site. It is thus necessary to implement a more robust
             method to detect the completion of the landing procedure than simply halting at zero height.
-            The approach is to use the measurements to determine when the movement
+            The proposed approach is to use the observer's estimate to determine when the movement
             has stopped; that is, when the quadrotor has reached ground.
             Detection theory, as discussed in e.g. \citep{Tornqvist08,nyberg11diagnosis},
             provides several tools for detecting the nonlinear event that
@@ -202,13 +206,13 @@
 
             In the physical model presented in Chapter~\ref{cha:observer},
             two terms is of specific interest for the detection.
-            The first - and the obvious - is the velocity in the gravity-aligned z-axis.
+            The first - and the obvious - is the altitudinal velocity.
             When sensor measurements pull this term towards zero,
             this is a first indication that the quadrotor has stopped.
             When the sensor measurements indicate a halt, the
-            observer - oblivious to the forces imposed by the
+            observer - whose motion model is oblivious to the forces imposed by the
             ground contact - will explain the lack of movement by a drastic increase in
-            the estimated wind acting in the z-direction.
+            the estimated vertical wind velocity.
             This estimated state - the second of interest - is easily monitored
             and could be further filtered to increase detection confidence,
             or simply thresholded to detect landing.

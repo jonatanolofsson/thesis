@@ -1,11 +1,16 @@
-\chapter{nonlinear Control}
+\chapter{Nonlinear Control}
 \label{cha:controller}
-    To control a quadrotor's movements, a nonlinear controller is applied to the
+    The state estimate from the algorithms discussed in Chapter~\ref{cha:observer}
+    can be used to control the quadrotor's movements according to a desired
+    reference.
+
+    In this thesis, a nonlinear controller is proposed to be applied to the
+    control the movements of the
     physical system, using a model of the system to calculate the best
     (in a sense well defined in this chapter) signals of control to each
-    of the engines driving the propellers.
+    of the motors driving the propellers.
 
-    The controller approach chosen in this thesis is based on the Linear Quadratic (LQ)
+    The controller approach proposed in this thesis is extended from the Linear Quadratic (LQ)
     controller, the theory of which is presented in Section~\ref{sec:controller:lq}.
     An extension to the technique of \textit{gain-scheduling} is discussed
     in Section~\ref{sec:controller:gainscheduling}.
@@ -14,7 +19,7 @@
     In Section~\ref{sec:controller:model}, this is further developed
     and adapted for compatibility as a model for the controller.
     The controller is interfaced by providing references
-    for the NED-frame velocities and the - body-fixed - yaw rate.
+    for the NED-frame velocities and the, body-fixed, yaw rate.
     The controller outputs reference angular rates for each propeller.
 
     \input{\currentchapter/lq}

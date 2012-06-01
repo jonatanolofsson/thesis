@@ -3,11 +3,16 @@
     A central part of automatic control is to know the state of the controlled device.
     The system studied in this thesis - the LinkQuad - is in constant
     motion, so determining the up-to-date position is of vital importance.
+    The filter implementation currently available on the LinkQuad is
+    based on the complementary filter. While performance is adequate for
+    current purposes, the current implementation is diffucult to extend
+    to the quite complex measurements received from the camera positioning
+    discussed in Chapter~\ref{cha:monoslam}.
     This chapter deals with the estimation of the states relevant for positioning
     and controlling the LinkQuad.
     Filter theory and notation is established in Section~\ref{sec:observer:filtering}.
 
-    In this thesis, an Unscented Kalman Filter (UKF) and an Extended Kalman Filter (EKF) are evaluated.
+    In this thesis, an Unscented Kalman Filter (UKF) and an Extended Kalman Filter (EKF) are studied.
     These filters both extend the linear Kalman filter theory to the nonlinear case.
     The UKF circumvents the linearization used in the EKF in an appealing black-box way,
     albeit it is more sensitive to obscure cases in the physical model,
@@ -24,12 +29,14 @@
     derived in Section~\ref{sec:observer:motionmodel}, models the quadrotor
     in detail to obtain simulational validity and precise control.
 
-    As well as being modeled, the motions of the system are captured by the on-board sensors.
+    As well as being modeled, the motions of the system are measured by the on-board sensors.
     A measurement $y$ is related to the motion model by the sensor model $h$;
     \begin{equation}
         y(t) = h(x(t),u(t),t)
     \end{equation}
     The models for the sensors used in this work are discussed in Section~\ref{sec:observer:sensormodels}.
+
+    An implementation of a state-estimating filter is commonly referred to as an \textit{observer}.
 
     \input{\currentchapter/filtering}
     \input{\currentchapter/ukf}

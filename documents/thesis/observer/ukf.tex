@@ -1,7 +1,7 @@
 \section{The Unscented Kalman Filter}
 \label{sec:observer:ukf}
     The basic version of the Unscented Kalman Filter was proposed in \citep{Julier95anewapproach}
-    based on the following intuition \citep{Julier95anewapproach}
+    based on the following intuition \citep{Julier95anewapproach}:
     \begin{quote}\textit{
         With a fixed number of parameters it should be easier to approximate a Gaussian
         distribution than it is to approximate an arbitrary nonlinear function.
@@ -18,6 +18,8 @@
     The SUT uses a minimal set of sigma points needed to describe the
     first two moments of the propagated distribution - two for each
     of the $n$ dimensions of the state vector and one for the mean.
+    The sigma points and their associated weights are chosen according to
+    Eqs.~\ref{eq:observer:ukf:sigmapoints}-\ref{eq:observer:ukf:lambda}.
     \begin{align}\nonumber
         \mathbf{\mathcal{X}_{0}} &= \hat{x} & \\\nonumber
         \mathbf{\mathcal{X}_{i}} &= \hat{x} + \left( \sqrt{(n + \lambda) P_{xx}} \right)_{i}
@@ -33,19 +35,20 @@
         \begin{array}{c}
             W^{m}_{i} =  W^{c}_{i} = \frac{1}{2(n + \lambda)} \qquad i = 1,\cdots,2n{}
         \end{array}
+        \label{eq:observer:ukf:sigmapoints}
     \end{align}
     \begin{equation}
         \lambda = \alpha^{2}(n + \kappa) - n
     \end{equation}
-    The three parameters introduced here, $\alpha$, $\beta$ and $\kappa$
-    are summarized in Table~\ref{tbl:observer:ukf::parameters}.
+    The three introduced parameters, $\alpha$, $\beta$ and $\kappa$
+    are summarized and described in Table~\ref{tbl:observer:ukf::parameters}.
     The term $\left( \sqrt{(n + \lambda) P_{xx}} \right)_{i}$ is used to
     denote the $i$'th column of the matrix square root $\sqrt{(n + \lambda) P_{xx}}$.
 
 
     \begin{table}
         \begin{tabularx}{\tablewidth}{c|p{2cm}X}
-            \textbf{Variable} & \textbf{Value} & \textbf{Description} \\ \hline
+            \textbf{Variable} & \textbf{Example value} & \textbf{Description} \\ \hline
             $\alpha$ & $0 \leq \alpha \leq 1$ (e.g. $0.01$) & Scales the size of the sigma point distribution.
                                                 A small $\alpha$ can be used to avoid large non-local nonlinearities. \\
             $\beta$  & $2$ &  As discussed in \citep{Julier02thescaled}, $\beta$ affects the weighting of the center point,
@@ -61,45 +64,34 @@
     When the sigma points $\mathbf{\mathcal{X}_{i}}$ have been calculated,
     they are propagated through the nonlinear prediction function and
     the resulting mean and covariance can be calculated.
-    \begin{equation}
-        \mathbf{\mathcal{X}^{+}_{i}} = f(\mathbf{\mathcal{X}_{i}}, u, t) \qquad i = 0,\cdots,2n
-    \end{equation}
-    \begin{equation}
-        \hat{x} = \sum_{i=0}^{2n}W^{m}_{i}\mathbf{\mathcal{X}^{+}_{i}}
-    \end{equation}
-    \begin{equation}
-        P_{xx} = \sum_{i=0}^{2n}W^{c}_{i}
+    \begin{align}
+        \mathbf{\mathcal{X}^{+}_{i}} &= f(\mathbf{\mathcal{X}_{i}}, u, t) \qquad i = 0,\cdots,2n \\
+        \hat{x} &= \sum_{i=0}^{2n}W^{m}_{i}\mathbf{\mathcal{X}^{+}_{i}} \\
+        P_{xx} &= \sum_{i=0}^{2n}W^{c}_{i}
             \left\lbrace \mathbf{\mathcal{X}^{+}_{i}} - \hat{y} \right\rbrace
             \left\lbrace \mathbf{\mathcal{X}^{+}_{i}} - \hat{y} \right\rbrace^{T}
-    \end{equation}
+    \end{align}
 
-    For the measurement update, similar results are obtained, and the equations
+    For the measurement update, similar results are obtained, and Eqs.
     \eqref{eq:observer:ukf:pyy}-\eqref{eq:observer:ukf:pxy} can be connected to
-    equations \eqref{eq:observer:filtering:pnunu}-\eqref{eq:observer:filtering:kalmanK2}.
-    \begin{equation}
-        \mathbf{\mathcal{Y}_{i}} = h(\mathbf{\mathcal{X}_{i}}, u, t) \qquad i = 0,\cdots,2n
-    \end{equation}
-    \begin{equation}
-        \hat{y} = \sum_{i=0}^{2n}W^{m}_{i}\mathbf{\mathcal{Y}_{i}}
-    \end{equation}
-    \begin{equation}
-        \label{eq:observer:ukf:pyy}
-        P_{yy} = \sum_{i=0}^{2n}W^{c}_{i}
+    Eqs. \eqref{eq:observer:filtering:pnunu}-\eqref{eq:observer:filtering:kalmanK2}
+    in the general filter formulation.
+    \begin{align}
+        \mathbf{\mathcal{Y}_{i}} &= h(\mathbf{\mathcal{X}_{i}}, u, t) \qquad i = 0,\cdots,2n \\
+        \hat{y} &= \sum_{i=0}^{2n}W^{m}_{i}\mathbf{\mathcal{Y}_{i}} \\
+        P_{yy} &= \sum_{i=0}^{2n}W^{c}_{i}
             \left\lbrace \mathbf{\mathcal{Y}_{i}} - \hat{y} \right\rbrace
-            \left\lbrace \mathbf{\mathcal{Y}_{i}} - \hat{y} \right\rbrace^{T}
-    \end{equation}
-    \begin{equation}
-        \label{eq:observer:ukf:pxy}
-        P_{xy} = \sum_{i=0}^{2n}W^{c}_{i}
+            \left\lbrace \mathbf{\mathcal{Y}_{i}} - \hat{y} \right\rbrace^{T} \label{eq:observer:ukf:pyy} \\
+        P_{xy} &= \sum_{i=0}^{2n}W^{c}_{i}
             \left\lbrace \mathbf{\mathcal{X}_{i}} - \hat{x} \right\rbrace
-            \left\lbrace \mathbf{\mathcal{Y}_{i}} - \hat{y} \right\rbrace^{T}
-    \end{equation}
+            \left\lbrace \mathbf{\mathcal{Y}_{i}} - \hat{y} \right\rbrace^{T} \label{eq:observer:ukf:pxy}
+    \end{align}
 
-    As can be seen from the equations in this section, the UKF handles the
+    As can be seen in the equations of this section, the UKF handles the
     propagation of the probability densities through the model without
     the need for explicit calculation of the Jacobians or Hessians for the system.
     The filtering is based solely on function evaluations of small offsets from the
-    expected mean state\footnote{It is not, however, merely a central difference linearization of the functions, as \citep{Julier95anewapproach} notes.},
+    expected mean state\footnote{It is not, however, merely a central difference linearization of the functions, as stressed in \citep{Julier95anewapproach}.},
     be it for the measurement functions, discussed in
     Section~\ref{sec:observer:sensormodels}, or the time update
     prediction function - the motion model.

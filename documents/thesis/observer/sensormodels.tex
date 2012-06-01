@@ -1,15 +1,13 @@
 \section{Sensor Models}
 \label{sec:observer:sensormodels}
-    This Section~relates the estimated state of the quadrotor to the expected sensor measurements, $\hat{y}$.
-    The first four sensors - accelerometers, gyroscopes, magnetometers
-    and the pressure sensor - are described quite briefly, while the
-    estimation of the camera's frame of reference requires some more detail.
+    This section relates the estimated state of the quadrotor to the expected sensor measurements, $\hat{y}$.
 
-    It is common to include a GPS, providing world-fixed measurements,
-    to prevent drift in the filtering process. Here, the GPS is replaced with a camera,
-    which will be discussed in Section~\ref{ssec:observer:sensormodels:camera}.
+    In UAV state estimation, it is common to include a GPS sensor, providing world-fixed measurements,
+    to prevent drift in the filtering process. In this thesis, the GPS is replaced with a camera,
+    which is discussed in detail in Section~\ref{ssec:observer:sensormodels:camera}, following
+    a description of the accelerometers, gyroscopes, magnetometers and the pressure sensor.
 
-    In most equations in this section, a zero-mean Gaussian term $e$ with known covariance is added
+    In the measurement equations in this section, a zero-mean Gaussian term $e$ with known covariance is added
     to account for measurement noise. The Gaussian assumption may in some
     cases be severely inappropriate, but the Kalman filter framework requires its use.
 
@@ -17,20 +15,21 @@
         The accelerometers, as the name suggests, provides measurements of the
         accelerations of the sensor. In general, this does not directly correspond
         to the accelerations of the mathematical center of gravity used
-        as center of the measured vehicle, which motivates correction
-        for angular acceleration and rotation.
+        as center of the measured vehicle. This motivates a correction
+        for angular acceleration and velocity with regards to the sensor's
+        relative position from the center of gravity, $r_{\text{acc}/\mathcal{G}}$.
         \begin{equation}
             \hat{y}_{\text{acc}} = a_{\mathcal{G}} + \dot{\omega} \times r_{\text{acc}/\mathcal{G}} + \omega \times \left( \omega \times r_{\text{acc}/\mathcal{G}} \right) + e_{\text{acc}}
         \end{equation}
 
     \subsection{Gyroscopes}
         Gyroscopes, or rate gyroscopes specifically, measure the angular velocity
-        of the sensor. Unlike acceleration, the angular rate is invariant of the
-        relative position of the gyro to the center of gravity.
+        of the sensor. Unlike acceleration, the angular rate is theoretically
+        invariant of the relative position of the sensor and the center of gravity.
         However, gyroscope measurements are associated with a bias which may
-        change over time. This bias term is introduced as a state variable which
-        is modeled constant, Eq.~\eqref{eq:filter:sensormodels:accelerometertime},
-        through the time update, leaving its adjustment to the filter measurement update.
+        change over time. This bias term may be introduced as a state variable in the observer,
+        modeled constant as in Eq.~\eqref{eq:filter:sensormodels:accelerometertime},
+        leaving its adjustment to the observer's measurement update.
         \begin{equation}
             y_{\text{gyro}} = \omega + b + e_{\text{gyro}}
         \end{equation}
@@ -46,16 +45,16 @@
         \begin{equation}
             y = R(q) m^{e} + e_{m}
         \end{equation}
-        The Earth's magnetic field can be approximated using the World Magnetic Model\cite{wmm2010},
+        The Earth's magnetic field can initialized at startup, or approximated using the World Magnetic Model\cite{wmm2010},
         which for Linköping, Sweden, is given in Eq. \eqref{eq:observer:sensormodels:magneticfield}.
         \begin{equation}
             \label{eq:observer:sensormodels:magneticfield}
-            m^{e} = \left(\begin{array}{ccc}
+            m^{e} = \left[\left(\begin{array}{ccc}
                 15.7 & 1.11 & 48.4
-            \end{array}\right)_{NEDEF}^{T} \mu T
+            \end{array}\right)^{T}\right]^{NEDEF} \mu T
         \end{equation}
 
-        Magnetometer measurements are however very sensitive to disturbances, and in indoor
+        Magnetometer measurements are, however, very sensitive to disturbances, and in indoor
         flight, measurements are often useless due to electrical wiring, lighting etc.
         Thus, the magnetometers were not used for the state estimation in this thesis.
 
@@ -65,7 +64,7 @@
         noisy and especially so in an indoor environment where air conditioning
         causes disturbances in the relatively small - and thus pressure sensitive -
         environments that are available indoors.
-        The pressure sensor is also affected by the propeller turbulence.
+        The pressure sensor is also affected by propeller turbulence.
         \begin{equation}
             \label{eq:sensormodels:pressure}
             p = p_{0} \left( 1 - \frac{L \cdot h}{T_{0}} \right)^{\frac{g \cdot M}{R\cdot L}} + e_{p}

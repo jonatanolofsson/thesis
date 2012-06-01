@@ -81,6 +81,7 @@
 \@auxtag{introduction/introduction}{%
 \@writefile{toc}{\contentsline {section}{\numberline {1.4}Objectives and Limitations}{4}}
 }
+\citation{bouabdallah07full}
 \citation{weiss11monocular}
 \@auxtag{introduction/introduction}{%
 \@writefile{toc}{\contentsline {section}{\numberline {1.5}Contributions}{5}}
@@ -120,239 +121,81 @@
 \setcounter{algorithm}{0}
 \setcounter{lstlisting}{0}
 }
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}State Estimation}{7}}
+\citation{idris09reviewoffeaturedetection}
+\citation{DBLP:conf/iccv/Davison03}
+\citation{Eade:2006:SMS:1153170.1153506}
+\citation{DBLP:conf/iccv/Davison03}
+\@auxtag{video/video}{%
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Monocular SLAM}{7}}
 }
-\@auxtag{observer/observer}{%
+\@auxtag{video/video}{%
 \@writefile{lof}{\addvspace {10\p@ }}
 }
-\@auxtag{observer/observer}{%
+\@auxtag{video/video}{%
 \@writefile{lot}{\addvspace {10\p@ }}
 }
-\@auxtag{observer/observer}{%
-\newlabel{cha:observer}{{2}{7}}
+\@auxtag{video/video}{%
+\newlabel{cha:monoslam}{{2}{7}}
 }
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}The Filtering Problem}{7}}
+\@auxtag{video/video}{%
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Filtering Based Solutions}{7}}
 }
-\@auxtag{observer/observer}{%
-\newlabel{sec:observer:filtering}{{2.1}{7}}
-}
-\citation{gustafsson2010statistical}
-\citation{kalman1960}
-\newlabel{eq:observer:xdot}{{2.2}{8}}
-\newlabel{eq:observer:xnext}{{2.3}{8}}
-\@auxtag{observer/observer}{%
-\newlabel{alg:kf}{{1}{8}}
-}
-\citation{Julier95anewapproach}
-\citation{gustafsson2010statistical}
-\citation{Julier04nonlinear}
-\newlabel{eq:observer:filtering:kalmanK}{{2.8a}{9}}
-\newlabel{eq:observer:filtering:pxx}{{2.11}{9}}
-\newlabel{eq:observer:filtering:pnunu}{{2.12}{9}}
-\newlabel{eq:observer:filtering:kalmanK2}{{2.13}{9}}
-\newlabel{eq:observer:filtering:pxxpredict}{{2.14}{9}}
-\citation{Julier95anewapproach}
-\citation{Julier95anewapproach}
-\citation{Julier95anewapproach}
-\citation{vandermerwe:upf}
-\@auxtag{observer/observer}{%
-\newlabel{alg:ekf}{{2}{10}}
-}
-\newlabel{eq:filtering:kalmanK}{{2.16a}{10}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}The Unscented Kalman Filter}{10}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{sec:observer:ukf}{{2.2}{10}}
-}
-\citation{Julier02thescaled}
-\@auxtag{observer/observer}{%
-\newlabel{tbl:observer:ukf::parameters}{{2.2}{11}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Description of the parameters used in the SUT.}}{11}}
-}
-\newlabel{eq:observer:ukf:pyy}{{2.26}{11}}
-\citation{Julier95anewapproach}
-\newlabel{eq:observer:ukf:pxy}{{2.27}{12}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Motion Model}{12}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{sec:observer:motionmodel}{{2.3}{12}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Coordinate Frames}{12}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The NEDEF, body-fixed and the PTAM coordinate frames are of global importance.}}{13}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{fig:observer:motionmodel:worldcoordframes}{{2.1}{13}}
-}
-\citation{kuipers2002quaternions}
-\citation{kuipers2002quaternions}
-\@auxtag{observer/observer}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Locally, on the quadrotor, there are several coordinate frames used in the thesis. Here, the IMU frame coincides with the body-fixed frame.}}{14}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{fig:observer:motionmodel:quadrotorcoordframes}{{2.2}{14}}
-}
-\citation{Pounds_modellingand}
-\newlabel{eq:observer:euler}{{2.33}{15}}
-\@auxtag{observer/observer}{%
-\newlabel{eq:observer:rungekutta}{{2.34}{15}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Kinematics}{15}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{eq:observer:kinematicsc}{{2.35}{15}}
-}
-\newlabel{eq:observer:position}{{2.35a}{15}}
-\newlabel{eq:observer:quaternionsc}{{2.35b}{15}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Dynamics}{15}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{eq:motionmodel:newton}{{2.36}{15}}
-}
-\citation{Pounds_modellingand}
-\citation{Pounds_modellingand,prouty1995helicopter,leishman2002principles}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsubsection}{Rotor thrust}{16}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{ssec:observer:thrust}{{2.3.3}{16}}
-}
-\newlabel{eq:observer:wri}{{2.38}{16}}
-\newlabel{eq:observer:wri2}{{2.39}{16}}
-\citation{Pounds_modellingand,prouty1995helicopter,leishman2002principles}
-\citation{leishman2002principles}
-\newlabel{eq:observer:thrust}{{2.40a}{17}}
-\newlabel{eq:observer:torque}{{2.40b}{17}}
-\newlabel{eq:observer:thrustmomentum}{{2.40c}{17}}
-\@auxtag{observer/observer}{%
-\newlabel{eq:observer:flapping}{{2.41}{17}}
-}
-\newlabel{eq:observer:flapping:ab}{{2.41e}{17}}
-\@auxtag{observer/observer}{%
-\newlabel{tbl:observer:flapping:symbols}{{2.3.3}{18}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Table of symbols used in the flapping equations}}{18}}
-}
-\citation{bouabdallah07full}
-\@auxtag{observer/observer}{%
-\newlabel{tbl:observer:wind:symbols}{{2.3.3}{19}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{lot}{\contentsline {table}{\numberline {2.3}{\ignorespaces Table of symbols used in the wind equations}}{19}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsubsection}{Wind}{19}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{eq:observer:wind:dragforce}{{2.42}{19}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{eq:observer:wind:moments}{{2.43}{19}}
-}
-\newlabel{eq:observer:wind:wind}{{2.44}{19}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsubsection}{Additional Forces and Moments}{19}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{ssec:observer:additionalforces}{{2.3.3}{19}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {paragraph}{Hub Force}{20}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {paragraph}{Rolling Moment}{20}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {paragraph}{Ground Effect}{20}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {paragraph}{Gyro Effects and Counter-Torque}{20}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Sensor Models}{20}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{sec:observer:sensormodels}{{2.4}{20}}
-}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Accelerometers}{20}}
-}
-\citation{wmm2010}
-\citation{physicshandbook}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Gyroscopes}{21}}
-}
-\newlabel{eq:filter:sensormodels:accelerometertime}{{2.54}{21}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Magnetometers}{21}}
-}
-\newlabel{eq:observer:sensormodels:magneticfield}{{2.56}{21}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Pressure Sensor}{21}}
-}
-\newlabel{eq:sensormodels:pressure}{{2.57}{21}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.5}Camera}{21}}
-}
-\@auxtag{observer/observer}{%
-\newlabel{ssec:observer:sensormodels:camera}{{2.4.5}{21}}
+\@auxtag{video/video}{%
+\newlabel{sec:video:filtersolutions}{{2.1}{7}}
 }
 \citation{klein07parallel}
-\citation{hayashi2010}
-\@auxtag{observer/observer}{%
-\newlabel{tos:pressuresensor}{{2.4.4}{22}}
+\@auxtag{video/video}{%
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Keyframe-based SLAM}{8}}
 }
-\@auxtag{observer/observer}{%
-\@writefile{lot}{\contentsline {table}{\numberline {2.4}{\ignorespaces Table of Symbols used in the pressure equation, \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sensormodels:pressure}\unskip \@@italiccorr )}}}}{22}}
+\@auxtag{video/video}{%
+\newlabel{eq:video:kfslam}{{2.2}{8}}
 }
-\newlabel{eq:observer:sensormodels:camera:transformation}{{2.58}{22}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsubsection}{Initialization}{23}}
+\@auxtag{video/video}{%
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Keyframes containing features - here represented by dots - are recorded, and the camera's position at the time of the frame's capture is stored and visualized as coordinate axes. The offset from these positions is estimated from the features detected in the video stream. The thick coordinate system displays the camera's current position estimate. The colors of the features represent library-internal information on how the feature was detected. }}{8}}
 }
-\@auxtag{observer/observer}{%
-\newlabel{sssec:observer:sensormodels:camera:initialization}{{2.4.5}{23}}
+\@auxtag{video/video}{%
+\newlabel{fig:video:ptamkeyframes}{{2.1}{8}}
 }
-\newlabel{eq:observer:sensormodels:camera:qpw}{{2.59}{23}}
-\newlabel{eq:observer:sensormodels:qbc}{{2.60}{23}}
-\newlabel{eq:observer:sensormodels:camera:origin}{{2.61}{23}}
-\newlabel{eq:observer:sensormodels:camera:lambda}{{2.62}{23}}
-\@auxtag{observer/observer}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces The PTAM coordinate system is assumed to be positioned at zero height. $\lambda $ is calculated as the estimated real-world distance to the PTAM coordinate system.}}{24}}
+\citation{klein07parallel}
+\citation{weiss11monocular}
+\citation{Nguyen_Sandor_Park_2010}
+\citation{Newcombe2011}
+\@auxtag{video/video}{%
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}The PTAM Library}{9}}
 }
-\@auxtag{observer/observer}{%
-\newlabel{fig:ground}{{2.3}{24}}
+\@auxtag{video/video}{%
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces A checker-board pattern is used for calibrating the lens-specific parameters of the camera.}}{9}}
 }
-\newlabel{eq:observer:camera:s}{{2.63}{24}}
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsubsection}{Camera Measurements}{24}}
+\@auxtag{video/video}{%
+\newlabel{fig:video:ptamcalibration}{{2.2}{9}}
 }
-\@auxtag{observer/observer}{%
-\newlabel{sssec:observer:sensormodels:camera:refinement}{{2.4.5}{24}}
+\@auxtag{video/video}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Operation}{9}}
 }
-\@auxtag{observer/observer}{%
-\newlabel{eq:observer:measurement:camera}{{2.64}{24}}
+\citation{lour09}
+\citation{Lourakis11bundle}
+\@auxtag{video/video}{%
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Features - visualized as dots - are projected into the image and sought for. The calculated offset from the positions where the features were first detected then yield a position estimate.}}{10}}
 }
-\@auxtag{observer/observer}{%
-\@writefile{toc}{\contentsline {subsubsection}{Teleportation}{25}}
+\@auxtag{video/video}{%
+\newlabel{fig:video:ptamtracking}{{2.3}{10}}
 }
-\@auxtag{observer/observer}{%
-\newlabel{sssec:observer:sensormodels:camera:teleportation}{{2.4.5}{25}}
+\@auxtag{video/video}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Modifications to the Library}{10}}
 }
-\newlabel{eq:observer:sensormodels:camera:teleport}{{2.65}{25}}
-\@setckpt{observer/observer}{%
-\setcounter{page}{25}
-\setcounter{equation}{65}
+\citation{klein07parallel}
+\@auxtag{video/video}{%
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces To create the initial map, PTAM is initialized with a set of two offset images. Features are tracked during the initialization to find the ground plane. The movement of the tracked features are visualized as lines in the image.}}{11}}
+}
+\@auxtag{video/video}{%
+\newlabel{fig:video:ptamfeaturetracking}{{2.4}{11}}
+}
+\@auxtag{video/video}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Practical Use}{11}}
+}
+\@setckpt{video/video}{%
+\setcounter{page}{12}
+\setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -361,6 +204,281 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{2}
+\setcounter{section}{3}
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{4}
+\setcounter{table}{0}
+\setcounter{parentequation}{0}
+\setcounter{theorem}{0}
+\setcounter{lemma}{0}
+\setcounter{definition}{0}
+\setcounter{corollary}{0}
+\setcounter{Example}{0}
+\setcounter{float@type}{8}
+\setcounter{r@tfl@t}{0}
+\setcounter{IncludeDepth}{0}
+\setcounter{lstnumber}{1}
+\setcounter{NAT@ctr}{0}
+\setcounter{algorithm}{0}
+\setcounter{lstlisting}{0}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}State Estimation}{13}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{lof}{\addvspace {10\p@ }}
+}
+\@auxtag{observer/observer}{%
+\@writefile{lot}{\addvspace {10\p@ }}
+}
+\@auxtag{observer/observer}{%
+\newlabel{cha:observer}{{3}{13}}
+}
+\citation{gustafsson2010statistical}
+\citation{kalman1960}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}The Filtering Problem}{14}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{sec:observer:filtering}{{3.1}{14}}
+}
+\newlabel{eq:observer:xdot}{{3.2}{14}}
+\newlabel{eq:observer:xnext}{{3.3}{14}}
+\citation{Julier95anewapproach}
+\citation{gustafsson2010statistical}
+\citation{Julier04nonlinear}
+\@auxtag{observer/observer}{%
+\newlabel{alg:kf}{{1}{15}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:kalman:predict}{{3.7}{15}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:kalman:measurement}{{3.8}{15}}
+}
+\newlabel{eq:observer:filtering:kalmanK}{{3.8a}{15}}
+\newlabel{eq:observer:xdraw}{{3.9}{15}}
+\newlabel{eq:observer:pxxtk}{{3.10}{15}}
+\newlabel{eq:observer:filtering:pxx}{{3.11}{15}}
+\newlabel{eq:observer:filtering:pnunu}{{3.12}{15}}
+\newlabel{eq:observer:filtering:kalmanK2}{{3.13}{15}}
+\citation{Julier95anewapproach}
+\citation{Julier95anewapproach}
+\citation{Julier95anewapproach}
+\citation{vandermerwe:upf}
+\newlabel{eq:observer:filtering:pxxpredict}{{3.14}{16}}
+\@auxtag{observer/observer}{%
+\newlabel{alg:ekf}{{2}{16}}
+}
+\newlabel{eq:filtering:kalmanK}{{3.16a}{16}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}The Unscented Kalman Filter}{16}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{sec:observer:ukf}{{3.2}{16}}
+}
+\citation{Julier02thescaled}
+\@auxtag{observer/observer}{%
+\newlabel{tbl:observer:ukf::parameters}{{3.2}{17}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Description of the parameters used in the SUT.}}{17}}
+}
+\newlabel{eq:observer:ukf:sigmapoints}{{3.19}{17}}
+\citation{Julier95anewapproach}
+\newlabel{eq:observer:ukf:pyy}{{3.26}{18}}
+\newlabel{eq:observer:ukf:pxy}{{3.27}{18}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Motion Model}{18}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{sec:observer:motionmodel}{{3.3}{18}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Coordinate Frames}{18}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The NEDEF, body-fixed and the PTAM coordinate frames are of global importance.}}{20}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{fig:observer:motionmodel:worldcoordframes}{{3.1}{20}}
+}
+\citation{kuipers2002quaternions}
+\citation{kuipers2002quaternions}
+\@auxtag{observer/observer}{%
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Locally, on the quadrotor, there are several coordinate frames used in the thesis. Here, the IMU frame coincides with the body-fixed frame.}}{21}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{fig:observer:motionmodel:quadrotorcoordframes}{{3.2}{21}}
+}
+\newlabel{eq:observer:quaternionmatrix}{{3.32}{21}}
+\citation{Pounds_modellingand}
+\newlabel{eq:observer:euler}{{3.33}{22}}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:rungekutta}{{3.34}{22}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Kinematics}{22}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:kinematicsc}{{3.35}{22}}
+}
+\newlabel{eq:observer:position}{{3.35a}{22}}
+\newlabel{eq:observer:quaternionsc}{{3.35b}{22}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Dynamics}{22}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{eq:motionmodel:newton}{{3.36}{22}}
+}
+\citation{Pounds_modellingand}
+\citation{Pounds_modellingand,prouty1995helicopter,leishman2002principles}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsubsection}{Rotor thrust}{23}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{ssec:observer:thrust}{{3.3.3}{23}}
+}
+\newlabel{eq:observer:wri}{{3.38}{23}}
+\newlabel{eq:observer:wri2}{{3.39}{23}}
+\citation{Pounds_modellingand,prouty1995helicopter,leishman2002principles}
+\newlabel{eq:observer:thrust}{{3.40a}{24}}
+\newlabel{eq:observer:torque}{{3.40b}{24}}
+\newlabel{eq:observer:thrustmomentum}{{3.40c}{24}}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:flapping}{{3.41}{24}}
+}
+\newlabel{eq:observer:lambdari}{{3.41g}{24}}
+\newlabel{eq:observer:flapping:ab}{{3.41h}{24}}
+\citation{leishman2002principles}
+\citation{bouabdallah07full}
+\newlabel{eq:observer:ct}{{3.41i}{25}}
+\newlabel{eq:observer:cq}{{3.41j}{25}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsubsection}{Wind}{25}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:wind:dragforce}{{3.42}{25}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:wind:moments}{{3.43}{25}}
+}
+\newlabel{eq:observer:wind:wind}{{3.44}{25}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsubsection}{Additional Forces and Moments}{25}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{ssec:observer:additionalforces}{{3.3.3}{25}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{tbl:observer:flapping:symbols}{{3.3.3}{26}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Table of symbols used in the flapping equations}}{26}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{tbl:observer:wind:symbols}{{3.3.3}{27}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Table of symbols used in the wind equations}}{27}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {paragraph}{Hub Force}{27}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {paragraph}{Rolling Moment}{27}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {paragraph}{Ground Effect\newline  }{27}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {paragraph}{Gyro Effects and Counter-Torque\newline  }{27}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Sensor Models}{27}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{sec:observer:sensormodels}{{3.4}{27}}
+}
+\citation{wmm2010}
+\citation{physicshandbook}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Accelerometers}{28}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Gyroscopes}{28}}
+}
+\newlabel{eq:filter:sensormodels:accelerometertime}{{3.54}{28}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Magnetometers}{28}}
+}
+\newlabel{eq:observer:sensormodels:magneticfield}{{3.56}{28}}
+\citation{klein07parallel}
+\@auxtag{observer/observer}{%
+\newlabel{tos:pressuresensor}{{3.4.4}{29}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Table of Symbols used in the pressure equation, \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:sensormodels:pressure}\unskip \@@italiccorr )}}}}{29}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.4}Pressure Sensor}{29}}
+}
+\newlabel{eq:sensormodels:pressure}{{3.57}{29}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.5}Camera}{29}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{ssec:observer:sensormodels:camera}{{3.4.5}{29}}
+}
+\citation{hayashi2010}
+\newlabel{eq:observer:sensormodels:camera:transformation}{{3.58}{30}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsubsection}{Initialization}{30}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{sssec:observer:sensormodels:camera:initialization}{{3.4.5}{30}}
+}
+\newlabel{eq:observer:sensormodels:camera:qpw}{{3.59}{30}}
+\newlabel{eq:observer:sensormodels:qbc}{{3.60}{30}}
+\newlabel{eq:observer:sensormodels:camera:origin}{{3.61}{30}}
+\newlabel{eq:observer:sensormodels:camera:lambda}{{3.62}{30}}
+\@auxtag{observer/observer}{%
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The PTAM coordinate system is assumed to be positioned at zero height. $\lambda $ is calculated as the estimated real-world distance to the PTAM coordinate system.}}{31}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{fig:ground}{{3.3}{31}}
+}
+\newlabel{eq:observer:camera:s}{{3.63}{31}}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsubsection}{Camera Measurements}{31}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{sssec:observer:sensormodels:camera:refinement}{{3.4.5}{31}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{eq:observer:measurement:camera}{{3.64}{31}}
+}
+\@auxtag{observer/observer}{%
+\@writefile{toc}{\contentsline {subsubsection}{Teleportation}{32}}
+}
+\@auxtag{observer/observer}{%
+\newlabel{sssec:observer:sensormodels:camera:teleportation}{{3.4.5}{32}}
+}
+\newlabel{eq:observer:sensormodels:camera:teleport}{{3.65}{32}}
+\@setckpt{observer/observer}{%
+\setcounter{page}{32}
+\setcounter{equation}{65}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{5}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{3}
 \setcounter{section}{4}
 \setcounter{subsection}{5}
 \setcounter{subsubsection}{0}
@@ -384,7 +502,7 @@
 }
 \citation{glad2003reglerteori}
 \@auxtag{controller/controller}{%
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}nonlinear Control}{27}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Nonlinear Control}{33}}
 }
 \@auxtag{controller/controller}{%
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -393,52 +511,53 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 }
 \@auxtag{controller/controller}{%
-\newlabel{cha:controller}{{3}{27}}
+\newlabel{cha:controller}{{4}{33}}
 }
 \@auxtag{controller/controller}{%
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}The Linear Quadratic Controller}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}The Linear Quadratic Controller}{33}}
 }
 \@auxtag{controller/controller}{%
-\newlabel{sec:controller:lq}{{3.1}{27}}
+\newlabel{sec:controller:lq}{{4.1}{33}}
 }
 \@auxtag{controller/controller}{%
-\newlabel{eq:controller:lq:plant}{{3.1}{27}}
+\newlabel{eq:controller:lq:plant}{{4.1}{33}}
 }
-\newlabel{eq:controller:lq:j}{{3.2}{27}}
 \citation{glad2003reglerteori}
 \citation{glad2003reglerteori}
 \citation{Rantzer99piecewiselinear}
 \citation{Tayfun08sdresurvey}
 \citation{Erdem_analysisand,Benner98acceleratingnewton's,10.1109/MED.2006.328740}
-\newlabel{eq:controller:u1}{{3.3}{28}}
-\newlabel{eq:controller:L}{{3.4}{28}}
-\newlabel{eq:controller:lq:care}{{3.5}{28}}
-\newlabel{eq:controller:ufull}{{3.6}{28}}
-\newlabel{eq:controller:Lr}{{3.8}{28}}
+\newlabel{eq:controller:lq:j}{{4.2}{34}}
+\newlabel{eq:controller:u1}{{4.3}{34}}
+\newlabel{eq:controller:L}{{4.4}{34}}
+\newlabel{eq:controller:lq:care}{{4.5}{34}}
+\newlabel{eq:controller:ufull}{{4.6}{34}}
+\newlabel{eq:controller:Lr}{{4.7}{34}}
 \@auxtag{controller/controller}{%
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}State-Dependent Riccati Equations and LQ Gain Scheduling}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}The State-Dependent Riccati Equation}{34}}
 }
 \@auxtag{controller/controller}{%
-\newlabel{sec:controller:gainscheduling}{{3.2}{28}}
+\newlabel{sec:controller:gainscheduling}{{4.2}{34}}
 }
 \citation{Rantzer99piecewiselinear}
-\newlabel{eq:controller:gainscheduling:xdot}{{3.9}{29}}
-\newlabel{eq:controller:affinelq}{{3.10}{29}}
-\newlabel{eq:controller:u}{{3.11}{29}}
-\newlabel{eq:controller:affinelqimplementation}{{3.12}{29}}
+\newlabel{eq:controller:gainscheduling:xdot}{{4.8}{35}}
+\newlabel{eq:controller:affinelq}{{4.9}{35}}
+\newlabel{eq:controller:u}{{4.10}{35}}
+\newlabel{eq:controller:affinelqimplementation}{{4.11}{35}}
 \@auxtag{controller/controller}{%
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Control Model}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Control Model}{36}}
 }
 \@auxtag{controller/controller}{%
-\newlabel{sec:controller:model}{{3.3}{29}}
+\newlabel{sec:controller:model}{{4.3}{36}}
 }
+\newlabel{eq:controller:centraldifference}{{4.12}{36}}
 \@auxtag{controller/controller}{%
-\@writefile{toc}{\contentsline {paragraph}{Notation}{30}}
+\@writefile{toc}{\contentsline {paragraph}{Notation}{36}}
 }
-\newlabel{eq:controller:model:derivation}{{3.14}{30}}
+\newlabel{eq:controller:model:derivation}{{4.13}{36}}
 \@setckpt{controller/controller}{%
-\setcounter{page}{30}
-\setcounter{equation}{14}
+\setcounter{page}{36}
+\setcounter{equation}{13}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -446,117 +565,13 @@
 \setcounter{footnote}{0}
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
-\setcounter{chapter}{3}
+\setcounter{chapter}{4}
 \setcounter{section}{3}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
 \setcounter{figure}{0}
-\setcounter{table}{0}
-\setcounter{parentequation}{1}
-\setcounter{theorem}{0}
-\setcounter{lemma}{0}
-\setcounter{definition}{0}
-\setcounter{corollary}{0}
-\setcounter{Example}{0}
-\setcounter{float@type}{8}
-\setcounter{r@tfl@t}{0}
-\setcounter{IncludeDepth}{0}
-\setcounter{lstnumber}{1}
-\setcounter{NAT@ctr}{0}
-\setcounter{algorithm}{2}
-\setcounter{lstlisting}{0}
-}
-\citation{idris09reviewoffeaturedetection}
-\citation{DBLP:conf/iccv/Davison03}
-\citation{Eade:2006:SMS:1153170.1153506}
-\citation{DBLP:conf/iccv/Davison03}
-\@auxtag{video/video}{%
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Monocular SLAM}{31}}
-}
-\@auxtag{video/video}{%
-\@writefile{lof}{\addvspace {10\p@ }}
-}
-\@auxtag{video/video}{%
-\@writefile{lot}{\addvspace {10\p@ }}
-}
-\@auxtag{video/video}{%
-\newlabel{cha:monoslam}{{4}{31}}
-}
-\@auxtag{video/video}{%
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Filtering Based Solutions}{31}}
-}
-\@auxtag{video/video}{%
-\newlabel{sec:video:filtersolutions}{{4.1}{31}}
-}
-\citation{klein07parallel}
-\@auxtag{video/video}{%
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Keyframe-based SLAM}{32}}
-}
-\@auxtag{video/video}{%
-\newlabel{eq:video:kfslam}{{4.2}{32}}
-}
-\@auxtag{video/video}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Keyframes containing features - here represented by dots - are recorded and the camera's position at the time of the frame's capture is stored and visualized as coordinate axes. The thick coordinate system displays the camera's current position estimate. The colors of the features represent library-internal information on the how the feature was detected. }}{32}}
-}
-\@auxtag{video/video}{%
-\newlabel{fig:video:ptamkeyframes}{{4.1}{32}}
-}
-\citation{klein07parallel}
-\citation{weiss11monocular}
-\citation{Nguyen_Sandor_Park_2010}
-\citation{Newcombe2011}
-\@auxtag{video/video}{%
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}The PTAM Library}{33}}
-}
-\@auxtag{video/video}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A checker-board pattern is used for calibrating the lens-specific parameters of the camera.}}{33}}
-}
-\@auxtag{video/video}{%
-\newlabel{fig:video:ptamcalibration}{{4.2}{33}}
-}
-\@auxtag{video/video}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Operation}{33}}
-}
-\citation{lour09}
-\citation{Lourakis11bundle}
-\@auxtag{video/video}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Features - visualized as dots - are projected into the image and sought for. The calculated offset from the features' original positions then yield a position estimate.}}{34}}
-}
-\@auxtag{video/video}{%
-\newlabel{fig:video:ptamtracking}{{4.3}{34}}
-}
-\@auxtag{video/video}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Modifications to the Library}{34}}
-}
-\citation{klein07parallel}
-\@auxtag{video/video}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces To create the initial map, PTAM is initialized with a set of two offset images. Features are tracked during the initialization to find the ground plane. The movement of the tracked features are visualized as lines in the image.}}{35}}
-}
-\@auxtag{video/video}{%
-\newlabel{fig:video:ptamfeaturetracking}{{4.4}{35}}
-}
-\@auxtag{video/video}{%
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Practical Use}{35}}
-}
-\@setckpt{video/video}{%
-\setcounter{page}{36}
-\setcounter{equation}{0}
-\setcounter{enumi}{0}
-\setcounter{enumii}{0}
-\setcounter{enumiii}{0}
-\setcounter{enumiv}{0}
-\setcounter{footnote}{4}
-\setcounter{mpfootnote}{0}
-\setcounter{part}{0}
-\setcounter{chapter}{4}
-\setcounter{section}{3}
-\setcounter{subsection}{3}
-\setcounter{subsubsection}{0}
-\setcounter{paragraph}{0}
-\setcounter{subparagraph}{0}
-\setcounter{figure}{4}
 \setcounter{table}{0}
 \setcounter{parentequation}{1}
 \setcounter{theorem}{0}
@@ -586,7 +601,7 @@
 \newlabel{cha:logic}{{5}{37}}
 }
 \@auxtag{logic/logic}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces State-machine example. An active state is continuously invoked until a transition condition is met. The next state is then activated.}}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces State-machine example. An active state is repeatedly invoked until a transition condition is met. The next state is then activated.}}{37}}
 }
 \@auxtag{logic/logic}{%
 \newlabel{fig:logic:statemachine}{{5.1}{37}}
@@ -595,7 +610,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Hovering Mode}{37}}
 }
 \@auxtag{logic/logic}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Hovering scheme. The position of the quadrotor is noted when the mode is activated. The hover state is then immediately activated to keep the quadrotor in this position.}}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Hovering scheme. The position of the quadrotor is recorded when the mode is activated. The hover control state is then immediately activated to keep the quadrotor in this position.}}{38}}
 }
 \@auxtag{logic/logic}{%
 \newlabel{fig:logic:hoverscheme}{{5.2}{38}}
@@ -604,7 +619,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}PTAM Initialization Mode}{38}}
 }
 \@auxtag{logic/logic}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces After the commands have been sent to start the PTAM initialization routine, the quality of the tracking is monitored until a stable map initialization is believed to be possible.}}{39}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces After the commands have been sent to start the PTAM initialization routine, the quality of the tracking is monitored until a stable map initialization is deemed to be possible.}}{39}}
 }
 \@auxtag{logic/logic}{%
 \newlabel{fig:logic:ptamscheme}{{5.3}{39}}
@@ -616,7 +631,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}Free Flight Mode}{40}}
 }
 \@auxtag{logic/logic}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Free flight scheme. The free flight mode merely forwards controller reference signals received from the interface.}}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Free flight scheme. The free flight mode merely forwards controller reference signals received from the user interface.}}{40}}
 }
 \@auxtag{logic/logic}{%
 \newlabel{fig:logic:freeflightscheme}{{5.4}{40}}
@@ -688,6 +703,9 @@
 \@writefile{toc}{\contentsline {section}{\numberline {6.1}Experimental Setup}{43}}
 }
 \@auxtag{results/results}{%
+\newlabel{sec:results:setup}{{6.1}{43}}
+}
+\@auxtag{results/results}{%
 \@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces To provide visual features for the PTAM library to detect, the testscene was cluttered with objects.}}{44}}
 }
 \@auxtag{results/results}{%
@@ -706,7 +724,7 @@
 \newlabel{ssec:results:modelling:accelerometers}{{6.2.1}{44}}
 }
 \@auxtag{results/results}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Measured and predicted accelerations in the NEDEF system. The motion model does not describe the horizontal motion although does - even in its pre-mature state - explain some of the altitudinal acceleration.}}{45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Measured and predicted accelerations in the NEDEF system. The motion model does not describe the horizontal motion although does - even in its roughly tuned state - explain some of the altitudinal acceleration.}}{45}}
 }
 \@auxtag{results/results}{%
 \newlabel{fig:results:modelling:accelerometers}{{6.2}{45}}
@@ -790,7 +808,7 @@
 \newlabel{fig:results:modelling:cameranormalfit}{{6.13}{53}}
 }
 \@auxtag{results/results}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {6.14}{\ignorespaces The PTAM coordinate system is somewhat askew from its theoretical orientation, with the z-axis parallel to the ground. This can also be seen in Figure~\ref  {fig:video:ptamtracking}, which is captured from the same dataset.}}{54}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.14}{\ignorespaces The PTAM coordinate system is somewhat askew from its theoretical orientation, with the $\mathaccentV {hat}05E{z}$-axis orthogonal to the ground. This can also be seen in Figure~\ref  {fig:video:ptamtracking}, which is captured from the same dataset.}}{54}}
 }
 \@auxtag{results/results}{%
 \newlabel{fig:results:modelling:camerainitframe}{{6.14}{54}}
@@ -805,7 +823,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Positioning}{54}}
 }
 \@auxtag{results/results}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {6.15}{\ignorespaces Positioning in the X- and Y-direction mostly well corresponds to ground truth, thanks to the camera positioning. In the Z-axis, the estimation of the pre-existing complementary filter is added for comparison, its starting point adjusted to produce comparable plots.}}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.15}{\ignorespaces Positioning in the horizontal directions well corresponds to the ground truth, thanks to the camera positioning. For the altitude, the estimation of the pre-existing complementary filter is added for comparison, its starting point adjusted to produce comparable plots.}}{55}}
 }
 \@auxtag{results/results}{%
 \newlabel{fig:results:filtering:position}{{6.15}{55}}
@@ -933,7 +951,7 @@
 \newlabel{cha:discussion}{{7}{67}}
 }
 \@auxtag{discussion/discussion}{%
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Modelling}{67}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Modeling}{67}}
 }
 \@auxtag{discussion/discussion}{%
 \@writefile{toc}{\contentsline {section}{\numberline {7.2}Filtering}{68}}
@@ -1125,7 +1143,7 @@
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {A.1}Core configuration example, listing what modules should be loaded on execution.}{81}}
 }
 \@auxtag{crap/crap}{%
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces CRAP schematic. The Figure~describes the relationship of modules (green) and their internal communication through messages (red). External modules, connected through a serial interface, are shown in blue. Dashed lines are optional.}}{82}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces CRAP schematic. The Figure~describes the relationship of modules (green) and their internal communication through messages (red). External modules, connected through a serial interface, are shown in blue. Dashed lines are optionally enabled or disabled in different run-configurations of the thesis implementation.}}{82}}
 }
 \@auxtag{crap/crap}{%
 \newlabel{fig:crap:schematic}{{A.1}{82}}

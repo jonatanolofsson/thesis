@@ -547,7 +547,7 @@
 
 @misc{Erdem_analysisand,
 	author = "Erdem, Evrin Bilge",
-	title = "{ANALYSIS AND REAL-TIME IMPLEMENTATION OF STATE-DEPENDENT RICCATI EQUATION CONTROLLED SYSTEMS BY}",
+	title = "{Analysis and Real-time Implementation of State-Dependent Riccati Equation Controlled Systems}",
 	year = "2001"
 }
 
@@ -602,7 +602,7 @@
 	year = "2010"
 }
 
-@techreport{New1,
+@techreport{arjomandi:classification,
 	author = "Arjomandi, Maziar",
 	institution = "Mechanical Engineering",
 	school = "University of Adelaide",

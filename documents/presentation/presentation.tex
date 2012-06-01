@@ -1,5 +1,5 @@
 \documentclass[xcolor=usenames,dvipsnames]{beamer}
-\setbeameroption{hide notes}
+\setbeameroption{show notes}
 \setbeameroption{xcolor}
 \usetheme[hideothersubsections]%
 {Hannover}
@@ -53,12 +53,28 @@ Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques%
     Hello and welcome to my thesis presentation.
     My name is Jonatan Olofsson and have been working on this thesis for the
     past semester.
+
+    I will begin this hour with a presentation of my work; taking about 20 minutes.
+    Next, Karl-Johan Barsk will present the opposition and after that we will open
+    up for questions.
 }
 
 \setcounter{tocdepth}{1}
 \begin{frame}{Presentation Outline}
     \tableofcontents
 \end{frame}
+\note{
+    I will begin this presentation with an overview, including a description
+    of the problem I have studied, as well as a short introduction to
+    the techiniques I have studied. I will try to explain what problems I faced
+    and the solutions I applied to make the technologies fit together.
+
+    After having described the different parts of the thesis, I will
+    present a few of the main technologies from the thesis in some more detail,
+    namely the monocular SLAM, state estimation and nonlinear control.
+    I will also try to clarify why the application of these techiniques were deemed
+    nescessary to control the descent of the would-be-achieved landing procedure.
+}
 
 \newchapter{introduction}
 \newchapter{monoslam}

@@ -1,9 +1,9 @@
 \section{The LinkQuad Platform}
     The LinkQuad is a modular quadrotor developed at Linköping University.
-    The core configuration is equipped with standard MEMS sensors
-    (accelerometers, gyroscopes and a magnetometer),
-    but for our purposes, a monocular camera has also been mounted, which feeds data
-    into a microcomputer specifically devoted to the processing of the camera feed.
+    The core configuration is equipped with a standard set of sensors
+    (accelerometers, gyroscopes, pressure sensors, GPS and magnetometers),
+    but for our purposes, a monocular camera has also been mounted.
+    The camera feeds data into a microcomputer specifically devoted to video processing.
     This devoted microcomputer is what allows the primary on-board microcomputer
     to focus on state estimation and control, without being overloaded by
     video processing.
@@ -11,22 +11,24 @@
     The primary microcomputer is running a framework named C++ Robot Automation Platform (CRAP),
     which was developed by the thesis' author for this purpose. CRAP is a light-weight
     automation platform with a purpose similar to that of ROS\footnote{\url{http://www.ros.org/}}, a
-    modular robotics framework developed by Willow Garange\footnote{\url{http://www.willowgarage.com/}}.
-    It is, in contrast to ROS, primarily designed to run on the kind relatively low-end Linux systems
+    modular robotics framework developed by Willow Garage\footnote{\url{http://www.willowgarage.com/}}.
+    It is, in contrast to ROS, primarily designed to run on the relatively low-end Linux systems
     that fits the payload and power demands of a MAV. The framework is further
     described in Appendix~\ref{app:crap}.
 
-    Using the framework, the functionality of the implementation is
-    distributed in separate modules:
+    The platform is also equipped with two microcontrollers, responsible
+    for sensor sampling, motor control, flight logging etc., as depicted in
+    Figure~\ref{fig:platform:schematic}. The microcontrollers also contain
+    an implementation of a complementary filter to provide angle and
+    height estimates from the available sensors.
+
+    Using the \crap framework, the functionality of the thesis implementation is
+    distributed in separated modules:
     \begin{description}
         \item[$\bullet$ Observer:] Sensor fusing state estimation. Chapter~\ref{cha:observer}.
         \item[$\bullet$ Control:]  Affine Quadratic Control. Chapter~\ref{cha:controller}.
         \item[$\bullet$ Logic:]    State-machine for scheduling controller parameters and reference trajectory. Chapter~\ref{cha:logic}.
     \end{description}
-
-    The platform is also equipped with two micro-controllers, responsible
-    for sensor sampling, motor control, flight logging etc., as depicted in
-    Figure~\ref{fig:platform:schematic}.
 
 
     \begin{figure}[h]

@@ -2,25 +2,20 @@
 \label{cha:discussion}
     In this chapter, the results of the thesis are discussed,
     analyzing the contents of Chapter~\ref{cha:results} and providing
-    a basis for later discussions on future work.
+    a basis a for later discussion on future work.
 
-    \section{Modelling}
+    \section{Modeling}
         It is arguable whether the advanced physical modeling presented
         in Chapter~\ref{cha:observer} is tenable, as performance similar or better
         than presented in Section~\ref{sec:results:filtering} is very likely
         to have been achieved using a well tuned, far simpler, motion model.
-        These results are not surprising however.
+        These results are not surprising for the untuned state of the model, however.
         Aside from requiring accurate parameter settings, the full potential of the
         proposed model is dependent on the availability of control reference
         signals and more accurate control over the true rotational velocity of
         the propellers. Feedback of the measured RPM is likely to appear in
         a later stage of the development of the LinkQuad, and may thus
         be available in the future.
-
-        The nature and extensiveness of the model does however open
-        for e.g. future outdoor applications, handling wind and other
-        disturbances. The state-space approach also allows for simple addition
-        of further modeling and added states.
 
         The model, as presented in this thesis, needs further in-detail
         verification and tuning. The flapping equations presented in
@@ -31,23 +26,28 @@
         but the performance of the model must also be weighed against
         the computational complexity.
 
-        The advanced model used in the state estimation does however bear the
-        advantage that the linearization performed in the extended Kalman filter,
+        The nature and extensiveness of the model does however open
+        for new applications, such as future outdoor applications, due
+        to its handling of wind and other disturbances.
+        The state-space type of model also allows for simple addition
+        of further modeling and added - or removed - states.
+
+        The proposed model also bear the advantage that the
+        linearization performed in the Extended Kalman Filter
         may be cleverly re-used in the control algorithm, removing duplication
         of computations. In fact, by clever use of the model,
-        nearly every part of the model has been possible to re-use, be it for
-        state-estimation, control, simulation of reality or sensor measurements.
-        Having developed the more advanced model, and given time for
-        verification and tuning, the evaluation of less complex models is much
-        simplified in future work.
+        only a single model needed to be developed in the thesis, then re-used for
+        state-estimation, control, simulation of reality and sensor measurements.
+        The model can, as future work, be simplified, yet still benefit from the
+        added detail where suitable.
 
-        A model simplification that is believed to be rewarding
-        is to replace the physical thrust equations using model identification
-        to provide a simpler model. Another approach would be to replace the
-        control interface for a more high-level control approach, using
+        One model simplification that is believed to be rewarding in particular
+        is to replace the physical thrust equations using model identification.
+        Another approach would be to replace the
+        control interface for a more subsidiarized control approach, using
         existing structure for controlling rotational velocities of the
-        quadrotor. This would however remove the advantages of using
-        the theory of optimal control.
+        quadrotor. This would however remove the benefits of using
+        the theory of optimal control to control the physical model directly.
 
     \section{Filtering}
         The results for the state estimation algorithms of this thesis
@@ -64,17 +64,19 @@
             After an initial evaluation period of the Unscented Kalman Filter,
             one weakness of the algorithm was exposed that rendered the
             algorithm very difficult to use further.
+
             Since the distribution of sigma points in the UKF is scaled with
             the covariance, they move farther away as the positioning gets
             less confident.
-            With an unstable model such as for a quadrotor,
-            evaluating the model for too large offsets from reasonable ranges
+            With a fragile model such as that of a quadrotor,
+            evaluating the model in too large offsets from reasonable ranges
             will cause effects large enough to destabilize the filtering solution.
             Excessive covariance in angle estimates may for instance
             cause the filter to evaluate and compare two cases of the quadrotor
-            being upside down, both irrelevant to the mean case of stable flight.
+            being upside down, both irrelevant to the mean case of stable vertical flight.
             Hence, the implementation was changed to use the more stable EKF algorithm.
-            With further tuning, the UKF may be usable in a later stage, but with the inherent
+
+            With further tuning, the UKF may be usable in a later stage of development, but with the inherent
             instability of the model, the UKF is still inherently problematic in
             the development stage, as measurements are not always
             available to reduce covariance.
@@ -90,11 +92,11 @@
             somewhat negatively. However, as the trends in measured and predicted pressure of Figure~\ref{fig:results:modelling:pressure}
             seem to correlate with the ground truth altitude in Figure~\ref{fig:results:filtering:position},
             further tuning and modeling may increase the utility of the pressure sensor.
-            With its problematic behavior however, the pressure sensor was
-            disabled in the filter for the continued filter verification.
+            Due to its problematic behavior however, the pressure sensor was
+            disabled in the filter verification.
 
             With the filter structure in place, the single
-            most rewarding factor to increase the performance of the filtering
+            most rewarding factor to increase the quality of the filtering
             would be simply to further tune it. Since this can be quite time-consuming,
             it could not be included in the thesis, but tools for simulation
             and evaluation are provided in the implementation.
@@ -121,20 +123,18 @@
         and is also the library to which PTAM was compared in its original paper \citep{klein07parallel}.
         The Scenelib library, using the filter approach described in Chapter~\ref{sec:video:filtersolutions},
         has the advantage to use metric measures.
-        This could potentially have simplified the integration with the
-        observer's measurement update, although in the end difficulties
+        This was believed to potentially simplify the integration with the
+        observer's measurement update, although in the end, difficulties
         with camera calibration rendered the Scenelib library subpar.
 
         The PTAM library is designed to be used with a wide-angle camera lens,
-        which unfortunately was impossible with the resources available.
+        which unfortunately was impossible with the available resources.
         While good performance could be achieved in the restricted testing
         environment, a wide-angle lens is likely to improve the tracking
         performance when larger scenes are explored.
 
-        One can note that tracking was stable in the recorded test case
-        at the low capture rate of $15$~Hz, which is promising as an implementation
-        on the gumstix might be limited to those speeds considering the
-        computational limits. A faster rate is nonetheless advisable.
+        One can note that tracking was quite stable in recorded test cases
+        with the low capture rate of $15$~Hz. A faster rate is nonetheless advisable.
 
     \section{Controller}
         The advantages and disadvantages of different control techniques
@@ -173,7 +173,7 @@
         The control handled moderate simulated winds and disturbances without trouble, and
         followed velocity references adequately.
         Since the actuating of the yaw rate control is very weak in
-        quadrotor configurations such as the LinkQuad, slow control
+        configurations such as the LinkQuad, slow control
         is to be expected here, especially without more tuning of the control
         parameters.
 
@@ -198,7 +198,7 @@
         - the estimate should be negative and constant -
         it does show that the wind may be useful as a detector for landing.
         This discrepancy of results is believed to be due to
-        the simulation's lack of a model for sensor measurements at the event of ground contact
+        the simulation's lack of a model for sensor measurements at the event of ground contact,
         and the observer's lack of control signals in its state-estimation.
 
         %~ The plot in Figure~\ref{fig:results:filtering:windbump}
@@ -225,7 +225,7 @@
         Digital Signal Processing unit (DSP) which would be possible to
         use as a FPU to increase execution speed.
         Attempts were in fact also made to convert libraries and algorithms from
-        double precision calculations to single precision, although these attempts failed.
+        double precision calculations to single precision, although these attempts were deferred.
         This is still, however, believed to be of significance to achieve real-time performance.
 
         Furthermore, the system was evaluated
@@ -233,8 +233,8 @@
         a standard set of mathematical routines}, which could possibly
         be replaced by a tuned implementation such as ATLAS\footnote{\textit{Automatically Tuned Linear Algebra Software}}.
         Model simplifications may also be necessary to achieve real-time performance
-        on the existing hardware, although nonlinearities will always enter the model
-        through the nonlinear rotations.
+        on the existing hardware, although the nonlinearities introduced by the vehicle's
+        rotations are believed to be relevant.
         Landing in the trivial case can no doubt be performed using a simple, perhaps even linear, model.
         Generalisations extending the utility of the controller, for instance when
         using the controller for other flight cases, would require the use

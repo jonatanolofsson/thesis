@@ -1,25 +1,26 @@
 \section{Filtering}
 \label{sec:results:filtering}
-The filter implementation was evaluated with recorded data.
+The filter implementation was evaluated with recorded data as described in Section~\ref{sec:results:setup}.
 Due to model stability issues, as discussed in Chapter \ref{cha:discussion},
 the EKF-filter was selected for evaluation.
 
 \subsection{Positioning}
-    While the altitude positioning, shown in Figure~\ref{fig:results:filtering:position},
-    exhibit disturbances correlated with pressure sensor noise,
-    the positioning generally exhibit very good performance. The position state
-    is observed in the state-estimation more or less directly by the camera
-    and the stability of the camera positioning is thus of course reflected here.
+    The position estimate generally exhibit very good performance relative
+    to the ground truth.
+    This reflects the fact that the position states are observed,
+    in the state-estimation, more or less directly by the camera,
+    which exhibit stable positioning in the validation.
 
-    In the plot of the Z-axial positioning in Figure~\ref{fig:results:filtering:position},
+    In the plot of the altitudinal positioning in Figure~\ref{fig:results:filtering:position},
     the estimates from the pre-existing complementary filter -
     moved to share the initial conditions of the Kalman filter - was added for
-    comparison. The complementary filter exhibits the problems associated
+    comparison. The complementary filter exhibits problems associated
     with the pressure sensor, while the camera-based positioning is stable
-    throughout the test.
+    throughout the validation.
 
-    \begin{subfigures}{Positioning in the X- and Y-direction mostly well corresponds to ground truth, thanks to the camera positioning.
-    In the Z-axis, the estimation of the pre-existing complementary filter is added for comparison, its starting point adjusted to produce comparable plots.}{fig:results:filtering:position}
+    \begin{subfigures}{Positioning in the horizontal directions well
+    corresponds to the ground truth, thanks to the camera positioning.
+    For the altitude, the estimation of the pre-existing complementary filter is added for comparison, its starting point adjusted to produce comparable plots.}{fig:results:filtering:position}
         \sfig{\splotwidth}{X}
         \sfig{\splotwidth}{Y}
         \sfig{\splotwidth}{Z}
@@ -30,7 +31,7 @@ the EKF-filter was selected for evaluation.
     also exhibit good performance (Figure~\ref{fig:results:filtering:velocities}).
     There are shortcomings to the estimation's horizontal precision, although
     this could probably be significantly improved with further filter tuning
-    and the availability of control signals.
+    and the availability of control signals to the motion model.
     \begin{subfigures}{Velocity estimates are generally adequate, but with more tuning, the results are likely to improve.}{fig:results:filtering:velocities}
         \sfig{\splotwidth}{velX}
         \sfig{\splotwidth}{velY}
@@ -53,7 +54,7 @@ the EKF-filter was selected for evaluation.
     In Figure~\ref{fig:results:filtering:headings}, the Kalman filter performance is compared
     to the previously existing complementary filter. It can be seen that
     the prediction update of the Kalman filter improves the phase of the filter,
-    although they are of comparable performance towards the end of the dataset.
+    although towards the end of the dataset, they are of comparable performance.
 
     \begin{subfigures}{The orientation of the quadrotor was estimated with good accuracy.}{fig:results:filtering:qwb}
         \sfig{\sfplotwidth}{qwb0}
@@ -76,14 +77,17 @@ the EKF-filter was selected for evaluation.
     \fig{\plotwidth}{headings}{A comparison with the tuned complementary filter show that both filters accurately describe the heading, and although the phase of the Kalman filter is better in the beginning, they are of comparable performance towards the end of the dataset.}{fig:results:filtering:headings}
 
 \subsection{Wind Force}
-    As the tests were performed inside, the filter was tuned to basically keep the
-    wind constant. Thus, it is difficult to come to any conclusions regarding the
-    wind impact on the model. Figure~\ref{fig:results:filtering:wind}
-    shows them to be correctly estimated to zero in the collected dataset,
+    As the tests were performed inside, the filter was tuned to keep the
+    wind at a zero velocity estimate.
+    Figure~\ref{fig:results:filtering:wind} shows them to be correctly estimated to zero in the collected dataset,
     although in the case with simulated data with wind, shown in Figure~\ref{fig:results:filtering:simwind},
-    results are poor, most likely due to that the simulation of the sensors' data
-    does not fully cover the non-continuous behavior that is expected in the
-    event of touching the ground, for example proper clamping of accelerometer simulations.
+    results are quite poor, most likely due to lack of filter tuning.
+
+    In simulations to verify the wind estimate's behaviour at landing, it
+    is evident that the wind estimate is affected by ground contact,
+    although as the simulation model does not yet fully cover the the non-continuous
+    event of touching the ground, simulations provide unexpected results, as seen in
+    Figure~\ref{fig:results:filtering:windbump}.
 
     \begin{subfigures}{Wind estimates from recorded test-data.}{fig:results:filtering:wind}
         \sfig{\splotwidth}{windX}
@@ -102,7 +106,7 @@ the EKF-filter was selected for evaluation.
 \subsection{Propeller Velocity}
     As the filter evaluation was performed without the use of the controller,
     the control signal is unavailable. Thus, Eq.~\ref{eq:observer:wri2} was used as
-    motion model in the filter validation, effectively leaving the estimation of the propeller velocities
+    prediction model for the propeller velocity in the filter validation, effectively leaving the estimation of the propeller velocities
     to the measurement update. It is evident, in Figure~\ref{fig:results:filtering:wr}
     that the estimation is active, however it is impossible to validate properly with the available data.
     Ideally, the velocities of the propellers should be measured in flight.

@@ -1,90 +1,127 @@
 \section{Non-linear Control}
-\subsection{LQ control}
-\begin{frame}{Linear Quadratic control}
-    Linear Quadratic Control utilizes a linear motion model to optimally
-    control the system.
+    \subsection{LQ control}
+    \begin{frame}{Linear Quadratic control}
+        Linear Quadratic Control utilizes a linear motion model to optimally
+        control the system.
 
-    \textbf{Definition: } Find $u=-Lx$ s.t.
-    \scriptsize
-    \begin{equation*}
-        \mathcal{J} = \int_{0}^{\infty} x^{T}Qx + u^{T}Ru dt.
-    \end{equation*}
-    \normalsize
-    is minimized. A feedback-form closed solution exists, having solved the CARE\footnote{Continous Algebraic Riccati Equation};
-    \scriptsize
-    \begin{equation*}
-        A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0
-    \end{equation*}
-    \begin{equation*}
-        L = R^{-1}B^{T}S
-    \end{equation*}
-\end{frame}
-\begin{frame}{Linear Quadratic control}
-    \begin{itemize}
-        \item Appealingly simple.
-        \item Requires a linear motion model
-    \end{itemize}
+        \textbf{Definition: } Find $u=-Lx$ s.t.
+        \scriptsize
+        \begin{equation*}
+            \mathcal{J} = \int_{0}^{\infty} x^{T}Qx + u^{T}Ru dt.
+        \end{equation*}
+        \normalsize
+        is minimized. A feedback-form closed solution exists, having solved the CARE\footnote{Continous Algebraic Riccati Equation};
+        \scriptsize
+        \begin{equation*}
+            A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0
+        \end{equation*}
+        \begin{equation*}
+            L = R^{-1}B^{T}S
+        \end{equation*}
+    \end{frame}
+    \note{
+        Having aquired a pose estimate, this must be fed to a controller
+        that is able to control the flight and descent of the quadrotor.
+        Linear Quadratic Control is one of the simplest to use optimal control techniques,
+        and makes use of the motion model I just briefly presented.
+        The basic principle of Linear Quadratic Control is to weigh the
+        system response, as predicted by the model, against the cost of
+        using the control signals.
+        That is; using this mathematical criterion, the LQ decides which
+        is better - to rapidly reach the desired velocity, or
+        to be gentle on the motors.
+        An added advantage for the Linear Quadratic Control is that
+        with predetermined control weights - that is, settings for the controller -
+        a feedback solution exists, having solved the Riccati equation exemplified here.
+    }
 
-    \vspace{0.5cm}
+    \begin{frame}{Linear Quadratic control}
+        \begin{itemize}
+            \item Appealingly simple.
+            \item Requires a linear motion model
+        \end{itemize}
 
-    The motions of a quadrotor is non-linear, but can locally
-    be described by a linear approximation.
+        \vspace{0.5cm}
 
-    \begin{itemize}
-        \item The motion model needs linearization.
-        \item The linearization needs a linearization point.
-    \end{itemize}
-\end{frame}
+        The motions of a quadrotor is non-linear, but can locally
+        be described by a linear approximation.
 
-\subsection{SDRE}
-\begin{frame}{State-Dependent Riccati Equation}
-    \textbf{Basic idea: } Linearize the physical model and use LQ theory.
-    \tiny
-    \begin{equation*}
-        \dot{x} = f(x,u) \approx f(x_{0},u_{0})
-            + \underbrace{\left. \frac{\partial f}{\partial x} \right|_{
-                \begin{array}{l}
-                    x=x_{0} \\
-                    u=u_{0}
-                \end{array}
-            }}_{A}
-                \underbrace{\left( x-x_{0} \right)}_{\Delta x}
-            + \underbrace{\left. \frac{\partial f}{\partial u} \right|_{
-                \begin{array}{l}
-                    x=x_{0} \\
-                    u=u_{0}
-                \end{array}
-            }}_{B}
-                \underbrace{\left( u-u_{0} \right)}_{\Delta u}
-    \end{equation*}
-%~ \end{frame}
-%~ \begin{frame}{State-Dependent Riccati Equation}
-    \normalsize
-    By adding a homogeneous state, the linear property of the equation is regained.
-    The result is locally valid in every differentiable point in the state space.
-    \tiny
-    \begin{equation*}
-        \dot{X} = \left[
-        \begin{array}{c}
-            \dot{x} \\
-            0
-        \end{array}\right] =
-        \underbrace{\left[
-        \begin{array}{cc}
-            A & f(x_{0},u_{0})-Ax_{0} \\
-            0 & 0
-        \end{array}\right]}_{\bar{A}}
-        \underbrace{\left[
-        \begin{array}{c}
-            x \\
-            1
-        \end{array}\right]}_{\bar{X}}
-        +
-        \underbrace{\left[
-        \begin{array}{c}
-            B \\
-            0
-        \end{array}\right]}_{\bar{B}}
-        \Delta u.
-    \end{equation*}
-\end{frame}
+        \begin{itemize}
+            \item The motion model needs linearization.
+            \item The linearization needs a linearization point.
+        \end{itemize}
+    \end{frame}
+    \note{
+        However, the Linear Quadratic controller, as the name suggests
+        requires a linear motion model. Problem is that by considering the
+        orientation of the vehicle in the model makes for a nonlinear one,
+        which does not quite fit the original LQ formulation.
+
+        One can consider linearising the motion model in various stationary points,
+        although such points are generally difficult to find unless we apply a clever trick.
+    }
+
+    \subsection{SDRE}
+    \begin{frame}{State-Dependent Riccati Equation}
+        \textbf{Basic idea: } Linearize the physical model and use LQ theory.
+        \tiny
+        \begin{equation*}
+            \dot{x} = f(x,u) \approx f(x_{0},u_{0})
+                + \underbrace{\left. \frac{\partial f}{\partial x} \right|_{
+                    \begin{array}{l}
+                        x=x_{0} \\
+                        u=u_{0}
+                    \end{array}
+                }}_{A}
+                    \underbrace{\left( x-x_{0} \right)}_{\Delta x}
+                + \underbrace{\left. \frac{\partial f}{\partial u} \right|_{
+                    \begin{array}{l}
+                        x=x_{0} \\
+                        u=u_{0}
+                    \end{array}
+                }}_{B}
+                    \underbrace{\left( u-u_{0} \right)}_{\Delta u}
+        \end{equation*}
+        \normalsize
+        By adding a homogeneous state, the linear property of the equation is regained.
+        The result is locally valid in every differentiable point in the state space.
+        \tiny
+        \begin{equation*}
+            \dot{X} = \left[
+            \begin{array}{c}
+                \dot{x} \\
+                0
+            \end{array}\right] =
+            \underbrace{\left[
+            \begin{array}{cc}
+                A & f(x_{0},u_{0})-Ax_{0} \\
+                0 & 0
+            \end{array}\right]}_{\bar{A}}
+            \underbrace{\left[
+            \begin{array}{c}
+                x \\
+                1
+            \end{array}\right]}_{\bar{X}}
+            +
+            \underbrace{\left[
+            \begin{array}{c}
+                B \\
+                0
+            \end{array}\right]}_{\bar{B}}
+            \Delta u.
+        \end{equation*}
+    \end{frame}
+    \note{
+        The trick suggested in this thesis, with good results, is to
+        extend the Taylor expansion linearisation with a new virtual state.
+        This virtual state, shown in the second equation, allows us to regain the
+        linear property of an affine system approximation that is the
+        result from a general Taylor expansions, as in the first equation.
+
+        By using this general formulation, it is possible to control a general
+        nonlinear system with the same simplicity as in the linear case.
+
+        This general case can be solved repeatedly to generate the control
+        signals, a techinique called State-Dependet Riccati Equation which
+        is studied and evaluated in the thesis.
+    }

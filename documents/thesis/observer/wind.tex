@@ -1,9 +1,8 @@
 \subsubsection{Wind}
-    For describing the wind's impact on the quadrotor motion,
-    a simple wind model is applied where the wind is modeled with
-    a static velocity that imposes forces and moments on the quadrotor.
-    The wind velocity vector is estimated by the observer and may thus still vary
-    in its estimation through the measurement update.
+    To describe the wind's impact on the quadrotor motion,
+    a simple wind model is applied where the wind is modeled
+    that imposes forces and moments on the quadrotor.
+    %~ The wind velocity vector is estimated by the observer and may thus still vary in its estimation through the measurement update.
     The wind velocities in the filter are given in the NEDEF reference frame.
 
     The wind drag force is calculated using equation \eqref{eq:observer:wind:dragforce},
@@ -25,17 +24,16 @@
     \begin{subequations}
     \label{eq:observer:wind:moments}
         \begin{align}
-            M_{\text{wind}} = M_{\text{wind,body}} + \sum_{i=0}^{3}M_{\text{wind},ri} \\
+            M_{\text{wind}} &= M_{\text{wind,body}} + \sum_{i=0}^{3}M_{\text{wind},ri} \\
 %
-            M_{\text{wind,body}} \approx 0 \\ % Could perhaps be better approximated by constant*\sum_{i=0}^{3}M_{wind,ri}, for small constant, modeling the wind's effect on the four arms
+            M_{\text{wind,body}} &\approx 0 \\ % Could perhaps be better approximated by constant*\sum_{i=0}^{3}M_{wind,ri}, for small constant, modeling the wind's effect on the four arms
 %
-            M_{\text{wind},ri} = D_{ri}^{BF} \times F^{BF}_{\text{wind},ri}
+            M_{\text{wind},ri} &= D_{i}^{BF} \times F^{BF}_{\text{wind},ri}
         \end{align}
     \end{subequations}
 
-    The wind model applied in this thesis is a decaying model that tends
-    towards zero if no measurements tell otherwise.
-    This decaying model is presented in Eq. \eqref{eq:observer:wind:wind} ($\epsilon$ being a small number).
+    The wind model applied in this thesis is a decaying model that tends toward zero if no measurements tell otherwise.
+    The decaying model is given in Eq. \eqref{eq:observer:wind:wind} ($\epsilon$ being a small number).
     \begin{equation}
         \label{eq:observer:wind:wind}
         \dot{V}_{\text{wind}} = -\epsilon \cdot V_{\text{wind}}
@@ -47,7 +45,7 @@
             \textbf{Symbol} & \textbf{Expression} & \textbf{Description} \\\hline
             $A$ & - & 3x3 matrix describing the area of the quadrotor, excluding the rotors. \\\hline
             $C_{D}$ & - & 3x3 matrix describing the drag coefficients of the quadrotor. \\\hline
-            $C_{Dr}$ & - & Propeller's coefficient of drag. \\\hline
+            $C_{D,r}$ & - & Propeller's coefficient of drag. \\\hline
         \end{tabularx}
         \label{tbl:observer:wind:symbols}
         \caption{Table of symbols used in the wind equations}

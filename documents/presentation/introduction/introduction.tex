@@ -10,6 +10,8 @@
             \fig{0.5}{skeldar}
         \end{frame}
         \note{
+            First a bit of background;
+
             During the past few years, there has been a significant increase
             in the interest in the field of unmanned aerial vehicles.
             While the military industry is the major developer of UAVs,
@@ -32,7 +34,7 @@
             \fig{0.5}{linkquadoutside}
         \end{frame}
         \note{
-            The LinkQuad platform is a quadrotor developed here at IDA.
+            The LinkQuad platform, which you can see here, is a quadrotor developed here at IDA.
             It is equipped with a standard set of inertial sensors - accelerometers and gyroscopes -
             as well as pressure sensors, magnetometers and GPS.
             It can also be optionally equipped with a camera, which was used in this thesis.
@@ -97,6 +99,15 @@
             One particularly notable feature on the LinkQuad is the dual
             gumstix Linux microcomputers. This allows us to dedicate one
             each of these to video processing and state estimation respectively.
+
+            These gumstix computers measure only centimeters in size, yet are
+            quite powerful in terms of computational power. They do, however,
+            lack floating point processor units, which in the end was a
+            major limiting factor as to why only simulational flight was achieved.
+
+            Aside from the gumstix microcomputers, the LinkQuad is also
+            equipped with microcontrollers for sampling the sensors and
+            actuating control signals.
         }
 
     \subsection{Problem Formulation}

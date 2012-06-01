@@ -1,4 +1,4 @@
-\section{State-Dependent Riccati Equations and LQ Gain Scheduling}
+\section{The State-Dependent Riccati Equation}% and LQ Gain Scheduling}
 \label{sec:controller:gainscheduling}
     Even though any system could be described at any point by its linearization,
     the linear nature of the LQ control poses a limitation in that
@@ -7,8 +7,9 @@
     longer adhere to the physical circumstances valid there.
 
     This will lead to sub-optimal control and possibly even to system failure.
-    A common approach in nonlinear control is to switch between pre-calculated
-    control gains which has been calculated for selected linearization points.
+    A common approach in nonlinear control is gain scheduling - to switch
+    between pre-calculated control gains which has been calculated for
+    selected linearization points.
 
     The approach used in this thesis is closely related to gain scheduling,
     but instead of using pre-calculated gains, the linearization is done
@@ -16,22 +17,23 @@
 
     The problem of solving of the Riccati equation  online is treated under
     the subject of \textit{State-Dependent Riccati Equations}, SDRE's.
-    While being computationally heavier than the standard LQ formulation
-    due to having to solve the Riccati equation each time step, the need
+    While being computationally more expensive than the standard LQ formulation
+    due to repeated solving of the Riccati equation, the need
     for finding valid linearization points is removed and more general problems can be treated.
     The basic formulation of the problem is covered in e.g. \citep{Rantzer99piecewiselinear},
     and an extensive survey is presented in \citep{Tayfun08sdresurvey}.
-    Implementation details are detailed and evaluated in e.g \citep{Erdem_analysisand,Benner98acceleratingnewton's,10.1109/MED.2006.328740}.
+    Implementation details are detailed and evaluated in \citep{Erdem_analysisand,Benner98acceleratingnewton's,10.1109/MED.2006.328740}.
 
-    The LQ theory is extended to the nonlinear case using the Taylor
-    expansion of a general motion model is exploited to form the general
-    result of Equation \eqref{eq:controller:affinelq}.
+    The LQ theory can be extended to the nonlinear case by using the Taylor
+    expansion of a general motion model. This approximation is exploited to form the general
+    result of Eq.~\eqref{eq:controller:affinelq}.
     Similar to several other modifications to the LQ methodology - such as
     Model Predictive Control (MPC) - the cost associated with the control signal
-    is often applied relative to its current level, $\Delta u$, to avoid
+    may be applied relative to its current level, to avoid
     forcing all control signals to zero in the optimization problem that is solved.
     In each time-step the local linearization of the motion model, as presented in
-    Eq. \eqref{eq:controller:gainscheduling:xdot}, is used to solve the LQ-equations for $\Delta u$.
+    Eq. \eqref{eq:controller:gainscheduling:xdot}, is used to solve the LQ-equations
+    for $\Delta u$, the change in the control signal.
 
     \begin{equation}
         \label{eq:controller:gainscheduling:xdot}
@@ -52,10 +54,12 @@
                 \underbrace{\left( u-u_{0} \right)}_{\Delta u}
     \end{equation}
 
-    In the standard formulation of LQ, the linearization is made
-    around a stationary point $(x_{0},u_{0})$, where $f(x_{0},u_{0}) = 0$.
-    In a more general formulation, it is possible to lift this constraint
-    using a homogeneous state \citep{Rantzer99piecewiselinear};
+    In the standard formulation of LQ control, the linearization has to be made
+    at a stationary point $(x_{0},u_{0})$, where $f(x_{0},u_{0}) = 0$, to
+    attain the nescessary property of linearity.
+    In a more general formulation, it is possible to lift this constraint by
+    using a homogeneous state \citep{Rantzer99piecewiselinear}, as in Eq.~\ref{eq:controller:affinelq}
+    to attain this property in the general case.
     \begin{equation}
     \label{eq:controller:affinelq}
         \dot{X} = \left[
@@ -79,7 +83,7 @@
             B \\
             0
         \end{array}\right]
-        \Delta u.
+        \Delta u
     \end{equation}
     Eq.~\ref{eq:controller:affinelq} is a linear system for which
     the ordinary LQ problem can be solved, using Eq.
@@ -92,10 +96,9 @@
         u = u_{0} + \Delta u = u_{0} - L\bar{X} + L_{r}r
     \end{equation}
 
-    However, the linearizing extension of the affine controller in \eqref{eq:controller:affinelq}
-    introduces a non-controllable constant state, with
-    an associated eigenvalue inherently located in the
-    origin.
+    A problem with the linearizing extension of the affine controller in \eqref{eq:controller:affinelq},
+    is that it introduces a non-controllable constant state, with
+    an associated eigenvalue inherently located in the origin.
     This poses a problem to the traditional solvers of the Riccati equation, which
     expects negative eigenvalues to solve the problem numerically, even though
     the weights of \eqref{eq:controller:lq:j} theoretically could be chosen to
@@ -103,10 +106,10 @@
 
     The problem is circumvented by adding slow dynamics to the theoretically
     constant state, effectively nudging the eigenvalue to the left of the
-    imaginary axis to retain stability.
-    This guarantees that \eqref{eq:controller:lq:j} tends to zero.
+    imaginary axis to regain full stability of the system.
+    This guarantees that Eq.~\eqref{eq:controller:lq:j} tends to zero.
 
-    Equation \eqref{eq:controller:affinelq} is thus really implemented as in \eqref{eq:controller:affinelqimplementation}.
+    Eq.~\eqref{eq:controller:affinelq} is thus implemented as in Eq. \eqref{eq:controller:affinelqimplementation}.
 
     \begin{equation}
     \label{eq:controller:affinelqimplementation}

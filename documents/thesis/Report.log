@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  29 MAY 2012 19:33
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  1 JUN 2012 11:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1362,7 +1362,7 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ))
-(./include/functions.inc.tex
+(./include/hyphenation.inc.tex) (./include/functions.inc.tex
  LaTeX info: Defining document environment 'subfigures'
 (LaTeX)  with arg. spec. 'mm' on line 23.
 
@@ -1370,27 +1370,27 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 156.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 156.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 157.
 
 
 (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 156.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 157.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1431,54 +1431,54 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package crop Info: requested driver: `' on input line 156.
-Package crop Info: detected driver: `dvips' on input line 156.
-Package crop Info: using `dvips' graphics driver on input line 156.
+Package crop Info: requested driver: `' on input line 157.
+Package crop Info: detected driver: `dvips' on input line 157.
+Package crop Info: using `dvips' graphics driver on input line 157.
 \c@lstlisting=\count310
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 160.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 161.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 160.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 161.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 160
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 161
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 160
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 161
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 160.
+(Font)              <10> on input line 161.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 160.
+(Font)              <7> on input line 161.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 160.
-LaTeX Font Info:    Try loading font information for U+msa on input line 160.
+(Font)              <5> on input line 161.
+LaTeX Font Info:    Try loading font information for U+msa on input line 161.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 160.
+LaTeX Font Info:    Try loading font information for U+msb on input line 161.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 File: LiTH_staende_eng_sv.eps Graphic file (type eps)
  <LiTH_staende_eng_sv.eps>
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 160--160
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 161--161
 []| [] 
  []
 
@@ -1488,7 +1488,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 160--160
 ] [0
 
 ]
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 160--160
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 161--161
 []| [] 
  []
 
@@ -1501,7 +1501,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 160--160
 ]
 File: LiTH_sigill_sv.eps Graphic file (type eps)
  <LiTH_sigill_sv.eps>
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 160.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 161.
 
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1551,28 +1551,26 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 ] (./introduction/platform.tex
-Underfull \hbox (badness 1577) in paragraph at lines 84--84
- [][][] 
- []
-
-
-Underfull \hbox (badness 1418) in paragraph at lines 84--84
- [][][] 
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 85.
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [2]
-File: introduction/figures/LinkQuad.eps Graphic file (type eps)
- <introduction/figures/LinkQuad.eps>
-File: introduction/figures/linkquadoutside.eps Graphic file (type eps)
+Underfull \hbox (badness 1577) in paragraph at lines 86--86
+ [][][] 
+ []
 
-<introduction/figures/linkquadoutside.eps>) (./introduction/previouswork.tex
+
+Underfull \hbox (badness 1418) in paragraph at lines 86--86
+ [][][] 
+ []
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 87.
+File: introduction/figures/LinkQuad.eps Graphic file (type eps)
+<introduction/figures/LinkQuad.eps>
+File: introduction/figures/linkquadoutside.eps Graphic file (type eps)
+ <introduction/figures/linkquadoutside.eps>) (./introduction/previouswork.tex
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1583,7 +1581,7 @@ $[]$
  []
 
 [4]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 84.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 86.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1596,158 +1594,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[6] (./observer/observer.tex
+[6] (./video/video.tex
 Chapter 2.
-(./observer/filtering.tex [7
-
-
-]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[8]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[9]) (./observer/ukf.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[10]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[11]) (./observer/motionmodel.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[12]
-File: observer/figures/worldcoordframes.eps Graphic file (type eps)
- <observer/figures/worldcoordframes.eps>
-File: observer/figures/quadrotorcoordframes.eps Graphic file (type eps)
-
-<observer/figures/quadrotorcoordframes.eps>
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[13]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[14]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[15] (./observer/thrust.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[16]
-Underfull \hbox (badness 1014) in paragraph at lines 175--175
-\T1/lmr/m/n/10 lat-ing the square of $\OML/lmm/m/it/10 ![]$ \T1/lmr/m/n/10 to t
-he
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 175--175
-\T1/lmr/m/n/10 base, rel-a-tive to the hor-i-zon-tal
- []
-
-
-Underfull \hbox (badness 1448) in paragraph at lines 175--175
-[]|\T1/lmr/m/n/10 The ro-ta-tional ve-loc-ity of pro-
- []
-
-) (./observer/wind.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[17]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[18]
-Underfull \hbox (badness 2189) in paragraph at lines 51--51
-[]|\T1/lmr/m/n/10 3x3 ma-trix de-scrib-ing the area of the
- []
-
-) (./observer/additionalforces.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[19])) (./observer/sensormodels.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[20]
-Overfull \hbox (5.22961pt too wide) in paragraph at lines 48--51
-\T1/lmr/m/n/10 The Earth's mag-netic field can be ap-prox-i-mated us-ing the Wo
-rld Mag-netic Model[[]],
- []
-
-(./observer/camera.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[21]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[22]
-File: observer/figures/ground.eps Graphic file (type eps)
- <observer/figures/ground.eps>
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[23]
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[24])))
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[25] (./controller/controller.tex [26
-
-
-]
-Chapter 3.
-(./controller/lq.tex [27]) (./controller/gainscheduling.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[28]) (./controller/model.tex
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[29]))
-Underfull \hbox (badness 10000) has occurred while \output is active
-$[]$
- []
-
-[30] (./video/video.tex
-Chapter 4.
-[31
+[7
 
 
 ]
@@ -1757,7 +1606,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[32]
+[8]
 File: video/figures/ptamcalibration.eps Graphic file (type eps)
  <video/figures/ptamcalibration.eps>
 File: video/figures/ptamtracking.eps Graphic file (type eps)
@@ -1766,19 +1615,188 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[33]
+[9]
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[34]
+[10]
 File: video/figures/ptamfeaturetracking.eps Graphic file (type eps)
  <video/figures/ptamfeaturetracking.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[35])
+[11])
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[12] (./observer/observer.tex
+Chapter 3.
+(./observer/filtering.tex [13
+
+
+]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[14]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[15]) (./observer/ukf.tex
+
+LaTeX Warning: Reference `eq:observer:ukf:lambda' on page 16 undefined on input
+ line 22.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
+[]|\T1/lmr/bx/n/10 Example
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[17]) (./observer/motionmodel.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[18]
+File: observer/figures/worldcoordframes.eps Graphic file (type eps)
+ <observer/figures/worldcoordframes.eps>
+File: observer/figures/quadrotorcoordframes.eps Graphic file (type eps)
+
+<observer/figures/quadrotorcoordframes.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[19]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[20]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[21]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[22] (./observer/thrust.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[23]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[24]
+
+LaTeX Warning: Reference `eq:observer:thrust:ct' on page 25 undefined on input 
+line 181.
+
+
+LaTeX Warning: Reference `eq:observer:thrust:cq' on page 25 undefined on input 
+line 181.
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 181--181
+\T1/lmr/m/n/10 base, rel-a-tive to the hor-i-zon-tal
+ []
+
+
+LaTeX Warning: Reference `' on page 25 undefined on input line 181.
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 181--181
+[]|\T1/lmr/m/n/10 The ro-ta-tional ve-loc-ity of pro-
+ []
+
+) (./observer/wind.tex
+Underfull \hbox (badness 2189) in paragraph at lines 49--49
+[]|\T1/lmr/m/n/10 3x3 ma-trix de-scrib-ing the area of the
+ []
+
+) (./observer/additionalforces.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[25]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[26])) (./observer/sensormodels.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[27]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[28] (./observer/camera.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[29]
+File: observer/figures/ground.eps Graphic file (type eps)
+ <observer/figures/ground.eps>
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[30]
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[31])))
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[32] (./controller/controller.tex
+Chapter 4.
+(./controller/lq.tex [33
+
+
+]) (./controller/gainscheduling.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[34]) (./controller/model.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+$[]$
+ []
+
+[35]
+
+LaTeX Warning: Reference `eq:controller:centraldifference' on page 36 undefined
+ on input line 11.
+
+))
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1900,8 +1918,12 @@ $[]$
  []
 
 [53]
+
+LaTeX Warning: Reference `sec:results:setup' on page 54 undefined on input line
+ 3.
+
 File: results/figures/X.eps Graphic file (type eps)
- <results/figures/X.eps>
+<results/figures/X.eps>
 File: results/figures/Y.eps Graphic file (type eps)
  <results/figures/Y.eps>
 File: results/figures/Z.eps Graphic file (type eps)
@@ -2113,7 +2135,7 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 24--43
 
 
 ]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 70--104
+Overfull \hbox (15.0pt too wide) in paragraph at lines 71--105
 []$[]$ 
  []
 
@@ -2128,7 +2150,7 @@ $[]$
  []
 
 [81]
-Overfull \hbox (6.25694pt too wide) in paragraph at lines 163--167
+Overfull \hbox (6.25694pt too wide) in paragraph at lines 164--168
 []\T1/lmr/m/n/10 Using the ex-ist-ing mes-sage def-i-ni-tions for se-rial com-m
 u-ni-ca-tion on the LinkQuad,
  []
@@ -2139,17 +2161,17 @@ $[]$
  []
 
 [82]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 181--190
+Overfull \hbox (15.0pt too wide) in paragraph at lines 182--191
 []$[]$ 
  []
 
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 207--231
+Overfull \hbox (15.0pt too wide) in paragraph at lines 208--232
 []$[]$ 
  []
 
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 233--241
+Overfull \hbox (15.0pt too wide) in paragraph at lines 234--242
 []$[]$ 
  []
 
@@ -2164,7 +2186,7 @@ $[]$
  []
 
 [84]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 329--344
+Overfull \hbox (15.0pt too wide) in paragraph at lines 330--345
 []$[]$ 
  []
 
@@ -2185,14 +2207,21 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[87] (./Report.aux) ) 
-Here is how much of TeX's memory you used:
- 22990 strings out of 495015
- 416113 string characters out of 3181236
- 600203 words of memory out of 3000000
- 25448 multiletter control sequences out of 15000+200000
- 126951 words of font info for 83 fonts, out of 3000000 for 9000
- 36 hyphenation exceptions out of 8191
- 58i,17n,60p,528b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
+[87] (./Report.aux)
 
-Output written on Report.dvi (101 pages, 371184 bytes).
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 23011 strings out of 495015
+ 416556 string characters out of 3181236
+ 600443 words of memory out of 3000000
+ 25464 multiletter control sequences out of 15000+200000
+ 131222 words of font info for 84 fonts, out of 3000000 for 9000
+ 37 hyphenation exceptions out of 8191
+ 58i,18n,60p,554b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on Report.dvi (101 pages, 375752 bytes).

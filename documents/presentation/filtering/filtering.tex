@@ -14,6 +14,22 @@
         The UKF has issues with the applied motion model in high uncertainty simulations.
         The EKF was selected as the more reliable filter.
     \end{frame}
+    \note{
+        The measurements from the camera need to be fused with the rest
+        of the available sensor data, as well as the motion model.
+        In the linear case, the Kalman filter is provably the optimal bayesian filter
+        given some assumptions, but the theory can also with good results be extended
+        to the nonlinear case.
+        The novel approach is the Extended Kalman filter which simply
+        linearizes the model as nescessary and applies the linear theory.
+        The Unscented Kalman Filter approaches the field of particle filtering
+        by testing variations of the estimated state and look for the best gaussian fit.
+
+        In the implementation, this is performed in a generally written sensor fusion module.
+        The current implementation features an Extended Kalman filter,
+        but the Unscented Kalman Filter was also studied in the thesis,
+        but was ultimately replaced due instabilities.
+    }
 
     \subsection{Filtering Framework}
     \begin{frame}{Filtering Framework}
@@ -22,9 +38,8 @@
 
         \vspace{0.5cm}
 
-        \textbf{Time update: } Use the motion model to predict the vehicle's motions.
-
         \textbf{Measurement update: } Sample the sensors and weigh their likelihood against the current estimate.
+        \textbf{Time update: } Use the motion model to predict the vehicle's motions.
 
 
         \vspace{0.5cm}
@@ -32,13 +47,27 @@
         %~ We may e.g. perform one m.u. for the IMU and one for the camera before
         %~ performing a time update.
     \end{frame}
+    \note{
+        A filtering framework is generally equipped with two independent steps;
+
+        The measurement update step then take the sensorvalues and incorporate them
+        into the state estimate. Since both the state estimate and sensor measurements
+        are associated with noise and uncertainties, these to have to be
+        weighed against each other according the certainty of each.
+
+        The time update, where the physical model is used to anticipate
+        the movements of the vehicle, based on previous knowledge and reasonable assumptions.
+        One can here, for instace, assume that the velocity is constant, and
+        the vehicle's position must thus be updated according to the known velocity.
+        In this thesis, a physical motion model was developed and presented.
+    }
 
     \subsection{Physical Motion-model}
     \begin{frame}{Motion Model}
         For simulation purposes, a non-linear physical model of the quadrotor
         is studied in the thesis.
         \begin{itemize}
-            %~ \item Detailed physical model of $>23$~states.
+            \item Detailed physical model.
             \item Same model is used for state estimation, control and simulation.
             \item May easily be replaced by simpler model, e.g. for state estimation.
         \end{itemize}
@@ -49,6 +78,20 @@
             %~ \item New sensor types are easily added.
         %~ \end{itemize}
     \end{frame}
+    \note{
+        The physical quadrotor model presented in this thesis is in fact
+        developed in some detail, and while some model identification
+        remain, it describes in detail the forces acting on the quadrotor
+        in flight.
+        The physical model is arguably unnescessary complex for many purposes,
+        but the fact that this model actually fits both simulation,
+        state estimation and nonlinear control is a remarkable feature.
+        This does not only add maintainability, but also precision to the
+        state estimation and control.
+        In fact, the structure of the model allows for its re-use in all
+        model-dependent parts of the implementation, removing the need for
+        multiple models to be developed.
+    }
     % EKF vs. UKF
     % Kalman filter framework with time- and measurement updates
 

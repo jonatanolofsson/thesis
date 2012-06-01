@@ -45,10 +45,11 @@
     \label{sec:crap:structure}
         Modules, as shown in Figure~\ref{fig:crap:schematic},
         connect to each other using \textit{messages} sent in \textit{message topics}.
-        Topics are identified by a string name, and is
+        Topics are identified by a string name, and can be \textit{listened to} or \textit{published to}.
+
         Each module is initialized in its own processing thread, but may
         chose to end this initial thread and react only to
-        incoming messages, which are received in a separate \textit{messaging thread},
+        incoming messages, which are received in separate messaging threads,
         which is instantiated when a module starts to \textit{listen} to a topic.
         Further details of this procedure is given in Section~\ref{sec:crap:communication}
 
@@ -149,7 +150,7 @@ modules:
             \end{tikzpicture}
         }
         \caption{CRAP schematic. The Figure~describes the relationship of modules (green) and their internal communication through messages (red).
-        External modules, connected through a serial interface, are shown in blue. Dashed lines are optional.}
+        External modules, connected through a serial interface, are shown in blue. Dashed lines are optionally enabled or disabled in different run-configurations of the thesis implementation.}
         \label{fig:crap:schematic}
     \end{figure}
 
@@ -301,8 +302,8 @@ LinkQuad::comm::serial::send(serial_port, msg);
                         \node[action,right of=linearize, node distance=2.3cm] (calccontrol) {Calculate control};
                         \node[action,below of=calccontrol] (publish) {Publish};
 
-                        \node [event, right of=pose] (reference) {New reference};
-                        \node[action, below of=reference] (refup) {Update reference};
+                        \node[action, right of=calccontrol] (refup) {Update reference};
+                        \node [event, above of=refup] (reference) {New reference};
 
                         \path[->]
                             (pose) edge (linearize)
@@ -331,7 +332,7 @@ LinkQuad::comm::serial::send(serial_port, msg);
 .1 /.
 .2 configuration.
 .3 modes.
-.4 hover.yaml
+.4 hover.yaml.
 .2 modules.
 .3 logic.
 .4 modes.
@@ -385,7 +386,7 @@ extern "C" {
             Likewise, the sensor reader module interfaces the sensor MCU on the LinkQuad
             to retrieve IMU measurements, which are forwarded to the observer.
 
-            The baselink interfaces the graphical front-end of Section~\ref{sec:crap:interface}
+            The baselink module interfaces the graphical front-end, presented in Section~\ref{sec:crap:interface},
             through a serial interface, allowing the front-end to e.g. run on
             a connected laptop when \crap is run on a host without support for graphics.
 

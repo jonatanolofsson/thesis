@@ -7,7 +7,7 @@
     modern and effective algorithms have been laid.
 
     While the implementation has yet to see real flight, it is believed
-    that little work remain before test-flights can be performed,
+    that relatively little work remain before test-flights can be performed,
     the most important work being tuning of state-estimation and control.
 
 \section{Conclusions}
@@ -19,7 +19,7 @@
     simple scaling of the solution, which also makes the method applicable
     for other types of platforms, or platforms with other sensor configurations.
 
-    Positioning using monocular SLAM has been shown to improve the estimation of the states
+    Positioning using Monocular SLAM has been shown to improve the estimation of the states
     of the quadrotor significantly. By extending the PTAM library,
     it has been possible to automate the initialization and utilization
     while also providing the coupling to a real-world metric system needed
@@ -27,7 +27,7 @@
 
     Even in an untuned state, the positioning provides a state estimate
     that is adequate for the nonlinear control methodology presented
-    in Chapter~\ref{cha:controller} to perform well.
+    in Chapter~\ref{cha:controller} to perform well in simulation.
     The controller extends the well-studied Linear Quadratic controller
     to a far more general case, while retaining the appreciated simplicity of tuning.
     The controller successfully lands a quadrotor in a simulated environment,
@@ -54,7 +54,7 @@
         Similarly, simpler control models could be compared with the
         advanced SDRE-solution proposed in this thesis.
 
-        Future work could also investigate the inclusion of other types of
+        Future work could also investigate the applications of other types of
         optimal control, such as Model Predictive Control, MPC.
 
     \subsection{Monocular SLAM}
@@ -64,15 +64,13 @@
         positioning using video feedback.
 
         There is also a potential to improve the PTAM library.
-        One could, for instance, consider closing the loop, using the observer's
-        pose estimate and motion model to improve the quality of the camera tracking.
         The PTAM library was specifically developed for hand-held cameras
-        without any other sensors available, yet the algorithm would benefit
-        from such information.
-        Care would of course have to be taken to avoid the problems of
-        information looping between the filters.
+        without any additional sensors, yet the algorithm would benefit
+        from such. The state estimate and motion model of the
+        observer could be utilized to improve the quality and stability of
+        the camera tracking.
 
-        There are also some performance issues when the internal map of PTAM features
+        The PTAM library also exhibit performance issues when the internal map of features
         grows. This could be improved by using informed search,
         for instance using R-trees%\footnote{\url{http://en.wikipedia.org/wiki/R-tree}}
         , to index features according to their position and limit the search for

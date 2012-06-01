@@ -1,14 +1,14 @@
 \chapter{Monocular SLAM}
 \label{cha:monoslam}
     In the interest of extracting positioning information from a video stream
-    of a general, unknown, environment, the common approach is to use SLAM techniques,
-    \textit{Simultaneous Localization And Mapping}.
+    of a general, unknown, environment, a common approach is to use SLAM,
+    \textit{Simultaneous Localization And Mapping}, techniques.
     In the mathematical SLAM framework, features in the images are identified
     and tracked throughout time in the video stream, and a filtering solution
     is then traditionally applied to estimate the probability densities
     of the tracked landmarks' positions, as well as that of the camera position.
 
-    To determine the depth distance to a feature, stereo vision is often applied
+    To determine the depth distance to a feature, stereo vision can be applied
     with which the correlation between two synchronized images is used together with the known
     distance between the cameras to calculate the image depth.
     As the distance to the tracked objects increases however, the stereo
@@ -43,24 +43,26 @@
 
         One advantage of the solutions with direct filtering is that it is quite
         trivial to extend the motion models or include other sensors to improve the precision, since
-        the general algorithm utilize classical state-based time- and measurement-updates.
+        the general algorithm utilize classical state-based time- and measurement updates.
 
     \section{Keyframe-based SLAM}
     \label{eq:video:kfslam}
-        A fundamentally different approach is presented in \citep{klein07parallel},
-        where the focus is put on collecting video frames of greater importance - keyframes -
+        A fundamentally different approach, presented and used for instance in \citep{klein07parallel},
+        is to focus on collecting video frames of greater importance - keyframes -
         in which a large amount of features are detected.
-        The camera's position is recorded at the time the keyframe is grabbed - see Figure~\ref{fig:video:ptamkeyframes} -
-        and the new features detected are added to the active set.
+        The camera's position is recorded at the time the keyframe is grabbed - see Figure~\ref{fig:video:ptamkeyframes} with caption -
+        and the newly detected features are added to the active set.
         As new video frames arrive, features are reprojected and sought for in
-        the new frame, giving a position offset from recorded keyframes which by
-        extension gives the updated position of the camera.
+        the new frame, giving a position offset from previously recorded keyframes which, by
+        extension, gives the updated position of the camera.
         \fig{\imagewidth}{ptamkeyframes}{Keyframes containing features - here
-        represented by dots - are recorded and the camera's position at the
+        represented by dots - are recorded, and the camera's position at the
         time of the frame's capture is stored and visualized as coordinate axes.
+        The offset from these positions is estimated from the features detected in the
+        video stream.
         The thick coordinate system displays the camera's current position estimate.
         The colors of the features represent library-internal information on
-        the how the feature was detected.
+        how the feature was detected.
         }{fig:video:ptamkeyframes}
 
 
@@ -70,50 +72,50 @@
         developed for Augmented Reality (AR) applications in small workspaces \citep{klein07parallel}.
         It has only recently been applied for quadrotor state estimation \citep{weiss11monocular},
         although as the library is intended for AR applications, the connection
-        with the world's coordinate system is loose, as duly discussed in Chapter~\ref{ssec:observer:sensormodels:camera}.
-        Several libraries exist extending the functionality of the PTAM library \citep{Nguyen_Sandor_Park_2010}.
+        with the world's coordinate system is loose, as discussed in Chapter~\ref{cha:observer}.
+        Several libraries exist extending the functionality of the PTAM library~\citep{Nguyen_Sandor_Park_2010}.
 
         Recently published algorithms - presented in \citep{Newcombe2011} - surpass
         the library's performance using GPGPU\footnote{General-Purpose computing on Graphics Processing Units}
         although the performance of the PTAM library is nonetheless proven\footnote{Examples of projects using PTAM are listed at \url{http://ewokrampage.wordpress.com/projects-using-ptam/}},
         and improves the usability over preceding libraries, such as \textit{Scenelib}, by including
-        a camera calibration tool, estimating parameters describing the lens properties.
+        a camera calibration tool, which is used to estimate the parameters describing the lens properties.
         \fig{\imagewidth}{ptamcalibration}{A checker-board pattern is used for calibrating the lens-specific parameters of the camera.}{fig:video:ptamcalibration}
 
         \subsection{Operation}
             The PTAM library partitions the SLAM problem into a real-time tracking
             loop and a less time-critical optimization procedure on the collected keyframes.
 
-            In the tracking procedure, the PTAM library uses the Keyframe
+            In the tracking procedure, the PTAM library uses the keyframe
             technique described in Section~\ref{eq:video:kfslam}, and randomly projects
             previously recorded features into the captured video frame,
             visualized in Figure~\ref{fig:video:ptamtracking}.
             The selection of features to re-project could potentially be
             improved, as discussed in Section~\ref{sec:discussion:cameralocalization},
             although this remains as future work.
-            \fig{\imagewidth}{ptamtracking}{Features - visualized as dots - are projected into the image and sought for. The calculated offset from the features' original positions then yield a position estimate.}{fig:video:ptamtracking}
+            \fig{\imagewidth}{ptamtracking}{Features - visualized as dots - are projected into the image and sought for. The calculated offset from the positions where the features were first detected then yield a position estimate.}{fig:video:ptamtracking}
 
             As for mapping; Instead of continuously updating the keyframe's position estimates - as in the filtering solution -
             the PTAM library uses a less time-critical algorithm in a parallel processing thread\footnote{Hence its name; \textit{Parallel Tracking And Mapping}}.
             The applied algorithm is known as Bundle Adjustment, and
-            performs a nonlinear least-squares optimization over the available keyframes'
-            to calibrate their positions relative to each other, based on shared features. \citep{lour09}.
-            The library that is used utilizes the sparse structure of the optimization problem that
-            is solved to make the solution computationally tractable \citep{Lourakis11bundle}.
+            performs a nonlinear least-squares optimization over the available keyframes
+            to calibrate their positions relative to each other, based on shared features~\citep{lour09}.
+            The implementation utilizes the sparse structure of the optimization problem that
+            is solved, to make the solution computationally tractable \citep{Lourakis11bundle}.
 
         \subsection{Modifications to the Library}
             The PTAM library is originally interfaced with an included graphical user interface.
-            However, as the source-code is provided for non-commercial use, the
-            library was modified to interface over serial port with the CRAP framework
+            Using the source-code, which is provided free for non-commercial use, the
+            library was modified to be interfaced over a serial port
             and also extended with automatic initialization and full non-graphical use.
-            This enables full automatization on the development platform.
+            %~ This enables full automatization on the development platform.
 
             In the standard PTAM initialization procedure, an image is captured
             at a starting position. The camera is then translated sideways until the user
             deems the stereo initialization can be performed with good results.
-            A second frame is then captured, and features from the original image
-            are tracked between the two to perform a stereo initialization to
-            extract the ground plane and a placement for the origin.
+            A second frame is then captured, and shared features are used
+            to perform a stereo initialization and extract the ground plane
+            and a placement for the origin of the PTAM coordinate system.
             The tracked scene should be planar to retrieve a good estimation
             of the true ground plane, although the tracking will work regardless.
 
@@ -125,28 +127,27 @@
             After the initial frame has been captured, the implementation
             of the automated initialization uses the length of these lines as
             a measure of when to finalize the initialization procedure.
-            When the length of the line associated with the first\footnote{First in the list of features from the first image still found in the latest frame.}
+            When the length of the line associated with the first\footnote{First in the list of features from the first image that are still found in the latest frame.}
             feature exceeds a given threshold, the second frame is
             captured and the stereo initialization algorithm is started.
             Should the initialization procedure fail - e.g. by loosing track of most features - the
             procedure will be restarted until a successful initialization has been performed.
             The procedure is initially triggered by a command from the serial port.
+            The initialization is further described in Chapter~\ref{cha:logic}.
 
         \subsection{Practical Use}
-            The PTAM library is designed to use a wide-angle lens, and it is
-            documented that performance drops should such not be available \citep{klein07parallel}.
-            In its current state however, PTAM does not support fish-eye lenses, and although
-            the LinkQuad-mounted camera features a changeable lens, all
-            available wide-angle lenses are fish-eye.
+            The PTAM library is designed to be used a wide-angle lens. It is
+            documented that performance drops should such not be available~\citep{klein07parallel}.
+            Even though the LinkQuad-mounted camera features a changeable lens, all currently
+            available wide-angle lenses are fish-eye lenses, which the PTAM library does not currently support.
             It is possible to use the PTAM library with a standard lens, although
-            tracking is less stable.
+            tracking is less stable, and harder to extend to unexplored areas.
 
             The tracking and initialization quality is also - as all video tracking - dependent on the
             amount of trackable features in the scene.
             While the library can recover from lost positioning, an insufficient amount
             of features can cause the initialization process to fail, or the tracking to
             be irreparably lost.
-            The amount of features tracked is also dependent on the processing
-            power available, and because the complexity of the mapping
-            problem grows fast with the number of keyframes, the library may
+            The amount of tracked features is also dependent on the processing
+            power available, and the library may, depending on available resources,
             have difficulties extending the map to unexplored areas.

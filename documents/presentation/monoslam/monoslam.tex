@@ -14,16 +14,15 @@
         For the video based SLAM part of this thesis, a library called PTAM was used.
         Again, the idea is to track features, here shown as dots, through
         the video frames to estimate the camera's position.
+        Often, stereo vision is applied to extract depth information from the recorded scene.
+        With monocular SLAM however, the movement of the features need to be related
+        to extract the depth of each feature in the image.
+
         One major problem with video based tracking is that, unless you know something
         about the recorded scene, there is no way of knowing wether its a large scene
         that moved a lot, or a small scene that just moved a little.
-        As for instance when you film a doll house, there is simply no way
+        As for instance when you film a dollhouse, there is simply no way
         to tell it from a real house, and yet the scale of movement is completely different.
-
-        The scaling needs to be extracted from other sources, and autonomously so since
-        the PTAM coordinate system is initialized quite arbitrarily.
-        This coordinate system is of central importance, since all measurements
-        are given relative to it, and yet both orientation, position and scale is initially unknown.
     }
     \begin{frame}{Camera Measurements}
         \textbf{Measurement: } Pose relative to PTAM coordinate system.
@@ -46,7 +45,14 @@
      % Intended for AR applications.
      % Intended for use with wide-angle camera lenses
     \end{frame}
-    \note{}
+    \note{
+        The scaling needs to be extracted from other sources, and autonomously so since
+        the PTAM coordinate system is initialized quite arbitrarily.
+        This coordinate system is of central importance, since all measurements
+        are given relative to it, and yet both orientation, position and scale is initially unknown.
+        To be able to use the measurements of position and orientation, this transformation
+        needs to be determined using external information.
+    }
 
 
     \subsection{Initialization}
@@ -72,6 +78,13 @@
             %~ s = \frac{|X^{PTAM}|}{|\lambda|}
         %~ \end{equation*}
     \end{frame}
+    \note{
+        What we do know of the PTAM initialization process is that it tries
+        to place the coordinate system on the ground plane.
+        Knowing our position of initialization, we can calculate backwards
+        from the first measurement and make a guess of the position and
+        orientation of the coordinate system.
+    }
 
     \subsection{Connecting the Coordinate Systems}
     \begin{frame}{Camera Measurements}
@@ -79,7 +92,7 @@
         the coordinate systems have to be related.
         \begin{align*}
             x^{\text{PTAM}} &= S(s) R(q^{Pw}) T(-\varnothing_{\text{PTAM}}) x^{\text{NEDEF}} \\
-            q^{Pw} &= q^{PTAM,c} q^{cb} q^{bw}
+            q^{PTAM,c} &= q^{Pw} \left(q^{cb} q^{bw}\right)^{-1}
         \end{align*}
 \vspace{-1cm}
         \begin{itemize}
@@ -91,19 +104,30 @@
         \centering
             \includegraphics[trim = 0mm 50mm 0mm 0mm,clip,width=0.6\textwidth]{\currentchapter/figures/camera}
         \end{figure}
-
     \end{frame}
+    \note{
+        The transformation can then be used to connect the incoming
+        measurements to the state estimation framework.
+        As you can see in the equatinons, in the state estimation framework,
+        the measurements are expressed in terms of the available states,
+        not the other way around.
+    }
 
-    \subsection{Library Modifications}
-    \begin{frame}{Library Modifications}
-        In a deployment environment, the initialization and utilization of
-        the camera sensor must be autonomous.
-
-        In the thesis, several changes are implemented to the PTAM library, e.g.
-        \begin{itemize}
-            \item Autonomous initialization procedure,
-            \item Re-initialization,
-            \item Origin positioning error detection,
-            \item Remote interface for non-GUI use.
-        \end{itemize}
-    \end{frame}
+    %~ \subsection{Library Modifications}
+    %~ \begin{frame}{Library Modifications}
+        %~ In a deployment environment, the initialization and utilization of
+        %~ the camera sensor must be autonomous.
+%~
+        %~ In the thesis, several changes are implemented to the PTAM library, e.g.
+        %~ \begin{itemize}
+            %~ \item Autonomous initialization procedure,
+            %~ \item Re-initialization,
+            %~ \item Origin positioning error detection,
+            %~ \item Remote interface for non-GUI use.
+        %~ \end{itemize}
+    %~ \end{frame}
+    %~ \note{
+        %~ I mentioned earler that several changes were needed to the PTAM
+        %~ library for it to work fully autonomously, and without the use of
+        %~ a graphical interface.
+    %~ }

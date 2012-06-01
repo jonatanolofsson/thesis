@@ -15,25 +15,27 @@
     \end{subequations}
 
     The basic LQ controller, described in e.g. \citep{glad2003reglerteori},
-    uses a linear state-space system model and weights on the states ($Q$) and control
+    uses a linear state-space system model and costs on the states ($Q$) and control
     signals ($R$) respectively to calculate the control signals that would
     - given a starting state, a motion model and a constant reference -
-    minimize the integral \eqref{eq:controller:lq:j}.
+    minimize the integral \eqref{eq:controller:lq:j}, the cost
+    scaling quadratically with the deviation from reference.
+
     \begin{equation}
     \label{eq:controller:lq:j}
         \mathcal{J} = \int_{0}^{\infty} e^{T}(t)Qe(t) + u^{T}(t)Ru(t) dt.
     \end{equation}
 
-    Thus, by varying the elements of the cost matrices $Q$ and $R$
+    By varying the elements of the cost matrices $Q$ and $R$
     respectively, the solution to the optimization will yield control
-    signals that will steer the system in a fashion that the amplitude
+    signals that will control the system in a fashion that the amplitude
     of the control signals and the errors are balanced.
     By e.g. increasing the costs of the control signals, the system
     LQ controller will issue smaller control signals, protecting the
     engines but slowing the system down.
 
-    In the linear case, \eqref{eq:controller:lq:j} can be solved analytically,
-    resulting in a linear feedback in Eqs. \eqref{eq:controller:u1}-\eqref{eq:controller:L}.
+    In the linear case, Eq.~\eqref{eq:controller:lq:j} can be solved analytically,
+    resulting in a linear feedback gain, given in Eqs.~\eqref{eq:controller:u1}-\eqref{eq:controller:L}.
     \begin{align}
         u_{t} &= -L\hat{x}_{t} \label{eq:controller:u1} \\
 %
@@ -57,7 +59,7 @@
     \begin{align}
         u_{t} &= -L\hat{x}_{t} + L_{r}r_{t} \label{eq:controller:ufull} \\
 %
-        L_{r} &= \left[M(BL - A)^{-1}B\right]^{-1} \\\label{eq:controller:Lr}
+        L_{r} &= \left[M(BL - A)^{-1}B\right]^{-1} \label{eq:controller:Lr}
     \end{align}
 
 %FIXME: Discrete results are used in the code!

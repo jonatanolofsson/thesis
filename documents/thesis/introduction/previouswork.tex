@@ -14,16 +14,16 @@
     Fewer still have succeeded using strictly real-time algorithms
     running on the limited processing power that standard
     MAVs generally are equipped with, although successful implementations do exist, e.g. \citep{Rudol10}.
-    The LinkQuad is in that regard, with its distributed processing power, well suited
-    as a development platform when studying this problem.
+    %~ The LinkQuad is in that regard, with its distributed processing power, well suited
+    %~ as a development platform when studying this problem.
 
     \subsection{Autonomous Landing and Control}
     The problem of landing a quadrotor can to a large extent be boiled
-    down to achieving good pose estimates using available information.
+    down to achieving good pose estimates using available models and sensor measurements.
     This problem is studied in e.g. \citep{mellinger10perching,brockers:803111},
     but perhaps the most interesting results are obtained in \citep{DBLP:conf/icra/BloschWSS10,weiss11monocular},
     where the ideas from \citep{klein07parallel} of using monocular SLAM
-    are implemented on a UAV platform and excellent results are obtained,
+    are implemented on a UAV platform and good results are obtained,
     using the feedback from the camera's pose estimate for control.
     Some problems remain however regarding the long-term stability of the controller.
 
@@ -44,7 +44,7 @@
     %~ The algorithm presented in \citep{Karlsson05thevslam} also extends to
     %~ the case of multiple cameras, which could be interesting in a longer perspective.
     %~ An implementation has been made in a ROS project \citep{rosvslam}, which may be used for reference.
-    Similar approaches, using common Kalman Filtering solutions have been implemented by e.g. \citep{DBLP:conf/iccv/Davison03,Eade:2006:SMS:1153170.1153506},
+    Similar approaches, using Kalman filtering solutions, have been implemented by e.g. \citep{DBLP:conf/iccv/Davison03,Eade:2006:SMS:1153170.1153506},
     and are available as open-source software\footnote{\url{http://www.doc.ic.ac.uk/~ajd/Scene/}}.
 
     Another approach to vSLAM is suggested in \citep{klein07parallel} and

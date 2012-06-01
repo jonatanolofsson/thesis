@@ -2,20 +2,21 @@
 \label{sec:controller:model}
     In Chapter~\ref{cha:observer}, a physical model of the system
     was derived. To incorporate the information from the physical model
-    into the governing control law, the model needs to be fitted into Eq.
+    into the governing control law, the model will need to be fitted into Eq.
     \eqref{eq:controller:affinelq} by providing the Jacobi matrices with
-    regards to $x$ and $u$, and removing states which will not be
+    regards to $x$ and $u$, while also removing states which will not be
     used in the controller.
 
     The Jacobians of the system are acquired numerically by using
-    central difference
+    central difference, as in Eq.~\eqref{eq:controller:centraldifference}.
     \begin{equation}
+    \label{eq:controller:centraldifference}
         f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}
     \end{equation}
 
     While all states are of importance to the dynamics of the quadrotor,
-    it should be noted that only a subset of the states in $x$ is used for control.
-    We thus need to form new matrices containing the relevant states.
+    only a subset of the states in $x$ is used for control.
+    New matrices thus need to be formed, containing the relevant states.
     \paragraph{Notation}
     \begin{description}
         \item[] $\bar{x}$ denotes the rows in $x$ that are used for control.
@@ -25,9 +26,9 @@
         associated with the controller states, from the other columns ($\dagger$).
     \end{description}
 
-    The new matrices need to be formed only with the rows that are to be used
-    for control. Extracting those rows from Equation \eqref{eq:controller:gainscheduling:xdot}
-    yields Equation \eqref{eq:controller:model:derivation}.
+    The new matrices should contain only the rows that are to be used
+    for control. Extracting those rows from Eq.~\eqref{eq:controller:gainscheduling:xdot}
+    yields Eq.~\eqref{eq:controller:model:derivation}.
     \begin{equation}
         \label{eq:controller:model:derivation}
         \begin{array}{rl}
@@ -44,3 +45,12 @@
     the new matrices for the controller.
     The derivation of \eqref{eq:controller:model:derivation} is
     completely analogous in the discrete-time case.
+
+    The following states, from Chapter~\ref{cha:observer}, are used in the control model:
+    \begin{itemize}
+        \item Velocities,
+        \item Angular rates,
+        \item Propeller velocities,
+        \item Roll angle,
+        \item Pitch angle.
+    \end{itemize}

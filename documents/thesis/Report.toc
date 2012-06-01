@@ -11,41 +11,41 @@
 \contentsline {section}{\numberline {1.4}Objectives and Limitations}{4}
 \contentsline {section}{\numberline {1.5}Contributions}{5}
 \contentsline {section}{\numberline {1.6}Thesis Outline}{5}
-\contentsline {chapter}{\numberline {2}State Estimation}{7}
-\contentsline {section}{\numberline {2.1}The Filtering Problem}{7}
-\contentsline {section}{\numberline {2.2}The Unscented Kalman Filter}{10}
-\contentsline {section}{\numberline {2.3}Motion Model}{12}
-\contentsline {subsection}{\numberline {2.3.1}Coordinate Frames}{12}
-\contentsline {subsection}{\numberline {2.3.2}Kinematics}{15}
-\contentsline {subsection}{\numberline {2.3.3}Dynamics}{15}
-\contentsline {subsubsection}{Rotor thrust}{16}
-\contentsline {subsubsection}{Wind}{19}
-\contentsline {subsubsection}{Additional Forces and Moments}{19}
-\contentsline {paragraph}{Hub Force}{20}
-\contentsline {paragraph}{Rolling Moment}{20}
-\contentsline {paragraph}{Ground Effect}{20}
-\contentsline {paragraph}{Gyro Effects and Counter-Torque}{20}
-\contentsline {section}{\numberline {2.4}Sensor Models}{20}
-\contentsline {subsection}{\numberline {2.4.1}Accelerometers}{20}
-\contentsline {subsection}{\numberline {2.4.2}Gyroscopes}{21}
-\contentsline {subsection}{\numberline {2.4.3}Magnetometers}{21}
-\contentsline {subsection}{\numberline {2.4.4}Pressure Sensor}{21}
-\contentsline {subsection}{\numberline {2.4.5}Camera}{21}
-\contentsline {subsubsection}{Initialization}{23}
-\contentsline {subsubsection}{Camera Measurements}{24}
-\contentsline {subsubsection}{Teleportation}{25}
-\contentsline {chapter}{\numberline {3}nonlinear Control}{27}
-\contentsline {section}{\numberline {3.1}The Linear Quadratic Controller}{27}
-\contentsline {section}{\numberline {3.2}State-Dependent Riccati Equations and LQ Gain Scheduling}{28}
-\contentsline {section}{\numberline {3.3}Control Model}{29}
-\contentsline {paragraph}{Notation}{30}
-\contentsline {chapter}{\numberline {4}Monocular SLAM}{31}
-\contentsline {section}{\numberline {4.1}Filtering Based Solutions}{31}
-\contentsline {section}{\numberline {4.2}Keyframe-based SLAM}{32}
-\contentsline {section}{\numberline {4.3}The PTAM Library}{33}
-\contentsline {subsection}{\numberline {4.3.1}Operation}{33}
-\contentsline {subsection}{\numberline {4.3.2}Modifications to the Library}{34}
-\contentsline {subsection}{\numberline {4.3.3}Practical Use}{35}
+\contentsline {chapter}{\numberline {2}Monocular SLAM}{7}
+\contentsline {section}{\numberline {2.1}Filtering Based Solutions}{7}
+\contentsline {section}{\numberline {2.2}Keyframe-based SLAM}{8}
+\contentsline {section}{\numberline {2.3}The PTAM Library}{9}
+\contentsline {subsection}{\numberline {2.3.1}Operation}{9}
+\contentsline {subsection}{\numberline {2.3.2}Modifications to the Library}{10}
+\contentsline {subsection}{\numberline {2.3.3}Practical Use}{11}
+\contentsline {chapter}{\numberline {3}State Estimation}{13}
+\contentsline {section}{\numberline {3.1}The Filtering Problem}{14}
+\contentsline {section}{\numberline {3.2}The Unscented Kalman Filter}{16}
+\contentsline {section}{\numberline {3.3}Motion Model}{18}
+\contentsline {subsection}{\numberline {3.3.1}Coordinate Frames}{18}
+\contentsline {subsection}{\numberline {3.3.2}Kinematics}{22}
+\contentsline {subsection}{\numberline {3.3.3}Dynamics}{22}
+\contentsline {subsubsection}{Rotor thrust}{23}
+\contentsline {subsubsection}{Wind}{25}
+\contentsline {subsubsection}{Additional Forces and Moments}{25}
+\contentsline {paragraph}{Hub Force}{27}
+\contentsline {paragraph}{Rolling Moment}{27}
+\contentsline {paragraph}{Ground Effect\newline }{27}
+\contentsline {paragraph}{Gyro Effects and Counter-Torque\newline }{27}
+\contentsline {section}{\numberline {3.4}Sensor Models}{27}
+\contentsline {subsection}{\numberline {3.4.1}Accelerometers}{28}
+\contentsline {subsection}{\numberline {3.4.2}Gyroscopes}{28}
+\contentsline {subsection}{\numberline {3.4.3}Magnetometers}{28}
+\contentsline {subsection}{\numberline {3.4.4}Pressure Sensor}{29}
+\contentsline {subsection}{\numberline {3.4.5}Camera}{29}
+\contentsline {subsubsection}{Initialization}{30}
+\contentsline {subsubsection}{Camera Measurements}{31}
+\contentsline {subsubsection}{Teleportation}{32}
+\contentsline {chapter}{\numberline {4}Nonlinear Control}{33}
+\contentsline {section}{\numberline {4.1}The Linear Quadratic Controller}{33}
+\contentsline {section}{\numberline {4.2}The State-Dependent Riccati Equation}{34}
+\contentsline {section}{\numberline {4.3}Control Model}{36}
+\contentsline {paragraph}{Notation}{36}
 \contentsline {chapter}{\numberline {5}Finite State-Machines}{37}
 \contentsline {section}{\numberline {5.1}Hovering Mode}{37}
 \contentsline {section}{\numberline {5.2}PTAM Initialization Mode}{38}
@@ -67,7 +67,7 @@
 \contentsline {subsection}{\numberline {6.3.5}Propeller Velocity}{64}
 \contentsline {section}{\numberline {6.4}Control}{65}
 \contentsline {chapter}{\numberline {7}Discussion}{67}
-\contentsline {section}{\numberline {7.1}Modelling}{67}
+\contentsline {section}{\numberline {7.1}Modeling}{67}
 \contentsline {section}{\numberline {7.2}Filtering}{68}
 \contentsline {subsection}{\numberline {7.2.1}EKF vs. UKF}{68}
 \contentsline {subsection}{\numberline {7.2.2}Performance}{68}
