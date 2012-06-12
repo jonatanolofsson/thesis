@@ -7,9 +7,9 @@
     The rotational velocity of the propeller is directly
     influenced by the controller. It may as such be modeled as a first order
     system using the time constant $\tau_{rotor}$ with
-    the reference velocity as input, as in Eq. \eqref{eq:observer:wri}.
+    the reference velocity as input, as in Eq.~\eqref{eq:observer:wri}.
     For testing purposes, or where the control signal, $r_{i}$ is not
-    available, Eq. \eqref{eq:observer:wri2} may be used instead,
+    available, Eq.~\eqref{eq:observer:wri2} may be used instead,
     assuming constant propeller velocity.
     \begin{align}
         \dot{\omega}_{ri} &= \frac{1}{\tau_{rotor}} \left( \omega_{ri} - r_{i} \right) \label{eq:observer:wri} \\
@@ -35,7 +35,7 @@
     considering computational load, to find a closed-form
     solution to the flapping equations.
     The resulting flapping angles and their impact on
-    the thrust vectors can be described as in equations
+    the thrust vectors can be described as in Eqs.
     \eqref{eq:observer:thrust}-\eqref{eq:observer:flapping}
     \citep{Pounds_modellingand,prouty1995helicopter,leishman2002principles}.
 
@@ -88,7 +88,7 @@
                     \left( \frac{V_{rel}^{2}}{2} \right)^{2}
                     + \left( \frac{mg}{2 \rho A_{r}} \right)^{2}
                 }
-            }\\
+            } \label{eq:observer:inducedvelocity}\\
 %
             \lambda_{ri} &= \mu_{ri}\alpha_{si} + \frac{v_{1i}}{\omega_{ri} R} \label{eq:observer:lambdari}
         \end{align}
@@ -161,9 +161,9 @@
             $c$ & - & Blade chord - the (mean) length between the trailing and leading edge of the propeller.   & $\text{m}$ \\\hline
             $C_{D,r}$ & - & Propeller coefficient of drag. & $1$ \\\hline
             $C_{L}$ & - & Coefficient of lift. & $1$ \\\hline
-            $C_{T}$ & Eq.~\ref{eq:observer:thrust:ct} & Coefficient of thrust. This is primarily the scaling factor for how the thrust is related to the square of $\omega_{ri}$, as in Eq.~\eqref{eq:observer:thrust}. & $1$\\\hline
+            $C_{T}$ & Eq.~\eqref{eq:observer:ct} & Coefficient of thrust. This is primarily the scaling factor for how the thrust is related to the square of $\omega_{ri}$, as in Eq.~\eqref{eq:observer:thrust}. & $1$\\\hline
             %~ $C_{T0}$ & - & Linearization point for thrust coefficient.  & $1$\\\hline
-            $C_{Q}$ & Eq.~\ref{eq:observer:thrust:cq} & Torque coefficient. This constant primarily is the scaling factor relating the square of $\omega_{ri}$ to the torque from each rotor. & $1$\\\hline
+            $C_{Q}$ & Eq.~\eqref{eq:observer:cq} & Torque coefficient. This constant primarily is the scaling factor relating the square of $\omega_{ri}$ to the torque from each rotor. & $1$\\\hline
             $\gamma$ & $\frac{\rho a c R^{4}}{I_{b}}$ & $\gamma$ is the Lock Number \citep{leishman2002principles}, described as the ratio between the aerodynamic forces and the inertial forces of the blade.   & $1$ \\ \hline
             $I_{b}$ & - & Rotational inertia of the blade.  & $\text{kgm}^{2}$\\\hline
             $\lambda_{ri}$ & Eq.~\eqref{eq:observer:lambdari} & $\lambda_{ri}$ denotes the air inflow to the propeller. & $1$ \\\hline
@@ -172,7 +172,7 @@
             $\sigma$ & $\frac{\text{blade area}}{\text{disk area}}$ & Disk solidity. & $1$ \\\hline
             $\theta_{0}$ & - & The angle of the propeller at its base, relative to the horizontal disk plane. & $\text{rad}$ \\\hline
             $\theta_{\text{twist}}$ & - & The angle with which the propeller is twisted.  & $\text{rad}$ \\\hline
-            $v_{1i}$ & Eq.~\eqref{} & Induced velocity of propeller $i$. & $\frac{\text{m}}{\text{s}}$ \\\hline
+            $v_{1i}$ & Eq.~\eqref{eq:observer:inducedvelocity} & Induced velocity of propeller $i$. & $\frac{\text{m}}{\text{s}}$ \\\hline
             $\omega_{\phi},\omega_{\theta},\omega_{\psi}$ & - & The rotational, body-fixed, velocity of the quadrotor. & $\frac{\text{rad}}{\text{s}}$ \\\hline
             $\omega_{ri}$ & - & The rotational velocity of propeller $i$. & $\frac{\text{rad}}{\text{s}}$ \\\hline
             $\mu_{ri}$ & - & The normalized, air-relative, blade tip velocity. & $1$ \\\hline

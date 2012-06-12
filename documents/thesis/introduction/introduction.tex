@@ -1,10 +1,12 @@
 \chapter{Introduction}
 \label{cha:introduction}
-    The goal for this thesis was to develop and implement a high-level control system
-    for the quadrotor developed by the AIICS\footnote{\url{http://www.ida.liu.se/divisions/aiics/}} team at Linköping University, the LinkQuad.
+    In this thesis, a proposed high-level control system is presented
+    for the quadrotor developed by the AIICS\footnote{\url{http://www.ida.liu.se/divisions/aiics/}}
+    team at Linköping University, the LinkQuad.
     The system was to demonstrate autonomous landing, and while this goal
-    could not be reached within the time-frame of one Master's thesis, the control
-    system developed in this thesis show promising initial results.
+    could not be reached within the time-frame of this Master's thesis, the control
+    system developed in this thesis show promising initial results on
+    the path to achieving autonomous landing and aerial control.
 
     Although the LinkQuad quadrotor was used as development platform for this thesis,
     the results are general and applicable to other quadrotors and, by extension, other UAV configurations.
@@ -81,7 +83,7 @@
     During the thesis work, several tools for future development have been
     designed and developed. The \crap framework collects tools that are usable in future
     projects and theses, both on the LinkQuad and otherwise.
-    The modules developed for the \crap framework include:
+    The modules implemented in the \crap framework include:
     \begin{itemize}
         \item General nonlinear filtering, using EKF or UKF,
         \item General nonlinear control, implemented as affine quadratic control,
@@ -94,29 +96,29 @@
     The model extends and clarifies the many sources of physical modeling
     available, and is presented in a scalable, general manner.
 
-    The state-estimation proposed in this thesis uses the full physical model
+    The state estimation proposed in this thesis uses a detailed physical model
     derived in Chapter~\ref{cha:observer}. While the model still needs
     tuning, it does show promising results, and a physically modeled
-    quadrotor could potentially improve in-flight performance \citep{bouabdallah07full}.
+    quadrotor could potentially improve in-flight performance~\citep{bouabdallah07full}.
 
     In Chapter~\ref{cha:observer}, a general method for attaining
     the world-to-PTAM transformation is proposed.
-    This method could prove useful for extending the utility of the PTAM
+    This method is useful for extending the utility of the PTAM
     camera positioning library to more than its intended use in Augmented Reality applications.
-    The utility for this has already been proven in e.g. \citep{weiss11monocular},
+    The utility for this has already been proven in e.g.~\citep{weiss11monocular},
     and providing the theory and implementation for this, as well as a proposed
-    initialization routine, could be of great use in future work.
+    initialization routine, may be relevantly applied to future work.
     The PTAM library has also been extended with full autonomous operation by
-    proposing an automated initialization procedure as well as providing
+    proposing an automated initialization procedure, as well as providing
     full detachment from the graphical user interface.
 
     All tools developed during the thesis are released under the GPL license
-    and are available at \url{https://github.com/jonatanolofsson/}.
+    and are available online at \url{https://github.com/jonatanolofsson/}.
 
 \section{Thesis Outline}
     Following the introductory chapter, four chapters are devoted to
     presenting the theory used in the implementation.
-    First, the primary sensor used in this thesis, the camera, is introduced
+    The primary sensor used in this thesis, the camera, is introduced
     in Chapter~\ref{cha:monoslam} on the topic of Monocular SLAM.
     The camera provide positioning measurements that are incorporated
     into a positioning framework in Chapter~\ref{cha:observer}.
@@ -129,5 +131,5 @@
     numerical evaluation of the result and the following discussion respectively.
     Concluding remarks and suggestions for further work are finally presented in Chapter~\ref{cha:conclusions}.
 
-    A detailed description of the \crap framework, developed for the
+    A technical description of the \crap framework, developed for the
     implementation of this thesis, is appended.

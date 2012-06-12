@@ -1,35 +1,34 @@
-\section{Conslusions}
+\section{Conclusions}
     \begin{frame}{Conclusions}
         \begin{itemize}
             \item General algorithms and control structure were fully implemented.
             \item PTAM modifications enables full autonomousity.
             \item Simulated advanced control and landing performed in simulation.
-        \end{itemize}
-        \vspace{-0.5cm}
-        \begin{figure}[h]
-            \includegraphics[trim = 0mm 35mm 0mm 35mm,clip,width=0.5\textwidth]{\currentchapter/figures/referencefollowing}
-        \end{figure}
-        \vspace{-0.5cm}
-        \begin{itemize}
+        %~ \end{itemize}
+        %~ \vspace{-0.5cm}
+        %~ \begin{figure}[h]
+            %~ \includegraphics[trim = 0mm 35mm 0mm 35mm,clip,width=0.5\textwidth]{\currentchapter/figures/referencefollowing}
+        %~ \end{figure}
+        %~ \vspace{-0.5cm}
+        %~ \begin{itemize}
             \item Implementation covers advanced control.
             \item Tuning of filtering and control remain.
             \item Results suggest the system is viable to perform landing.
         \end{itemize}
     \end{frame}
     \note{
-        In the work I present in this thesis covers the implementation and
+        The work I present in this thesis covers the implementation and
         simulational evaluation of the algorithms presented here, as well
-        as a lot of groundwork to connect these in a high-level control system
-        for a quadrotor.
-        I have extended the PTAM monoslam localisation library and incorporated
-        these measurements into an extendable filtering framework to provide
-        the state estimate needed to achieve stable control needed to perform
+        as a lot of groundwork to connect these into a high-level control system
+        for a UAV.
+
+        I have extended the PTAM localisation library and incorporated
+        its measurements into an extendable filtering framework to provide
+        the state estimate needed to achieve the stable control nescessary for
         precision landing with a quadrotor.
 
-        Results are still simulational, but with continued parameter tuning
+        A controller for general nonlinear systems was proposed and integrated.
+        Results are simulational, but with futher parameter tuning
         and enough computational power, they firmly suggest that full control
-        and landing could be performed using the implementation.
-        The work has been focused on implementing state-of-the-art techniques
-        to provide landing and general control for the LinkQuad and, by extension
-        general quadrotors.
+        and landing could be performed using this implementation.
     }

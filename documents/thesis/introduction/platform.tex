@@ -2,14 +2,14 @@
     The LinkQuad is a modular quadrotor developed at Linköping University.
     The core configuration is equipped with a standard set of sensors
     (accelerometers, gyroscopes, pressure sensors, GPS and magnetometers),
-    but for our purposes, a monocular camera has also been mounted.
+    but for the purpose of this thesis, a monocular camera was also mounted.
     The camera feeds data into a microcomputer specifically devoted to video processing.
     This devoted microcomputer is what allows the primary on-board microcomputer
     to focus on state estimation and control, without being overloaded by
     video processing.
 
-    The primary microcomputer is running a framework named C++ Robot Automation Platform (CRAP),
-    which was developed by the thesis' author for this purpose. CRAP is a light-weight
+    The primary microcomputer is running a framework named C++ Robot Automation Platform (\crap),
+    which was developed by the thesis' author for this purpose. \crap is a light-weight
     automation platform with a purpose similar to that of ROS\footnote{\url{http://www.ros.org/}}, a
     modular robotics framework developed by Willow Garage\footnote{\url{http://www.willowgarage.com/}}.
     It is, in contrast to ROS, primarily designed to run on the relatively low-end Linux systems
@@ -18,7 +18,7 @@
 
     The platform is also equipped with two microcontrollers, responsible
     for sensor sampling, motor control, flight logging etc., as depicted in
-    Figure~\ref{fig:platform:schematic}. The microcontrollers also contain
+    Figure~\ref{fig:platform:schematic}. The microcontrollers contain
     an implementation of a complementary filter to provide angle and
     height estimates from the available sensors.
 
@@ -48,7 +48,7 @@
                 text centered, align=center, anchor=north, text=white,font=\small]
 
             \node [gumstixtext] (primarytext) {Primary computer \\ \tiny{State-estimation and control}};
-            \node [framework, below of=primarytext] (crap) {CRAP};
+            \node [framework, below of=primarytext] (crap) {\crap};
             \node [gumstixtext, right of=primarytext, node distance=5cm] (secondarytext) {Secondary computer \\ \tiny{Video processing}};
             \node [framework, below of=secondarytext] (ptam) {PTAM};
 

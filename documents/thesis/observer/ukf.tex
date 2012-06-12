@@ -19,7 +19,7 @@
     first two moments of the propagated distribution - two for each
     of the $n$ dimensions of the state vector and one for the mean.
     The sigma points and their associated weights are chosen according to
-    Eqs.~\ref{eq:observer:ukf:sigmapoints}-\ref{eq:observer:ukf:lambda}.
+    Eqs.~\eqref{eq:observer:ukf:sigmapoints}-\eqref{eq:observer:ukf:lambda}.
     \begin{align}\nonumber
         \mathbf{\mathcal{X}_{0}} &= \hat{x} & \\\nonumber
         \mathbf{\mathcal{X}_{i}} &= \hat{x} + \left( \sqrt{(n + \lambda) P_{xx}} \right)_{i}
@@ -38,6 +38,7 @@
         \label{eq:observer:ukf:sigmapoints}
     \end{align}
     \begin{equation}
+    \label{eq:observer:ukf:lambda}
         \lambda = \alpha^{2}(n + \kappa) - n
     \end{equation}
     The three introduced parameters, $\alpha$, $\beta$ and $\kappa$
@@ -74,7 +75,7 @@
 
     For the measurement update, similar results are obtained, and Eqs.
     \eqref{eq:observer:ukf:pyy}-\eqref{eq:observer:ukf:pxy} can be connected to
-    Eqs. \eqref{eq:observer:filtering:pnunu}-\eqref{eq:observer:filtering:kalmanK2}
+    Eqs.~\eqref{eq:observer:filtering:pnunu}-\eqref{eq:observer:filtering:kalmanK2}
     in the general filter formulation.
     \begin{align}
         \mathbf{\mathcal{Y}_{i}} &= h(\mathbf{\mathcal{X}_{i}}, u, t) \qquad i = 0,\cdots,2n \\

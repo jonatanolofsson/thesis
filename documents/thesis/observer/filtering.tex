@@ -9,7 +9,7 @@
     The evolution of a system plant is traditionally described by a set of differential equations
     that link the change in the variables to the current state and known inputs, $u$.
     This propagation through time is described by Eq.~\eqref{eq:observer:xdot} ($f_{c}$ denoting the continuous case).
-    The system is also assumed to be subject to noise $v(t)$, oftes assumed to
+    The system is also assumed to be subject to noise, $v(t)$, often assumed to
     be Gaussian and additive, with known covariance $Q$.
     This introduces an uncertainty associated with the system's state, which accounts
     for imperfections in the model compared to the physical system.
@@ -17,12 +17,12 @@
         \label{eq:observer:xdot}
         \dot{x}(t) = f_{c}(x(t),u(t),t) + v_{c}(t)
     \end{equation}
-    With numerical integration or analytical solutions, we can obtain the discrete form of
-    \eqref{eq:observer:xdot}, where only the sampling times are considered.
+    With numerical integration or analytical solutions, the discrete form of
+    \eqref{eq:observer:xdot} is obtained, where only the sampling times are considered.
     The control signal, $u(t)$, is often assumed to be constant in the time interval,
-    thereby allowing the next predicted state to be obtained straightforwardly.
+    thereby allowing the next predicted state to be obtained straightforwardly, as in Eq.~\eqref{eq:observer:xnext}.
     This yields the estimate of $\hat{x}$ at the time $t$ \textit{given} the information at time
-    $t-1$\footnote{Note that we have not yet performed any measurements that provide information about the state at time t.}.
+    $t-1$\footnote{Note that no measurements have yet been made that provide information about the state at time t.}.
     This motivates the notation used in this thesis: $\hat{x}_{t|t-1}$.
     \begin{equation}
         \label{eq:observer:xnext}
@@ -33,10 +33,10 @@
     with the prediction model in \eqref{eq:observer:xnext} fully describe
     the evolution of the system.
     To be able to provide a good estimate in the realistic case, however,
-    we must also feed back measurements given from sensors measuring
-    properties of the system.
+    the measurements given from sensors measuring properties of the system
+    must be fed into the estimation.
 
-    These measurements, $y_{t}$, are fed back and fused with the
+    These measurements, $y_{t}$, are fused with the
     prediction using the \textit{innovation}, $\nu$.
     \begin{equation}
         \nu_{t} = y_{t} - \hat{y}_{t}
@@ -98,7 +98,7 @@
     \end{equation}
 
     Conditioned on the state estimate $\hat{x}$ and measurements before time $k$ ($\mathcal{Y}^{k}$), the
-    covariance of the sample distribution is defined as in Eq.~\ref{eq:observer:pxxtk}.
+    covariance of the sample distribution is defined as in Eq.~\eqref{eq:observer:pxxtk}.
     \begin{equation}
         \label{eq:observer:pxxtk}
         P_{xx}(t|k) = E \left[ \left\lbrace x(t) - \hat{x}_{t|k} \right\rbrace
@@ -112,7 +112,7 @@
         P_{\nu\nu}(t|t-1) &= P_{yy}(t|t-1) + R(t) \label{eq:observer:filtering:pnunu}
     \end{align}
     With known covariances, $K$ can be chosen optimally for the linear case as derived in e.g. \citep{gustafsson2010statistical}
-    and given in Eq. \eqref{eq:observer:filtering:kalmanK2}.
+    and given in Eq.~\eqref{eq:observer:filtering:kalmanK2}.
     \begin{equation}
         \label{eq:observer:filtering:kalmanK2}
         K_{t} = P_{xy}(t|t-1)P_{\nu\nu}^{-1}(t|t-1)
@@ -122,7 +122,7 @@
     in the derivation of the Unscented Kalman Filter, presented in Section~\ref{sec:observer:ukf}.
 
     Although the Kalman filter is optimal in the linear case, no guarantees
-    are given for the case where the motion- or measurement-model is nonlinear.
+    are given for the case where the motion- or measurement model is nonlinear.
     Several methods exist to give a sub-optimal estimate for the nonlinear cases,
     two of which will be studied here.
 
@@ -137,7 +137,7 @@
         P_{xx}(t|t-1) = AP(t|t)A^{T} + Q_{t}
     \end{equation}
 
-    As the linear propagation is simple however - shown in Eq. \eqref{eq:observer:filtering:pxxpredict} - the
+    As the linear propagation is simple however - shown in Eq.~\eqref{eq:observer:filtering:pxxpredict} - the
     novel approach is to linearize the system to yield the linear model $A$ in every timestep.
     This method is called the Extended Kalman Filter, and is considered the
     de facto standard nonlinear filter \cite{Julier04nonlinear}.
@@ -145,7 +145,7 @@
     \begin{algorithm}[Extended Kalman Filter]
         \label{alg:ekf}
         The Kalman filter in Algorithm~\ref{alg:kf} is in the Extended Kalman filter extended to the
-        nonlinear case by straight-forward linearization where necessary.
+        nonlinear case by straightforward linearization where necessary.
 
         \begin{subequations}
             \textbf{Prediction update}

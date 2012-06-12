@@ -20,12 +20,12 @@
     \subsection{Autonomous Landing and Control}
     The problem of landing a quadrotor can to a large extent be boiled
     down to achieving good pose estimates using available models and sensor measurements.
-    This problem is studied in e.g. \citep{mellinger10perching,brockers:803111},
+    The problem is studied in e.g. \citep{mellinger10perching,brockers:803111},
     but perhaps the most interesting results are obtained in \citep{DBLP:conf/icra/BloschWSS10,weiss11monocular},
-    where the ideas from \citep{klein07parallel} of using monocular SLAM
+    where the ideas from \citep{klein07parallel} of using Monocular SLAM
     are implemented on a UAV platform and good results are obtained,
     using the feedback from the camera's pose estimate for control.
-    Some problems remain however regarding the long-term stability of the controller.
+    Some problems remain, however, regarding the long-term stability of the controller.
 
     A landing control scheme, inspirational to the approach in this thesis,
     is suggested by \citep{brockers:803111}, which is summarized in Section~\ref{ssec:logic:landing}.
@@ -63,7 +63,7 @@
     A modified version of the PTAM library has been implemented on an iPhone \citep{klein09cameraphone}.
     This is of special interest to this thesis, since it demonstrates
     a successful implementation in a resource-constrained environment similar to that available on a MAV.
-    The library has been previously applied to the UAV state-estimation field, as presented in \citep{weiss11monocular},
+    The library has been previously applied to the UAV state estimation field, as presented in \citep{weiss11monocular},
     although its primary field of application is Augmented Reality (AR).
 
     %~ The algorithm proposed in \citep{klein07parallel} uses selected keyframes

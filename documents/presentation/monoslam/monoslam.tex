@@ -1,25 +1,26 @@
 \section{Monocular SLAM}
     \begin{frame}{Monocular SLAM}
-        \textbf{PTAM}
+        \textbf{PTAM - Parallel Tracking And Mapping}
         \vspace{-0.5cm}
-        \fig{0.6}{ptamtracking}
-        %~ {\tiny\href{http://www.youtube.com/watch?feature=player_embedded&v=Y9HMn6bd-v8}{[YouTube]}}
+        \fig{0.8}{ptamtracking}
         \vspace{-0.7cm}
-        \begin{itemize}
-            \item Measurements are not metric.
-            %~ \item A similar library, SceneLib, provides this.
-        \end{itemize}
+        Measurements are not metric.
     \end{frame}
     \note{
+        \vspace{-0.5cm}
+        I will now try to present in slightly more detail some of the main areas of the thesis.
+
         For the video based SLAM part of this thesis, a library called PTAM was used.
+        PTAM - short for Parallel Tracking And Mapping - is developed at
+        Oxford University for research and use in the field of Augmented Reality.
         Again, the idea is to track features, here shown as dots, through
         the video frames to estimate the camera's position.
         Often, stereo vision is applied to extract depth information from the recorded scene.
-        With monocular SLAM however, the movement of the features need to be related
+        With monocular SLAM however, the movement of the features need to be tracked
         to extract the depth of each feature in the image.
 
         One major problem with video based tracking is that, unless you know something
-        about the recorded scene, there is no way of knowing wether its a large scene
+        about the recorded scene, there is really no way of knowing wether its a large scene
         that moved a lot, or a small scene that just moved a little.
         As for instance when you film a dollhouse, there is simply no way
         to tell it from a real house, and yet the scale of movement is completely different.
@@ -35,8 +36,8 @@
         \vspace{-1cm}
         %~ The PTAM library is intended for use in Augmented Reality, AR.
         \begin{itemize}
-            \item Rotation and translation are measured in the local PTAM coordinate system.
             \item PTAM's coordinate system is quite arbitrarily initialised.
+            \item Rotation and translation are measured in the local PTAM coordinate system.
             \item Its relation to the world must be established.
         \end{itemize}
         %~ \begin{itemize}
@@ -46,12 +47,14 @@
      % Intended for use with wide-angle camera lenses
     \end{frame}
     \note{
-        The scaling needs to be extracted from other sources, and autonomously so since
+        Since the PTAM library is oblivious of the scale, this
+        needs to be extracted from other sources, and autonomously so since
         the PTAM coordinate system is initialized quite arbitrarily.
+
         This coordinate system is of central importance, since all measurements
-        are given relative to it, and yet both orientation, position and scale is initially unknown.
-        To be able to use the measurements of position and orientation, this transformation
-        needs to be determined using external information.
+        are given in it, and yet both orientation, position and scale is initially unknown.
+        This transformation needs to be determined before the measurements are of much use.
+        In the thesis, I propose a routine to extract this transformation.
     }
 
 
@@ -79,11 +82,19 @@
         %~ \end{equation*}
     \end{frame}
     \note{
-        What we do know of the PTAM initialization process is that it tries
-        to place the coordinate system on the ground plane.
+        In its initialization, PTAM tries to place the coordinate system on the ground plane.
         Knowing our position of initialization, we can calculate backwards
         from the first measurement and make a guess of the position and
         orientation of the coordinate system.
+
+        This is done by solving a system of equations and comparing the
+        measured data to what was actually expected from the assumptions
+        of the surroundings.
+
+        The initialization process proposed in the thesis takes into account
+        the position of the vehicle, its orientation and the camera's
+        estimated distance to the ground plane in the direction
+        suggested by the measurement.
     }
 
     \subsection{Connecting the Coordinate Systems}
@@ -92,7 +103,7 @@
         the coordinate systems have to be related.
         \begin{align*}
             x^{\text{PTAM}} &= S(s) R(q^{Pw}) T(-\varnothing_{\text{PTAM}}) x^{\text{NEDEF}} \\
-            q^{PTAM,c} &= q^{Pw} \left(q^{cb} q^{bw}\right)^{-1}
+            q^{PTAM,c} &= q^{Pw} q^{wb} q^{bc}
         \end{align*}
 \vspace{-1cm}
         \begin{itemize}
@@ -106,11 +117,12 @@
         \end{figure}
     \end{frame}
     \note{
-        The transformation can then be used to connect the incoming
-        measurements to the state estimation framework.
-        As you can see in the equatinons, in the state estimation framework,
-        the measurements are expressed in terms of the available states,
-        not the other way around.
+        This transformation can then be used to connect the incoming
+        measurements to the state estimation framework,
+        by expressing the measurements in terms of the available states and constants.
+
+        As seen in the image, the described transformation from the filtered position
+        corresponds to the camera measurements with high precision.
     }
 
     %~ \subsection{Library Modifications}

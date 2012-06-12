@@ -1,9 +1,12 @@
 % addpath('/home/shared/projects/mattools', '/home/jonatan/skola/texciv/matlab');
+clear all
 if ~exist('figures', 'var')
     figures = Figures();
 else
     figures.closeAll();
 end
+
+skipsec = 3/20;
 
 %% Import data
 measurements.imu = Files.import('imu_measured.log');
@@ -30,8 +33,43 @@ reality.roll    = Quaternion.toRoll(reality.qwb0, reality.qwbi, reality.qwbj, re
 reality.pitch   = Quaternion.toPitch(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 reality.yaw     = Quaternion.toYaw(reality.qwb0, reality.qwbi, reality.qwbj, reality.qwbk);
 
-measurements.imu.time = measurements.imu.time/2;
-measurements.camera.time = measurements.camera.time/2;
+% measurements.imu.time = measurements.imu.time/2;
+% measurements.camera.time = measurements.camera.time/2;
+% simulation.imu.time = simulation.imu.time/2;
+% simulation.camera.time = simulation.camera.time/2;
+% observer.time = observer.time/2;
+% reality.time = reality.time/2;
+
+raw = Files.import('data.log');
+
+%%
+reality.roll        = reality.roll * 180/pi;
+reality.pitch       = reality.pitch * 180/pi;
+reality.yaw         = reality.yaw * 180/pi;
+observer.roll       = observer.roll * 180/pi;
+observer.pitch      = observer.pitch * 180/pi;
+observer.yaw        = observer.yaw * 180/pi;
+measurements.camera.roll   = measurements.camera.roll * 180/pi;
+measurements.camera.pitch  = measurements.camera.pitch * 180/pi;
+measurements.camera.yaw    = measurements.camera.yaw * 180/pi;
+simulation.camera.roll     = simulation.camera.roll * 180/pi;
+simulation.camera.pitch    = simulation.camera.pitch * 180/pi;
+simulation.camera.yaw      = simulation.camera.yaw * 180/pi;
+
+reality.wRoll        = reality.wRoll * 180/pi;
+reality.wPitch       = reality.wPitch * 180/pi;
+reality.wYaw         = reality.wYaw * 180/pi;
+observer.wRoll        = observer.wRoll * 180/pi;
+observer.wPitch       = observer.wPitch * 180/pi;
+observer.wYaw         = observer.wYaw * 180/pi;
+measurements.imu.wRoll   = measurements.imu.wRoll * 180/pi;
+measurements.imu.wPitch  = measurements.imu.wPitch * 180/pi;
+measurements.imu.wYaw    = measurements.imu.wYaw * 180/pi;
+simulation.imu.wRoll     = simulation.imu.wRoll * 180/pi;
+simulation.imu.wPitch    = simulation.imu.wPitch * 180/pi;
+simulation.imu.wYaw      = simulation.imu.wYaw * 180/pi;
+
+observer.covariance()
 
 %%
 sensors

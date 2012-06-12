@@ -1,50 +1,48 @@
-\section{Non-linear Control}
+\section{Nonlinear Control}
     \subsection{LQ control}
     \begin{frame}{Linear Quadratic control}
-        Linear Quadratic Control utilizes a linear motion model to optimally
-        control the system.
-
-        \textbf{Definition: } Find $u=-Lx$ s.t.
-        \scriptsize
-        \begin{equation*}
-            \mathcal{J} = \int_{0}^{\infty} x^{T}Qx + u^{T}Ru dt.
-        \end{equation*}
-        \normalsize
-        is minimized. A feedback-form closed solution exists, having solved the CARE\footnote{Continous Algebraic Riccati Equation};
-        \scriptsize
+        \begin{itemize}
+            \item Optimal control of a linear motion model.
+            \item Control signal minimizes quadratic criterion, weighing control error against agressive control.
+        \end{itemize}
+        \begin{align*}
+            \dot{x} &= Ax + Bu \\
+            \min_{u=-Lx}\mathcal{J} &= \int_{0}^{\infty} x^{T}Qx + u^{T}Ru\, dt
+        \end{align*}
+        Feedback solution, given the solution of the \textbf{Riccati Equation}.
         \begin{equation*}
             A^{T}S + SA + M^{T}QM - SBR^{-1}B^{T}S = 0
         \end{equation*}
-        \begin{equation*}
-            L = R^{-1}B^{T}S
-        \end{equation*}
     \end{frame}
     \note{
-        Having aquired a pose estimate, this must be fed to a controller
+        Having aquired a pose estimate, this is fed to a controller
         that is able to control the flight and descent of the quadrotor.
         Linear Quadratic Control is one of the simplest to use optimal control techniques,
         and makes use of the motion model I just briefly presented.
+
         The basic principle of Linear Quadratic Control is to weigh the
         system response, as predicted by the model, against the cost of
-        using the control signals.
+        using the control signals, u.
         That is; using this mathematical criterion, the LQ decides which
         is better - to rapidly reach the desired velocity, or
         to be gentle on the motors.
+
         An added advantage for the Linear Quadratic Control is that
-        with predetermined control weights - that is, settings for the controller -
         a feedback solution exists, having solved the Riccati equation exemplified here.
     }
 
     \begin{frame}{Linear Quadratic control}
         \begin{itemize}
-            \item Appealingly simple.
-            \item Requires a linear motion model
+            \item Appealingly simple, when you know it.
+            \item Requires a linear motion model, $A$.
         \end{itemize}
 
-        \vspace{0.5cm}
+        \vspace{0.3cm}
 
-        The motions of a quadrotor is non-linear, but can locally
+        The motions of a quadrotor are nonlinear, but can locally
         be described by a linear approximation.
+
+        \vspace{0.3cm}
 
         \begin{itemize}
             \item The motion model needs linearization.
@@ -52,13 +50,15 @@
         \end{itemize}
     \end{frame}
     \note{
-        However, the Linear Quadratic controller, as the name suggests
-        requires a linear motion model. Problem is that by considering the
-        orientation of the vehicle in the model makes for a nonlinear one,
-        which does not quite fit the original LQ formulation.
+        The Linear Quadratic controller may be appealingly simple when you know it, although,
+        as the name suggests, it requires a linear motion model.
+        The problem is that, a general model of a quadrotor
+        is nothing but nonlinear,
+        so it does not quite fit the original LQ formulation.
 
-        One can consider linearising the motion model in various stationary points,
-        although such points are generally difficult to find unless we apply a clever trick.
+        One can consider linearizing the model in various stationary points,
+        although such points are generally difficult to find unless we apply
+        the beforementioned clever trick.
     }
 
     \subsection{SDRE}
@@ -112,16 +112,16 @@
         \end{equation*}
     \end{frame}
     \note{
-        The trick suggested in this thesis, with good results, is to
+        The trick proposed in this thesis, with good results, is to
         extend the Taylor expansion linearisation with a new virtual state.
         This virtual state, shown in the second equation, allows us to regain the
         linear property of an affine system approximation that is the
-        result from a general Taylor expansions, as in the first equation.
+        result of a general Taylor expansion, as in the first equation.
 
-        By using this general formulation, it is possible to control a general
-        nonlinear system with the same simplicity as in the linear case.
+        By using this formulation, it is possible to control a general
+        nonlinear system with the same simplicity as the linear case.
 
         This general case can be solved repeatedly to generate the control
-        signals, a techinique called State-Dependet Riccati Equation which
+        signals, a techinique called State-Dependent Riccati Equation which
         is studied and evaluated in the thesis.
     }

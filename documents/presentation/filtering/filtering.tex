@@ -1,4 +1,4 @@
-\section{State-Estimation}
+\section{State Estimation}
     \subsection{Sensor Fusion}
     \begin{frame}{Sensor Fusion}
         Uses information from all sensors with models of expected behavior
@@ -8,8 +8,8 @@
 
         \textbf{Non-linear extensions:}
         \begin{itemize}
-            \item UKF
-            \item EKF
+            \item EKF - Extended Kalman Filter
+            \item UKF - Unscented Kalman Filter
         \end{itemize}
         The UKF has issues with the applied motion model in high uncertainty simulations.
         The EKF was selected as the more reliable filter.
@@ -23,12 +23,10 @@
         The novel approach is the Extended Kalman filter which simply
         linearizes the model as nescessary and applies the linear theory.
         The Unscented Kalman Filter approaches the field of particle filtering
-        by testing variations of the estimated state and look for the best gaussian fit.
+        by testing variations of the estimated state and look for the best Gaussian fit.
 
-        In the implementation, this is performed in a generally written sensor fusion module.
-        The current implementation features an Extended Kalman filter,
-        but the Unscented Kalman Filter was also studied in the thesis,
-        but was ultimately replaced due instabilities.
+        Both of these are studied in the report, although in the end, the
+        Extended Kalman filter proved to be the more reliable of the two.
     }
 
     \subsection{Filtering Framework}
@@ -39,6 +37,7 @@
         \vspace{0.5cm}
 
         \textbf{Measurement update: } Sample the sensors and weigh their likelihood against the current estimate.
+
         \textbf{Time update: } Use the motion model to predict the vehicle's motions.
 
 
@@ -48,23 +47,23 @@
         %~ performing a time update.
     \end{frame}
     \note{
-        A filtering framework is generally equipped with two independent steps;
+        A bayesian filtering framework is generally equipped with two independent steps;
 
-        The measurement update step then take the sensorvalues and incorporate them
-        into the state estimate. Since both the state estimate and sensor measurements
-        are associated with noise and uncertainties, these to have to be
-        weighed against each other according the certainty of each.
+        The measurement update incorporate sensorvalues to improve the
+        state estimate. Since both the state estimate and the sensor measurements
+        are associated with noise and uncertainties, these two have to be
+        weighed against each other.
 
-        The time update, where the physical model is used to anticipate
-        the movements of the vehicle, based on previous knowledge and reasonable assumptions.
-        One can here, for instace, assume that the velocity is constant, and
-        the vehicle's position must thus be updated according to the known velocity.
+        The time update uses a model to anticipate how the states progresses
+        through time, based on reasonable assumptions.
+        One can here, for instance, assume that the velocity is constant, and
+        adjust the vehicle's position according to this velocity.
         In this thesis, a physical motion model was developed and presented.
     }
 
     \subsection{Physical Motion-model}
     \begin{frame}{Motion Model}
-        For simulation purposes, a non-linear physical model of the quadrotor
+        A nonlinear physical model of the quadrotor
         is studied in the thesis.
         \begin{itemize}
             \item Detailed physical model.
@@ -79,15 +78,16 @@
         %~ \end{itemize}
     \end{frame}
     \note{
-        The physical quadrotor model presented in this thesis is in fact
+        The physical quadrotor model of the thesis is in fact
         developed in some detail, and while some model identification
         remain, it describes in detail the forces acting on the quadrotor
         in flight.
+
         The physical model is arguably unnescessary complex for many purposes,
-        but the fact that this model actually fits both simulation,
-        state estimation and nonlinear control is a remarkable feature.
-        This does not only add maintainability, but also precision to the
-        state estimation and control.
+        but the fact is that this model actually fits both simulation,
+        state estimation and nonlinear control, which is a desirable,
+        but seldom exploited, feature.
+
         In fact, the structure of the model allows for its re-use in all
         model-dependent parts of the implementation, removing the need for
         multiple models to be developed.

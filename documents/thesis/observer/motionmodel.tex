@@ -12,7 +12,7 @@
     %~ In this section, a motion model is derived and evaluated.
     %~ The model is presented in its continuous form, since the discretization
     %~ is made numerically on-line.
-
+\pagebreak
     \subsection{Coordinate Frames}
         In the model of the quadrotor, there are several frames of reference.
         \begin{description}
@@ -97,14 +97,14 @@
         are commonly denoted $q^{ab}$.
         %~ , whereas the \textit{b} may be dropped if the rotation is global, i.e. relative the NEDEF system.
         The characters \textit{a} and \textit{b} are, where unambiguous, replaced by the first character of the
-        name of the reference frame.
+        name of the reference frame of interest.
         Full transformations between coordinate systems - including rotation, translation and scaling -
         are similarly denoted $\mathcal{J}^{ab}$.
 
         The equations in this chapter is given in their time-continuous form
         to simplify the description of the forces.
-        The equations are discretized in the implementation using numerical Euler integration (Eq. \eqref{eq:observer:euler})
-        or Runge-Kutta integration (Eq. \eqref{eq:observer:rungekutta}), using an integration step of $T$.
+        The equations are discretized in the implementation using numerical Euler integration (Eq.~\eqref{eq:observer:euler})
+        or Runge-Kutta integration (Eq.~\eqref{eq:observer:rungekutta}), using an integration step of $T$.
         \begin{equation}
         \label{eq:observer:euler}
             X_{t+1} = X_{t} + T \cdot f(X,t)
@@ -125,10 +125,10 @@
         and orientation, $q^{wb}$, by the relations in Eq.~\eqref{eq:observer:kinematicsc} \citep{Pounds_modellingand}. % more citations needed?
         \begin{subequations}
             \label{eq:observer:kinematicsc}
-            \begin{align}
+            \begin{equation}
                 \label{eq:observer:position}
-                \dot{\xi} &= V
-            \end{align}
+                \dot{\xi} = V
+            \end{equation}
             \begin{equation}
                 \label{eq:observer:quaternionsc}
                 \left(\begin{array}{c}
@@ -159,7 +159,7 @@
         The motions of the quadrotor can be fully explained by the
         forces and moments acting on the vehicle. Using the rigid-body assumption,
         Euler's extension of Newton's laws of motion, applied to the
-        quadrotor's center of gravity ($\mathcal{G}$), yield Eqs.~\ref{eq:motionmodel:newton}.
+        quadrotor's center of gravity ($\mathcal{G}$), yield Eqs.~\eqref{eq:motionmodel:newton}.
         These equations describe the acceleration and angular acceleration of the vehicle
         as related to the forces and moments acting on the vehicle.
         \begin{subequations}

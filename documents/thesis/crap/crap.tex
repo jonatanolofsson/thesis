@@ -36,7 +36,7 @@
 .3 $\cdots$.
 .2 include.
 .2 src\DTcomment{The few lines of core}.
-.2 interface\DTcomment{3d interface}.
+.2 interface\DTcomment{3D interface}.
 .2 cmake\DTcomment{Files to find dependencies}.
     }
     \end{minipage}
@@ -248,7 +248,7 @@ LinkQuad::comm::serial::send(serial_port, msg);
                         text centered, anchor=north, text=white, node distance=2cm, align=center,font=\tiny]
 
 
-        This Section~describes the most important modules, and their implementations, individually.
+        This section describes the most important modules, and their implementations, individually.
         \subsection{Observer}
             The observer is implemented according to the theory presented in Chapter~\ref{cha:observer}.
             As implemented, the observer responds to three different events:
@@ -302,8 +302,8 @@ LinkQuad::comm::serial::send(serial_port, msg);
                         \node[action,right of=linearize, node distance=2.3cm] (calccontrol) {Calculate control};
                         \node[action,below of=calccontrol] (publish) {Publish};
 
-                        \node[action, right of=calccontrol] (refup) {Update reference};
-                        \node [event, above of=refup] (reference) {New reference};
+                        \node[action, right of=calccontrol, node distance=2.5cm] (refup) {Update reference};
+                        \node [event, above of=refup, node distance=1.5cm] (reference) {New reference};
 
                         \path[->]
                             (pose) edge (linearize)
@@ -398,7 +398,7 @@ extern "C" {
         depicted in Figure~\ref{fig:crap:interface}.
 
         The baselink module also accepts commands over the serial interface,
-        which can be sent to the \crap engine and forwarded by the \texttt{freeflight}
+        which can be sent to \crap and forwarded by the \texttt{freeflight}
         state-machine mode to the controller as control reference.
         The interface implements 3D control through the open-source
         spacenav\footnote{\url{http://spacenav.sourceforge.net/}} drivers

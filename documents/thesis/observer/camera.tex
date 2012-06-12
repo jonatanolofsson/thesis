@@ -31,7 +31,7 @@
     %~ \begin{equation}
         %~ x_{\text{world}} = \underbrace{R(q^{wb})}_{quadrotor orientation} * \underbrace{T(\varnothing_{\text{cam}}) R(q^{bc}) S(s)}_{quadrotor to PTAM transform} x_{\text{cam}}
     %~ \end{equation}
-    These are collected to a single transformation in Eq.~\ref{eq:observer:sensormodels:camera:transformation},
+    These are collected to a single transformation in Eq.~\eqref{eq:observer:sensormodels:camera:transformation},
     forming the full transformation from the global NEDEF system to the
     PTAM coordinate frame.
     \begin{equation}
@@ -60,12 +60,12 @@
         When the first camera measurement arrives, there is a need to construct
         the world-to-PTAM transformation.
         Since the PTAM initialization places the origin at what it
-        considers the ground level, the most informed guess we can do
+        considers the ground level, the most informed guess,
         without any further information about the environment, is
         to assume that this is a horizontal plane at zero height.
 
         The orientation of the PTAM coordinate system is calculated,
-        using quaternion multiplication, as in Eq. \eqref{eq:observer:sensormodels:camera:qpw}
+        using quaternion multiplication, as in Eq.~\eqref{eq:observer:sensormodels:camera:qpw}
         from the estimated quadrotor orientation and the measurement in the
         PTAM coordinate frame, $q^{PTAM,c}$.
         \begin{equation}
@@ -73,7 +73,7 @@
             q^{Pw} = q^{PTAM,c} q^{cb} q^{bw}
         \end{equation}
 
-        The quaternion $q^{bc}$, the inverse of $q^{cb}$ of Equation~\ref{eq:observer:sensormodels:camera:qpw},
+        The quaternion $q^{bc}$, the inverse of $q^{cb}$ of Eq.~\eqref{eq:observer:sensormodels:camera:qpw},
         describes the rotation from camera coordinates to body-fixed coordinates.
         With known camera pitch and yaw, $\Theta_{c}$ and $\Psi_{c}$ respectively,
         this corresponds to four consecutive rotations, given in
@@ -88,23 +88,24 @@
             %~ * AngleAxis<double>(M_PI_2, Vector3d::UnitX()));
         \begin{equation}
         \label{eq:observer:sensormodels:qbc}
-            q^{bc} = \text{R}(\Theta_{c}, \hat{y}) \cdot \text{R}(\Psi_{c}, \hat{z}) \cdot \text{R}(\pi/2, \hat{z}) \cdot \text{R}(\pi/2, \hat{x})
+            q^{bc} = \text{R}(\Theta_{c}, \hat{y}) \cdot \text{R}(\Psi_{c}, \hat{z}) \cdot \text{R}(\tfrac{\pi}{2}, \hat{z}) \cdot \text{R}(\tfrac{\pi}{2}, \hat{x})
         \end{equation}
 
         To determine the distance to this plane according to the current estimation,
-        Eq. \eqref{eq:observer:sensormodels:camera:origin} is solved for $\lambda$
+        Eq.~\eqref{eq:observer:sensormodels:camera:origin} is solved for $\lambda$
         in accordance with Eq.~\eqref{eq:observer:sensormodels:camera:lambda}.
-        \begin{align}
+        \begin{equation}
             \left\lbrace
             \begin{array}{ll}
                 \varnothing_{\text{PTAM}} &= \xi + R(q^{wb}) r_{\text{camera}/\mathcal{G}} + \lambda R(q^{wP}) \frac{X^{PTAM}}{|X^{PTAM}|} \\
                 \varnothing_{\text{PTAM}} \cdot \hat{z} &= 0
             \end{array}\right.
-            \label{eq:observer:sensormodels:camera:origin}\\
-%
+            \label{eq:observer:sensormodels:camera:origin}
+        \end{equation}
+        \begin{equation}
             \lambda = -\frac{\left(\xi + R(q^{wb}) r_{\text{camera}/\mathcal{G}} \right) \cdot \hat{z}}{\left( R(q^{wP}) \frac{X^{PTAM}}{|X^{PTAM}|} \right) \cdot \hat{z}}
             \label{eq:observer:sensormodels:camera:lambda}
-        \end{align}
+        \end{equation}
 
         \fig{\plotwidth}{ground}{The PTAM coordinate system is assumed to be positioned at zero height. $\lambda$ is calculated as the estimated real-world distance to the PTAM coordinate system.}{fig:ground}
 
@@ -112,8 +113,8 @@
         With this definition, $\lambda$ corresponds to the approximated distance
         from the camera to the PTAM origin, in the metric world-fixed coordinate system.
         By comparing this approximation with the distance measured
-        in the PTAM coordinate system, we obtain an estimate for the scaling factor, $s$, given
-        in Eq.~\ref{eq:observer:camera:s}.
+        in the PTAM coordinate system, an estimate for the scaling factor, $s$, is obtained
+        through Eq.~\eqref{eq:observer:camera:s}.
         \begin{equation}
         \label{eq:observer:camera:s}
             s = \frac{|X^{PTAM}|}{|\lambda|}
@@ -131,7 +132,7 @@
         \label{sssec:observer:sensormodels:camera:refinement}
         The camera measurement update is made separate from the update of the other sensors, using
         the measurement equations in \eqref{eq:observer:measurement:camera}, expanding the
-        equation derived in Eqs. \eqref{eq:observer:sensormodels:camera:transformation} and \eqref{eq:observer:sensormodels:camera:qpw}.
+        equation derived in Eqs.~\eqref{eq:observer:sensormodels:camera:transformation} and \eqref{eq:observer:sensormodels:camera:qpw}.
 
         \begin{subequations}
             \label{eq:observer:measurement:camera}

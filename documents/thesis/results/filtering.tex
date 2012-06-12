@@ -1,14 +1,14 @@
 \section{Filtering}
 \label{sec:results:filtering}
 The filter implementation was evaluated with recorded data as described in Section~\ref{sec:results:setup}.
-Due to model stability issues, as discussed in Chapter \ref{cha:discussion},
+Due to model stability issues, as discussed in Chapter~\ref{cha:discussion},
 the EKF-filter was selected for evaluation.
 
 \subsection{Positioning}
     The position estimate generally exhibit very good performance relative
     to the ground truth.
     This reflects the fact that the position states are observed,
-    in the state-estimation, more or less directly by the camera,
+    in the state estimation, more or less directly by the camera,
     which exhibit stable positioning in the validation.
 
     In the plot of the altitudinal positioning in Figure~\ref{fig:results:filtering:position},
@@ -86,7 +86,7 @@ the EKF-filter was selected for evaluation.
     In simulations to verify the wind estimate's behaviour at landing, it
     is evident that the wind estimate is affected by ground contact,
     although as the simulation model does not yet fully cover the the non-continuous
-    event of touching the ground, simulations provide unexpected results, as seen in
+    event of touching the ground, as simulations provide unexpected results, as shown in
     Figure~\ref{fig:results:filtering:windbump}.
 
     \begin{subfigures}{Wind estimates from recorded test-data.}{fig:results:filtering:wind}
@@ -105,14 +105,14 @@ the EKF-filter was selected for evaluation.
 
 \subsection{Propeller Velocity}
     As the filter evaluation was performed without the use of the controller,
-    the control signal is unavailable. Thus, Eq.~\ref{eq:observer:wri2} was used as
+    the control signal is unavailable. Thus, Eq.~\eqref{eq:observer:wri2} was used as
     prediction model for the propeller velocity in the filter validation, effectively leaving the estimation of the propeller velocities
     to the measurement update. It is evident, in Figure~\ref{fig:results:filtering:wr}
     that the estimation is active, however it is impossible to validate properly with the available data.
     Ideally, the velocities of the propellers should be measured in flight.
     However, that data is currently unavailable in the development system used for evaluation.
     The estimated velocities are, notably, in a reasonable range,
-    increasing the plausibility for correctness of Eq.~\ref{eq:observer:thrust}, which is
+    increasing the plausibility for correctness of Eq.~\eqref{eq:observer:thrust}, which is
     otherwise hard to verify using the available data.
 
     \begin{subfigures}{Propeller angular rate estimates could not be properly verified with the data available, although do exhibit a reasonable value range given the model parameter settings.}{fig:results:filtering:wr}

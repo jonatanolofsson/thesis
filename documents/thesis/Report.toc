@@ -22,7 +22,7 @@
 \contentsline {section}{\numberline {3.1}The Filtering Problem}{14}
 \contentsline {section}{\numberline {3.2}The Unscented Kalman Filter}{16}
 \contentsline {section}{\numberline {3.3}Motion Model}{18}
-\contentsline {subsection}{\numberline {3.3.1}Coordinate Frames}{18}
+\contentsline {subsection}{\numberline {3.3.1}Coordinate Frames}{19}
 \contentsline {subsection}{\numberline {3.3.2}Kinematics}{22}
 \contentsline {subsection}{\numberline {3.3.3}Dynamics}{22}
 \contentsline {subsubsection}{Rotor thrust}{23}
@@ -67,11 +67,11 @@
 \contentsline {subsection}{\numberline {6.3.5}Propeller Velocity}{64}
 \contentsline {section}{\numberline {6.4}Control}{65}
 \contentsline {chapter}{\numberline {7}Discussion}{67}
-\contentsline {section}{\numberline {7.1}Modeling}{67}
-\contentsline {section}{\numberline {7.2}Filtering}{68}
+\contentsline {section}{\numberline {7.1}Camera Localization}{67}
+\contentsline {section}{\numberline {7.2}Filtering}{67}
 \contentsline {subsection}{\numberline {7.2.1}EKF vs. UKF}{68}
 \contentsline {subsection}{\numberline {7.2.2}Performance}{68}
-\contentsline {section}{\numberline {7.3}Camera Localization}{69}
+\contentsline {section}{\numberline {7.3}Modeling}{69}
 \contentsline {section}{\numberline {7.4}Controller}{69}
 \contentsline {section}{\numberline {7.5}State-machine Logic}{70}
 \contentsline {section}{\numberline {7.6}Real-time Performance}{71}

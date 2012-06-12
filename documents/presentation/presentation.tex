@@ -1,5 +1,7 @@
 \documentclass[xcolor=usenames,dvipsnames]{beamer}
-\setbeameroption{show notes}
+%~ \setbeameroption{show only notes}
+\setbeameroption{hide notes}
+%~ \setbeameroption{show notes}
 \setbeameroption{xcolor}
 \usetheme[hideothersubsections]%
 {Hannover}
@@ -10,6 +12,15 @@
 \setbeamertemplate{navigation symbols}{}
 %\logo{\includegraphics[height=0.6cm]{yourlogo.eps}}
 \usecolortheme{dolphin}
+%~ \setbeamertemplate{footline}[frame number]
+\useoutertheme{infolines}
+
+\setbeamertemplate{frametitle}{
+\begin{centering}
+\insertframetitle
+\par
+\end{centering}
+}
 
 %% Specify report metadata
 % Author, Title, etc.
@@ -23,7 +34,7 @@ Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques%
 
 \institute[Link\"oping University]
 {
-  Department of Computer and Information Science at Link\"oping University, Sweden
+  Department of Computer and Information Science\\ Link\"oping University, Sweden
 }
 
 \date[2012]{Master's Thesis Presentation, 2012-06-08}
@@ -57,6 +68,12 @@ Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques%
     I will begin this hour with a presentation of my work; taking about 20 minutes.
     Next, Karl-Johan Barsk will present the opposition and after that we will open
     up for questions.
+
+    In this thesis, I have worked toward developing a landing procedure
+    for a quadrotor, using visual feedback from a camera to aid the positining.
+
+    The theory presented in the thesis has been fully implemented and
+    exhibited landing and control in a simulated environment.
 }
 
 \setcounter{tocdepth}{1}
@@ -64,13 +81,15 @@ Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques%
     \tableofcontents
 \end{frame}
 \note{
+    The presentation outline will be as follows.
+
     I will begin this presentation with an overview, including a description
     of the problem I have studied, as well as a short introduction to
-    the techiniques I have studied. I will try to explain what problems I faced
+    the techniques presented in the thesis. I will try to explain what problems I faced
     and the solutions I applied to make the technologies fit together.
 
     After having described the different parts of the thesis, I will
-    present a few of the main technologies from the thesis in some more detail,
+    present a few of the main technologies in some more detail,
     namely the monocular SLAM, state estimation and nonlinear control.
     I will also try to clarify why the application of these techiniques were deemed
     nescessary to control the descent of the would-be-achieved landing procedure.
@@ -80,7 +99,7 @@ Towards Autonomous Landing for a Quadrotor, using Monocular SLAM Techniques%
 \newchapter{monoslam}
 \newchapter{filtering}
 \newchapter{control}
-%~ \newchapter{results}
+\newchapter{results}
 \newchapter{conclusions}
 
 \end{document}

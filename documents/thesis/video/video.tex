@@ -9,8 +9,8 @@
     of the tracked landmarks' positions, as well as that of the camera position.
 
     To determine the depth distance to a feature, stereo vision can be applied
-    with which the correlation between two synchronized images is used together with the known
-    distance between the cameras to calculate the image depth.
+    with which the correlation between two synchronized images is used, together with the known
+    distance between the cameras, to calculate the image depth.
     As the distance to the tracked objects increases however, the stereo
     effect is lost and the algorithms' performance drops.
     There are several other issues to the stereo vision approach - increased
@@ -38,7 +38,7 @@
         they are initialized and appended as states to the filter.
         As frames arrive, the change of position of each feature is measured and
         the filter is updated accordingly.
-        Thus, one must take care to avoid misassociation of the features, as
+        Thus, care must be taken to avoid misassociation of the features, as
         this leads to false measurements that will mislead the filter.
 
         One advantage of the solutions with direct filtering is that it is quite
@@ -46,7 +46,7 @@
         the general algorithm utilize classical state-based time- and measurement updates.
 
     \section{Keyframe-based SLAM}
-    \label{eq:video:kfslam}
+    \label{sec:video:kfslam}
         A fundamentally different approach, presented and used for instance in \citep{klein07parallel},
         is to focus on collecting video frames of greater importance - keyframes -
         in which a large amount of features are detected.
@@ -77,7 +77,7 @@
 
         Recently published algorithms - presented in \citep{Newcombe2011} - surpass
         the library's performance using GPGPU\footnote{General-Purpose computing on Graphics Processing Units}
-        although the performance of the PTAM library is nonetheless proven\footnote{Examples of projects using PTAM are listed at \url{http://ewokrampage.wordpress.com/projects-using-ptam/}},
+        algorithms, although the performance of the PTAM library is nonetheless proven\footnote{Examples of projects using PTAM are listed at \url{http://ewokrampage.wordpress.com/projects-using-ptam/}},
         and improves the usability over preceding libraries, such as \textit{Scenelib}, by including
         a camera calibration tool, which is used to estimate the parameters describing the lens properties.
         \fig{\imagewidth}{ptamcalibration}{A checker-board pattern is used for calibrating the lens-specific parameters of the camera.}{fig:video:ptamcalibration}
@@ -87,13 +87,13 @@
             loop and a less time-critical optimization procedure on the collected keyframes.
 
             In the tracking procedure, the PTAM library uses the keyframe
-            technique described in Section~\ref{eq:video:kfslam}, and randomly projects
+            technique described in Section~\ref{sec:video:kfslam}, and randomly projects
             previously recorded features into the captured video frame,
             visualized in Figure~\ref{fig:video:ptamtracking}.
             The selection of features to re-project could potentially be
             improved, as discussed in Section~\ref{sec:discussion:cameralocalization},
             although this remains as future work.
-            \fig{\imagewidth}{ptamtracking}{Features - visualized as dots - are projected into the image and sought for. The calculated offset from the positions where the features were first detected then yield a position estimate.}{fig:video:ptamtracking}
+            \fig{\imagewidth}{ptamtracking}{Features - visualized as dots - are projected into the image and sought for. The offset from the positions where the features were first detected then yield a position estimate.}{fig:video:ptamtracking}
 
             As for mapping; Instead of continuously updating the keyframe's position estimates - as in the filtering solution -
             the PTAM library uses a less time-critical algorithm in a parallel processing thread\footnote{Hence its name; \textit{Parallel Tracking And Mapping}}.
@@ -101,7 +101,7 @@
             performs a nonlinear least-squares optimization over the available keyframes
             to calibrate their positions relative to each other, based on shared features~\citep{lour09}.
             The implementation utilizes the sparse structure of the optimization problem that
-            is solved, to make the solution computationally tractable \citep{Lourakis11bundle}.
+            is solved to make the solution computationally tractable \citep{Lourakis11bundle}.
 
         \subsection{Modifications to the Library}
             The PTAM library is originally interfaced with an included graphical user interface.
@@ -114,9 +114,9 @@
             at a starting position. The camera is then translated sideways until the user
             deems the stereo initialization can be performed with good results.
             A second frame is then captured, and shared features are used
-            to perform a stereo initialization and extract the ground plane
+            to perform a stereo initialization, and extract the ground plane
             and a placement for the origin of the PTAM coordinate system.
-            The tracked scene should be planar to retrieve a good estimation
+            The tracked scene should be planar to retrieve a good estimate
             of the true ground plane, although the tracking will work regardless.
 
             \fig{\imagewidth}{ptamfeaturetracking}{To create the initial map, PTAM is initialized with a set of two offset images. Features are tracked during the initialization to find the ground plane. The movement of the tracked features are visualized as lines in the image.}{fig:video:ptamfeaturetracking}

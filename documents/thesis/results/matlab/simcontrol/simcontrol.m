@@ -20,4 +20,4 @@ subplot(4,1,4); plot(reference.time, reference.wYaw, 'r', controlstates.time, co
 %%
 figures.getFigure('windbump');
 N = 2000;
-plot(observer.time(end-N:end), observer.windZ(end-N:end));
+plot(observer.time(end-N:end), observer.windZ(end-N:end)); xlabel('Time'); ylabel('m/s'); title('Wind estimate');

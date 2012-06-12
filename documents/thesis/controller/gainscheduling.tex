@@ -25,14 +25,15 @@
     Implementation details are detailed and evaluated in \citep{Erdem_analysisand,Benner98acceleratingnewton's,10.1109/MED.2006.328740}.
 
     The LQ theory can be extended to the nonlinear case by using the Taylor
-    expansion of a general motion model. This approximation is exploited to form the general
+    expansion of a general motion model, as shown in Eq.~\eqref{eq:controller:gainscheduling:xdot}.
+    This approximation is exploited to form the general
     result of Eq.~\eqref{eq:controller:affinelq}.
     Similar to several other modifications to the LQ methodology - such as
     Model Predictive Control (MPC) - the cost associated with the control signal
     may be applied relative to its current level, to avoid
     forcing all control signals to zero in the optimization problem that is solved.
-    In each time-step the local linearization of the motion model, as presented in
-    Eq. \eqref{eq:controller:gainscheduling:xdot}, is used to solve the LQ-equations
+    In each time-step, the local linearization of the motion model, as presented in
+    Eq.~\eqref{eq:controller:gainscheduling:xdot}, is used to solve the LQ-equations
     for $\Delta u$, the change in the control signal.
 
     \begin{equation}
@@ -58,7 +59,7 @@
     at a stationary point $(x_{0},u_{0})$, where $f(x_{0},u_{0}) = 0$, to
     attain the nescessary property of linearity.
     In a more general formulation, it is possible to lift this constraint by
-    using a homogeneous state \citep{Rantzer99piecewiselinear}, as in Eq.~\ref{eq:controller:affinelq}
+    using a homogeneous state \citep{Rantzer99piecewiselinear}, as in Eq.~\eqref{eq:controller:affinelq}
     to attain this property in the general case.
     \begin{equation}
     \label{eq:controller:affinelq}
@@ -85,18 +86,17 @@
         \end{array}\right]
         \Delta u
     \end{equation}
-    Eq.~\ref{eq:controller:affinelq} is a linear system for which
-    the ordinary LQ problem can be solved, using Eq.
-    \eqref{eq:controller:u}-\eqref{eq:controller:Lr}.
+    Eq.~\eqref{eq:controller:affinelq} is a linear system for which
+    the ordinary LQ problem can be solved, using Eqs.~\eqref{eq:controller:u}-\eqref{eq:controller:Lr}.
 
     The linearized output signal, $\Delta u$, is then added
-    to $u_{0}$ to form the controller output, as in Equation \eqref{eq:controller:u}.
+    to $u_{0}$ to form the controller output, as in Eq.~\eqref{eq:controller:u}.
     \begin{equation}
     \label{eq:controller:u}
         u = u_{0} + \Delta u = u_{0} - L\bar{X} + L_{r}r
     \end{equation}
 
-    A problem with the linearizing extension of the affine controller in \eqref{eq:controller:affinelq},
+    A problem with the linearizing extension of the affine controller in Eq.~\eqref{eq:controller:affinelq},
     is that it introduces a non-controllable constant state, with
     an associated eigenvalue inherently located in the origin.
     This poses a problem to the traditional solvers of the Riccati equation, which
@@ -109,7 +109,7 @@
     imaginary axis to regain full stability of the system.
     This guarantees that Eq.~\eqref{eq:controller:lq:j} tends to zero.
 
-    Eq.~\eqref{eq:controller:affinelq} is thus implemented as in Eq. \eqref{eq:controller:affinelqimplementation}.
+    Eq.~\eqref{eq:controller:affinelq} is thus implemented as in Eq.~\eqref{eq:controller:affinelqimplementation}.
 
     \begin{equation}
     \label{eq:controller:affinelqimplementation}
@@ -134,5 +134,5 @@
             B \\
             0
         \end{array}\right]
-        \Delta u.
+        \Delta u
     \end{equation}

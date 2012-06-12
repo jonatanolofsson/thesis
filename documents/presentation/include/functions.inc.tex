@@ -8,6 +8,17 @@
 \newcommand{\sfig}[2]{
     \includegraphics[width=#1\textwidth]{\currentchapter/figures/#2}
 }
+\NewDocumentEnvironment{subfigures}{mm}{%
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\linewidth}
+    \centering
+}{%
+    \end{minipage}
+    \caption{#1}
+    \label{#2}
+\end{figure}
+}
 
 %% Math functions
 \renewcommand{\sin}[1]{sin\left(#1\right)}

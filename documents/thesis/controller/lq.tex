@@ -18,12 +18,13 @@
     uses a linear state-space system model and costs on the states ($Q$) and control
     signals ($R$) respectively to calculate the control signals that would
     - given a starting state, a motion model and a constant reference -
-    minimize the integral \eqref{eq:controller:lq:j}, the cost
-    scaling quadratically with the deviation from reference.
+    minimize the integral in Eq.~\eqref{eq:controller:lq:j}.
+    In the minimization, the cost for deviating from the reference scale
+    quadratically, as the name suggests.
 
     \begin{equation}
     \label{eq:controller:lq:j}
-        \mathcal{J} = \int_{0}^{\infty} e^{T}(t)Qe(t) + u^{T}(t)Ru(t) dt.
+        \mathcal{J} = \int_{0}^{\infty} e^{T}(t)Qe(t) + u^{T}(t)Ru(t) dt
     \end{equation}
 
     By varying the elements of the cost matrices $Q$ and $R$
@@ -55,7 +56,7 @@
     $L_{r}$ is chosen so that the static gain of the
     system equals the identity matrix \citep{glad2003reglerteori}.
     In the case of equal number of control signals as controlled
-    states, Eqs.~\ref{eq:controller:ufull}-\ref{eq:controller:Lr} are obtained.
+    states, Eqs.~\eqref{eq:controller:ufull}-\eqref{eq:controller:Lr} are obtained.
     \begin{align}
         u_{t} &= -L\hat{x}_{t} + L_{r}r_{t} \label{eq:controller:ufull} \\
 %

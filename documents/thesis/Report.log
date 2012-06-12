@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  1 JUN 2012 11:50
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  1 JUN 2012 14:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1581,7 +1581,7 @@ $[]$
  []
 
 [4]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 86.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 88.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1648,17 +1648,12 @@ $[]$
  []
 
 [15]) (./observer/ukf.tex
-
-LaTeX Warning: Reference `eq:observer:ukf:lambda' on page 16 undefined on input
- line 22.
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 59--59
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
 []|\T1/lmr/bx/n/10 Example
  []
 
@@ -1708,21 +1703,9 @@ $[]$
  []
 
 [24]
-
-LaTeX Warning: Reference `eq:observer:thrust:ct' on page 25 undefined on input 
-line 181.
-
-
-LaTeX Warning: Reference `eq:observer:thrust:cq' on page 25 undefined on input 
-line 181.
-
-
 Underfull \hbox (badness 1019) in paragraph at lines 181--181
 \T1/lmr/m/n/10 base, rel-a-tive to the hor-i-zon-tal
  []
-
-
-LaTeX Warning: Reference `' on page 25 undefined on input line 181.
 
 
 Underfull \hbox (badness 1448) in paragraph at lines 181--181
@@ -1791,12 +1774,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[35]
-
-LaTeX Warning: Reference `eq:controller:centraldifference' on page 36 undefined
- on input line 11.
-
-))
+[35]))
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -1918,12 +1896,8 @@ $[]$
  []
 
 [53]
-
-LaTeX Warning: Reference `sec:results:setup' on page 54 undefined on input line
- 3.
-
 File: results/figures/X.eps Graphic file (type eps)
-<results/figures/X.eps>
+ <results/figures/X.eps>
 File: results/figures/Y.eps Graphic file (type eps)
  <results/figures/Y.eps>
 File: results/figures/Z.eps Graphic file (type eps)
@@ -2196,8 +2170,13 @@ $[]$
  []
 
 [85]
+Overfull \hbox (3.72914pt too wide) in paragraph at lines 389--392
+[]\T1/lmr/m/n/10 The baselink mod-ule in-ter-faces the graph-i-cal front-end, p
+re-sented in Sec-tion A.4[],
+ []
+
 File: crap/figures/interface.eps Graphic file (type eps)
- <crap/figures/interface.eps>)
+<crap/figures/interface.eps>)
 Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
@@ -2207,21 +2186,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 $[]$
  []
 
-[87] (./Report.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[87] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 23011 strings out of 495015
- 416556 string characters out of 3181236
- 600443 words of memory out of 3000000
- 25464 multiletter control sequences out of 15000+200000
+ 23009 strings out of 495015
+ 416538 string characters out of 3181236
+ 600713 words of memory out of 3000000
+ 25462 multiletter control sequences out of 15000+200000
  131222 words of font info for 84 fonts, out of 3000000 for 9000
  37 hyphenation exceptions out of 8191
- 58i,18n,60p,554b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,17n,60p,556b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Report.dvi (101 pages, 375752 bytes).
+Output written on Report.dvi (101 pages, 375976 bytes).
