@@ -36,7 +36,7 @@
     PTAM coordinate frame.
     \begin{equation}
         \label{eq:observer:sensormodels:camera:transformation}
-        x^{\text{PTAM}} = \underbrace{S(s) R(q^{Pw}) T(-\varnothing_{\text{PTAM}})}_{\triangleq \mathcal{J}^{Pw}, \text{transformation from camera to PTAM}}
+        x^{\text{PTAM}} = \underbrace{S(s) R(q^{Pw}) T(-\varnothing_{\text{PTAM}})}_{\triangleq \mathcal{J}^{Pw}\text{, transformation from camera to PTAM}}
          x^{\text{NEDEF}}
     \end{equation}
 
@@ -124,9 +124,9 @@
         connecting the PTAM reference frame to the metric world.
         For further refinement, these parameters could be inserted into the
         global observer filter - introducing eight new states containing
-        $q^{Pw}$, $s$ and $\varnothing_{\text{cam}}$.% - although little benefit of this has been observed in simulated testing.
+        $q^{Pw}$, $s$ and $\varnothing_{\text{cam}}$.
         Because the PTAM coordinate system is defined fixed in the global NEDEF coordinate system,
-        the transform parameters would be static through the observer's time update.
+        the transformation parameters would be static through the observer's time update.
 
     \subsubsection{Camera Measurements}
         \label{sssec:observer:sensormodels:camera:refinement}
@@ -161,4 +161,4 @@
         \end{equation}
         The thresholded condition in Eq.~\eqref{eq:observer:sensormodels:camera:teleport}
         is scaled by the factor $s$ from the transformation, to achieve a metric comparison
-        with the configurable parameter, $\epsilon$.
+        with the configurable threshold parameter, $\epsilon$.

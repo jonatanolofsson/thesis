@@ -1,7 +1,7 @@
 \chapter{Concluding Remarks}
 \label{cha:conclusions}
     This thesis covers the theory and implementation of the most
-    important aspects of autonomous flight. The implementation is
+    important aspects of autonomous landing and flight. The implementation is
     still in need of tuning, both for state estimation accuracy and control,
     but the foundations for high-level control and estimation using
     modern and effective algorithms have been laid.
@@ -15,7 +15,7 @@
     using the framework presented in Appendix~\ref{app:crap}.
     The verification suggests that with further work, the proposed approach
     is a feasible solution for landing a quadrotor autonomously.
-    The advanced algorithms used in the thesis allow for
+    The algorithms used in the thesis allow for
     simple scaling of the solution, which also makes the method applicable
     for other types of platforms, or platforms with other sensor configurations.
 
@@ -29,7 +29,7 @@
     that is adequate for the nonlinear control methodology presented
     in Chapter~\ref{cha:controller} to perform well in simulation.
     The controller extends the well-studied Linear Quadratic controller
-    to a far more general case, while retaining the appreciated simplicity of tuning.
+    to a far more general case, while retaining its appreciated simplicity of tuning.
     The controller successfully lands a quadrotor in a simulated environment,
     and performs well in symbiosis with the suggested filtering algorithms.
 
@@ -49,13 +49,17 @@
         modeling may be of interest.
 
         As more processing power becomes available one can, in the filtering
-        process, consider using even more state-of the art filtering techniques,
+        process, consider using even more state-of-the-art filtering techniques,
         such as GPU-implemented Particle filtering.
-        Similarly, simpler control models could be compared with the
+        Similarly, other control models could be compared with the
         advanced SDRE-solution proposed in this thesis.
-
         Future work could also investigate the applications of other types of
         optimal control, such as Model Predictive Control, MPC.
+        
+        The landing detection proposed in this thesis needs verification 
+        from recorded data. While the proposed solution is believed to be viable,
+        further verification and modeling is needed to apply the detection
+        in real flight, as false detections could be fatal.
 
     \subsection{Monocular SLAM}
         One of the main results of this thesis is the relating of the PTAM
@@ -73,5 +77,5 @@
         The PTAM library also exhibit performance issues when the internal map of features
         grows. This could be improved by using informed search,
         for instance using R-trees%\footnote{\url{http://en.wikipedia.org/wiki/R-tree}}
-        , to index features according to their position and limit the search for
+        , to index features according to their spatial position and limit the search for
         relevant features to re-project into the image.

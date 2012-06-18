@@ -59,8 +59,8 @@
     at a stationary point $(x_{0},u_{0})$, where $f(x_{0},u_{0}) = 0$, to
     attain the nescessary property of linearity.
     In a more general formulation, it is possible to lift this constraint by
-    using a homogeneous state \citep{Rantzer99piecewiselinear}, as in Eq.~\eqref{eq:controller:affinelq}
-    to attain this property in the general case.
+    using a homogeneous state, as in Eq.~\eqref{eq:controller:affinelq}
+    to attain this property in the general case~\citep{Rantzer99piecewiselinear}.
     \begin{equation}
     \label{eq:controller:affinelq}
         \dot{X} = \left[
@@ -88,7 +88,6 @@
     \end{equation}
     Eq.~\eqref{eq:controller:affinelq} is a linear system for which
     the ordinary LQ problem can be solved, using Eqs.~\eqref{eq:controller:u}-\eqref{eq:controller:Lr}.
-
     The linearized output signal, $\Delta u$, is then added
     to $u_{0}$ to form the controller output, as in Eq.~\eqref{eq:controller:u}.
     \begin{equation}
@@ -101,8 +100,8 @@
     an associated eigenvalue inherently located in the origin.
     This poses a problem to the traditional solvers of the Riccati equation, which
     expects negative eigenvalues to solve the problem numerically, even though
-    the weights of \eqref{eq:controller:lq:j} theoretically could be chosen to
-    attain a well defined bounded integral.
+    the cost-matrices of \eqref{eq:controller:lq:j} could theoretically be chosen such as to
+    obtain a well-defined, bounded, integral.
 
     The problem is circumvented by adding slow dynamics to the theoretically
     constant state, effectively nudging the eigenvalue to the left of the

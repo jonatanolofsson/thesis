@@ -47,7 +47,7 @@
 
     \section{Keyframe-based SLAM}
     \label{sec:video:kfslam}
-        A fundamentally different approach, presented and used for instance in \citep{klein07parallel},
+        A fundamentally different approach, presented and used in e.g. \citep{klein07parallel},
         is to focus on collecting video frames of greater importance - keyframes -
         in which a large amount of features are detected.
         The camera's position is recorded at the time the keyframe is grabbed - see Figure~\ref{fig:video:ptamkeyframes} with caption -
@@ -84,7 +84,7 @@
 
         \subsection{Operation}
             The PTAM library partitions the SLAM problem into a real-time tracking
-            loop and a less time-critical optimization procedure on the collected keyframes.
+            loop and a less time-critical optimization procedure for the collected keyframes.
 
             In the tracking procedure, the PTAM library uses the keyframe
             technique described in Section~\ref{sec:video:kfslam}, and randomly projects
@@ -99,9 +99,9 @@
             the PTAM library uses a less time-critical algorithm in a parallel processing thread\footnote{Hence its name; \textit{Parallel Tracking And Mapping}}.
             The applied algorithm is known as Bundle Adjustment, and
             performs a nonlinear least-squares optimization over the available keyframes
-            to calibrate their positions relative to each other, based on shared features~\citep{lour09}.
+            to calibrate their in-world positions relative to each other, based on shared features~\citep{lour09}.
             The implementation utilizes the sparse structure of the optimization problem that
-            is solved to make the solution computationally tractable \citep{Lourakis11bundle}.
+            is solved to make the solution computationally tractable~\citep{Lourakis11bundle}.
 
         \subsection{Modifications to the Library}
             The PTAM library is originally interfaced with an included graphical user interface.
@@ -124,13 +124,13 @@
             In the graphical user interface, the tracked features are visualized
             during the initialization process with lines in the camera image,
             shown in Figure~\ref{fig:video:ptamfeaturetracking}.
-            After the initial frame has been captured, the implementation
-            of the automated initialization uses the length of these lines as
+            After the initial frame has been captured, the proposed
+            automated initialization uses the length of these lines as
             a measure of when to finalize the initialization procedure.
             When the length of the line associated with the first\footnote{First in the list of features from the first image that are still found in the latest frame.}
             feature exceeds a given threshold, the second frame is
             captured and the stereo initialization algorithm is started.
-            Should the initialization procedure fail - e.g. by loosing track of most features - the
+            Should the initialization procedure fail - e.g. if too many features are lost - the
             procedure will be restarted until a successful initialization has been performed.
             The procedure is initially triggered by a command from the serial port.
             The initialization is further described in Chapter~\ref{cha:logic}.

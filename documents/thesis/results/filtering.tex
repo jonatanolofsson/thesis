@@ -56,7 +56,7 @@ the EKF-filter was selected for evaluation.
     the prediction update of the Kalman filter improves the phase of the filter,
     although towards the end of the dataset, they are of comparable performance.
 
-    \begin{subfigures}{The orientation of the quadrotor was estimated with good accuracy.}{fig:results:filtering:qwb}
+    \begin{subfigures}{Due to the camera positioning, the orientation of the quadrotor was estimated with good accuracy.}{fig:results:filtering:qwb}
         \sfig{\sfplotwidth}{qwb0}
         \sfig{\sfplotwidth}{qwbi}
         \sfig{\sfplotwidth}{qwbj}
@@ -84,10 +84,10 @@ the EKF-filter was selected for evaluation.
     results are quite poor, most likely due to lack of filter tuning.
 
     In simulations to verify the wind estimate's behaviour at landing, it
-    is evident that the wind estimate is affected by ground contact,
-    although as the simulation model does not yet fully cover the the non-continuous
-    event of touching the ground, as simulations provide unexpected results, as shown in
-    Figure~\ref{fig:results:filtering:windbump}.
+    is evident that the wind estimate is affected by ground contact.
+    However, as the simulation model does not yet fully cover the the non-continuous
+    event of touching the ground, the simulated wind estimates are not quite as expected, as shown in
+    Figure~\ref{fig:results:filtering:windbump} and discussed in Chapter~\ref{cha:discussion}.
 
     \begin{subfigures}{Wind estimates from recorded test-data.}{fig:results:filtering:wind}
         \sfig{\splotwidth}{windX}
@@ -109,11 +109,11 @@ the EKF-filter was selected for evaluation.
     prediction model for the propeller velocity in the filter validation, effectively leaving the estimation of the propeller velocities
     to the measurement update. It is evident, in Figure~\ref{fig:results:filtering:wr}
     that the estimation is active, however it is impossible to validate properly with the available data.
-    Ideally, the velocities of the propellers should be measured in flight.
-    However, that data is currently unavailable in the development system used for evaluation.
-    The estimated velocities are, notably, in a reasonable range,
-    increasing the plausibility for correctness of Eq.~\eqref{eq:observer:thrust}, which is
-    otherwise hard to verify using the available data.
+    Ideally, the velocities of the propellers should be measured in flight, although
+    that data is currently unavailable on the LinkQuad.
+    %~ The estimated velocities are, notably, in a reasonable range,
+    %~ increasing the plausibility for correctness of Eq.~\eqref{eq:observer:thrust}, which is
+    %~ otherwise hard to verify using the available data.
 
     \begin{subfigures}{Propeller angular rate estimates could not be properly verified with the data available, although do exhibit a reasonable value range given the model parameter settings.}{fig:results:filtering:wr}
         \sfig{\sfplotwidth}{wr1}

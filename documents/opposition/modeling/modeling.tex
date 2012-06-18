@@ -1,0 +1,36 @@
+\section{Modeling}
+\label{sec:modeling}
+	Three different models are described and evaluated in the thesis:
+	\begin{itemize}
+		\item The Physical model,
+		\item The Simple model,
+		\item The Virtual model.
+	\end{itemize}
+	
+	The naming of the model is somewhat confusing - why, for example, can't
+	the virtual model be a simple model? A common font style for the models 
+	could increase the readability.
+	
+	It is nonetheless an interesting addition to the thesis to study different
+	variants of models. It would be interesting to for instance continue 
+	the efforts to improve the performance of the physical model for comparison
+	with the \textit{simple} and \textit{virtual} models, which were the ones that
+	received the most focus in the thesis.
+	
+	One discrepancy in the thesis is the use of rotational velocity of
+	the propellers in the modeling, whereas the controller later sees this
+	variable as a measure of PWM pulse width. 
+	The variable may be used somewhat interchangably in the case of a linear
+	relation between the two, although the connection is very unclear in the
+	thesis.
+	
+	There also seems to be a slight misconception as to the interpretation 
+	of the roll ($\phi$), pitch ($\theta$) and yaw ($\phi$) angles, as these
+	are presented as the rotation around the Earth-fixed base vectors, which is not
+	generally true - see for instance Tait-Bryan angles common in avionics.
+	
+	The inclusion of the virtual model, and its comparison to the simple model,
+	is an interesting addition to the thesis.
+	
+	The model identification performed in the thesis is well described
+	and the verification experiments are relevant.

@@ -2,6 +2,8 @@
 \select@language {english}
 \select@language {english}
 \select@language {english}
+\select@language {swedish}
+\select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Unmanned Aerial Vehicles}{1}
 \contentsline {section}{\numberline {1.2}The LinkQuad Platform}{2}
@@ -47,7 +49,7 @@
 \contentsline {section}{\numberline {4.3}Control Model}{36}
 \contentsline {paragraph}{Notation}{36}
 \contentsline {chapter}{\numberline {5}Finite State-Machines}{37}
-\contentsline {section}{\numberline {5.1}Hovering Mode}{37}
+\contentsline {section}{\numberline {5.1}Hovering Mode}{38}
 \contentsline {section}{\numberline {5.2}PTAM Initialization Mode}{38}
 \contentsline {section}{\numberline {5.3}Free Flight Mode}{40}
 \contentsline {section}{\numberline {5.4}Landing Mode}{40}

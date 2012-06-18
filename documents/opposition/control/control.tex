@@ -1,0 +1,18 @@
+\section{Control}
+\label{sec:control}
+	The controller part of the thesis uses the models
+	from the previous chapters to evaluate two methods for 
+	Model Predictive Control, both of which are well justified, relevant 
+	choices for the purpose of implementation on a microcontroller.
+
+	Even though the MPC problem is well defined in the thesis, it would be 
+	beneficial to describe and discuss its relation to the Linear Quadratic 
+	controller, and to use this as a simple case to describe the weighting
+	of error versus control signal amplitude.
+	
+	The optimization problem that the MPC solves is well described in the
+	thesis, although without prior knowledge of the nature of PWM signals, 
+	the reader may be severely confused as to why the rotational velocity
+	of the propeller is limited to $[1000,2000]$ microseconds (wait, what?),
+	and the angle of the servo to $[-300,300]$ microseconds - the latter 
+	including negative time.

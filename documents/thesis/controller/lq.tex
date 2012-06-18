@@ -19,7 +19,7 @@
     signals ($R$) respectively to calculate the control signals that would
     - given a starting state, a motion model and a constant reference -
     minimize the integral in Eq.~\eqref{eq:controller:lq:j}.
-    In the minimization, the cost for deviating from the reference scale
+    In the minimization, the cost for deviating from the reference scales
     quadratically, as the name suggests.
 
     \begin{equation}
@@ -29,16 +29,16 @@
 
     By varying the elements of the cost matrices $Q$ and $R$
     respectively, the solution to the optimization will yield control
-    signals that will control the system in a fashion that the amplitude
+    signals that will control the system such that the amplitude
     of the control signals and the errors are balanced.
-    By e.g. increasing the costs of the control signals, the system
+    By e.g. increasing the costs of the control signals, the
     LQ controller will issue smaller control signals, protecting the
     engines but slowing the system down.
 
-    In the linear case, Eq.~\eqref{eq:controller:lq:j} can be solved analytically,
+    In the linear case, the minimization of Eq.~\eqref{eq:controller:lq:j} can be solved analytically,
     resulting in a linear feedback gain, given in Eqs.~\eqref{eq:controller:u1}-\eqref{eq:controller:L}.
     \begin{align}
-        u_{t} &= -L\hat{x}_{t} \label{eq:controller:u1} \\
+        u_{t} &= -Le_{t} \label{eq:controller:u1} \\
 %
         L &= R^{-1}B^{T}S \label{eq:controller:L}
     \end{align}
@@ -58,7 +58,7 @@
     In the case of equal number of control signals as controlled
     states, Eqs.~\eqref{eq:controller:ufull}-\eqref{eq:controller:Lr} are obtained.
     \begin{align}
-        u_{t} &= -L\hat{x}_{t} + L_{r}r_{t} \label{eq:controller:ufull} \\
+        u_{t} &= -Lz_{t} + L_{r}r_{t} \label{eq:controller:ufull} \\
 %
         L_{r} &= \left[M(BL - A)^{-1}B\right]^{-1} \label{eq:controller:Lr}
     \end{align}

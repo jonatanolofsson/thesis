@@ -27,11 +27,11 @@
     \section{Filtering}
         The results for the state estimation algorithms of this thesis
         were presented in Sections~\ref{sec:results:modelling}-\ref{sec:results:filtering} of Chapter~\ref{cha:results}.
-        In the evaluation, the parameters of the motion model were set to reasonably guessed values
-        but otherwise untuned. Similarly, filter covariances were roughly
-        tuned to reasonable values. Video was recorded for $20$ seconds ($30$~Hz mode)
-        or $40$ seconds ($15$~Hz mode), and the Vicon ground Truth was used for
-        initialization but then only for plot reference.
+        In the evaluation, the parameters of the motion model were set to reasonable values
+        but otherwise untuned. Similarly, filter covariances were only roughly
+        tuned. Video was recorded for $20$ seconds ($30$~Hz mode)
+        or $40$ seconds ($15$~Hz mode). The Vicon ground truth was used only for
+        initialization and plot reference.
 
         \subsection{EKF vs. UKF}
             Two nonlinear filter algorithms were studied in this thesis.
@@ -44,32 +44,32 @@
             less confident.
             With a fragile model such as that of a quadrotor,
             evaluating the model in too large offsets from reasonable ranges
-            will cause effects large enough to destabilize the filtering solution.
+            will cause effects large enough to destabilize the filter.
             Excessive covariance in angle estimates may for instance
             cause the filter to evaluate and compare two cases of the quadrotor
             being upside down, both irrelevant to the mean case of stable, vertical, flight.
             Hence, the implementation was changed to use the more stable EKF algorithm.
 
-            With further tuning, the UKF may be usable in a later stage of development, but with the inherent
-            instability of the model, the UKF is still problematic in
-            the development stage, as measurements are not always
-            available to reduce covariance.
+            With further tuning, the UKF may be usable in a later stage 
+            of development, but with the inherent instability of the model, 
+            the UKF is still problematic in the development stage, 
+            as measurements are not always available to reduce the covariance.
 
         \subsection{Performance}
             The quality of the tracking, despite lack of tuning and previously
             mentioned problems, is in some cases remarkable given the
-            preconditions, the angle and angular rate estimates in particular.
+            preconditions - the angle estimates in particular.
             The most important factor for this is the high precision achieved by the
             camera positioning. By experimenting with filter tuning, it
             is apparent that noise from the pressure sensor
-            in Figure~\ref{fig:results:modelling:pressure} affects the altitude positioning
-            somewhat negatively. However, as the trends in measured and predicted pressure of Figure~\ref{fig:results:modelling:pressure}
+            in Figure~\ref{fig:results:modelling:pressure} affects the 
+            altitude positioning negatively. 
+            The trends in measured and predicted pressure of Figure~\ref{fig:results:modelling:pressure}
             seem to correlate with the ground truth altitude in Figure~\ref{fig:results:filtering:position},
-            further tuning and modeling may increase the utility of the pressure sensor.
-            Due to its problematic behavior, the pressure sensor was
-            disabled in the filter verification.
+            so further tuning and modeling may increase the utility of the pressure sensor.
+            Due to its problematic behavior, the pressure sensor was disabled in the filter verification.
 
-            With the filter structure in place, the single
+            With the proposed filter structure in place, the single
             most rewarding factor to increase the quality of the filtering
             would be simply to further tune it. Since this can be quite time-consuming,
             it could not be included in the thesis, but tools for simulation
@@ -80,7 +80,7 @@
             This is a simple and fast integration method, but lacks in accuracy.
             Applying a more advanced solution, e.g. a standard Runge-Kutta solver,
             could be expensive for a complex model, but a study to determine
-            a reasonable trade-off using different integration-techniques could be performed.
+            a reasonable trade-off using different integration techniques could be performed.
             The cost of integration may very well outweigh
             the performance gained by applying the advanced motion model,
             and the precision loss caused by the Euler integration might
@@ -88,7 +88,8 @@
             A simpler model could remove the need for numerical integration
             entirely and provide a significant speed-up. The complex model
             would however still be highly relevant for validation and
-            development purposes.
+            development purposes, and the complexity of the modeling could
+            be varied for the different applications of the model.
 
     \section{Modeling}
         It is arguable whether the detail of the physical modeling presented
@@ -99,7 +100,7 @@
         Aside from requiring accurate parameter settings, the full potential of the
         proposed model is dependent on the availability of control reference
         signals and more accurate control over the true rotational velocity of
-        the propellers. Feedback of the measured RPM is likely to appear in
+        the propellers. Feedback of the measured motor RPM is likely to appear in
         a later stage of the development of the LinkQuad, and may thus
         be available in the future.
 
@@ -112,7 +113,7 @@
         but the performance of the model must also be weighed against
         the computational complexity.
 
-        The nature and extensiveness of the model does however open
+        The structure and extensiveness of the model does however open
         for new applications, including future outdoor applications, due
         to its handling of wind and other disturbances.
         The state-space type of model also allows for simple addition
@@ -127,13 +128,10 @@
         The model can, as future work, be simplified, yet still benefit from the
         added detail where suitable.
 
-        One model simplification in particular that is believed to be rewarding,
-        is to replace the physical thrust equations using model identification.
-        Another approach would be to replace the
-        control interface for a more subsidiarized control approach, using
-        existing structure for controlling rotational velocities of the
-        quadrotor. This would however remove the benefits of using
-        the theory of optimal control to control the physical model directly.
+        One can note that the number of physical constants can be reduced 
+        using model identification for some of the equations of Chapter~\ref{cha:observer}.
+        The importance of each force discussed should be investigated,
+        and forces of lesser importance could be removed to reduce the complexity of the model.
 
     \section{Controller}
         The advantages and disadvantages of different control techniques
@@ -143,15 +141,15 @@
         excel with continued modeling.
 
         One disadvantage with the state-space approach is its - in comparison
-        to PID control - lack of easily implemented integrating states.
-        This does add demands on a physically correct model, which may
+        to PID control - lack of easily implemented error integration.
+        This adds demands on a physically correct model, which may
         not always be available in all flight-conditions.
 
         The SDRE approach used in this thesis is notably rare - if at
         all existing - in the application of quadrotor control
         and with its ease of use, it is an interesting topic for further research and applications.
         The control implementation is very versatile although the computational
-        burden could be somewhat lifted by comparing other techniques for solving
+        burden could be somewhat lifted by comparing and applying other techniques for solving
         the Riccati equation of Eq.~\eqref{eq:controller:lq:care} and its discrete equivalent.
         Several numerical approaches exist to solving the Riccati equation,
         although an iterative approach could prove beneficial since
@@ -175,16 +173,22 @@
         configurations such as the LinkQuad, slow control
         is to be expected here, especially without more tuning of the control
         parameters.
+        
+        An entirely different approach for control would be to replace the
+        proposed control interface for a more subsidiarized control approach, using
+        existing structure for controlling rotational velocities of the
+        quadrotor. This would, however, remove the benefits of using
+        the theory of optimal control to control the physical model directly.
 
     \section{State-machine Logic}
-        The implementation of the state-machine engine uses a simple, yet
-        programmatically interesting solution. The implemented modes
-        are quite trivial, yet the structure is in place to implement
+        The implementation of the state-machine engine uses a simple, 
+        programmatically elegant, solution, detailed in Appedix~\ref{app:crap}. 
+        The implemented modes are quite trivial, yet the structure is in place to implement
         far more advanced modes. In the future, the implementation could
         be extended to support concurrent state-machines as has been
         extensively studied in projects closely related to the LinkQuad.
 
-        One text-book solution to detecting landing would be to introduce
+        A text-book solution to detecting landing would be to introduce
         an estimated state of the ground force, which could be thresholded
         in the detection of landing. One finds, however,
         that such a force would be indistinguishable from
@@ -200,18 +204,9 @@
         the simulation's lack of a model for sensor measurements at the event of ground contact,
         and the observer's lack of control signals in its state estimation.
 
-        %~ The plot in Figure~\ref{fig:results:filtering:windbump}
-        %~ is made from simulated data, but it
         The results achieved in simulation implies that landing detection
         using wind estimation might be feasible, although more work is required
         to achieve the quality of estimation needed to securely detect landing.
-        %~ The received result was unexpected, and debugging should be performed prior
-        %~ to discarding the idea.
-        %~ Hence, no well-founded conclusions can be drawn as for the suitability
-        %~ of wind estimation as a means of landing detection. Further work
-        %~ is needed but it is believed that with proper filter tuning, the
-        %~ variable in question may be a contributing factor in a more advanced
-        %~ landing-detection system.
 \pagebreak
     \section{Real-time Performance}
         Although real-time performance is easily achieved on a modern laptop,
@@ -221,7 +216,7 @@
         The performance of the proposed algorithms when evaluated on the
         gumstix is penalized by the lack of a floating point processor (FPU) to
         carry out the calculations. However, the gumstix has a
-        Digital Signal Processing unit (DSP) which would be possible to
+        Digital Signal Processing unit (DSP) which might be possible to
         use as a FPU to increase execution speed.
         Attempts were in fact also made to convert libraries and algorithms from
         double precision calculations to single precision, although these attempts were deferred.
@@ -229,12 +224,12 @@
 
         Furthermore, the system was evaluated
         using the reference implementation of BLAS\footnote{\textit{Basic Linear Algebra Subprograms},
-        a standard set of mathematical routines}, which could possibly
+        a standard set of mathematical routines.}, which could possibly
         be replaced by a tuned implementation such as ATLAS\footnote{\textit{Automatically Tuned Linear Algebra Software}}.
         Model simplifications may also be necessary to achieve real-time performance
-        on the existing hardware, although the nonlinearities introduced by the vehicle's
-        rotations are believed to be relevant.
-        Landing in the trivial case can no doubt be performed using a simple, even linear, model,
+        on the existing hardware, although the nonlinearities introduced 
+        by the vehicle's rotations and thrust equations are believed to be relevant.
+        Landing in the trivial case can no doubt be performed using a simpler, even linear, model,
         although generalisations extending the utility of the controller, for instance when
-        using the controller for other flight cases, would require the use
+        using the controller for other flight cases, would likely require the use
         of a more advanced model, such as proposed in this thesis.

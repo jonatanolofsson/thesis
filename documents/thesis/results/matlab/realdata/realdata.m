@@ -42,36 +42,47 @@ reality.yaw     = Quaternion.toYaw(reality.qwb0, reality.qwbi, reality.qwbj, rea
 raw = Files.import('data.log');
 
 %%
-% reality.roll        = reality.roll * 180/pi;
-% reality.pitch       = reality.pitch * 180/pi;
-% reality.yaw         = reality.yaw * 180/pi;
-% observer.roll       = observer.roll * 180/pi;
-% observer.pitch      = observer.pitch * 180/pi;
-% observer.yaw        = observer.yaw * 180/pi;
-% measurements.camera.roll   = measurements.camera.roll * 180/pi;
-% measurements.camera.pitch  = measurements.camera.pitch * 180/pi;
-% measurements.camera.yaw    = measurements.camera.yaw * 180/pi;
-% simulation.camera.roll     = simulation.camera.roll * 180/pi;
-% simulation.camera.pitch    = simulation.camera.pitch * 180/pi;
-% simulation.camera.yaw      = simulation.camera.yaw * 180/pi;
-% 
-% reality.wRoll        = reality.wRoll * 180/pi;
-% reality.wPitch       = reality.wPitch * 180/pi;
-% reality.wYaw         = reality.wYaw * 180/pi;
-% observer.wRoll        = observer.wRoll * 180/pi;
-% observer.wPitch       = observer.wPitch * 180/pi;
-% observer.wYaw         = observer.wYaw * 180/pi;
-% measurements.imu.wRoll   = measurements.imu.wRoll * 180/pi;
-% measurements.imu.wPitch  = measurements.imu.wPitch * 180/pi;
-% measurements.imu.wYaw    = measurements.imu.wYaw * 180/pi;
-% simulation.imu.wRoll     = simulation.imu.wRoll * 180/pi;
-% simulation.imu.wPitch    = simulation.imu.wPitch * 180/pi;
-% simulation.imu.wYaw      = simulation.imu.wYaw * 180/pi;
-% 
-% observer.covariance(4,4,:) = observer.covariance(4,4,:)*((180/pi)^2);
-% observer.covariance(5,5,:) = observer.covariance(5,5,:)*((180/pi)^2);
-% observer.covariance(6,6,:) = observer.covariance(6,6,:)*((180/pi)^2);
+% angle_unit = 'rad';
+angle_unit = 'deg';
+if strcmp(angle_unit, 'deg')
+    reality.roll        = reality.roll * 180/pi;
+    reality.pitch       = reality.pitch * 180/pi;
+    reality.yaw         = reality.yaw * 180/pi;
+    observer.roll       = observer.roll * 180/pi;
+    observer.pitch      = observer.pitch * 180/pi;
+    observer.yaw        = observer.yaw * 180/pi;
+    measurements.camera.roll   = measurements.camera.roll * 180/pi;
+    measurements.camera.pitch  = measurements.camera.pitch * 180/pi;
+    measurements.camera.yaw    = measurements.camera.yaw * 180/pi;
+    simulation.camera.roll     = simulation.camera.roll * 180/pi;
+    simulation.camera.pitch    = simulation.camera.pitch * 180/pi;
+    simulation.camera.yaw      = simulation.camera.yaw * 180/pi;
 
+    reality.wRoll            = reality.wRoll * 180/pi;
+    reality.wPitch           = reality.wPitch * 180/pi;
+    reality.wYaw             = reality.wYaw * 180/pi;
+    
+    reality.driftRoll        = reality.driftRoll * 180/pi;
+    reality.driftPitch       = reality.driftPitch * 180/pi;
+    reality.driftYaw         = reality.driftYaw * 180/pi;
+    
+    observer.wRoll           = observer.wRoll * 180/pi;
+    observer.wPitch          = observer.wPitch * 180/pi;
+    observer.wYaw            = observer.wYaw * 180/pi;
+    observer.driftRoll       = observer.driftRoll * 180/pi;
+    observer.driftPitch      = observer.driftPitch * 180/pi;
+    observer.driftYaw        = observer.driftYaw * 180/pi;
+    measurements.imu.wRoll   = measurements.imu.wRoll * 180/pi;
+    measurements.imu.wPitch  = measurements.imu.wPitch * 180/pi;
+    measurements.imu.wYaw    = measurements.imu.wYaw * 180/pi;
+    simulation.imu.wRoll     = simulation.imu.wRoll * 180/pi;
+    simulation.imu.wPitch    = simulation.imu.wPitch * 180/pi;
+    simulation.imu.wYaw      = simulation.imu.wYaw * 180/pi;
+
+    observer.covariance(4,4,:) = observer.covariance(4,4,:)*((180/pi)^2);
+    observer.covariance(5,5,:) = observer.covariance(5,5,:)*((180/pi)^2);
+    observer.covariance(6,6,:) = observer.covariance(6,6,:)*((180/pi)^2);
+end
 %%
 sensors
 filtering

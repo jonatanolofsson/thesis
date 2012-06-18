@@ -5,8 +5,8 @@
     motion, so determining the up-to-date position is of vital importance.
     The filter implementation currently available on the LinkQuad is
     based on the complementary filter. While performance is adequate for
-    current purposes, the current implementation is difficult to extend
-    to the quite complex measurements received from the camera positioning
+    current purposes, the current implementation is difficult to extend, not least
+    to accomodate the quite complex measurements received from the camera positioning,
     discussed in Chapter~\ref{cha:monoslam}.
     This chapter deals with the estimation of the states relevant for positioning
     and controlling the LinkQuad.
@@ -23,7 +23,7 @@
     The application of a motion model to the filtering process is known to
     be highly beneficial, and is a central component in the Kalman filter framework.
     The motion model is used to predict the behavior of the system and may do
-    so in more or less detail by varying the complexity of the model.
+    so in more or less detail by varying the complexity and structure of the model.
     A more complex model may provide superior filtering performance although
     at increased computational cost. The motion model used in this thesis,
     derived in Section~\ref{sec:observer:motionmodel}, models the quadrotor

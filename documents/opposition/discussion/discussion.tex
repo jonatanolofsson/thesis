@@ -1,0 +1,46 @@
+\section{Discussion}
+\label{sec:discussion}
+The following questions are relevant for discussion of the report, following
+the formal presentation.
+
+\subsection{Modeling}
+\begin{itemize}
+	\item The grey-box physical model that was identified in the thesis
+			could not properly describe the motions of the vehicle, do you have any ideas as to why?
+			
+	\item When the simple model was used, the amplitude of the control signals
+			are unbalanced between the motors. 
+			Is this behaviour ``optimal'' in the MPC optimization, or are
+			there e.g. model errors that introduce this behaviour?
+			
+	\item The matrix of inertia is assumed to be diagonal. Are there symmetry reasons for this,
+			or is it just a simplification?
+\end{itemize}
+
+\subsection{Filtering}
+\begin{itemize}
+	\item In the thesis, a Low-Pass filter is described as a way for state estimation. What was it used for,
+			and to what benefits?
+			
+	\item For the estimation and validation data set, \textsc{Matlab} 
+			was used to concatenate different datasets. How was the data merged and fitted in the joints?
+\end{itemize}
+
+\subsection{Control}
+\begin{itemize}
+	\item In the thesis, it is mentioned that an MPC without active constraints is
+			equivalent to an LQ controller if the weight of the end state is chosen
+			as the solution to the Riccati equation. Can you, briefly, explain why this is
+			so, and how this can be a general result for all prediction horizons?
+			
+	\item In the explicit MPC, the prediction horizon is only two steps - that is, $0.04$ seconds.
+			How does this affect the performance of the system?
+			
+	\item In the explicit MPC, a tree search is used to find the active polyhedra. 
+			Could the performance of the algorithm be improved by using other methods
+			of indexing? Is the tree search a relevant time-factor?
+			
+	\item The control variable in the MPC is the PWM pulse width, whereas in the
+			model identification, the rotational velocity of
+			the propellers is used. How are these two related?
+\end{itemize}

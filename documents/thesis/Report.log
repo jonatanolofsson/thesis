@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.2.22)  1 JUN 2012 14:23
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.6.10)  13 JUN 2012 00:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1370,27 +1370,27 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 135.
 
 
 (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 157.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 135.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1431,54 +1431,54 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package crop Info: requested driver: `' on input line 157.
-Package crop Info: detected driver: `dvips' on input line 157.
-Package crop Info: using `dvips' graphics driver on input line 157.
+Package crop Info: requested driver: `' on input line 135.
+Package crop Info: detected driver: `dvips' on input line 135.
+Package crop Info: using `dvips' graphics driver on input line 135.
 \c@lstlisting=\count310
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 161.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 139.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 161.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 139.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 161
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 139
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 161
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 139
 .
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 161.
+(Font)              <10> on input line 139.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 161.
+(Font)              <7> on input line 139.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 161.
-LaTeX Font Info:    Try loading font information for U+msa on input line 161.
+(Font)              <5> on input line 139.
+LaTeX Font Info:    Try loading font information for U+msa on input line 139.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 161.
+LaTeX Font Info:    Try loading font information for U+msb on input line 139.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 File: LiTH_staende_eng_sv.eps Graphic file (type eps)
  <LiTH_staende_eng_sv.eps>
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 161--161
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 139--139
 []| [] 
  []
 
@@ -1488,7 +1488,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 161--161
 ] [0
 
 ]
-Overfull \hbox (34.91695pt too wide) in paragraph at lines 161--161
+Overfull \hbox (34.91695pt too wide) in paragraph at lines 139--139
 []| [] 
  []
 
@@ -1501,7 +1501,7 @@ Overfull \hbox (34.91695pt too wide) in paragraph at lines 161--161
 ]
 File: LiTH_sigill_sv.eps Graphic file (type eps)
  <LiTH_sigill_sv.eps>
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 161.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 139.
 
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1516,7 +1516,17 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ] [6
 
-] [7
+]
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+
+ []
+
+[7
 
 
 
@@ -1556,17 +1566,17 @@ $[]$
  []
 
 [2]
-Underfull \hbox (badness 1577) in paragraph at lines 86--86
+Underfull \hbox (badness 1577) in paragraph at lines 87--87
  [][][] 
  []
 
 
-Underfull \hbox (badness 1418) in paragraph at lines 86--86
+Underfull \hbox (badness 1418) in paragraph at lines 87--87
  [][][] 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 87.
+(Font)              <9> on input line 88.
 File: introduction/figures/LinkQuad.eps Graphic file (type eps)
 <introduction/figures/LinkQuad.eps>
 File: introduction/figures/linkquadoutside.eps Graphic file (type eps)
@@ -2190,10 +2200,10 @@ $[]$
 Here is how much of TeX's memory you used:
  23009 strings out of 495015
  416538 string characters out of 3181236
- 600713 words of memory out of 3000000
+ 605264 words of memory out of 3000000
  25462 multiletter control sequences out of 15000+200000
  131222 words of font info for 84 fonts, out of 3000000 for 9000
  37 hyphenation exceptions out of 8191
  58i,17n,60p,556b,1199s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Report.dvi (101 pages, 375976 bytes).
+Output written on Report.dvi (101 pages, 380392 bytes).

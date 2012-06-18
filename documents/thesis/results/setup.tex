@@ -16,11 +16,12 @@
 
     The LinkQuad was then manually moved by hand to resemble flight conditions
     while recording sensor data, synchronized with video frames and reference Vicon data.
+    In the experiment, the orientation of the camera was fixed relative to the 
+    quadrotor although as long as the transformation is known, it could change during flight.
 
     \fig{0.8}{testarea}{To provide visual features for the PTAM library to detect, the testscene was cluttered with objects.}{fig:results:setup:testarea}
 
-    After the validation of the model, it was then used for simulated
-    control and landing, presented in Section~\ref{sec:results:control},
-    to validate the proposed control scheme.
-    For the validation, simulated wind, random Gaussian system noise and
-    random Gaussian measurement noise was injected into the system.
+    After its validation, the model was used for simulated
+    control and landing, as presented in Section~\ref{sec:results:control},
+    to validate the proposed control scheme with simulated wind and 
+    random Gaussian system- and measurement noise.
